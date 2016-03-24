@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Chen Jian">
+
+
+        <title>"过度思考 Over thinking"</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="/theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="/theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="/theme/css/code_blocks/github.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+        <meta name="description" content="list element with functor item 写代码很多的时候都是在思考循环，给定输入、边界条件 (edge ...">
+
+        <meta name="author" content="Chen Jian">
+
+        <meta name="tags" content="[Thinking]">
+
+	                <meta property="og:locale" content="">
+		<meta property="og:site_name" content="BreakWire">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="Chen Jian" >
+	<meta property="og:url" content="/guo-du-si-kao-over-thinking.html">
+	<meta property="og:title" content=""过度思考 Over thinking"">
+	<meta property="article:published_time" content="2016-01-14 23:02:31+08:00">
+            <meta property="og:description" content="list element with functor item 写代码很多的时候都是在思考循环，给定输入、边界条件 (edge ...">
+
+            <meta property="og:image" content="//static/new-header.jpg">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">BreakWire</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                            <li><a style="color:#fff; background-color: transparent;" href="/pages/about.html">About</a></li>
+                            <li><a style="color:#fff; background-color: transparent;" href="/pages/project-x.html">Project X</a></li>
+                            <li><a style="color:#fff; background-color: transparent;" href="/pages/resume.html">Resume</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/static/new-header.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>"过度思考 Over thinking"</h1>
+                        <span class="meta">Posted by
+                                <a href="/author/chen-jian.html">Chen Jian</a>
+                             on Thu 14 January 2016
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <ul>
+<li toc="toc">list element with functor item</li>
+</ul>
+<p>写代码很多的时候都是在思考循环，给定输入、边界条件 (edge case)，获得输出，输入容易，剩下来就是如何抽象出一个循环的过程，构造边界条件了。根据不同的输入，为了让这个程序有尽可能强的容错能力，就需要好好思考如何构造边界条件了。</p>
+<!-- more -->
+
+<h2>过度思考的例子</h2>
+<p>15 年暑假学了两个月的 Android 开发，网络请求获得 JSON 数据之后解析，解析可能会有网络的问题，可能服务端构造 JSON 就错了，移动端解析也解不出来，总之有很多种一样要去 catch()，能把每项异常都想到然后要写代码捕捉错误，根据不同的情况是要重试还是直接提示用户出错了，出错提示信息怎么写？真的把不同的出错原因 Toast 给用户说这个出错了那个出错了吗？用户根本不想知道，你只要告诉我出错了就行，不要告诉我具体原因。你要显示不同的出错信息的话，专业用户可能知道如何解决，是找你报错还是自己的网络原因重试能解决，可专业用户太少，根本没有必要过度思考做的这么细。</p>
+<h2>非专业知识的过度思考</h2>
+<p>实习了也得有三个多月了，刚开始感觉有点难度，逐渐上手，挺开心，又感觉有难度了，前端怎么这么坑！慢慢摸索，看书，不断尝试，又感觉上手了，挺开心，但一定是要继续做前端吗？也不一定，甚至都不一定要做这一行，不做前端做啥？Python 后端也不错，iOS 也不错，都想做，专门研究一个，变成这个语言的专家，可行；研究各种各样的小东西，自己倒腾，也行，没什么对于职业生涯利不利的，其实还没真正上手，成为一名工程师就考虑这些问题？有点过了吧？ </p>
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="/tag/thinking.html">[Thinking]</a>, </p>
+        </div>
+
+<hr>
+<div class="sharing">
+</div>
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                            <li>
+                                <a href="https://twitter.com/lsdvincent">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/lsdvincent/">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/lsdlab">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://medium.com/@breakwire">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+<p class="copyright text-muted">
+    Copyright © 2014-2016 - Chen Jian -
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Attribution-NonCommercial 4.0 International</a>
+</p>
+<p class="copyright text-muted" style="margin-top: 0px;">
+    Blog powered by <a href="http://getpelican.com" target="_blank">Pelican</a>, Themed with <a href="https://github.com/gilsondev/pelican-clean-blog" target="_blank">Pelican Clean Blog</a> which takes great advantage of <a href="http://python.org" target="_blank">Python</a>.
+</p>                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="/theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/theme/js/bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="/theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
