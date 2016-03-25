@@ -9,17 +9,17 @@
         <meta name="author" content="Chen Jian">
 
 
-        <title>"Django Tricks"</title>
+        <title>Django Tricks</title>
 
         <link href="http://blog.breakwire.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="BreakWire Full Atom Feed" />
         <!-- Bootstrap Core CSS -->
-        <link href="/theme/css/bootstrap.min.css" rel="stylesheet">
+        <link href="blog.breakwire.me/theme/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="/theme/css/clean-blog.min.css" rel="stylesheet">
+        <link href="blog.breakwire.me/theme/css/clean-blog.min.css" rel="stylesheet">
 
         <!-- Code highlight color scheme -->
-            <link href="/theme/css/code_blocks/github.css" rel="stylesheet">
+            <link href="blog.breakwire.me/theme/css/code_blocks/github.css" rel="stylesheet">
 
 
         <!-- Custom Fonts -->
@@ -36,23 +36,23 @@
 
 
 
-        <meta name="description" content="list element with functor item Django 新手需要注意的十个要点 新手建议，可以参考，第四点我还是没明白，看了别人的代码都是把各种业务逻辑写在 views.py，怎么写到另外的地方。 1. 硬编码 ...">
+        <meta name="description" content="Django Tricks">
 
         <meta name="author" content="Chen Jian">
 
-        <meta name="tags" content="[Django]">
+        <meta name="tags" content="django">
 
 	                <meta property="og:locale" content="">
 		<meta property="og:site_name" content="BreakWire">
 
 	<meta property="og:type" content="article">
             <meta property="article:author" content="Chen Jian" >
-	<meta property="og:url" content="/django-tricks.html">
-	<meta property="og:title" content=""Django Tricks"">
+	<meta property="og:url" content="blog.breakwire.me/django-tricks.html">
+	<meta property="og:title" content="Django Tricks">
 	<meta property="article:published_time" content="2015-07-14 15:14:14+08:00">
-            <meta property="og:description" content="list element with functor item Django 新手需要注意的十个要点 新手建议，可以参考，第四点我还是没明白，看了别人的代码都是把各种业务逻辑写在 views.py，怎么写到另外的地方。 1. 硬编码 ...">
+            <meta property="og:description" content="Django Tricks">
 
-            <meta property="og:image" content="//static/new-header.jpg">
+            <meta property="og:image" content="blog.breakwire.me//images/new-header.jpg">
 </head>
 
 <body>
@@ -68,16 +68,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">BreakWire</a>
+                <a class="navbar-brand" href="blog.breakwire.me/">BreakWire</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
 
-                            <li><a style="color:#fff; background-color: transparent;" href="/pages/about.html">About</a></li>
-                            <li><a style="color:#fff; background-color: transparent;" href="/pages/project-x.html">Project X</a></li>
-                            <li><a style="color:#fff; background-color: transparent;" href="/pages/resume.html">Resume</a></li>
+                            <li><a style="color:#fff; background-color: transparent;" href="blog.breakwire.me/pages/about.html">About</a></li>
+                            <li><a style="color:#fff; background-color: transparent;" href="blog.breakwire.me/pages/project-x.html">Project X</a></li>
+                            <li><a style="color:#fff; background-color: transparent;" href="blog.breakwire.me/pages/resume.html">Resume</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -86,16 +86,17 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('/static/new-header.jpg')">
+        <header class="intro-header" style="background-image: url('/images/new-header.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>"Django Tricks"</h1>
+                        <h1>Django Tricks</h1>
                         <span class="meta">Posted by
-                                <a href="/author/chen-jian.html">Chen Jian</a>
-                             on 2015-07-14 15:14:14
+                                <a href="blog.breakwire.me/author/chen-jian.html">Chen Jian</a>
+                             on Tue 14 July 2015
                         </span>
+                            <span class="meta">Updated on Tue 14 July 2015</span>
                         
                     </div>
                 </div>
@@ -109,33 +110,28 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <!-- Post Content -->
     <article>
-        <ul>
-<li toc="toc">list element with functor item</li>
-</ul>
-<p><a href="http://shinyzhu.iteye.com/blog/593427">Django 新手需要注意的十个要点</a>  <br />
+        <p><a href="http://shinyzhu.iteye.com/blog/593427">Django 新手需要注意的十个要点</a>
 新手建议，可以参考，第四点我还是没明白，看了别人的代码都是把各种业务逻辑写在 <code>views.py</code>，怎么写到另外的地方。</p>
 <h2>1. 硬编码</h2>
 <p>像导航栏上的各种项目，需要进行跳转，或者静态文件，媒体文件，需要从开发环境部署上线 的时候就很麻烦。</p>
 <div class="highlight"><pre><span></span><span class="c1"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>    <span class="c1"># 项目的根目录，其它的模板文件，静态文件，媒体文件都是根据 `BASE_DIR`    </span>
+<span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>    <span class="c1"># 项目的根目录，其它的模板文件，静态文件，媒体文件都是根据 `BASE_DIR`</span>
 
 <span class="c1"># Template dir</span>
 <span class="n">TEMPLATE_DIRS</span> <span class="o">=</span> <span class="p">(</span>
 <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;templates/account/&quot;</span><span class="p">),</span>
 <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;templates/garage/&quot;</span><span class="p">),</span>
 <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;templates/review/&quot;</span><span class="p">),</span>
-<span class="p">)</span>    <span class="c1"># 每个 App 的模板文件都放在统一的 `templates` 下面的每个 App 文件夹下    </span>
+<span class="p">)</span>    <span class="c1"># 每个 App 的模板文件都放在统一的 `templates` 下面的每个 App 文件夹下</span>
 
 <span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">&#39;/static/&#39;</span>
 <span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;static&quot;</span><span class="p">),</span>
     <span class="s1">&#39;/var/www/static/&#39;</span><span class="p">,</span>
-<span class="p">)</span>    
+<span class="p">)</span>
 </pre></div>
 
-
-<!-- more -->
 
 <p><code>STATIC_URL</code> 是用来在模板里面载入静态的媒体文件，图片，音频，视频，用法如下：</p>
 <p>{% raw %}</p>
@@ -149,7 +145,7 @@
 <div class="highlight"><pre><span></span><span class="c">&lt;!-- loading Bootstrap core CSS --&gt;</span>
 <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ STATIC_URL }}css/bootstrap.min.css&quot;</span><span class="p">&gt;</span>
 <span class="c">&lt;!-- loading customise CSS --&gt;</span>
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ STATIC_URL }}css/base_customise.css&quot;</span><span class="p">&gt;</span>    
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ STATIC_URL }}css/base_customise.css&quot;</span><span class="p">&gt;</span>
 </pre></div>
 
 
@@ -157,11 +153,11 @@
 第二个 <code>STATICFILES_DIRS</code> 我还没明白到底是干什么的，文档里面写的是设置不同的静态文件目录，不绑定给特定的 App 用（看了半天英文还是没有明白……不过这个是必须要设置的，不设置那就找不到 CSS 和 JS 文件了）。部署到线上的的话就要把 <code>STATICFILES_DIRS</code> 换成 <code>STATIC_ROOT = "/home/chen/DjangoProjects/static"</code>，服务器上的文件夹。</p>
 <h2>2. URL</h2>
 <p>URL 设置 <code>urls.py</code> 放在每个 App 下面，除非 App 真的很小，功能很少那放在和 <code>settings.py</code> 一个文件夹下的 <code>urls.py</code> 也没问题，一旦 App 大了之后给每个 App 单独设置 URL，和 <code>models.py</code> <code>views.py</code> 一起在 App 文件夹下，这样能够重用 App 到不通的项目中，在项目的 <code>urls.py</code> 中设置：</p>
-<div class="highlight"><pre><span></span><span class="n">url</span><span class="p">(</span><span class="s1">r&#39;^&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;garage.urls&#39;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;garage&#39;</span><span class="p">)),</span>    
+<div class="highlight"><pre><span></span><span class="n">url</span><span class="p">(</span><span class="s1">r&#39;^&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;garage.urls&#39;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;garage&#39;</span><span class="p">)),</span>
 </pre></div>
 
 
-<p>这里的 <code>namespace</code> 是给在模板中直接调用 URL 用的，避免硬编码    </p>
+<p>这里的 <code>namespace</code> 是给在模板中直接调用 URL 用的，避免硬编码</p>
 <p>{% raw %}</p>
 <div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;garage:index&#39; %}&quot;</span><span class="p">&gt;</span>BookGarage<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre></div>
@@ -170,15 +166,15 @@
 <p>{% endraw %}</p>
 <p>硬编码的问题我最早也纠结了很久，还在上线到服务器的时候掉到坑里了，还好也爬上来了。</p>
 <h2>3. 其他</h2>
-<p>其他建议比如：不要将项目名称包含在一引用代码中，这样不利于重用（我也没见过有人会这么做）。  <br />
+<p>其他建议比如：不要将项目名称包含在一引用代码中，这样不利于重用（我也没见过有人会这么做）。
 部署的时候不要忘记将 <code>DEBUG</code> 设置改成 <code>False</code>。
-调试能够借助一些第三方工具获取更多的信息，<a href="https://github.com/robhudson/django-debug-toolbar">django-debug-toolbar</a>，前段时间是 Django 的十周年，调查显示这个工具用的人非常多。  <br />
+调试能够借助一些第三方工具获取更多的信息，<a href="https://github.com/robhudson/django-debug-toolbar">django-debug-toolbar</a>，前段时间是 Django 的十周年，调查显示这个工具用的人非常多。
 还能用 <a href="http://jinja.pocoo.org/2/">Jinja2</a> 这个模板系统替换自带的模板系统，作者是 Flask 的作者，也是 Flask 的一部分。
 13 年的文章里面很多的链接都没用了，我也不知道这个到底是什么情况。</p>
     </article>
 
         <div class="tags">
-            <p>tags: <a href="/tag/django.html">[Django]</a> </p>
+            <p>tags: <a href="blog.breakwire.me/tag/django.html">django</a> </p>
         </div>
 
 <hr>
@@ -199,7 +195,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                             <li>
-                                <a href="http://blog.breakwire.me/feeds/all.atom.xml">
+                                <a href="http://blog.breakwire.me/feeds/all.atom.xml" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -207,7 +203,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/lsdvincent">
+                                <a href="https://twitter.com/lsdvincent" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -215,7 +211,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://instagram.com/lsdvincent/">
+                                <a href="https://instagram.com/lsdvincent/" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
@@ -223,7 +219,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com/lsdlab">
+                                <a href="https://github.com/lsdlab" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -231,7 +227,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://medium.com/@breakwire">
+                                <a href="https://medium.com/@breakwire" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
@@ -251,13 +247,13 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="/theme/js/jquery.js"></script>
+    <script src="blog.breakwire.me/theme/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/theme/js/bootstrap.min.js"></script>
+    <script src="blog.breakwire.me/theme/js/bootstrap.min.js"></script>
 
         <!-- Custom Theme JavaScript -->
-        <script src="/theme/js/clean-blog.min.js"></script>
+        <script src="blog.breakwire.me/theme/js/clean-blog.min.js"></script>
 
     <script type="text/javascript">
     var _gaq = _gaq || [];

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Chen Jian">
+
+
+        <title>基于 octopress 和 GitHub 的个人博客搭建学习笔记——配置及第三方插件配置问题</title>
+
+        <link href="http://blog.breakwire.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="BreakWire Full Atom Feed" />
+        <!-- Bootstrap Core CSS -->
+        <link href="blog.breakwire.me/theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="blog.breakwire.me/theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="blog.breakwire.me/theme/css/code_blocks/github.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+        <meta name="description" content="基于 octopress 和 GitHub 的个人博客搭建学习笔记——配置及第三方插件配置问题">
+
+        <meta name="author" content="Chen Jian">
+
+        <meta name="tags" content="octopress">
+
+	                <meta property="og:locale" content="">
+		<meta property="og:site_name" content="BreakWire">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="Chen Jian" >
+	<meta property="og:url" content="blog.breakwire.me/octopress-configuration.html">
+	<meta property="og:title" content="基于 octopress 和 GitHub 的个人博客搭建学习笔记——配置及第三方插件配置问题">
+	<meta property="article:published_time" content="2014-11-20 18:54:53+08:00">
+            <meta property="og:description" content="基于 octopress 和 GitHub 的个人博客搭建学习笔记——配置及第三方插件配置问题">
+
+            <meta property="og:image" content="blog.breakwire.me//images/new-header.jpg">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="blog.breakwire.me/">BreakWire</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                            <li><a style="color:#fff; background-color: transparent;" href="blog.breakwire.me/pages/about.html">About</a></li>
+                            <li><a style="color:#fff; background-color: transparent;" href="blog.breakwire.me/pages/project-x.html">Project X</a></li>
+                            <li><a style="color:#fff; background-color: transparent;" href="blog.breakwire.me/pages/resume.html">Resume</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/images/new-header.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>基于 octopress 和 GitHub 的个人博客搭建学习笔记——配置及第三方插件配置问题</h1>
+                        <span class="meta">Posted by
+                                <a href="blog.breakwire.me/author/chen-jian.html">Chen Jian</a>
+                             on Thu 20 November 2014
+                        </span>
+                            <span class="meta">Updated on Thu 20 November 2014</span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p>首先说一下 octopress 主目录下的文件结构，我不会 Ruby，也没有完全搞懂这个每个文件的作用和结构，就引用一下这篇 Blog：<a href="http://812lcl.com/blog/2013/10/25/octopressbo-ke-da-jian-ji-mu-lu-jie-gou/">Octopress博客搭建及目录结构 - 812lcl的博客</a>
+由于 octopress 更新了，这篇 Blog 里面讲的有些旧了，新的文件我就自己修改说明了。</p>
+<div class="highlight"><pre><span></span>├─ config.rb  #指定额外的compass插件
+├─ config.ru
+├─ Rakefile   #rake的配置文件,类似于makefile 添加Tag 功能后要自动在编辑每篇Blog 时自动在前面添加tags: 提示
+├─ Gemfile    #bundle要下载需要的gem依赖关系的指定文件
+├─ Gemfile.lock  #这些gem依赖的对应关系,比如A的x版本依赖于B的y版本
+├─ _config.yml   #站点的配置文件
+├─ public/    #在静态编译完成后的目录,网站只需要这个目录下的文件树
+├─ _deploy/   #deploy时候生成的缓存文件夹,和public目录一样
+├─ sass/      #css文件的源文件,过程中会compass成css
+├─ plugins/   #放置自带以及第三方插件的目录,ruby程序
+│   └── xxx.rb
+└─ source/    #站点的源文件目录,public目录就是根据这个目录下数据生成的
+   └─ _includes/
+      └─ custom/      #自定义的模板目录,被相应上级html include
+         └─ asides/   #边栏模板自定义模板目录
+      └─ asides/      #边栏模板目录
+      └─ post/        #文章页面相应模板目录
+   └─ _layouts/       #默认网站html相关文件,最底层
+   └─ _posts/         #新增以及从其它程序迁移过来的数据都存在这里
+   └─ images/         #图片目录 可手动添加，添加后Blog 应用图片可直接从这个文件中引用
+└─ README.markdown    #octopress 说明
+└─ CHANGELOG.markdown    # octopress 更新说明
+</pre></div>
+
+
+<h3>0. <code>_config.yml</code> 文件配置</h3>
+<p>主配置：</p>
+<div class="highlight"><pre><span></span>url: http: //lsdlab.github.io   <span class="c1"># Blog url</span>
+title: NO MAN<span class="err">&#39;</span>S LAND   <span class="c1"># Blog 名称</span>
+subtitle: Too fast to live, too young to die.    <span class="c1"># 副标题</span>
+author: Chen Jian    <span class="c1"># 作者</span>
+simple_search: https://www.google.com/search    <span class="c1"># 网站内搜索</span>
+description: coding freak, Mac, IOS, Unix, Linux, Microshit, Major in SE.   <span class="c1"># Blog 介绍，SEO 相关</span>
+</pre></div>
+
+
+<p>目录及第三方插件配置：</p>
+<div class="highlight"><pre><span></span>root: /    <span class="c1"># 主目录</span>
+permalink: /blog/:year:month:day:/    <span class="c1"># 每篇Blog 的url</span>
+source: <span class="nb">source</span>    <span class="c1"># 站点源文件，写作目录</span>
+destination: public    <span class="c1"># rake generate 生成的静态页面文件夹</span>
+plugins: plugins    <span class="c1"># 第三方插件目录</span>
+tag_dir: tags    <span class="c1"># 添加 tags 功能后必须添加的配置语句</span>
+markdown: kramdown    <span class="c1"># markdown 语法，我给改了，后面会说到</span>
+hlghlghter: pygments    <span class="c1"># 源代码高亮</span>
+paginate: <span class="m">6</span>    <span class="c1"># 每页显示的文章数目</span>
+paginate_path: <span class="s2">&quot;post/:num&quot;</span>   <span class="c1"># 根据文章列表显示的URL</span>
+recent_post: <span class="m">6</span>   <span class="c1"># 侧边栏显示的最近文章数目</span>
+except_link: <span class="s2">&quot;Continue Reading &amp;rarr;&quot;</span>    <span class="c1"># 继续阅读按钮</span>
+except_separator: <span class="s2">&quot;&lt;!--more--&gt;&quot;</span>    <span class="c1"># 在markdown 中假如 &lt;!--more--&gt; 可截断文章在新页面中继续阅读</span>
+titlecase: <span class="nb">false</span>   <span class="c1"># 转换每篇文章的 title 至 titlecase</span>
+default_asides: <span class="o">[</span>custom/asides/about.html, asides/recent_posts.html, custom/asides/catagory_list.html, custom/asides/tags.html, asides/github.html<span class="o">]</span>    <span class="c1"># 侧边栏定制导入HTML 文件，这个取决于主题支不支持，我用的 whitespace 主题有 about 页面，文章分类和标签侧边栏，其实这还不是侧边栏，一栏居中自适应，三个 asides 都跑到页面底部去了。</span>
+</pre></div>
+
+
+<p>下面就是第三方配置了，我只用了 GitHub还有 Twitter还有Google Analytics：</p>
+<div class="highlight"><pre><span></span>github_user: lsdlab
+github_repo_count: 0
+github_show_profile_link: <span class="nb">true</span>
+github_skip_forks: <span class="nb">true</span>
+
+twitter_user: lsd
+twitter_tweet_button: <span class="nb">true</span>
+
+google_anaytics_tracking_id:
+</pre></div>
+
+
+<p>在 navigation bar 右边会显示 GitHub 的图标和 RSS 订阅的图标，每个文章的全文右下方会显示 tweet 按钮，Google Anaytics 可以去申请一个 Tracking ID, 然后就能通过手机上的 Analytics 看到实时访问者，访问来源，访问量等等。</p>
+<h3>1. 文章分类功能</h3>
+<p>分类和标签是两种管理文件的方式，一种有序一种无序，有人喜欢我文件夹的管理方式，有人喜欢无序的标签。分类的方式得保证每一分文件都分好类了，分类也得是恰当的，但这个就会带来一个问题，不能保证每一个文件的分类都是恰当的，标签的出现恰好是解决了这个问题，不一定每一个文件都要分好类，都分恰当的了，分恰当了，那就太多类了，标签可以用来弥补这个缺点，无法快速准确分类的文件都用标签来标记，多标几个，方便以后查询使用。</p>
+<p>首先在 <code>/plugins</code> 中新建一个 <code>category_list_tag.rb</code>, 粘贴下面一段代码：</p>
+<div class="highlight"><pre><span></span><span class="k">module</span> <span class="nn">Jekyll</span>
+    <span class="k">class</span> <span class="nc">CategoryListTag</span> <span class="o">&lt;</span> <span class="no">Liquid</span><span class="o">::</span><span class="no">Tag</span>
+        <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+               <span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+               <span class="n">categories</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">categories</span><span class="o">.</span><span class="n">keys</span>
+               <span class="n">categories</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">category</span><span class="o">|</span>
+            <span class="n">posts_in_category</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">categories</span><span class="o">[</span><span class="n">category</span><span class="o">].</span><span class="n">size</span>
+                   <span class="n">category_dir</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">config</span><span class="o">[</span><span class="s1">&#39;category_dir&#39;</span><span class="o">]</span>
+                   <span class="n">category_url</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">category_dir</span><span class="p">,</span> <span class="n">category</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/_|\P{Word}/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/-{2,}/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">downcase</span><span class="p">)</span>
+                   <span class="n">html</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;&lt;li class=&#39;category&#39;&gt;&lt;a href=&#39;/</span><span class="si">#{</span><span class="n">category_url</span><span class="si">}</span><span class="s2">/&#39;&gt;</span><span class="si">#{</span><span class="n">category</span><span class="si">}</span><span class="s2"> (</span><span class="si">#{</span><span class="n">posts_in_category</span><span class="si">}</span><span class="s2">)&lt;/a&gt;&lt;/li&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+               <span class="k">end</span>
+               <span class="n">html</span>
+           <span class="k">end</span>
+       <span class="k">end</span>
+   <span class="k">end</span>
+   <span class="no">Liquid</span><span class="o">::</span><span class="no">Template</span><span class="o">.</span><span class="n">register_tag</span><span class="p">(</span><span class="s1">&#39;category_list&#39;</span><span class="p">,</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">CategoryListTag</span><span class="p">)</span>
+</pre></div>
+
+
+<p>第二步是在 <code>/source/_includes/custom/asides/</code> 添加一个 <code>category_list.html</code>, 粘贴下面一段代码：</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Categories<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;categories&quot;</span><span class="p">&gt;</span>
+       # 这个应该是花括号百分号 category_list 变量，我不能直接写，直接贴上来调用我的后台上的东西了，下面也有两个这样的变量
+   <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>第三步是在 <code>/_config.yml</code> 中找到 <code>default_asides:</code> 后面按照你自己的顺序添加 <code>custom/asides/category_list.html</code>。 到这里就完成了，然后还有一个问题就是中文目录名，我没有用过中文目录名，但是后来看到了这个 <a href="http://shengmingzhiqing.com/blog/octopress-lean-modification-5.html/#section">Octopress 精益修改 (5)</a>，意识到还有一个中文的问题，怪不得看到有的人的文章 url 是中文拼音，目录也是这个道理。如果直接写成中文目录名称就会到时在目录列表里面不能链接到该分类的页面，需要在 <code>/plugins/category_list_tag.rb</code> 中找到 <code>html &lt;&lt; "&lt;li class='category'&gt;&lt;a href='/#{category_url}/'&gt;#{category} (#{posts_in_category})&lt;/a&gt;&lt;/li&gt;\n"</code>，改成 <code>html &lt;&lt; "&lt;li class='category'&gt;&lt;a href='/blog/categories/#{category.to_url.downcase}/'&gt;#{category} (#{posts_in_category})&lt;/a&gt;&lt;/li&gt;\n"</code>，这里就正式完成了，点击中文目录的话应该会看到 url 链接到目录的全拼拼音。</p>
+<h3>2. 文章标签功能</h3>
+<p>首先需要复制两个插件还有一些其他文件：
+<a href="https://github.com/robbyedwards/octopress-tag-pages">https://github.com/robbyedwards/octopress-tag-pages</a>
+<a href="https://github.com/robbyedwards/octopress-tag-cloud">https://github.com/robbyedwards/octopress-tag-cloud</a></p>
+<p><code>octopress-tag-pages</code>:
+复制<code>tag_generator.rb</code> 至<code>/plugins</code> 下，<code>tag_index.html</code> 至<code>/source/_layouts</code> 下，<code>tag_feed.xml</code> 至<code>/source/_includes/custom</code> 下，一共三个文件。</p>
+<p><code>octopress-tag-cloud</code>:
+复制 <code>tag_cloud.rb</code> 至 <code>/plugins</code> 下，就这一个文件。</p>
+<p>第二步是添加下面的代码至 <code>/source/_includes/custom/asides/tags.html</code></p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Tags<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;tag-cloud&quot;</span><span class="p">&gt;</span>
+       # 这个也是，花括号百分号 tag_cloud font-size: 120-210%, limit: 20, style: para
+   <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p><code>font_size</code> 标签大小，<code>limit</code> 限定二十个，可以自己改。
+最后一步是在 <code>/_config.yml</code> 中的 <code>default_asides:</code> 后添加 <code>custom/asides/category_list.html</code>，大功告成。</p>
+<p>分类和标签功能都是参考的一个 Blog：
+<a href="http://codemacro.com/2012/07/18/add-category-list-to-octopress/">为octopress添加分类(category)列表</a>
+<a href="http://codemacro.com/2012/07/18/add-tag-to-octopress/">为octopress添加tag cloud</a></p>
+<h3>3. Tag Cloud 功能</h3>
+<p>就是一个单独的页面显示所有的 Tag，首先生成一个页面：</p>
+<div class="highlight"><pre><span></span>rake new_page<span class="o">[</span><span class="s2">&quot;tag-cloud&quot;</span><span class="o">]</span>    <span class="c1">#在 `/source` 中生成一个 `/tag-cloud` 文件夹</span>
+</pre></div>
+
+
+<p>打开添加：</p>
+<div class="highlight"><pre><span></span>&lt;ul <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;tag-cloud&quot;</span>&gt;# 花括号百分号 tag_cloud font-size: 120-210%, limit: 1000, style: para &lt;/ul&gt;
+</pre></div>
+
+
+<p>然后是在增加一个新页面修改 <code>/source/_includes/custom/navigation.html</code></p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;main-navigation&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ root_url }}/&quot;</span><span class="p">&gt;</span>Blog<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ root_url }}/blog/archives&quot;</span><span class="p">&gt;</span>Archives<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/tag-cloud/&quot;</span><span class="p">&gt;</span>Tag Cloud<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>完成。这个是参考的 <a href="http://biaobiaoqi.me/blog/2013/07/10/decorate-octopress/">定制Octopress</a> 第八个功能。</p>
+<p>全部整理好了，也不想加评论功能了，分享按钮什么的，有个 Tweet 按钮就差不多了，还有各种侧边栏，这个也得看主题，还是不要乱搞了，到时候主题看厌了想要换就要出问题了，这个就当是个笔记，以防除了问题要推倒重来，遇到各种问题还要再查资料，其实我来来回回推倒重来也有好几回了，差不多都记住了。</p>
+<h3>4. 参考链接</h3>
+<p>贴几个参考连链接：
+<a href="http://codemacro.com/2012/07/18/add-category-list-to-octopress/">为octopress添加分类(category)列表 - loop in codes</a>
+<a href="http://codemacro.com/2012/07/18/add-tag-to-octopress/">为octopress添加tag cloud - loop in codes</a></p>
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="blog.breakwire.me/tag/octopress.html">octopress</a> </p>
+        </div>
+
+<hr>
+<div class="sharing">
+</div>
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                            <li>
+                                <a href="http://blog.breakwire.me/feeds/all.atom.xml" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/lsdvincent" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/lsdvincent/" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/lsdlab" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://medium.com/@breakwire" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+<p class="copyright text-muted">
+    Copyright © 2014-2016 - Chen Jian -
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Attribution-NonCommercial 4.0 International</a>
+</p>
+<p class="copyright text-muted" style="margin-top: 0px;">
+    Blog powered by <a href="http://getpelican.com" target="_blank">Pelican</a>, Themed with <a href="https://github.com/gilsondev/pelican-clean-blog" target="_blank">Pelican Clean Blog</a> which takes great advantage of <a href="http://python.org" target="_blank">Python</a>.
+</p>                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="blog.breakwire.me/theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="blog.breakwire.me/theme/js/bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="blog.breakwire.me/theme/js/clean-blog.min.js"></script>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-53639071-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+
+</html>
