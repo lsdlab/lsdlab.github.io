@@ -252,21 +252,18 @@ set 还支持可变集合操作，修改集合的运算（并/交/差/对称差�
 &lt;h1&gt;像 Python专家⼀样编程: 地道的 Python&lt;/h1&gt;
 &lt;p&gt;David Goodger
 &lt;a href="goodger@ python.org"&gt;goodger@python.org&lt;/a&gt;
-&lt;a href="http://python.net/~goodger"&gt;http://python.net/~goodger&lt;/a&gt;
-翻译: 令狐⾍虫 &lt;a href="&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#99;&amp;#104;&amp;#46;&amp;#108;&amp;#105;&amp;#110;&amp;#103;&amp;#104;&amp;#117;&amp;#64;&amp;#103;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#99;&amp;#111;&amp;#109;"&gt;&amp;#99;&amp;#104;&amp;#46;&amp;#108;&amp;#105;&amp;#110;&amp;#103;&amp;#104;&amp;#117;&amp;#64;&amp;#103;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;&lt;/p&gt;
+&lt;a href="http://python.net/~goodger"&gt;http://python.net/~goodger&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;翻译: 令狐⾍虫 &lt;a href="&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#99;&amp;#104;&amp;#46;&amp;#108;&amp;#105;&amp;#110;&amp;#103;&amp;#104;&amp;#117;&amp;#64;&amp;#103;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#99;&amp;#111;&amp;#109;"&gt;&amp;#99;&amp;#104;&amp;#46;&amp;#108;&amp;#105;&amp;#110;&amp;#103;&amp;#104;&amp;#117;&amp;#64;&amp;#103;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本文原文：&lt;a href="http:// python.net/~goodger/projects/pycon/2007/idiomatic/handout.html"&gt;http:// python.net/~goodger/projects/pycon/2007/idiomatic/handout.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;在这个交互教程中,我们会探讨很多基本  Python 惯用法及其深层技术, 让你⽴即拥有⼀些有用的
+&lt;p&gt;在这个交互教程中,我们会探讨很多基本 Python 惯用法及其深层技术, 让你⽴即拥有⼀些有用的
 ⼯具。
-本演⽰有 3 个版本:
-&lt;em&gt; &lt;a href="http://www.ch-linghu.me/article/idiomatic/presentation_cn.html"&gt;S5 幻灯⽚片&lt;/a&gt;
-&lt;/em&gt; &lt;a href="http://www.ch-linghu.me/article/idiomatic/handout_cn.html"&gt;HTML 页⾯&lt;/a&gt;
-* &lt;a href="http://www.ch-linghu.me/article/idiomatic/presentation_cn.txt"&gt;reStructuredText 源代码&lt;/a&gt;&lt;/p&gt;
+本演⽰有 3 个版本: &lt;a href="http://www.ch-linghu.me/article/idiomatic/presentation_cn.html"&gt;S5 幻灯⽚&lt;/a&gt; &lt;a href="http://www.ch-linghu.me/article/idiomatic/handout_cn.html"&gt;HTML 页⾯&lt;/a&gt; &lt;a href="http://www.ch-linghu.me/article/idiomatic/presentation_cn.txt"&gt;reStructuredText 源代码&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;©2006-2008, licensed under a &lt;a href="http://creativecommons.org/licenses/by-sa/3.0/"&gt;Creative Commons Attribution/Share-Alike (BY-SA) license&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;本⼈简历【译注:指作者本人】: 我是&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;蒙特利尔⼈,&lt;/li&gt;
 &lt;li&gt;两个优秀孩子的⽗亲,⼀个特别⼥人的丈夫,&lt;/li&gt;
-&lt;li&gt;全职  python 程序员,&lt;/li&gt;
+&lt;li&gt;全职 Python 程序员,&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://docutils.sourceforge.net/"&gt;Docutils&lt;/a&gt; 项⽬和 &lt;a href="http://docutils.sourceforge.net/rst.html"&gt;reStructuredText&lt;/a&gt; 的作者,&lt;/li&gt;
 &lt;li&gt;Python 改善建议(即 PEPs)的编辑,&lt;/li&gt;
 &lt;li&gt;PyCon 2007 组织者, PyCon 2008 主席,&lt;/li&gt;
