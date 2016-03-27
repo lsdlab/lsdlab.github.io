@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-03-19T07:41:43+08:00</updated><entry><title>Work for living</title><link href="/work-for-living.html" rel="alternate"></link><updated>2016-03-19T07:41:43+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2016-03-19:work-for-living.html</id><summary type="html">&lt;p&gt;差不多也能定下来了，到我理想的情况还是需要些时间吧，接受现在仅有的 offer，不算差也不算好，还没有到有议价能力的时候吧，况且我还要 work for living. 如果定下来的话，四月份就要搬家，换到北苑找个一室一厅，然后好好弄弄， PS4、猫猫，一个都不能少。&lt;/p&gt;</summary><category term="fml"></category></entry><entry><title>过度思考 Over thinking</title><link href="/over-thinging.html" rel="alternate"></link><updated>2016-01-14T23:02:31+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2016-01-14:over-thinging.html</id><summary type="html">&lt;p&gt;写代码很多的时候都是在思考循环，给定输入、边界条件 (edge case)，获得输出，输入容易，剩下来就是如何抽象出一个循环的过程，构造边界条件了。根据不同的输入，为了让这个程序有尽可能强的容错能力，就需要好好思考如何构造边界条件了。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-03-27T13:15:36+08:00</updated><entry><title>博客迁移至 Pelican</title><link href="/move-to-pelican.html" rel="alternate"></link><updated>2016-03-27T13:15:36+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2016-03-27:move-to-pelican.html</id><summary type="html">&lt;p&gt;Octopress 挺麻烦的，还有些问题，依赖太多，Ruby 我也不会，看不懂插件也看不懂模板。想试一下 Hexo 的来着，都不能初始化工程，不知道什么毛病。Hugo 就不尝试了，Go 现在没时间学，就差不多只剩下一个 Python 的 Pelican 了。搜了下也基本搞好了，模板也能看得懂，就挑了一个简单的模板&lt;a href="https://github.com/gilsondev/pelican-clean-blog"&gt;gilsondev/pelican-clean-blog&lt;/a&gt;，每篇文章都有题图，能直接引用本地的图片，能直接在 Markdown 中引用另一篇文章或者页面，RSS 什么的也都有，生成也很快，开发环境也挺方便，改了模板也能立刻看到改变。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="move-to-pelican" src="/images/move-to-pelican.png" /&gt;&lt;/p&gt;
+&lt;h2&gt;RSS 设置&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;pelicanconf.py&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Feed generation is usually not desired when developing&lt;/span&gt;
+&lt;span class="n"&gt;FEED_DOMAIN&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;FEED_ALL_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;feeds/all.atom.xml&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;CATEGORY_FEED_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+&lt;span class="n"&gt;TRANSLATION_FEED_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+&lt;span class="n"&gt;AUTHOR_FEED_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+&lt;span class="n"&gt;AUTHOR_FEED_RSS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Social widget&lt;/span&gt;
+&lt;span class="n"&gt;SOCIAL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;rss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;http://blog.breakwire.me/feeds/all.atom.xml&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Twitter&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://twitter.com/lsdvincent&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Instagram&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://instagram.com/lsdvincent&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;GitHub&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://github.com/lsdlab&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Medium&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://medium.com/@breakwire&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),)&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;RSS 的设置就是三个地方要改动，&lt;code&gt;FEED_DOMAIN&lt;/code&gt; 和 &lt;code&gt;FEED_ALL_ATOM&lt;/code&gt;，&lt;code&gt;SOCIAL&lt;/code&gt; 就是页边底部的几个图标，&lt;/p&gt;
+&lt;h2&gt;本地图片的引用&lt;/h2&gt;
+&lt;p&gt;在文章中要引用本地图片需要设置静态目录：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;STATIC_PATHS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;u&amp;quot;images&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这是个数组，在 &lt;code&gt;content&lt;/code&gt; 目录下新建一个 &lt;code&gt;images&lt;/code&gt; 目录，要想在 content 中的一篇文章中直接引用图片就是这样：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;![Merida R903 Blue](/images/my-road-bike.jpg)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;再 &lt;code&gt;make html&lt;/code&gt; 生成文件的时候他会把 &lt;code&gt;images&lt;/code&gt; 目录中的文件复制到 &lt;code&gt;output&lt;/code&gt; 中的 &lt;code&gt;images&lt;/code&gt; 目录中。&lt;/p&gt;
+&lt;p&gt;还有一个就是 &lt;code&gt;gilsondev/pelican-clean-blog&lt;/code&gt; 的每篇文章都有个题图能设置，和直接在文章中引用是一样的：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Header_Cover: /images/my-road-bike.jpg
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;需要注意的是图片文件名不能有中文&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;在文章中直接引用另一篇文章&lt;/h2&gt;
+&lt;p&gt;应用的默认目录是 &lt;code&gt;content&lt;/code&gt;，所以我在 &lt;code&gt;pages&lt;/code&gt; ，&lt;code&gt;About&lt;/code&gt; 页面中想引用一篇文章应该是这样：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Ref to [Working for living]({filename}/2016-03-19.md).
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;要在一篇文章中引用一个页面也很简单：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Ref to [Working for living]({filename}/pages/about.md).
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="pelican"></category></entry><entry><title>Work for living</title><link href="/work-for-living.html" rel="alternate"></link><updated>2016-03-19T07:41:43+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2016-03-19:work-for-living.html</id><summary type="html">&lt;p&gt;差不多也能定下来了，到我理想的情况还是需要些时间吧，接受现在仅有的 offer，不算差也不算好，还没有到有议价能力的时候吧，况且我还要 work for living. 如果定下来的话，四月份就要搬家，换到北苑找个一室一厅，然后好好弄弄， PS4、猫猫，一个都不能少。&lt;/p&gt;</summary><category term="fml"></category></entry><entry><title>过度思考 Over thinking</title><link href="/over-thinging.html" rel="alternate"></link><updated>2016-01-14T23:02:31+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2016-01-14:over-thinging.html</id><summary type="html">&lt;p&gt;写代码很多的时候都是在思考循环，给定输入、边界条件 (edge case)，获得输出，输入容易，剩下来就是如何抽象出一个循环的过程，构造边界条件了。根据不同的输入，为了让这个程序有尽可能强的容错能力，就需要好好思考如何构造边界条件了。&lt;/p&gt;
 &lt;h2&gt;过度思考的例子&lt;/h2&gt;
 &lt;p&gt;15 年暑假学了两个月的 Android 开发，网络请求获得 JSON 数据之后解析，解析可能会有网络的问题，可能服务端构造 JSON 就错了，移动端解析也解不出来，总之有很多种一样要去 catch()，能把每项异常都想到然后要写代码捕捉错误，根据不同的情况是要重试还是直接提示用户出错了，出错提示信息怎么写？真的把不同的出错原因 Toast 给用户说这个出错了那个出错了吗？用户根本不想知道，你只要告诉我出错了就行，不要告诉我具体原因。你要显示不同的出错信息的话，专业用户可能知道如何解决，是找你报错还是自己的网络原因重试能解决，可专业用户太少，根本没有必要过度思考做的这么细。&lt;/p&gt;
 &lt;h2&gt;非专业知识的过度思考&lt;/h2&gt;

@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="Chen Jian">
 
 
-        <title>BreakWire - Tag github</title>
+        <title>博客迁移至 Pelican</title>
 
         <link href="http://blog.breakwire.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="BreakWire Full Atom Feed" />
         <!-- Bootstrap Core CSS -->
@@ -35,8 +35,25 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-                <meta property="og:locale" content="">
+
+
+        <meta name="description" content="博客迁移至 Pelican">
+
+        <meta name="author" content="Chen Jian">
+
+        <meta name="tags" content="pelican">
+
+	                <meta property="og:locale" content="">
 		<meta property="og:site_name" content="BreakWire">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="Chen Jian" >
+	<meta property="og:url" content="/move-to-pelican.html">
+	<meta property="og:title" content="博客迁移至 Pelican">
+	<meta property="article:published_time" content="2016-03-27 13:15:36+08:00">
+            <meta property="og:description" content="博客迁移至 Pelican">
+
+            <meta property="og:image" content="//images/new-header.jpg">
 </head>
 
 <body>
@@ -69,12 +86,19 @@
         <!-- /.container -->
     </nav>
 
+    <!-- Page Header -->
         <header class="intro-header" style="background-image: url('/images/new-header.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
-                        <h1>Tag: github</h1>
+                    <div class="post-heading">
+                        <h1>博客迁移至 Pelican</h1>
+                        <span class="meta">Posted by
+                                <a href="/author/chen-jian.html">Chen Jian</a>
+                             on Sun 27 March 2016
+                        </span>
+                            <span class="meta">Updated on Sun 27 March 2016</span>
+                        
                     </div>
                 </div>
             </div>
@@ -85,27 +109,68 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-preview">
-            <a href="/stay-tuned-with-github-and-open-source.html" rel="bookmark" title="Permalink to GitHub 使用小记：参与协作，Fork 保持更新">
-                <h2 class="post-title">
-                    GitHub 使用小记：参与协作，Fork 保持更新
-                </h2>
-            </a>
-                GitHub 使用小记：参与协作，Fork 保持更新
-            <p class="post-meta">Posted by
-                    <a href="/author/chen-jian.html">Chen Jian</a>
-                 on Fri 12 June 2015
-            </p>
+    <!-- Post Content -->
+    <article>
+        <p>Octopress 挺麻烦的，还有些问题，依赖太多，Ruby 我也不会，看不懂插件也看不懂模板。想试一下 Hexo 的来着，都不能初始化工程，不知道什么毛病。Hugo 就不尝试了，Go 现在没时间学，就差不多只剩下一个 Python 的 Pelican 了。搜了下也基本搞好了，模板也能看得懂，就挑了一个简单的模板<a href="https://github.com/gilsondev/pelican-clean-blog">gilsondev/pelican-clean-blog</a>，每篇文章都有题图，能直接引用本地的图片，能直接在 Markdown 中引用另一篇文章或者页面，RSS 什么的也都有，生成也很快，开发环境也挺方便，改了模板也能立刻看到改变。</p>
+<p><img alt="move-to-pelican" src="/images/move-to-pelican.png" /></p>
+<h2>RSS 设置</h2>
+<p><code>pelicanconf.py</code>:</p>
+<div class="highlight"><pre><span></span><span class="c1"># Feed generation is usually not desired when developing</span>
+<span class="n">FEED_DOMAIN</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span>
+<span class="n">FEED_ALL_ATOM</span> <span class="o">=</span> <span class="s1">&#39;feeds/all.atom.xml&#39;</span>
+<span class="n">CATEGORY_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">TRANSLATION_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">AUTHOR_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">AUTHOR_FEED_RSS</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="c1"># Social widget</span>
+<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;rss&#39;</span><span class="p">,</span> <span class="s1">&#39;http://blog.breakwire.me/feeds/all.atom.xml&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;Twitter&#39;</span><span class="p">,</span> <span class="s1">&#39;https://twitter.com/lsdvincent&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;Instagram&#39;</span><span class="p">,</span> <span class="s1">&#39;https://instagram.com/lsdvincent&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;GitHub&#39;</span><span class="p">,</span> <span class="s1">&#39;https://github.com/lsdlab&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;Medium&#39;</span><span class="p">,</span> <span class="s1">&#39;https://medium.com/@breakwire&#39;</span><span class="p">),)</span> 
+</pre></div>
+
+
+<p>RSS 的设置就是三个地方要改动，<code>FEED_DOMAIN</code> 和 <code>FEED_ALL_ATOM</code>，<code>SOCIAL</code> 就是页边底部的几个图标，</p>
+<h2>本地图片的引用</h2>
+<p>在文章中要引用本地图片需要设置静态目录：</p>
+<div class="highlight"><pre><span></span><span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">u&quot;images&quot;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>这是个数组，在 <code>content</code> 目录下新建一个 <code>images</code> 目录，要想在 content 中的一篇文章中直接引用图片就是这样：</p>
+<div class="highlight"><pre><span></span>![Merida R903 Blue](/images/my-road-bike.jpg)
+</pre></div>
+
+
+<p>再 <code>make html</code> 生成文件的时候他会把 <code>images</code> 目录中的文件复制到 <code>output</code> 中的 <code>images</code> 目录中。</p>
+<p>还有一个就是 <code>gilsondev/pelican-clean-blog</code> 的每篇文章都有个题图能设置，和直接在文章中引用是一样的：</p>
+<div class="highlight"><pre><span></span>Header_Cover: /images/my-road-bike.jpg
+</pre></div>
+
+
+<p><strong>需要注意的是图片文件名不能有中文</strong></p>
+<h2>在文章中直接引用另一篇文章</h2>
+<p>应用的默认目录是 <code>content</code>，所以我在 <code>pages</code> ，<code>About</code> 页面中想引用一篇文章应该是这样：</p>
+<div class="highlight"><pre><span></span>Ref to [Working for living]({filename}/2016-03-19.md).
+</pre></div>
+
+
+<p>要在一篇文章中引用一个页面也很简单：</p>
+<div class="highlight"><pre><span></span>Ref to [Working for living]({filename}/pages/about.md).
+</pre></div>
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="/tag/pelican.html">pelican</a> </p>
         </div>
 
+<hr>
+<div class="sharing">
+</div>
     <hr>
-    <!-- Pager -->
-    <ul class="pager">
-        <li class="next">
-        </li>
-    </ul>
-    Page 1 / 1
-    <hr>
+
             </div>
         </div>
     </div>
