@@ -160,6 +160,39 @@
 <p>要在一篇文章中引用一个页面也很简单：</p>
 <div class="highlight"><pre><span></span>Ref to [Working for living]({filename}/pages/about.md).
 </pre></div>
+
+
+<h2>新文章以及更新至 GitHub Pages 的 shell 脚本</h2>
+<p><a href="https://gist.github.com/lsdlab/957cc8887ef20514e27d">lsdlab/newpost.sh</a></p>
+<div class="highlight"><pre><span></span><span class="ch">#! /bin/zsh</span>
+
+<span class="nb">cd</span> content/
+
+<span class="nv">filename_now</span><span class="o">=</span><span class="sb">`</span>date <span class="s2">&quot;+%Y-%m-%d&quot;</span><span class="sb">`</span>
+<span class="nv">now</span><span class="o">=</span><span class="sb">`</span>date <span class="s2">&quot;+%Y-%m-%d %H:%M:%S&quot;</span><span class="sb">`</span>
+
+cat&gt;<span class="si">${</span><span class="nv">filename_now</span><span class="si">}</span>.md<span class="s">&lt;&lt;EOF</span>
+<span class="s">Title:</span>
+<span class="s">Date: ${now}</span>
+<span class="s">Modified: ${now}</span>
+<span class="s">Category:</span>
+<span class="s">Tags:</span>
+<span class="s">Slug:</span>
+<span class="s">Authors: Chen Jian</span>
+<span class="s">Summary:</span>
+<span class="s">EOF</span>
+</pre></div>
+
+
+<p><a href="https://gist.github.com/lsdlab/89f6fbbd3c6681285167">lsdlab/publish.sh</a></p>
+<div class="highlight"><pre><span></span><span class="ch">#! /bin/zsh</span>
+
+make html
+<span class="nb">cd</span> output
+git add .
+git commit -m <span class="s2">&quot;update&quot;</span>
+git push origin master
+</pre></div>
     </article>
 
         <div class="tags">
