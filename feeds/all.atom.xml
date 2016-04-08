@@ -1676,40 +1676,7 @@ LBYL: 三思而后行&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://wiki. python.org/moin/HowTo/Sorting"&gt;"Sorting Mini-HOWTO", Andrew Dalke&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.gungfu.de/facts/wiki/Main/ pythonIdioms"&gt;"python Idioms"&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www. python.org/doc/faq/"&gt;"python FAQs"&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="reformat"></category></entry><entry><title>LINUX 101 HACKS 笔记</title><link href="/linux-101-hacks-notes.html" rel="alternate"></link><updated>2015-07-05T14:02:10+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-07-05:linux-101-hacks-notes.html</id><summary type="html">&lt;p&gt;很多有用的实用技巧，原书是英文，很久很久前哈工大的一些学生的学习资料，他们一些学生翻译的，记录些我自己现在用到的 tricks，非鸟哥的那本书上讲到的基础的东西。&lt;/p&gt;
-&lt;h2&gt;cd&lt;/h2&gt;
-&lt;h3&gt;设置 cd 的根目录，就是最最常用的目录，写入到 &lt;code&gt;~/.bash_profile&lt;/code&gt; 中，能在任何目录下快速切换&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CDPATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/etc
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;cd 和 alias 配合快速返回多级上层目录&lt;/h3&gt;
-&lt;p&gt;进入了很深的目录想要向上返回两级或者三级就很麻烦，要写很多 &lt;code&gt;../../..&lt;/code&gt;，特别麻烦，把这个写入到 &lt;code&gt;~/.bash_profile&lt;/code&gt; 中就很方便用了：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;cd1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cd ..&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;cd2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cd ../..&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;cd3&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cd ../../..&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;cd4&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cd ../../../..&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;cd5&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cd ../../../../..&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;设置了五层，应该够用的，命令的简写怎么自己方便怎么来，也可以直接写成点 &lt;code&gt;..&lt;/code&gt; &lt;code&gt;...&lt;/code&gt; &lt;code&gt;....&lt;/code&gt;，也可以前面加个 cd，&lt;code&gt;cd..&lt;/code&gt; &lt;code&gt;cd...&lt;/code&gt; &lt;code&gt;cd....&lt;/code&gt;，又或者 &lt;code&gt;..&lt;/code&gt; &lt;code&gt;..2&lt;/code&gt; &lt;code&gt;..3&lt;/code&gt;，还是第一种最好使。&lt;/p&gt;
-&lt;h3&gt;创建新目录的同时进入目录&lt;/h3&gt;
-&lt;p&gt;在 &lt;code&gt;~/.bash_profile&lt;/code&gt; 中添加：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt; mkdircd &lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt; mkdir -p &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;\&amp;quot;\$&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;\&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;history&lt;/h2&gt;
-&lt;h3&gt;Ctl + R 搜索历史命令&lt;/h3&gt;
-&lt;h3&gt;四种方式快速执行前一条命令&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;方向键上&lt;/li&gt;
-&lt;li&gt;!!&lt;/li&gt;
-&lt;li&gt;!-1&lt;/li&gt;
-&lt;li&gt;Ctrl + P&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;还有很多很多的内容我也没法总结，只是照着练习了一下，还没在真正的服务器部署维护中使用过，没那么复杂的环境。&lt;/p&gt;</summary><category term="*nix"></category></entry><entry><title>（译文）为什么编程很难</title><link href="/translate-why-programming-is-difficult.html" rel="alternate"></link><updated>2015-06-28T04:06:42+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-06-28:translate-why-programming-is-difficult.html</id><summary type="html">&lt;p&gt;很多年前我认为编程是简单的，后来我意识到编程并不简单，因为在我思考什么是编程和程序员做的事情的过程中慢慢有了转变。&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="reformat"></category></entry><entry><title>（译文）为什么编程很难</title><link href="/translate-why-programming-is-difficult.html" rel="alternate"></link><updated>2015-06-28T04:06:42+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-06-28:translate-why-programming-is-difficult.html</id><summary type="html">&lt;p&gt;很多年前我认为编程是简单的，后来我意识到编程并不简单，因为在我思考什么是编程和程序员做的事情的过程中慢慢有了转变。&lt;/p&gt;
 &lt;p&gt;最开始我认为编程只需要告诉计算机做什么，这部份编程还是相对容易的。在实践了二十年后我认为这部份编程也很容易。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="IMG1" src="https://joearms.github.io/images/program.png" /&gt;&lt;/p&gt;
 &lt;p&gt;定义 1：程序是将输入转化成输出的东西
@@ -1776,7 +1743,9 @@ LBYL: 三思而后行&lt;/p&gt;
 幸运的是十一分的 Google 搜索起作用了。第二个建议关于如何解决问题以及他们最终起作用了，我也不知道为什么 emacs 不能找到 aspell，没有时间去找到答案。
 我猜有些事情我们永远都不知道答案。&lt;/p&gt;
 &lt;h3&gt;原文&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://joearms.github.io/2014/02/07/why-programming-is-difficult.html"&gt;Why Programming is Difficult&lt;/a&gt;&lt;/p&gt;</summary><category term="translate"></category></entry><entry><title>Django one-to-one relationships</title><link href="/django-one-to-one-relationships.html" rel="alternate"></link><updated>2015-06-16T00:01:39+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-06-16:django-one-to-one-relationships.html</id><summary type="html">&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://joearms.github.io/2014/02/07/why-programming-is-difficult.html"&gt;Why Programming is Difficult&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="translate"></category></entry><entry><title>Django one-to-one relationships</title><link href="/django-one-to-one-relationships.html" rel="alternate"></link><updated>2015-06-16T00:01:39+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-06-16:django-one-to-one-relationships.html</id><summary type="html">&lt;hr /&gt;
 &lt;p&gt;layout: post
 title: ""
 date: 2015-06-16 00:01:39 +0800
@@ -2170,9 +2139,11 @@ location /static {
 &lt;p&gt;&lt;code&gt;expires&lt;/code&gt; 缓存时间，&lt;code&gt;30d&lt;/code&gt;，三十天。&lt;/p&gt;
 &lt;p&gt;对于一个个人网站的小站点，这俩项优化完成就差不多了，如果功能越来越多，页面交互更加复杂，那就是程序要写写好了，还有 JS 的优化。我的 &lt;a href="HTTP://breakwire.me"&gt;NO MAN'S LAND&lt;/a&gt; 将作为一个长期项目，后续将增加内容，增加功能，优化各个方面，最近还学习了 Redis 准备给博客加个阅读次数功能。&lt;/p&gt;
 &lt;h3&gt;参考链接&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://www.nginx.cn/doc/standard/httpgzip.html"&gt;HttpGzip模块&lt;/a&gt;
-&lt;a href="http://www.nginx.cn/doc/standard/httpheaders.html"&gt;HttpHeaders模块&lt;/a&gt;
-&lt;a href="https://serversforhackers.com/nginx-caching"&gt;Nginx Caching - Servers for Hackers&lt;/a&gt;&lt;/p&gt;</summary><category term="devops"></category><category term="nginx"></category></entry><entry><title>Django many-to-many relationalships</title><link href="/django-many-to-many-relationships.html" rel="alternate"></link><updated>2015-05-25T01:12:07+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-05-25:django-many-to-many-relationships.html</id><summary type="html">&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.nginx.cn/doc/standard/httpgzip.html"&gt;HttpGzip模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.nginx.cn/doc/standard/httpheaders.html"&gt;HttpHeaders模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://serversforhackers.com/nginx-caching"&gt;Nginx Caching - Servers for Hackers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="devops"></category><category term="nginx"></category></entry><entry><title>Django many-to-many relationalships</title><link href="/django-many-to-many-relationships.html" rel="alternate"></link><updated>2015-05-25T01:12:07+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-05-25:django-many-to-many-relationships.html</id><summary type="html">&lt;hr /&gt;
 &lt;p&gt;layout: post
 title: "Many-to-many relationalships"
 date: 2015-05-25 01:12:07 +0800
@@ -2436,7 +2407,9 @@ sudo apt-get install openssl libssl-dev
 &lt;p&gt;&lt;img alt="目录功能" src="/images/octopress1.png" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="修改历史功能" src="/images/octopress2.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;参考链接&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://shengmingzhiqing.com/blog/octopress-lean-modification-5.html/"&gt;Octopress 精益修改 (5)&lt;/a&gt;&lt;/p&gt;</summary><category term="octopress"></category></entry><entry><title>Django web app 使用 uWSGI、Nginx 部署</title><link href="/deploy-django-web-app-with-uwsgi-and-nginx.html" rel="alternate"></link><updated>2015-02-08T20:04:12+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-02-08:deploy-django-web-app-with-uwsgi-and-nginx.html</id><summary type="html">&lt;p&gt;Django 入门是挺简单的，这个框架把很多东西都给做好了在里面，但想要理解这个运作原理还是没那么简单的，有的东西刚开始也用不着，到后面要是应用需要的功能越来越多就要用到框架里更多组件了。前段时间刚好看到有人 Gitbook 上放了一个 Django 搭建简单 Blog 的一个教程，我就照着做了一下，发现错误挺多，还有的地方根本没讲清楚，框架包办很多事情但也不是这么简单吧，但也学到了一些之前不知道的框架里内置的很方便快捷的功能。我自己照着做了，然后基本还行，就是分类功能还有问题，我自己还要加个时间的功能，还有 RSS 订阅 我也没有搞定，不知道是怎么回事，但基本功能没问题，Markdown 写作，然后复制到后台里面就行了，我就准备放到 Linode 上了，虽然没有域名，先用 IP 凑合凑合，等功能完善了再买域名。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://shengmingzhiqing.com/blog/octopress-lean-modification-5.html/"&gt;Octopress 精益修改 (5)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="octopress"></category></entry><entry><title>Django web app 使用 uWSGI、Nginx 部署</title><link href="/deploy-django-web-app-with-uwsgi-and-nginx.html" rel="alternate"></link><updated>2015-02-08T20:04:12+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-02-08:deploy-django-web-app-with-uwsgi-and-nginx.html</id><summary type="html">&lt;p&gt;Django 入门是挺简单的，这个框架把很多东西都给做好了在里面，但想要理解这个运作原理还是没那么简单的，有的东西刚开始也用不着，到后面要是应用需要的功能越来越多就要用到框架里更多组件了。前段时间刚好看到有人 Gitbook 上放了一个 Django 搭建简单 Blog 的一个教程，我就照着做了一下，发现错误挺多，还有的地方根本没讲清楚，框架包办很多事情但也不是这么简单吧，但也学到了一些之前不知道的框架里内置的很方便快捷的功能。我自己照着做了，然后基本还行，就是分类功能还有问题，我自己还要加个时间的功能，还有 RSS 订阅 我也没有搞定，不知道是怎么回事，但基本功能没问题，Markdown 写作，然后复制到后台里面就行了，我就准备放到 Linode 上了，虽然没有域名，先用 IP 凑合凑合，等功能完善了再买域名。&lt;/p&gt;
 &lt;h3&gt;0. 原理&lt;/h3&gt;
 &lt;p&gt;Nginx 作为服务器最前端，接受所有请求，静态请求，媒体文件由 Nginx 处理，非静态请求由 uWSGI 传递给 Django 处理。&lt;/p&gt;
 &lt;h3&gt;1. 安装 Nginx&lt;/h3&gt;
@@ -2554,10 +2527,12 @@ uwsgi -x my_blog_socket.xml
 
 &lt;p&gt;&lt;code&gt;reload&lt;/code&gt; 一下 nginx 的配置文件，然后用 xml 配置把 uwsgi 把应用挂起来，提示 &lt;code&gt;[uWSGI] parsing config file my_blog_socket.xml&lt;/code&gt;，然后到 &lt;code&gt;ip:8000&lt;/code&gt; 端口下看成不成功，不成功的话到项目的&lt;code&gt;uwsgi.log&lt;/code&gt; 最后面看，错误信息都在里面，然后去查。&lt;/p&gt;
 &lt;h3&gt;9. 参考链接&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://www.jianshu.com/p/e6ff4a28ab5a"&gt;基于nginx和uWSGI在Ubuntu上部署Django&lt;/a&gt;
-&lt;a href="http://django-china.cn/topic/101/"&gt;五步教你实现使用Nginx+uWSGI+Django方法部署Django程序(上)&lt;/a&gt;
-&lt;a href="http://django-china.cn/topic/124/"&gt;五步教你实现使用Nginx+uWSGI+Django方法部署Django程序(下)&lt;/a&gt;
-&lt;a href="http://simple-is-better.com/news/756"&gt;Nginx+uWSGI 部署 Django 应用&lt;/a&gt;&lt;/p&gt;</summary><category term="devops"></category><category term="django"></category></entry><entry><title>基于 octopress 和 GitHub 的个人博客搭建学习笔记——配置及第三方插件配置问题</title><link href="/octopress-configuration.html" rel="alternate"></link><updated>2014-11-20T18:54:53+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2014-11-20:octopress-configuration.html</id><summary type="html">&lt;p&gt;首先说一下 octopress 主目录下的文件结构，我不会 Ruby，也没有完全搞懂这个每个文件的作用和结构，就引用一下这篇 Blog：&lt;a href="http://812lcl.com/blog/2013/10/25/octopressbo-ke-da-jian-ji-mu-lu-jie-gou/"&gt;Octopress博客搭建及目录结构 - 812lcl的博客&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.jianshu.com/p/e6ff4a28ab5a"&gt;基于nginx和uWSGI在Ubuntu上部署Django&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://django-china.cn/topic/101/"&gt;五步教你实现使用Nginx+uWSGI+Django方法部署Django程序(上)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://django-china.cn/topic/124/"&gt;五步教你实现使用Nginx+uWSGI+Django方法部署Django程序(下)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://simple-is-better.com/news/756"&gt;Nginx+uWSGI 部署 Django 应用&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="devops"></category><category term="django"></category></entry><entry><title>基于 octopress 和 GitHub 的个人博客搭建学习笔记——配置及第三方插件配置问题</title><link href="/octopress-configuration.html" rel="alternate"></link><updated>2014-11-20T18:54:53+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2014-11-20:octopress-configuration.html</id><summary type="html">&lt;p&gt;首先说一下 octopress 主目录下的文件结构，我不会 Ruby，也没有完全搞懂这个每个文件的作用和结构，就引用一下这篇 Blog：&lt;a href="http://812lcl.com/blog/2013/10/25/octopressbo-ke-da-jian-ji-mu-lu-jie-gou/"&gt;Octopress博客搭建及目录结构 - 812lcl的博客&lt;/a&gt;
 由于 octopress 更新了，这篇 Blog 里面讲的有些旧了，新的文件我就自己修改说明了。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;├─ config.rb  #指定额外的compass插件
 ├─ config.ru
@@ -2707,9 +2682,11 @@ google_anaytics_tracking_id:
 &lt;p&gt;完成。这个是参考的 &lt;a href="http://biaobiaoqi.me/blog/2013/07/10/decorate-octopress/"&gt;定制Octopress&lt;/a&gt; 第八个功能。&lt;/p&gt;
 &lt;p&gt;全部整理好了，也不想加评论功能了，分享按钮什么的，有个 Tweet 按钮就差不多了，还有各种侧边栏，这个也得看主题，还是不要乱搞了，到时候主题看厌了想要换就要出问题了，这个就当是个笔记，以防除了问题要推倒重来，遇到各种问题还要再查资料，其实我来来回回推倒重来也有好几回了，差不多都记住了。&lt;/p&gt;
 &lt;h3&gt;4. 参考链接&lt;/h3&gt;
-&lt;p&gt;贴几个参考连链接：
-&lt;a href="http://codemacro.com/2012/07/18/add-category-list-to-octopress/"&gt;为octopress添加分类(category)列表 - loop in codes&lt;/a&gt;
-&lt;a href="http://codemacro.com/2012/07/18/add-tag-to-octopress/"&gt;为octopress添加tag cloud - loop in codes&lt;/a&gt;&lt;/p&gt;</summary><category term="octopress"></category></entry><entry><title>基于 octopress 和 GitHub 的个人博客搭建学习笔记——安装</title><link href="/octopress-install.html" rel="alternate"></link><updated>2014-09-23T10:03:54+08:00</updated><author><name>Chen jian</name></author><id>tag:,2014-09-23:octopress-install.html</id><summary type="html">&lt;p&gt;Octopress 是基于 jeklly 的开源博客引擎，静态界面 + Markdown + Git + 不需要服务器，搭建于 GitHub Pages 托管，配置还是十分简单的。暑假的时候看到有人写过 Blog，也尝试了一下，遇到了各种各样问题。由于没有学过 Ruby，在添加各种插件的尝试中也是有各种问题，前后重复了不下二三十次，暑假的时候安装好了一次，也调整好了主题 CSS，上上周上课的时候也不知道改动了什么文件，就给彻底搞坏了，花了好久才修好 Orz。这过程中还顺带学了 Git，Terminal 和 Vim 都是十分酷的东西，把步骤整理一下备忘。&lt;/p&gt;
+&lt;p&gt;贴几个参考连链接：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://codemacro.com/2012/07/18/add-category-list-to-octopress/"&gt;为octopress添加分类(category)列表 - loop in codes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://codemacro.com/2012/07/18/add-tag-to-octopress/"&gt;为octopress添加tag cloud - loop in codes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="octopress"></category></entry><entry><title>基于 octopress 和 GitHub 的个人博客搭建学习笔记——安装</title><link href="/octopress-install.html" rel="alternate"></link><updated>2014-09-23T10:03:54+08:00</updated><author><name>Chen jian</name></author><id>tag:,2014-09-23:octopress-install.html</id><summary type="html">&lt;p&gt;Octopress 是基于 jeklly 的开源博客引擎，静态界面 + Markdown + Git + 不需要服务器，搭建于 GitHub Pages 托管，配置还是十分简单的。暑假的时候看到有人写过 Blog，也尝试了一下，遇到了各种各样问题。由于没有学过 Ruby，在添加各种插件的尝试中也是有各种问题，前后重复了不下二三十次，暑假的时候安装好了一次，也调整好了主题 CSS，上上周上课的时候也不知道改动了什么文件，就给彻底搞坏了，花了好久才修好 Orz。这过程中还顺带学了 Git，Terminal 和 Vim 都是十分酷的东西，把步骤整理一下备忘。&lt;/p&gt;
 &lt;h3&gt;0.  Git 和 Ruby 环境&lt;/h3&gt;
 &lt;p&gt;这两个可以用 Homebrew 安装，Homebrew 安装、使用参考&lt;a href="http://brew.sh/index_zh-cn.html"&gt;Homebrew&lt;/a&gt;。安装完成后查看版本：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git —version
@@ -2772,6 +2749,8 @@ rake deploy    &lt;span class="c1"&gt;# 部署&lt;/span&gt;
 
 &lt;p&gt;编辑好文章之后从第四步的 &lt;code&gt;git add .&lt;/code&gt;，接下来四个命令就完成了文章的发布。&lt;/p&gt;
 &lt;h3&gt;5. 参考链接&lt;/h3&gt;
-&lt;p&gt;当时自己搭建的时候各种问题都遇到了也查了很多其他人 Blog，贴几个连接：
-&lt;a href="http://sumnous.github.io/blog/2014/05/11/octopress-build-blog-on-github/"&gt;Octopress Build Blog on Github 个人建站实录&lt;/a&gt;
-&lt;a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/"&gt;象写程序一样写博客：搭建基于github的博客&lt;/a&gt;&lt;/p&gt;</summary><category term="octopress"></category></entry></feed>
+&lt;p&gt;当时自己搭建的时候各种问题都遇到了也查了很多其他人 Blog，贴几个连接：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://sumnous.github.io/blog/2014/05/11/octopress-build-blog-on-github/"&gt;Octopress Build Blog on Github 个人建站实录&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/"&gt;象写程序一样写博客：搭建基于github的博客&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="octopress"></category></entry></feed>
