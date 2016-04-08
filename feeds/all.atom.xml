@@ -1676,7 +1676,40 @@ LBYL: 三思而后行&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://wiki. python.org/moin/HowTo/Sorting"&gt;"Sorting Mini-HOWTO", Andrew Dalke&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.gungfu.de/facts/wiki/Main/ pythonIdioms"&gt;"python Idioms"&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www. python.org/doc/faq/"&gt;"python FAQs"&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="reformat"></category></entry><entry><title>（译文）为什么编程很难</title><link href="/translate-why-programming-is-difficult.html" rel="alternate"></link><updated>2015-06-28T04:06:42+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-06-28:translate-why-programming-is-difficult.html</id><summary type="html">&lt;p&gt;很多年前我认为编程是简单的，后来我意识到编程并不简单，因为在我思考什么是编程和程序员做的事情的过程中慢慢有了转变。&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="reformat"></category></entry><entry><title>LINUX 101 HACKS 笔记</title><link href="/linux-101-hacks-notes.html" rel="alternate"></link><updated>2015-07-05T14:02:10+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-07-05:linux-101-hacks-notes.html</id><summary type="html">&lt;p&gt;很多有用的实用技巧，原书是英文，很久很久前哈工大的一些学生的学习资料，他们一些学生翻译的，记录些我自己现在用到的 tricks，非鸟哥的那本书上讲到的基础的东西。&lt;/p&gt;
+&lt;h2&gt;cd&lt;/h2&gt;
+&lt;h3&gt;设置 cd 的根目录，就是最最常用的目录，写入到 &lt;code&gt;~/.bash_profile&lt;/code&gt; 中，能在任何目录下快速切换&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CDPATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/etc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;cd 和 alias 配合快速返回多级上层目录&lt;/h3&gt;
+&lt;p&gt;进入了很深的目录想要向上返回两级或者三级就很麻烦，要写很多 &lt;code&gt;../../..&lt;/code&gt;，特别麻烦，把这个写入到 &lt;code&gt;~/.bash_profile&lt;/code&gt; 中就很方便用了：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;cd1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cd ..&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;cd2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cd ../..&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;cd3&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cd ../../..&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;cd4&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cd ../../../..&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;cd5&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cd ../../../../..&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;设置了五层，应该够用的，命令的简写怎么自己方便怎么来，也可以直接写成点 &lt;code&gt;..&lt;/code&gt; &lt;code&gt;...&lt;/code&gt; &lt;code&gt;....&lt;/code&gt;，也可以前面加个 cd，&lt;code&gt;cd..&lt;/code&gt; &lt;code&gt;cd...&lt;/code&gt; &lt;code&gt;cd....&lt;/code&gt;，又或者 &lt;code&gt;..&lt;/code&gt; &lt;code&gt;..2&lt;/code&gt; &lt;code&gt;..3&lt;/code&gt;，还是第一种最好使。&lt;/p&gt;
+&lt;h3&gt;创建新目录的同时进入目录&lt;/h3&gt;
+&lt;p&gt;在 &lt;code&gt;~/.bash_profile&lt;/code&gt; 中添加：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt; mkdircd &lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt; mkdir -p &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;\&amp;quot;\$&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;\&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;history&lt;/h2&gt;
+&lt;h3&gt;Ctl + R 搜索历史命令&lt;/h3&gt;
+&lt;h3&gt;四种方式快速执行前一条命令&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;方向键上&lt;/li&gt;
+&lt;li&gt;!!&lt;/li&gt;
+&lt;li&gt;!-1&lt;/li&gt;
+&lt;li&gt;Ctrl + P&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;还有很多很多的内容我也没法总结，只是照着练习了一下，还没在真正的服务器部署维护中使用过，没那么复杂的环境。&lt;/p&gt;</summary><category term="*nix"></category></entry><entry><title>（译文）为什么编程很难</title><link href="/translate-why-programming-is-difficult.html" rel="alternate"></link><updated>2015-06-28T04:06:42+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-06-28:translate-why-programming-is-difficult.html</id><summary type="html">&lt;p&gt;很多年前我认为编程是简单的，后来我意识到编程并不简单，因为在我思考什么是编程和程序员做的事情的过程中慢慢有了转变。&lt;/p&gt;
 &lt;p&gt;最开始我认为编程只需要告诉计算机做什么，这部份编程还是相对容易的。在实践了二十年后我认为这部份编程也很容易。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="IMG1" src="https://joearms.github.io/images/program.png" /&gt;&lt;/p&gt;
 &lt;p&gt;定义 1：程序是将输入转化成输出的东西
