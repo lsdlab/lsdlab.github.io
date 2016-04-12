@@ -52,7 +52,7 @@
 	<meta property="article:published_time" content="2016-03-27 13:15:36+08:00">
             <meta property="og:description" content="博客迁移至 Pelican">
 
-            <meta property="og:image" content="//images/new-header.jpg">
+            <meta property="og:image" content="//images/new-header.jpeg">
 </head>
 
 <body>
@@ -86,7 +86,7 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('/images/new-header.jpg')">
+        <header class="intro-header" style="background-image: url('/images/new-header.jpeg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -162,18 +162,18 @@
 
 
 <h2>新文章以及更新至 GitHub Pages 的 shell 脚本</h2>
-<p><a href="https://gist.github.com/lsdlab/957cc8887ef20514e27d">lsdlab/newpost.sh</a></p>
+<p><a href="https://gist.github.com/lsdlab/957cc8887ef20514e27d">lsdlab/newblog.sh</a></p>
 <div class="highlight"><pre><span></span><span class="ch">#! /bin/zsh</span>
 
 <span class="nb">cd</span> content/
 
-<span class="nv">filename_now</span><span class="o">=</span><span class="sb">`</span>date <span class="s2">&quot;+%Y-%m-%d&quot;</span><span class="sb">`</span>
-<span class="nv">now</span><span class="o">=</span><span class="sb">`</span>date <span class="s2">&quot;+%Y-%m-%d %H:%M:%S&quot;</span><span class="sb">`</span>
+<span class="nv">fileName</span><span class="o">=</span><span class="sb">`</span>date <span class="s2">&quot;+%Y-%m-%d&quot;</span><span class="sb">`</span>
+<span class="nv">currentTime</span><span class="o">=</span><span class="sb">`</span>date <span class="s2">&quot;+%Y-%m-%d %H:%M:%S&quot;</span><span class="sb">`</span>
 
-cat&gt;<span class="si">${</span><span class="nv">filename_now</span><span class="si">}</span>.md<span class="s">&lt;&lt;EOF</span>
+cat&gt;<span class="si">${</span><span class="nv">fileName</span><span class="si">}</span>.md<span class="s">&lt;&lt;EOF</span>
 <span class="s">Title:</span>
-<span class="s">Date: ${now}</span>
-<span class="s">Modified: ${now}</span>
+<span class="s">Date: ${currentTime}</span>
+<span class="s">Modified: ${currentTime}</span>
 <span class="s">Category:</span>
 <span class="s">Tags:</span>
 <span class="s">Slug:</span>
@@ -183,7 +183,7 @@ cat&gt;<span class="si">${</span><span class="nv">filename_now</span><span class
 </pre></div>
 
 
-<p><a href="https://gist.github.com/lsdlab/89f6fbbd3c6681285167">lsdlab/publish.sh</a></p>
+<p><a href="https://gist.github.com/lsdlab/89f6fbbd3c6681285167">lsdlab/publishblog.sh</a></p>
 <div class="highlight"><pre><span></span><span class="ch">#! /bin/zsh</span>
 
 make html

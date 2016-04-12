@@ -59,18 +59,18 @@
 
 
 &lt;h2&gt;新文章以及更新至 GitHub Pages 的 shell 脚本&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://gist.github.com/lsdlab/957cc8887ef20514e27d"&gt;lsdlab/newpost.sh&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://gist.github.com/lsdlab/957cc8887ef20514e27d"&gt;lsdlab/newblog.sh&lt;/a&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#! /bin/zsh&lt;/span&gt;
 
 &lt;span class="nb"&gt;cd&lt;/span&gt; content/
 
-&lt;span class="nv"&gt;filename_now&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;date &lt;span class="s2"&gt;&amp;quot;+%Y-%m-%d&amp;quot;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
-&lt;span class="nv"&gt;now&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;date &lt;span class="s2"&gt;&amp;quot;+%Y-%m-%d %H:%M:%S&amp;quot;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;span class="nv"&gt;fileName&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;date &lt;span class="s2"&gt;&amp;quot;+%Y-%m-%d&amp;quot;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;span class="nv"&gt;currentTime&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;date &lt;span class="s2"&gt;&amp;quot;+%Y-%m-%d %H:%M:%S&amp;quot;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
 
-cat&amp;gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename_now&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.md&lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
+cat&amp;gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;fileName&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.md&lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
 &lt;span class="s"&gt;Title:&lt;/span&gt;
-&lt;span class="s"&gt;Date: ${now}&lt;/span&gt;
-&lt;span class="s"&gt;Modified: ${now}&lt;/span&gt;
+&lt;span class="s"&gt;Date: ${currentTime}&lt;/span&gt;
+&lt;span class="s"&gt;Modified: ${currentTime}&lt;/span&gt;
 &lt;span class="s"&gt;Category:&lt;/span&gt;
 &lt;span class="s"&gt;Tags:&lt;/span&gt;
 &lt;span class="s"&gt;Slug:&lt;/span&gt;
@@ -80,7 +80,7 @@ cat&amp;gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;a href="https://gist.github.com/lsdlab/89f6fbbd3c6681285167"&gt;lsdlab/publish.sh&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://gist.github.com/lsdlab/89f6fbbd3c6681285167"&gt;lsdlab/publishblog.sh&lt;/a&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#! /bin/zsh&lt;/span&gt;
 
 make html
