@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-04-12T22:26:43+08:00</updated><entry><title>一日双城</title><link href="/one-day-two-city-project.html" rel="alternate"></link><updated>2016-04-12T22:26:43+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2016-04-12:one-day-two-city-project.html</id><summary type="html">&lt;p&gt;去年十月份冲动消费换了入门的公路车，虽然是入门的，但骑起来还是不错的，车况复杂的城市中上下班单程骑个八公里也能匀速到 20 左右，最快骑到过 53，已经挺危险的了……到现在也差不多骑了得有五百公里了，这辆车要在南京陪我接下来的一年，希望能够多骑多拉练。&lt;/p&gt;
-&lt;p&gt;主要是接下来三周的拉练计划，早上起不来，晚上也可以拉练，需要重新背背路书，复习三年前记下来的路线，这此绝对不能迷路浪费时间，200 公里尽量在一天内完成，如果爆胎，能补就继续，没法补就放弃（毕竟公路车的轮胎我也从来没补过），原路返回。如果能够完成，报名六月份的环太湖。&lt;/p&gt;</summary><category term="cycling"></category></entry><entry><title>先做数据可视化的小项目</title><link href="/project-x-1.html" rel="alternate"></link><updated>2016-04-03T19:21:01+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2016-04-03:project-x-1.html</id><summary type="html">&lt;p&gt;我想了想，&lt;a href="https://github.com/lsdlab/hackathon-starter-cn"&gt;lsdlab/hackathon-starter-cn&lt;/a&gt; 这个东西没什么有意思的点，也没啥个人需求在里面，可以顺手做做，做了之后能留着其他地方用。还是先做 &lt;a href="https://github.com/lsdlab/spend-vis"&gt;lsdlab/spend-vis&lt;/a&gt; 比较好，把自己的支出数据可视化了，先做个网页版的 App 出来，然后是 iOS App，做一个我自己会去使用的记账 App，添加数据分析的功能可以慢慢研究，就这么决定了。&lt;/p&gt;</summary><category term="project-x"></category></entry><entry><title>必须写点有意思的东西了</title><link href="/i-must-make-some-fun-stuff.html" rel="alternate"></link><updated>2016-03-30T18:18:03+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2016-03-30:i-must-make-some-fun-stuff.html</id><summary type="html">&lt;p&gt;最近的工作让我对于工作的意义有了新的认识，我想我需要积累，需要不断的挖坑填坑挖坑填坑，于是我就同时挖了两个新坑……&lt;/p&gt;
+&lt;p&gt;主要是接下来三周的拉练计划，早上起不来，晚上也可以拉练，需要重新背背路书，复习三年前记下来的路线，这此绝对不能迷路浪费时间，200 公里尽量在一天内完成，如果爆胎，能补就继续，没法补就放弃（毕竟公路车的轮胎我也从来没补过），原路返回。如果能够完成，报名六月份的环太湖。&lt;/p&gt;</summary><category term="cycling"></category><category term="bike"></category></entry><entry><title>先做数据可视化的小项目</title><link href="/project-x-1.html" rel="alternate"></link><updated>2016-04-03T19:21:01+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2016-04-03:project-x-1.html</id><summary type="html">&lt;p&gt;我想了想，&lt;a href="https://github.com/lsdlab/hackathon-starter-cn"&gt;lsdlab/hackathon-starter-cn&lt;/a&gt; 这个东西没什么有意思的点，也没啥个人需求在里面，可以顺手做做，做了之后能留着其他地方用。还是先做 &lt;a href="https://github.com/lsdlab/spend-vis"&gt;lsdlab/spend-vis&lt;/a&gt; 比较好，把自己的支出数据可视化了，先做个网页版的 App 出来，然后是 iOS App，做一个我自己会去使用的记账 App，添加数据分析的功能可以慢慢研究，就这么决定了。&lt;/p&gt;</summary><category term="project-x"></category></entry><entry><title>必须写点有意思的东西了</title><link href="/i-must-make-some-fun-stuff.html" rel="alternate"></link><updated>2016-03-30T18:18:03+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2016-03-30:i-must-make-some-fun-stuff.html</id><summary type="html">&lt;p&gt;最近的工作让我对于工作的意义有了新的认识，我想我需要积累，需要不断的挖坑填坑挖坑填坑，于是我就同时挖了两个新坑……&lt;/p&gt;
 &lt;h2&gt;一号坑&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://github.com/lsdlab/hackathon-starter-cn"&gt;lsdlab/hackathon-starter-cn&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;A boilerplate for Node.js web applications and it's for zh-cn developer and hackers.(WIP)&lt;/p&gt;
@@ -2079,18 +2079,7 @@ tags: [Django]&lt;/p&gt;
 &lt;span class="p"&gt;[]&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Article&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="django"></category></entry><entry><title>GitHub 使用小记：参与协作，Fork 保持更新</title><link href="/stay-tuned-with-github-and-open-source.html" rel="alternate"></link><updated>2015-06-12T18:38:15+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-06-12:stay-tuned-with-github-and-open-source.html</id><summary type="html">&lt;hr /&gt;
-&lt;p&gt;layout: post
-title: "GitHub 使用小记：参与协作，Fork 保持更新"
-date: 2015-06-12 18:38:15 +0800
-comments: true
-categories: github
-tags: [GitHub]&lt;/p&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li toc="toc"&gt;list element with functor item&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;看别人的 GitHub Profile 右边 Repositories contributed to 一堆，我啥都没有，就自己的几个仓库，看了些别人的教程，他们也把完成的代码放在上面，我发现了有些错误，原来就自己一个人用用 Git，也试试这个怎么多人协作。&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="django"></category></entry><entry><title>GitHub 使用小记：参与协作，Fork 保持更新</title><link href="/stay-tuned-with-github-and-open-source.html" rel="alternate"></link><updated>2015-06-12T18:38:15+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-06-12:stay-tuned-with-github-and-open-source.html</id><summary type="html">&lt;p&gt;看别人的 GitHub Profile 右边 Repositories contributed to 一堆，我啥都没有，就自己的几个仓库，看了些别人的教程，他们也把完成的代码放在上面，我发现了有些错误，原来就自己一个人用用 Git，也试试这个怎么多人协作。&lt;/p&gt;
 &lt;p&gt;以昨天我刚给别人的一个项目加了个小功能为例，先是要在别人的仓库里 Fork 到自己的仓库中，然后 &lt;code&gt;git clone&lt;/code&gt; 下来，然后就是写代码了，写完了，测试好了，那就 &lt;code&gt;add commit push&lt;/code&gt; 走下去，在自己的仓库上创建 Pull Request，说明做了什么更改，等原仓库所有者审核合并到主分支上。&lt;/p&gt;
 &lt;p&gt;原仓库再次更新添加了代码，我本地怎么才能同步获得新代码呢，原来就一个人用用不知道，后来查了查就基本会用了。&lt;/p&gt;
 &lt;p&gt;原来 clone 自己的 Fork 仓库有两个 origin 来源，都是指向的自己的 Frok 仓库，要再次获得更新，就要建立原仓库的跟踪来源：&lt;/p&gt;

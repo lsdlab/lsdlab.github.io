@@ -105,18 +105,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <!-- Post Content -->
     <article>
-        <hr />
-<p>layout: post
-title: "GitHub 使用小记：参与协作，Fork 保持更新"
-date: 2015-06-12 18:38:15 +0800
-comments: true
-categories: github
-tags: [GitHub]</p>
-<hr />
-<ul>
-<li toc="toc">list element with functor item</li>
-</ul>
-<p>看别人的 GitHub Profile 右边 Repositories contributed to 一堆，我啥都没有，就自己的几个仓库，看了些别人的教程，他们也把完成的代码放在上面，我发现了有些错误，原来就自己一个人用用 Git，也试试这个怎么多人协作。</p>
+        <p>看别人的 GitHub Profile 右边 Repositories contributed to 一堆，我啥都没有，就自己的几个仓库，看了些别人的教程，他们也把完成的代码放在上面，我发现了有些错误，原来就自己一个人用用 Git，也试试这个怎么多人协作。</p>
 <p>以昨天我刚给别人的一个项目加了个小功能为例，先是要在别人的仓库里 Fork 到自己的仓库中，然后 <code>git clone</code> 下来，然后就是写代码了，写完了，测试好了，那就 <code>add commit push</code> 走下去，在自己的仓库上创建 Pull Request，说明做了什么更改，等原仓库所有者审核合并到主分支上。</p>
 <p>原仓库再次更新添加了代码，我本地怎么才能同步获得新代码呢，原来就一个人用用不知道，后来查了查就基本会用了。</p>
 <p>原来 clone 自己的 Fork 仓库有两个 origin 来源，都是指向的自己的 Frok 仓库，要再次获得更新，就要建立原仓库的跟踪来源：</p>
@@ -141,7 +130,7 @@ $ git merge upstream/master
     </article>
 
         <div class="tags">
-            <p>tags: <a href="/tag/github.html">github</a> </p>
+            <p>tags: <a href="/tag/github.html">github</a></p>
         </div>
 
             </div>
