@@ -94,25 +94,24 @@ git push origin master
 &lt;h2&gt;过度思考的例子&lt;/h2&gt;
 &lt;p&gt;15 年暑假学了两个月的 Android 开发，网络请求获得 JSON 数据之后解析，解析可能会有网络的问题，可能服务端构造 JSON 就错了，移动端解析也解不出来，总之有很多种一样要去 catch()，能把每项异常都想到然后要写代码捕捉错误，根据不同的情况是要重试还是直接提示用户出错了，出错提示信息怎么写？真的把不同的出错原因 Toast 给用户说这个出错了那个出错了吗？用户根本不想知道，你只要告诉我出错了就行，不要告诉我具体原因。你要显示不同的出错信息的话，专业用户可能知道如何解决，是找你报错还是自己的网络原因重试能解决，可专业用户太少，根本没有必要过度思考做的这么细。&lt;/p&gt;
 &lt;h2&gt;非专业知识的过度思考&lt;/h2&gt;
-&lt;p&gt;实习了也得有三个多月了，刚开始感觉有点难度，逐渐上手，挺开心，又感觉有难度了，前端怎么这么坑！慢慢摸索，看书，不断尝试，又感觉上手了，挺开心，但一定是要继续做前端吗？也不一定，甚至都不一定要做这一行，不做前端做啥？Python 后端也不错，iOS 也不错，都想做，专门研究一个，变成这个语言的专家，可行；研究各种各样的小东西，自己倒腾，也行，没什么对于职业生涯利不利的，其实还没真正上手，成为一名工程师就考虑这些问题？有点过了吧？&lt;/p&gt;</summary><category term="thinking"></category></entry><entry><title>Get me outta here</title><link href="/get-me-out-of-here.html" rel="alternate"></link><updated>2016-01-01T23:15:08+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2016-01-01:get-me-out-of-here.html</id><summary type="html">&lt;h2&gt;当下情况&lt;/h2&gt;
-&lt;p&gt;当下的情况不在我的预期之内，各项事情毫无任何惊喜，一些意外都算不上什么，除了同事，没有认识任何新朋友，待在这个我不太想出去玩的城市，少有朋友，没有女朋友没有男朋友。事实上对于当下的情况我之前没有任何预期，但至少我觉得应该是有些惊喜，事实上一点惊喜都没有，想要的得不到，得到的不满意，也不确定想要的是不是真正想要的，想要的也太多太多，虽然我知道一些想要的东西我是能得到的，但不是现在，这我也能忍。可能最不满意的就是自己的社交了，朋友圈子，期望和自己一个级别或者仰慕的圈子的人认识，可是机会甚少。追求女生失败，姿势不对是个问题，还有沟通，或许也是人家根本不吃我这套。&lt;/p&gt;
-&lt;h2&gt;关于技术&lt;/h2&gt;
-&lt;p&gt;关于技术的感觉就是时好时坏，有时候有些东西能够想一会儿摸索一下就搞定，有些东西实在是没那个经验，半天下不去手，看前辈同事的代码要看好一会儿才能明白到底实在干什么。虽然呢，我是觉得技术的东西自学是比较好的一种方式，但现在的情况让我感觉不是很好，技术的提升全靠看前辈同事的代码，偶尔问一下前辈同事，自己琢磨，或者看书，也不是没有时间看书，但就是懒的，感觉是没啥提升，其实三个月的这种实习工作要有能感受出来的提升也是挺难的。还有就是关于技术的方向上，现在是前端，各种东西比较杂，不知道这个项目能做多久，很大可能以后就会转成做移动端，我就更加困惑了，我一刚开始工作的小菜鸟，要这么搞下去的话我都不知道自己要做什么方向了。 要严格定义这个工作的性质的话，也算是外包的一种，限制挺多，能发挥的空间很小，以自己的能力也发挥不出来，其实也是没有啥能力，还是准备不足，基本功，抽象思考的能力，各方面，最后的结论都可能是不想干这行了。&lt;/p&gt;</summary><category term="fml"></category></entry><entry><title>2015</title><link href="/2015.html" rel="alternate"></link><updated>2015-12-31T10:21:39+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-12-31:2015.html</id><summary type="html">&lt;p&gt;大四。
-四月份开始找实习。
-面南京的一家公司，挂了。
-电话面试北京一家创业公司，挂了。
-去苏州两趟，感觉良好，环境，城市规划方面。
-这两家实习工资开太低，推了。
-学校安排的两个月的毫无任何用处的强制课程忍了两个月，感受了北上广般的每天四小时花在通勤上。
-去上海一趟面比特币中国，顿感压力山大，滚回南京接受了现在的实习工作。
-开始实习头一个月看代码比较困惑。
-搬家到离公司近的地方。
-又聊了一家南京的公司，别拒，虽然工资高，但算上辛苦程度，还是不划算。
-追求女生被发卡，我还借人情债给人安排了工作，还好老子问好了能不能追，不然浪费更多精力。
-工作两个多月，逐渐上手，能给正式 Offer，薪酬合理，准备接受。
-算账到炸裂，上四年学花了近十八万，工作两年是能挣回来，但对这个效率我还是不满意。
-16年需要全面提高效率，没什么可担心的，完成工作，刷几本经典教材，英文教材，刷 LeetCode，还有 Python。
-kindle可以买一个，PDF 可以在电脑上看。现在手上的 iPad mini 2 和 iPhone 5c 可以都出掉，加钱换部 iPhone 6s，虽然我很舍不得我的粉红色 iPhone 5c。&lt;/p&gt;</summary><category term="fml"></category></entry><entry><title>JavaScript 模块化开发</title><link href="/javascript-development-in-module.html" rel="alternate"></link><updated>2015-11-19T00:50:23+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-11-19:javascript-development-in-module.html</id><summary type="html">&lt;p&gt;两种规范，&lt;a href="https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88)"&gt;AMD 异步模块定义&lt;/a&gt; 和 &lt;a href="https://github.com/seajs/seajs/issues/242"&gt;CMD 通用模块定义&lt;/a&gt;。
+&lt;p&gt;实习了也得有三个多月了，刚开始感觉有点难度，逐渐上手，挺开心，又感觉有难度了，前端怎么这么坑！慢慢摸索，看书，不断尝试，又感觉上手了，挺开心，但一定是要继续做前端吗？也不一定，甚至都不一定要做这一行，不做前端做啥？Python 后端也不错，iOS 也不错，都想做，专门研究一个，变成这个语言的专家，可行；研究各种各样的小东西，自己倒腾，也行，没什么对于职业生涯利不利的，其实还没真正上手，成为一名工程师就考虑这些问题？有点过了吧？&lt;/p&gt;</summary><category term="thinking"></category></entry><entry><title>2015</title><link href="/2015.html" rel="alternate"></link><updated>2015-12-31T10:21:39+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-12-31:2015.html</id><summary type="html">&lt;ul&gt;
+&lt;li&gt;大四。&lt;/li&gt;
+&lt;li&gt;四月份开始找实习。&lt;/li&gt;
+&lt;li&gt;面南京的一家公司，挂了。&lt;/li&gt;
+&lt;li&gt;电话面试北京一家创业公司，挂了。&lt;/li&gt;
+&lt;li&gt;去苏州两趟，感觉良好，环境，城市规划方面。&lt;/li&gt;
+&lt;li&gt;这两家实习工资开太低，推了。&lt;/li&gt;
+&lt;li&gt;学校安排的两个月的毫无任何用处的强制课程忍了两个月，感受了北上广般的每天四小时花在通勤上。&lt;/li&gt;
+&lt;li&gt;去上海一趟面比特币中国，顿感压力山大，滚回南京接受了现在的实习工作。&lt;/li&gt;
+&lt;li&gt;开始实习头一个月看代码比较困惑。&lt;/li&gt;
+&lt;li&gt;搬家到离公司近的地方。&lt;/li&gt;
+&lt;li&gt;又聊了一家南京的公司，被拒，虽然工资高，但算上辛苦程度，还是不划算。&lt;/li&gt;
+&lt;li&gt;追求女生被发卡，我还借人情债给人安排了工作，还好老子问好了能不能追，不然浪费更多精力。&lt;/li&gt;
+&lt;li&gt;工作两个多月，逐渐上手，能给正式 Offer，薪酬合理，准备接受。&lt;/li&gt;
+&lt;li&gt;算账到炸裂，上四年学花了近十八万，工作两年是能挣回来，但对这个效率我还是不满意。&lt;/li&gt;
+&lt;li&gt;16年需要全面提高效率，没什么可担心的，完成工作，刷几本经典教材，英文教材，刷 LeetCode，还有 Python。&lt;/li&gt;
+&lt;li&gt;kindle可以买一个，PDF 可以在电脑上看。现在手上的 iPad mini 2 和 iPhone 5c 可以都出掉，加钱换部 iPhone 6s，虽然我很舍不得我的粉红色 iPhone 5c。&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="fml"></category></entry><entry><title>JavaScript 模块化开发</title><link href="/javascript-development-in-module.html" rel="alternate"></link><updated>2015-11-19T00:50:23+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-11-19:javascript-development-in-module.html</id><summary type="html">&lt;p&gt;两种规范，&lt;a href="https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88)"&gt;AMD 异步模块定义&lt;/a&gt; 和 &lt;a href="https://github.com/seajs/seajs/issues/242"&gt;CMD 通用模块定义&lt;/a&gt;。
 实现了这两个规范的库分别是 &lt;a href="http://requirejs.org/"&gt;RequireJS&lt;/a&gt; 和 &lt;a href="http://seajs.org/docs/"&gt;SeaJS&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;目的&lt;/h2&gt;
 &lt;p&gt;模块化 JavaScript 开发。比如我需要在搜索页面放个翻页器，搜索结果二十万是准确数字，要显示出第一页和最后一页，随着当前的页数变化，只显示当前页的前后两页，包括首页和末页，要维护这个状态是很复杂的，基本不可能，只能是直接动态生成这个状态。输入结果数量，传入模块，模块动态生成翻页器，当前页的选中状态，输出整个翻页器。&lt;/p&gt;
@@ -155,28 +154,7 @@ kindle可以买一个，PDF 可以在电脑上看。现在手上的 iPad mini 2 
 
 
 &lt;p&gt;path 中可以省略扩展名 &lt;code&gt;.js&lt;/code&gt;，shims 中暴露出 &lt;code&gt;_&lt;/code&gt; underscore。&lt;/p&gt;
-&lt;p&gt;具体的模块内部怎么写，能写啥，如何调用下次再写。&lt;/p&gt;</summary><category term="javascript"></category></entry><entry><title>空前忙碌的周末</title><link href="/busy-weekend.html" rel="alternate"></link><updated>2015-11-15T16:12:09+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-11-15:busy-weekend.html</id><summary type="html">&lt;h2&gt;搬家&lt;/h2&gt;
-&lt;p&gt;和同学一起在二号线底站这边租了个两室一厅，虽然腿着到地铁站快点也得要个十五分钟，但好歹离公司是要近了很多很多，周日早上从出门到公司做下来一共用了整整一个小时，一半实在走路，这个是个坑。周一又换公交试了试，慢慢走到公交站十分钟，等五分钟，十三分钟到虹月城，走三分钟到公司做下来，虽然公交比较晃，但是快啊，以后就坐公交了。&lt;/p&gt;
-&lt;h2&gt;迟来的新生活&lt;/h2&gt;
-&lt;p&gt;原本也是能搬到离公司近些的地方，但就是嫌麻烦，下不了决心，刚好同学也要租房子了，也能一起住，就这么决定了。以后上下班应该是是从出门到公司坐下来只要三十到四十分钟了，最晚能够九点三十出门，也差不多十点十五到公司。&lt;/p&gt;
-&lt;h2&gt;What do i fucking want&lt;/h2&gt;
-&lt;p&gt;原来一直在思考我到底要什么，非常想要的我也知道得不到，能得到的不是非常满意，但有一想，我靠自己赢的的东西已经是比周围很多人都好了，继续转念一想，这也没啥用啊，我最想的到的还不是没有得到吗？又陷入了思考最想要什么，其实想要的东西，在能力范围之内的，得到只是时间问题，买这个买那个，要这个要那个，按部就班，稍稍拼一下，得到都是水到渠成的事情，如果想要超过周围人几倍，那就不容易了，也是另一回事了。&lt;/p&gt;</summary><category term="fml"></category></entry><entry><title>摸鱼第一个月</title><link href="/first-month-internship.html" rel="alternate"></link><updated>2015-11-09T22:28:41+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-11-09:first-month-internship.html</id><summary type="html">&lt;h2&gt;实习&lt;/h2&gt;
-&lt;p&gt;摸鱼整一个月，也写了些代码，对于模块化的前端也是有了些了解，模板、underscore、JQuery 等等。&lt;/p&gt;
-&lt;h2&gt;搬家&lt;/h2&gt;
-&lt;p&gt;上周六刚确定好了房子，在二号线底站油坊桥，离地铁站也有那么两公里的距离，但周围基本上吃喝，超市菜市场都有，就是要走点路，两千一租到这样的房子真算是最便宜的了，下了血本，后面能节省些时间，也能周末更舒服些，希望下的血本和节省下来的时间能投入到继续看书和项目上。&lt;/p&gt;
-&lt;h2&gt;重点&lt;/h2&gt;
-&lt;p&gt;不为自己设定具体长远的目标，只要记住当下两天至一周需要做的事情，需要看得书。&lt;/p&gt;</summary><category term="internship"></category></entry><entry><title>要啥斯巴鲁，买啥自行车</title><link href="/no-subaru-no-bike.html" rel="alternate"></link><updated>2015-09-27T22:48:39+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-09-27:no-subaru-no-bike.html</id><summary type="html">&lt;p&gt;开始下一阶段的生活，首要改变就是买买买，公路车，一些家居日用品，零食，游戏机，算是提前消费了。先买了个公路车，为了在秋天能够骑车逛南京，锻炼。&lt;/p&gt;
-&lt;p&gt;最入门的指拨手变美利达公路车，Merida R903，本来看好了是灰色最好看，问了几家店都没有灰色，只有蓝色和白色，最后只能是在美利达旗舰店里面拿了蓝色，48，公路车的最小尺寸，还看了看最便宜的 105 套件的整车，8000 左右，能够参加比赛，还有最好看的灰色，铁灰色那种，帅的不行。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Merida R903 Blue" src="/images/my-road-bike.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;骑回去到第二天的时候就有点后悔，到中华门单程 22 公里左右，买了之后骑回来 25 公里骑了一个半小时，路上停下来等了六七分钟的火车，修了个链条，买了瓶水，扣掉耗时这二十五公里骑得也是够慢的，还骑得一身汗，要这么早上骑到公司的话有点不靠谱啊，还是坐地铁靠点谱，还是先练着再看情况吧。其实骑了五天之后感觉还好，也不算是后悔，我还是得运动啊，跑步跑不动，健身房去不起，也没法搞，最能忍着坚持着的就是骑车了。&lt;/p&gt;
-&lt;p&gt;还有一个需要买的大件就是 Xbox 360，还是需要些娱乐，早就想买个主机的来着，淘宝看好了，十一回去就买，分期。去上海玩两天，买自行车，用了不少，实习的工资还是能多下来一些的，还是留着存起来，看能把那一万块填回去多少。&lt;/p&gt;
-&lt;p&gt;还有就是要屯一些日用品，吃的，床笠，床垫，小柜子等等，都等到十月份发第一份工资再买，对了，还有个房租，十月份一次性给个三个月，后面再说。&lt;/p&gt;</summary><category term="cycling"></category><category term="bike"></category></entry><entry><title>可算是稍稍安定了</title><link href="/almost-settle-up.html" rel="alternate"></link><updated>2015-09-19T17:44:04+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-09-19:almost-settle-up.html</id><summary type="html">&lt;h2&gt;被虐结束&lt;/h2&gt;
-&lt;p&gt;面试 Python 岗位受挫，一直被虐，我还需要一些时间继续研究 Python，造 Python 轮子，丰富 GitHub 和简历。&lt;/p&gt;
-&lt;h2&gt;开始实习&lt;/h2&gt;
-&lt;p&gt;前端岗位，小公司，有自己的渠道取得业务，中华门，二十公里，能够骑车去，下雨的话就地铁。应该不会非常难，时间上也会比较空闲，有些时间搞自己的事情。前端也不错，还是和数据相关，实习薪酬三千，第一个月试用期两千五，六个月合同，将根据表现浮动。十一之后入职，我想后面将会比较充实，工作，看书，骑车（美利达 R903 已准备入手），玩游戏（需要买个 Xbox 360，已经加入购物车），可以开张单子，把南京能吃的特色的小馆子，能接受的小吃，全吃一遍，到处骑车玩玩。&lt;/p&gt;
-&lt;h2&gt;决定&lt;/h2&gt;
-&lt;p&gt;还是需要时间，继续学习基础知识，还有 Python，希望能够在毕业的时候找一个正式工作，做基础设施或者数据相关的 Python 岗位。关于找工作，和毕业后在哪里发展，我现在不再特别要求一定要去哪里，反正以现在的能力去哪里都是一样的，还是得多学习，积累真正的实践经验。正式工作将不再“瞎”投简历，一定投业务成熟，且我要对业务感兴趣。这个时候就显得技术型公司或者技术占主导的公司的优势了，不需要像是现在的各种小型初创公司，初期不仅技术粗糙，还要为业务扯皮，加班赶进度，根本没法搞。&lt;/p&gt;
-&lt;p&gt;就这么定了。&lt;/p&gt;</summary><category term="fml"></category></entry><entry><title>Python 基本类型及方法</title><link href="/python-types-and-methods.html" rel="alternate"></link><updated>2015-08-25T13:47:21+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-08-25:python-types-and-methods.html</id><summary type="html">&lt;h2&gt;内建 6 种序列&lt;/h2&gt;
+&lt;p&gt;具体的模块内部怎么写，能写啥，如何调用下次再写。&lt;/p&gt;</summary><category term="javascript"></category></entry><entry><title>Python 基本类型及方法</title><link href="/python-types-and-methods.html" rel="alternate"></link><updated>2015-08-25T13:47:21+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-08-25:python-types-and-methods.html</id><summary type="html">&lt;h2&gt;内建 6 种序列&lt;/h2&gt;
 &lt;p&gt;列表、元组、字符串、Unicode 字符串、buffer 对象、xrange 对象。&lt;/p&gt;
 &lt;h2&gt;正文序列类型 str&lt;/h2&gt;
 &lt;p&gt;字符串有穷序列 不可变 immutable。
@@ -276,10 +254,7 @@ set 还支持可变集合操作，修改集合的运算（并/交/差/对称差�
 &lt;li&gt;update() 用一个字典更新另一个字典，相同键会覆盖。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;其他数据结构&lt;/h2&gt;
-&lt;p&gt;deque&lt;/p&gt;</summary><category term="python"></category></entry><entry><title>早七晚七第二周</title><link href="/6-8-5.html" rel="alternate"></link><updated>2015-07-24T12:26:36+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-07-24:6-8-5.html</id><summary type="html">&lt;p&gt;本来是写早七晚七第一周的，没什么时间做自己的事情，就拖拖拖，足足写了一周，实际上就是想写就写，有可能写了两句就不写了，写了一堆抱怨又全删了。&lt;/p&gt;
-&lt;p&gt;早七点出门（其实更早）晚上七点到家（其实更晚），头两天骑自行车到地铁站，太累了，后来知道到地铁站的公交早上六点半就有了，就试了下，还行，和骑自行车时间一样，但是不用骑得一身汗再到地铁站。早上随便吃点面包就好了，本来是想多吃点水果的，买了些苹果，桃子，还是吃着太麻烦，在一号店上买了 24 盒装的小盒子汇源苹果汁，想到以前夏天的时候我就喝两种饮料，汇源苹果汁和养乐多。中午吃的快餐，十块钱，两荤两素，当然不能和学校比，也算凑合，晚上就麻烦了，外卖，多油多盐，吃太多特难受，龙眠大道的快餐，还行，就是贵了点，吃得饱也和正常的饭菜没什么区别，搞个两荤一素菜，二十块钱吧，谁叫这是在大城市呢，生活成本就是这么高的啊，工资要不高点简直就是没法活了。&lt;/p&gt;
-&lt;p&gt;周五的时候有点动摇了，觉得自己的这步是走得太保守，可能是浪费了一些机会，有可能把握住这几个机会，现在就会大不同，我也不知道到底会怎样，设想的可能的情况不是最好的最优的，但是现在的情况一定是我最不想经历的。&lt;/p&gt;
-&lt;p&gt;周六晚上的时候想到了对于 BookGarage 项目的大改动，因为我爸要把我对于新家的装修最喜欢的电视墙加上一整面书橱给搬到书房里去，电视墙重新设计，我还想书房里面堆书，客厅的书墙也要给我堆书，这下可好，就给我一个书房，正好想到我的这个项目。重新定义，原来的核心&lt;strong&gt;管理功能&lt;/strong&gt;推倒，重心转移至&lt;strong&gt;书摘书评写作阅读&lt;/strong&gt;，在线 Markdown 编辑器。书摘全网 shuffle 在一个卡片布局中，优秀书评手动筛选推荐，显示书籍 metadata，购买信息，书评长文显示为 Medium 列表形式，几行摘要，书籍封面。用户系统&lt;strong&gt;无关注无好友无评论&lt;/strong&gt;，Garage 改为个人 TL 形式，依据 Tag 管理，进行推荐筛选功能是重点。这个要赶紧动手做起来，这个将做成 RESTful API 作为毕设的 Android 项目，同时我自己的书评写作计划也将开始。&lt;/p&gt;</summary><category term="fml"></category></entry><entry><title>Django Tricks</title><link href="/django-tricks.html" rel="alternate"></link><updated>2015-07-14T15:14:14+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-07-14:django-tricks.html</id><summary type="html">&lt;p&gt;&lt;a href="http://shinyzhu.iteye.com/blog/593427"&gt;Django 新手需要注意的十个要点&lt;/a&gt;
+&lt;p&gt;deque&lt;/p&gt;</summary><category term="python"></category></entry><entry><title>Django Tricks</title><link href="/django-tricks.html" rel="alternate"></link><updated>2015-07-14T15:14:14+08:00</updated><author><name>Chen Jian</name></author><id>tag:,2015-07-14:django-tricks.html</id><summary type="html">&lt;p&gt;&lt;a href="http://shinyzhu.iteye.com/blog/593427"&gt;Django 新手需要注意的十个要点&lt;/a&gt;
 新手建议，可以参考，第四点我还是没明白，看了别人的代码都是把各种业务逻辑写在 &lt;code&gt;views.py&lt;/code&gt;，怎么写到另外的地方。&lt;/p&gt;
 &lt;h2&gt;1. 硬编码&lt;/h2&gt;
 &lt;p&gt;像导航栏上的各种项目，需要进行跳转，或者静态文件，媒体文件，需要从开发环境部署上线 的时候就很麻烦。&lt;/p&gt;
