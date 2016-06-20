@@ -19,7 +19,7 @@
 
 
         <!-- Custom Fonts -->
-        <link href="/theme/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -172,9 +172,9 @@ pip install uwsgi
 <div class="highlight"><pre><span></span><span class="err">#</span> <span class="nt">my_blog__nginx</span><span class="nc">.conf</span>
 
 <span class="nt">server</span> <span class="p">{</span>
-   <span class="err">#</span> <span class="n">the</span> <span class="n">port</span> <span class="n">your</span> <span class="n">site</span> <span class="n">will</span> <span class="n">be</span> <span class="n">served</span> <span class="n">on</span>
-      <span class="n">listen</span>      <span class="m">8000</span><span class="p">;</span>
-      <span class="err">#</span> <span class="n">the</span> <span class="n">domain</span> <span class="n">name</span> <span class="n">it</span> <span class="n">will</span> <span class="n">serve</span> <span class="n">for</span>
+       <span class="err">#</span> <span class="n">the</span> <span class="n">port</span> <span class="n">your</span> <span class="n">site</span> <span class="n">will</span> <span class="n">be</span> <span class="n">served</span> <span class="n">on</span>
+       <span class="n">listen</span>      <span class="m">8000</span><span class="p">;</span>
+    <span class="err">#</span> <span class="n">the</span> <span class="n">domain</span> <span class="n">name</span> <span class="n">it</span> <span class="n">will</span> <span class="n">serve</span> <span class="n">for</span>
        <span class="n">server_name</span> <span class="n">XXX</span><span class="o">.</span><span class="n">XXX</span><span class="o">.</span><span class="n">XXX</span><span class="o">.</span><span class="n">XXX</span><span class="p">;</span> <span class="err">#</span> <span class="n">substitute</span> <span class="n">your</span> <span class="n">machine</span><span class="s1">&#39;s IP address or FQDN</span>
 <span class="s1">       charset     utf-8;</span>
 
