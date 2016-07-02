@@ -179,7 +179,7 @@ a img:hover
 }.intro-header .page-heading h1,
 .intro-header .site-heading h1
 {
-    font-size: 50px;
+    font-size: 48px;
 
     margin-top: 0;
 }.intro-header .page-heading .subheading,
@@ -200,7 +200,7 @@ a img:hover
     }.intro-header .page-heading h1,
     .intro-header .site-heading h1
     {
-        font-size: 66px;
+        font-size: 56px;
     }
 }.intro-header .post-heading h1
 {
