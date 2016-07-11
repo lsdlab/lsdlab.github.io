@@ -52,6 +52,7 @@
     &lt;span class="n"&gt;listen&lt;/span&gt; &lt;span class="m"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="n"&gt;server_name&lt;/span&gt; &lt;span class="n"&gt;breakwire&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;me&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="n"&gt;return&lt;/span&gt; &lt;span class="m"&gt;301&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;://&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;request_uri&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
