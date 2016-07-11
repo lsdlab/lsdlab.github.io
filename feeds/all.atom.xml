@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-07-04T22:42:43+08:00</updated><entry><title>关于离开南京的决定</title><link href="/the-desicion-about-leaving-nanjing.html" rel="alternate"></link><published>2016-07-04T22:42:43+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-07-04:the-desicion-about-leaving-nanjing.html</id><summary type="html">&lt;h2&gt;这四年干了啥&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-07-11T22:56:46+08:00</updated><entry><title>博客托管迁移、HTTPS 加持-续</title><link href="/secure-with-https-1.html" rel="alternate"></link><published>2016-07-11T22:56:46+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-07-11:secure-with-https-1.html</id><summary type="html">&lt;p&gt;原来写的 &lt;a href="/secure-with-https.html"&gt;博客托管迁移、HTTPS 加持&lt;/a&gt; 没写全，里面的步骤我也没怎么明白，昨天想在 VPS 上装个 Gogs 代码托管用一下的，结果没折腾成功。虽然没把 Nginx 搞坏，但还是不爽，直接重装系统，静态网站配置起来也很快，配置下系统然后再配置 Nginx 就行了，到 HTTPS 这儿又有问题了，搞了好一会才明白。&lt;/p&gt;
+&lt;h2&gt;Let’s Encrypt 配置&lt;/h2&gt;
+&lt;p&gt;先按照小众软件的 &lt;a href="http://www.appinn.com/use-letsencrypt-with-nginx/"&gt;在 Nginx 上使用 Let’s Encrypt 加密(HTTPS)你的网站[简明教程]&lt;/a&gt;，先直接把网站的 HTTPS 跑起来。&lt;/p&gt;
+&lt;p&gt;不过运行 Let’s Encrypt 的命令应该是：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/letsencrypt-auto certonly
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;没有 &lt;code&gt;–standalone&lt;/code&gt; 这个参数，是在图形界面里面选择这个选项。&lt;/p&gt;
+&lt;p&gt;还有一点是 &lt;code&gt;ssl_ciphers&lt;/code&gt; 不对，要参照这个&lt;a href="https://blog.qualys.com/ssllabs/2013/08/05/configuring-apache-nginx-and-openssl-for-forward-secrecy"&gt;链接&lt;/a&gt; 的参数。&lt;/p&gt;
+&lt;p&gt;Nginx 配置好之后应该是能在 Chrome 里面看到绿色的小锁。&lt;/p&gt;
+&lt;h2&gt;Let’s Encrypt 续签&lt;/h2&gt;
+&lt;p&gt;Let’s Encrypt 证书只有九十天的有效期，需要续签，就有各种各样的续签脚本，小众软件里面的续签方法我是没试成功。&lt;/p&gt;
+&lt;p&gt;用 &lt;a href="https://github.com/xdtianyu/scripts/blob/master/lets-encrypt/README-CN.md"&gt;一个快速获取/更新 Let's encrypt 证书的 shell script&lt;/a&gt; 是搞定了。&lt;/p&gt;
+&lt;p&gt;运行脚本可能会有权限问题，把 Nginx 里面的 &lt;code&gt;ssl_certificate&lt;/code&gt; &lt;code&gt;ssl_certificate_key&lt;/code&gt; 改掉就行了，加入 &lt;code&gt;cron&lt;/code&gt; 定时任务，搞定。&lt;/p&gt;
+&lt;p&gt;最后附上 Nginx 的配置文件：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;site&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;served&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;
+    &lt;span class="n"&gt;listen&lt;/span&gt;      &lt;span class="m"&gt;443&lt;/span&gt; &lt;span class="n"&gt;ssl&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;domain&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;serve&lt;/span&gt; &lt;span class="n"&gt;for&lt;/span&gt;
+    &lt;span class="n"&gt;server_name&lt;/span&gt; &lt;span class="n"&gt;breakwire&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;me&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;substitute&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;IP&lt;/span&gt; &lt;span class="n"&gt;address&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;FQDN&lt;/span&gt;
+
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Let&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;Encrypt&lt;/span&gt;
+    &lt;span class="n"&gt;ssl&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;ssl_certificate&lt;/span&gt;     &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;chen&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;breakwire&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chained&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;ssl_certificate_key&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;chen&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;breakwire&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;me&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;ssl_protocols&lt;/span&gt; &lt;span class="n"&gt;TLSv1&lt;/span&gt; &lt;span class="n"&gt;TLSv1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="n"&gt;TLSv1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;ssl_prefer_server_ciphers&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;ssl_ciphers&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;location&lt;/span&gt;
+    &lt;span class="n"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+       &lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;chen&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;BreakWire&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+       &lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nt"&gt;logs&lt;/span&gt;
+    &lt;span class="nt"&gt;access_log&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;chen&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;nginx-log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;access&lt;/span&gt;&lt;span class="nc"&gt;.log&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nt"&gt;error_log&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;chen&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;nginx-log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;error&lt;/span&gt;&lt;span class="nc"&gt;.log&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nt"&gt;gzip&lt;/span&gt;
+    &lt;span class="nt"&gt;gzip&lt;/span&gt; &lt;span class="nt"&gt;on&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nt"&gt;gzip_min_length&lt;/span&gt; &lt;span class="nt"&gt;1k&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nt"&gt;gzip_buffers&lt;/span&gt; &lt;span class="nt"&gt;4&lt;/span&gt; &lt;span class="nt"&gt;16k&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nt"&gt;gzip_comp_level&lt;/span&gt; &lt;span class="nt"&gt;4&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nt"&gt;gzip_types&lt;/span&gt; &lt;span class="nt"&gt;text&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;plain&lt;/span&gt; &lt;span class="nt"&gt;application&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;x-javascript&lt;/span&gt; &lt;span class="nt"&gt;text&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;css&lt;/span&gt; &lt;span class="nt"&gt;application&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;xml&lt;/span&gt; &lt;span class="nt"&gt;text&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;javascript&lt;/span&gt;  &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;jpeg&lt;/span&gt; &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;png&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nt"&gt;gzip_disable&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;MSIE &lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="s2"&gt;\.&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;listen&lt;/span&gt; &lt;span class="m"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;server_name&lt;/span&gt; &lt;span class="n"&gt;breakwire&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;me&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;return&lt;/span&gt; &lt;span class="m"&gt;301&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;://&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;request_uri&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;HTTP 重定向至 HTTPS&lt;/h2&gt;
+&lt;p&gt;这步照着小众软件里面的步骤做就搞定了，就是在 Nginx 里面再加个配置。&lt;/p&gt;</summary><category term="devops"></category></entry><entry><title>关于离开南京的决定</title><link href="/the-desicion-about-leaving-nanjing.html" rel="alternate"></link><published>2016-07-04T22:42:43+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-07-04:the-desicion-about-leaving-nanjing.html</id><summary type="html">&lt;h2&gt;这四年干了啥&lt;/h2&gt;
 &lt;p&gt;在南京上了四年学，八流民办本科，最后连两张「纸」都没有拿到。专业选修少 2.5 个学分，结业处理，拖一个学期把学分补上就能拿，这事也挺讽刺的。对我没什么影响，该干嘛干嘛。我也没有觉得对我去什么公司造成了什么影响，因为我知道自己的水平，「歧视学校」、「歧视学历」这种事情根本轮不上我。&lt;/p&gt;
 &lt;p&gt;15 年十月份开始实习，南京的一个小前端团队，从一个对前端的理解还停留在静态页面的菜鸟，成为一个对前端开发稍稍有点入门的菜鸟，方法论，前端开发的思想都学到了点。入职两个月的时候收到正式 offer，薪酬虽不比南京的某些「血汗工厂」，但综合考虑到时薪和付出的精力、时间，我还是比较满意的。当时也没急着接下来，因为大三下学期开始找实习的时候我是一心想着要去上海或者苏州。九月份接到过一个上海比特币中国的 Python 开发实习面试，无论是在技术上和行业知名度上都非常不错。但因为个人水平的问题，尽管最后说是能来实习，但实习补贴较低，低到维持上海的基本生存都够呛，也在上海玩了两天，深感大城市的压力，直接推掉然后接受了南京的这个实习工作。&lt;/p&gt;
 &lt;p&gt;四月份的时候其实是和实习的团队答应了留下来，因为也没辙了。想去苏州就找人内推同城旅游，蜗牛就算了，人只招三年以上经验的，同城电面之后没下文了，本来觉得南京也有几个公司可以一去的，但连面试都没刷上，索性放弃。五月初的时候因为要交论文，从住处到学校也挺远的，跑了五六次，很不爽。正好刷论坛刷到一个南通的朋友在招人，就找到微信，约了见面聊，正好家里也有事，回家一趟，也见了面，聊了，还行，想了两天就决定了，回吧。&lt;/p&gt;
@@ -822,7 +879,7 @@ set 还支持可变集合操作，修改集合的运算（并/交/差/对称差�
 
 &lt;h2&gt;构建字符串, 变化 2&lt;/h2&gt;
 &lt;p&gt;如果你需要应用一个函数来产生子字符串:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1106,7 +1163,7 @@ set 还支持可变集合操作，修改集合的运算（并/交/差/对称差�
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;索引和项 (2): enumerate&lt;/h2&gt;
+&lt;h2&gt;索引和项 (2): &lt;code&gt;enumerate&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;函数 &lt;code&gt;enumerate&lt;/code&gt; 接受一个 list，并返回 (索引值, 项) 对:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;zero&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;one&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;two&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;three&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
@@ -1327,10 +1384,8 @@ set 还支持可变集合操作，修改集合的运算（并/交/差/对称差�
 &lt;li&gt;当计算结果列表是最终结果时，使用列表推导。&lt;/li&gt;
 &lt;li&gt;当计算结果列表仅作为中间步骤时，使用生成器表达式&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;这是我在最近工作中见到的一个例子。
-➔
-我们需要为未来的合同产生一份月份数(同时以字符串形式和整型存在)到月份代码映射的字典。 这可以用一个逻辑行完成。
-➔&lt;/p&gt;
+&lt;p&gt;这是我在最近工作中见到的一个例子。&lt;/p&gt;
+&lt;p&gt;我们需要为未来的合同产生一份月份数(同时以字符串形式和整型存在)到月份代码映射的字典。 这可以用一个逻辑行完成。&lt;/p&gt;
 &lt;p&gt;完成方法如下:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;内置的 &lt;code&gt;dict()&lt;/code&gt; 函数产生一个键/值对列表 (2个 tuple).&lt;/li&gt;
@@ -1647,8 +1702,7 @@ LBYL: 三思而后行&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;换句话说，保持你的程序简单！&lt;/p&gt;
 &lt;h2&gt;不要重新发明轮子&lt;/h2&gt;
-&lt;p&gt;在着手写任何代码之前，
-➔ ➔ ➔ ➔&lt;/p&gt;
+&lt;p&gt;在着手写任何代码之前，&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;检查  Python 标准库。&lt;/li&gt;
 &lt;li&gt;

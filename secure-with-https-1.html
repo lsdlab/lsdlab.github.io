@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Chen Jian's Blog: BreakWire">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>博客托管迁移、HTTPS 加持-续</title>
+
+        <link href="https://breakwire.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="BreakWire Full Atom Feed" />
+        <!-- Bootstrap Core CSS -->
+        <link href="/theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="/theme/css/clean-blog.min.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+        <meta name="description" content="博客托管迁移、HTTPS 加持">
+
+        <meta name="author" content="Chen Jian">
+
+        <meta name="tags" content="devops">
+
+	                <meta property="og:locale" content="">
+		<meta property="og:site_name" content="BreakWire">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="/author/chen-jian.html">
+	<meta property="og:url" content="/secure-with-https-1.html">
+	<meta property="og:title" content="博客托管迁移、HTTPS 加持-续">
+	<meta property="article:published_time" content="2016-07-11 22:56:46+08:00">
+            <meta property="og:description" content="博客托管迁移、HTTPS 加持">
+
+            <meta property="og:image" content="//images/new-header.jpeg">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">BreakWire</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                            <li><a href="/pages/about-contact.html">About & Contact</a></li>
+                            <li><a href="/pages/project-x.html">Project X</a></li>
+                            <li><a href="/pages/resume.html">Resume</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/images/new-header.jpeg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>博客托管迁移、HTTPS 加持-续</h1>
+                        <span class="meta">Posted by
+                                <a href="/author/chen-jian.html">Chen Jian</a>
+                             on Mon 11 July 2016
+                        </span>
+                            <span class="meta">Updated on Mon 11 July 2016</span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p>原来写的 <a href="/secure-with-https.html">博客托管迁移、HTTPS 加持</a> 没写全，里面的步骤我也没怎么明白，昨天想在 VPS 上装个 Gogs 代码托管用一下的，结果没折腾成功。虽然没把 Nginx 搞坏，但还是不爽，直接重装系统，静态网站配置起来也很快，配置下系统然后再配置 Nginx 就行了，到 HTTPS 这儿又有问题了，搞了好一会才明白。</p>
+<h2>Let’s Encrypt 配置</h2>
+<p>先按照小众软件的 <a href="http://www.appinn.com/use-letsencrypt-with-nginx/">在 Nginx 上使用 Let’s Encrypt 加密(HTTPS)你的网站[简明教程]</a>，先直接把网站的 HTTPS 跑起来。</p>
+<p>不过运行 Let’s Encrypt 的命令应该是：</p>
+<div class="highlight"><pre><span></span>/letsencrypt-auto certonly
+</pre></div>
+
+
+<p>没有 <code>–standalone</code> 这个参数，是在图形界面里面选择这个选项。</p>
+<p>还有一点是 <code>ssl_ciphers</code> 不对，要参照这个<a href="https://blog.qualys.com/ssllabs/2013/08/05/configuring-apache-nginx-and-openssl-for-forward-secrecy">链接</a> 的参数。</p>
+<p>Nginx 配置好之后应该是能在 Chrome 里面看到绿色的小锁。</p>
+<h2>Let’s Encrypt 续签</h2>
+<p>Let’s Encrypt 证书只有九十天的有效期，需要续签，就有各种各样的续签脚本，小众软件里面的续签方法我是没试成功。</p>
+<p>用 <a href="https://github.com/xdtianyu/scripts/blob/master/lets-encrypt/README-CN.md">一个快速获取/更新 Let's encrypt 证书的 shell script</a> 是搞定了。</p>
+<p>运行脚本可能会有权限问题，把 Nginx 里面的 <code>ssl_certificate</code> <code>ssl_certificate_key</code> 改掉就行了，加入 <code>cron</code> 定时任务，搞定。</p>
+<p>最后附上 Nginx 的配置文件：</p>
+<div class="highlight"><pre><span></span><span class="nt">server</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="n">the</span> <span class="n">port</span> <span class="n">your</span> <span class="n">site</span> <span class="n">will</span> <span class="n">be</span> <span class="n">served</span> <span class="n">on</span>
+    <span class="n">listen</span>      <span class="m">443</span> <span class="n">ssl</span><span class="p">;</span>
+    <span class="err">#</span> <span class="n">the</span> <span class="n">domain</span> <span class="n">name</span> <span class="n">it</span> <span class="n">will</span> <span class="n">serve</span> <span class="n">for</span>
+    <span class="n">server_name</span> <span class="n">breakwire</span><span class="o">.</span><span class="n">me</span><span class="p">;</span> <span class="err">#</span> <span class="n">substitute</span> <span class="n">your</span> <span class="n">machine</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">IP</span> <span class="n">address</span> <span class="n">or</span> <span class="n">FQDN</span>
+
+    <span class="err">#</span> <span class="n">Let</span><span class="err">’</span><span class="n">s</span> <span class="n">Encrypt</span>
+    <span class="n">ssl</span> <span class="n">on</span><span class="p">;</span>
+    <span class="n">ssl_certificate</span>     <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">chen</span><span class="o">/</span><span class="n">breakwire</span><span class="o">.</span><span class="n">chained</span><span class="o">.</span><span class="n">crt</span><span class="p">;</span>
+    <span class="n">ssl_certificate_key</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">chen</span><span class="o">/</span><span class="n">breakwire</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">key</span><span class="p">;</span>
+    <span class="n">ssl_protocols</span> <span class="n">TLSv1</span> <span class="n">TLSv1</span><span class="o">.</span><span class="m">1</span> <span class="n">TLSv1</span><span class="o">.</span><span class="m">2</span><span class="p">;</span>
+    <span class="n">ssl_prefer_server_ciphers</span> <span class="n">on</span><span class="p">;</span>
+    <span class="n">ssl_ciphers</span> <span class="s2">&quot;EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS&quot;</span><span class="p">;</span>
+    <span class="n">allow</span> <span class="n">all</span><span class="p">;</span>
+
+    <span class="err">#</span> <span class="n">location</span>
+    <span class="n">location</span> <span class="o">/</span> <span class="err">{</span>
+       <span class="n">root</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">chen</span><span class="o">/</span><span class="n">BreakWire</span><span class="o">/</span><span class="p">;</span>
+       <span class="n">index</span> <span class="n">index</span><span class="o">.</span><span class="n">html</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="err">#</span> <span class="nt">logs</span>
+    <span class="nt">access_log</span> <span class="o">/</span><span class="nt">home</span><span class="o">/</span><span class="nt">chen</span><span class="o">/</span><span class="nt">nginx-log</span><span class="o">/</span><span class="nt">access</span><span class="nc">.log</span><span class="o">;</span>
+    <span class="nt">error_log</span> <span class="o">/</span><span class="nt">home</span><span class="o">/</span><span class="nt">chen</span><span class="o">/</span><span class="nt">nginx-log</span><span class="o">/</span><span class="nt">error</span><span class="nc">.log</span><span class="o">;</span>
+    <span class="err">#</span> <span class="nt">gzip</span>
+    <span class="nt">gzip</span> <span class="nt">on</span><span class="o">;</span>
+    <span class="nt">gzip_min_length</span> <span class="nt">1k</span><span class="o">;</span>
+    <span class="nt">gzip_buffers</span> <span class="nt">4</span> <span class="nt">16k</span><span class="o">;</span>
+    <span class="nt">gzip_comp_level</span> <span class="nt">4</span><span class="o">;</span>
+    <span class="nt">gzip_types</span> <span class="nt">text</span><span class="o">/</span><span class="nt">plain</span> <span class="nt">application</span><span class="o">/</span><span class="nt">x-javascript</span> <span class="nt">text</span><span class="o">/</span><span class="nt">css</span> <span class="nt">application</span><span class="o">/</span><span class="nt">xml</span> <span class="nt">text</span><span class="o">/</span><span class="nt">javascript</span>  <span class="nt">image</span><span class="o">/</span><span class="nt">jpeg</span> <span class="nt">image</span><span class="o">/</span><span class="nt">png</span><span class="o">;</span>
+    <span class="nt">gzip_disable</span> <span class="s2">&quot;MSIE </span><span class="cp">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">6</span><span class="cp">]</span><span class="s2">\.&quot;</span><span class="o">;</span>
+<span class="err">}</span>
+
+<span class="nt">server</span> <span class="p">{</span>
+    <span class="n">listen</span> <span class="m">80</span><span class="p">;</span>
+    <span class="n">server_name</span> <span class="n">breakwire</span><span class="o">.</span><span class="n">me</span><span class="p">;</span>
+    <span class="n">return</span> <span class="m">301</span> <span class="n">https</span><span class="o">://</span><span class="err">$</span><span class="n">host</span><span class="err">$</span><span class="n">request_uri</span><span class="p">;</span>
+</pre></div>
+
+
+<h2>HTTP 重定向至 HTTPS</h2>
+<p>这步照着小众软件里面的步骤做就搞定了，就是在 Nginx 里面再加个配置。</p>
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="/tag/devops.html">devops</a></p>
+        </div>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                            <li>
+                                <a href="https://breakwire.me/feeds/all.atom.xml" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:lsdvincent@gmail.com" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/lsdvincent" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://medium.com/@breakwire" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://vsco.co/lsdvincent/grid/1" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-camera fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/lsdlab" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+<p class="copyright text-muted">
+    Copyright © 2014-2016 - <a href="mailto:lsdvincent@gmail.com" target="_blank">Chen Jian</a> -
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+</p>
+<p class="copyright text-muted" style="margin-top: 0px;">
+    Blog powered by <a href="http://getpelican.com" target="_blank">Pelican</a>, themed with <a href="https://github.com/gilsondev/pelican-clean-blog" target="_blank">Pelican Clean Blog. </a> Take great advantage of <a href="http://python.org" target="_blank">Python</a>.
+</p>                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="/theme/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/theme/js/bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="/theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
