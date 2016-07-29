@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Chen Jian's Blog: BreakWire">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>又部署了一遍 Django</title>
+
+        <link href="https://breakwire.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="BreakWire Full Atom Feed" />
+        <!-- Bootstrap Core CSS -->
+        <link href="/theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="/theme/css/clean-blog.min.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+        <meta name="description" content="又部署了一遍 Django">
+
+        <meta name="author" content="Chen Jian">
+
+        <meta name="tags" content="devops">
+
+	                <meta property="og:locale" content="">
+		<meta property="og:site_name" content="BreakWire">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="/author/chen-jian.html">
+	<meta property="og:url" content="/deploy-django-app.html">
+	<meta property="og:title" content="又部署了一遍 Django">
+	<meta property="article:published_time" content="2016-07-29 11:11:59+08:00">
+            <meta property="og:description" content="又部署了一遍 Django">
+
+            <meta property="og:image" content="//images/new-header.jpeg">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">BreakWire</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                            <li><a href="/pages/about-contact.html">About & Contact</a></li>
+                            <li><a href="/pages/project-x.html">Project X</a></li>
+                            <li><a href="/pages/resume.html">Resume</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/images/new-header.jpeg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>又部署了一遍 Django</h1>
+                        <span class="meta">Posted by
+                                <a href="/author/chen-jian.html">Chen Jian</a>
+                             on Fri 29 July 2016
+                        </span>
+                            <span class="meta">Updated on Fri 29 July 2016</span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <h1>Django + Nginx + uwsgi 部署</h1>
+<p>Django -- 1.9.8
+Nginx -- 1.4.6
+uwsgi -- 2.0.13.1</p>
+<p>ubuntu 上要依赖三个东西 python-dev, libxml2-dev, pcre。</p>
+<p>libxml2-dev 是用来解析 uwsgi 的 .xml 脚本的，pcre 是 Perl 的正则表达式解析库，Django 解析 URL 的，python-dev 我也不知道是干什么的</p>
+<p>Nginx 开个 80 端口，uwsgi_pass 传给 8001 这个端口，uwsgi 在通过这里把 Django 跑起来。</p>
+<h3>1. Nginx 配置 <code>/etc/nginx/sites-enabled/yunka_pool_web.conf</code></h3>
+<div class="highlight"><pre><span></span><span class="nt">server</span> <span class="p">{</span>
+       <span class="err">#</span> <span class="n">the</span> <span class="n">port</span> <span class="n">your</span> <span class="n">site</span> <span class="n">will</span> <span class="n">be</span> <span class="n">served</span> <span class="n">on</span>
+       <span class="n">listen</span>      <span class="m">80</span><span class="p">;</span>
+       <span class="err">#</span> <span class="n">the</span> <span class="n">domain</span> <span class="n">name</span> <span class="n">it</span> <span class="n">will</span> <span class="n">serve</span> <span class="n">for</span>
+       <span class="n">server_name</span> <span class="m">163</span><span class="o">.</span><span class="m">44</span><span class="o">.</span><span class="m">151</span><span class="o">.</span><span class="m">44</span><span class="p">;</span> <span class="err">#</span> <span class="n">substitute</span> <span class="n">your</span> <span class="n">machine</span><span class="s1">&#39;s IP address or FQDN</span>
+<span class="s1">       charset     utf-8;</span>
+
+<span class="s1">       # max upload size</span>
+<span class="s1">       client_max_body_size 75M;   # adjust to taste</span>
+
+<span class="s1">       # logs</span>
+<span class="s1">       access_log /home/chen/yunka_pool_web/logs/access.log;</span>
+<span class="s1">       error_log /home/chen/yunka_pool_web/logs/error.log;</span>
+
+<span class="s1">       # Django media</span>
+<span class="s1">       location /media {</span>
+<span class="s1">               alias /home/chen/yunka_pool_web/media; # your Django project&#39;</span><span class="n">s</span> <span class="n">media</span> <span class="n">files</span> <span class="o">-</span> <span class="n">amend</span> <span class="n">as</span> <span class="n">required</span>
+       <span class="p">}</span>
+
+       <span class="nt">location</span> <span class="o">/</span><span class="nt">static</span> <span class="p">{</span>
+           <span class="n">alias</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">chen</span><span class="o">/</span><span class="n">yunka_pool_web</span><span class="o">/</span><span class="nb">static</span><span class="p">;</span> <span class="err">#</span> <span class="n">your</span> <span class="n">Django</span> <span class="n">project</span><span class="err">&#39;</span><span class="n">s</span> <span class="nb">static</span> <span class="n">files</span> <span class="o">-</span> <span class="n">amend</span> <span class="n">as</span> <span class="n">required</span>
+       <span class="p">}</span>
+
+       <span class="err">#</span> <span class="nt">Finally</span><span class="o">,</span> <span class="nt">send</span> <span class="nt">all</span> <span class="nt">non-media</span> <span class="nt">requests</span> <span class="nt">to</span> <span class="nt">the</span> <span class="nt">Django</span> <span class="nt">server</span><span class="o">.</span>
+       <span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
+               <span class="n">uwsgi_pass</span>  <span class="m">163</span><span class="o">.</span><span class="m">44</span><span class="o">.</span><span class="m">151</span><span class="o">.</span><span class="m">44</span><span class="o">:</span><span class="m">8001</span><span class="p">;</span>
+               <span class="n">include</span>    <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">chen</span><span class="o">/</span><span class="n">yunka_pool_web</span><span class="o">/</span><span class="n">uwsgi_params</span><span class="p">;</span> <span class="err">#</span> <span class="n">the</span> <span class="n">uwsgi_params</span> <span class="n">file</span> <span class="n">you</span> <span class="n">installed</span>
+   <span class="p">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h3>2. Django 项目下需要从 Nginx 源码中复制出一份 <code>uwsgi_params</code></h3>
+<div class="highlight"><pre><span></span><span class="x">uwsgi_param  QUERY_STRING       </span><span class="p">$</span><span class="nv">query_string</span><span class="x">;</span>
+<span class="x">uwsgi_param  REQUEST_METHOD     </span><span class="p">$</span><span class="nv">request_method</span><span class="x">;</span>
+<span class="x">uwsgi_param  CONTENT_TYPE       </span><span class="p">$</span><span class="nv">content_type</span><span class="x">;</span>
+<span class="x">uwsgi_param  CONTENT_LENGTH     </span><span class="p">$</span><span class="nv">content_length</span><span class="x">;</span>
+
+<span class="x">uwsgi_param  REQUEST_URI        </span><span class="p">$</span><span class="nv">request_uri</span><span class="x">;</span>
+<span class="x">uwsgi_param  PATH_INFO          </span><span class="p">$</span><span class="nv">document_uri</span><span class="x">;</span>
+<span class="x">uwsgi_param  DOCUMENT_ROOT      </span><span class="p">$</span><span class="nv">document_root</span><span class="x">;</span>
+<span class="x">uwsgi_param  SERVER_PROTOCOL    </span><span class="p">$</span><span class="nv">server_protocol</span><span class="x">;</span>
+<span class="x">uwsgi_param  REQUEST_SCHEME     </span><span class="p">$</span><span class="nv">scheme</span><span class="x">;</span>
+<span class="x">uwsgi_param  HTTPS              </span><span class="p">$</span><span class="nv">https</span><span class="x"> if_not_empty;</span>
+
+<span class="x">uwsgi_param  REMOTE_ADDR        </span><span class="p">$</span><span class="nv">remote_addr</span><span class="x">;</span>
+<span class="x">uwsgi_param  REMOTE_PORT        </span><span class="p">$</span><span class="nv">remote_port</span><span class="x">;</span>
+<span class="x">uwsgi_param  SERVER_PORT        </span><span class="p">$</span><span class="nv">server_port</span><span class="x">;</span>
+<span class="x">uwsgi_param  SERVER_NAME        </span><span class="p">$</span><span class="nv">server_name</span><span class="x">;</span>
+</pre></div>
+
+
+<h3>3. Django 项目下需要一个 <code>yunka_pool_web_wsgi.py</code></h3>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="nb">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">django.core.wsgi</span> <span class="kn">import</span> <span class="n">get_wsgi_application</span>    <span class="c1"># Django 1.7 前是 from django.core.handlers.wsgi import WSGIHandler</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;DJANGO_SETTINGS_MODULE&quot;</span><span class="p">,</span> <span class="s2">&quot;yunka_pool_web.settings&quot;</span><span class="p">)</span>    <span class="c1"># “你的项目.settings”</span>
+<span class="n">application</span> <span class="o">=</span> <span class="n">get_wsgi_application</span><span class="p">()</span>    <span class="c1"># 1.7以前是 application = WSGIHandler()</span>
+</pre></div>
+
+
+<h3>4. uwsgi 启动脚本 <code>yunka_pool_web_socket.xml</code> 放在 Django 项目下</h3>
+<div class="highlight"><pre><span></span><span class="nt">&lt;uwsgi&gt;</span>
+       <span class="nt">&lt;socket&gt;</span>163.44.151.44:8001<span class="nt">&lt;/socket&gt;</span>
+       <span class="nt">&lt;chdir&gt;</span>/home/chen/yunka_pool_web<span class="nt">&lt;/chdir&gt;</span>
+       <span class="nt">&lt;module&gt;</span>yunka_pool_web_wsgi<span class="nt">&lt;/module&gt;</span>
+       <span class="nt">&lt;processes&gt;</span>4<span class="nt">&lt;/processes&gt;</span>
+       <span class="nt">&lt;daemonize&gt;</span>/home/chen/yunka_pool_web/uwsgi.log<span class="nt">&lt;/daemonize&gt;</span>
+<span class="nt">&lt;/uwsgi&gt;</span>
+</pre></div>
+
+
+<p>最后重启 Nginx，启动 uwsgi 的脚本 load Django App</p>
+<div class="highlight"><pre><span></span>sudo nginx -s reload
+uwsgi -x  yunka_pool_web_socket.xml
+</pre></div>
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="/tag/devops.html">devops</a></p>
+        </div>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                            <li>
+                                <a href="https://breakwire.me/feeds/all.atom.xml" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:lsdvincent@gmail.com" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/lsdvincent" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://medium.com/@breakwire" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://vsco.co/lsdvincent/grid/1" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-camera fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/lsdlab" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+<p class="copyright text-muted">
+    Copyright © 2014-2016 - <a href="mailto:lsdvincent@gmail.com" target="_blank">Chen Jian</a> -
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+</p>
+<p class="copyright text-muted" style="margin-top: 0px;">
+    Blog powered by <a href="http://getpelican.com" target="_blank">Pelican</a>, themed with <a href="https://github.com/gilsondev/pelican-clean-blog" target="_blank">Pelican Clean Blog. </a> Take great advantage of <a href="http://python.org" target="_blank">Python</a>.
+</p>                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="/theme/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/theme/js/bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="/theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

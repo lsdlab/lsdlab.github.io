@@ -1,5 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-07-11T22:56:46+08:00</updated><entry><title>博客托管迁移、HTTPS 加持-续</title><link href="/secure-with-https-1.html" rel="alternate"></link><published>2016-07-11T22:56:46+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-07-11:secure-with-https-1.html</id><summary type="html">&lt;p&gt;原来写的 &lt;a href="/secure-with-https.html"&gt;博客托管迁移、HTTPS 加持&lt;/a&gt; 没写全，里面的步骤我也没怎么明白，昨天想在 VPS 上装个 Gogs 代码托管用一下的，结果没折腾成功。虽然没把 Nginx 搞坏，但还是不爽，直接重装系统，静态网站配置起来也很快，配置下系统然后再配置 Nginx 就行了，到 HTTPS 这儿又有问题了，搞了好一会才明白。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-07-29T11:11:59+08:00</updated><entry><title>又部署了一遍 Django</title><link href="/deploy-django-app.html" rel="alternate"></link><published>2016-07-29T11:11:59+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-07-29:deploy-django-app.html</id><summary type="html">&lt;h1&gt;Django + Nginx + uwsgi 部署&lt;/h1&gt;
+&lt;p&gt;Django -- 1.9.8
+Nginx -- 1.4.6
+uwsgi -- 2.0.13.1&lt;/p&gt;
+&lt;p&gt;ubuntu 上要依赖三个东西 python-dev, libxml2-dev, pcre。&lt;/p&gt;
+&lt;p&gt;libxml2-dev 是用来解析 uwsgi 的 .xml 脚本的，pcre 是 Perl 的正则表达式解析库，Django 解析 URL 的，python-dev 我也不知道是干什么的&lt;/p&gt;
+&lt;p&gt;Nginx 开个 80 端口，uwsgi_pass 传给 8001 这个端口，uwsgi 在通过这里把 Django 跑起来。&lt;/p&gt;
+&lt;h3&gt;1. Nginx 配置 &lt;code&gt;/etc/nginx/sites-enabled/yunka_pool_web.conf&lt;/code&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+       &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;site&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;served&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;
+       &lt;span class="n"&gt;listen&lt;/span&gt;      &lt;span class="m"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+       &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;domain&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;serve&lt;/span&gt; &lt;span class="n"&gt;for&lt;/span&gt;
+       &lt;span class="n"&gt;server_name&lt;/span&gt; &lt;span class="m"&gt;163&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;44&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;151&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;44&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;substitute&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s IP address or FQDN&lt;/span&gt;
+&lt;span class="s1"&gt;       charset     utf-8;&lt;/span&gt;
+
+&lt;span class="s1"&gt;       # max upload size&lt;/span&gt;
+&lt;span class="s1"&gt;       client_max_body_size 75M;   # adjust to taste&lt;/span&gt;
+
+&lt;span class="s1"&gt;       # logs&lt;/span&gt;
+&lt;span class="s1"&gt;       access_log /home/chen/yunka_pool_web/logs/access.log;&lt;/span&gt;
+&lt;span class="s1"&gt;       error_log /home/chen/yunka_pool_web/logs/error.log;&lt;/span&gt;
+
+&lt;span class="s1"&gt;       # Django media&lt;/span&gt;
+&lt;span class="s1"&gt;       location /media {&lt;/span&gt;
+&lt;span class="s1"&gt;               alias /home/chen/yunka_pool_web/media; # your Django project&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;media&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;amend&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;required&lt;/span&gt;
+       &lt;span class="p"&gt;}&lt;/span&gt;
+
+       &lt;span class="nt"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;static&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+           &lt;span class="n"&gt;alias&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;chen&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;yunka_pool_web&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;static&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;Django&lt;/span&gt; &lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="nb"&gt;static&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;amend&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;required&lt;/span&gt;
+       &lt;span class="p"&gt;}&lt;/span&gt;
+
+       &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nt"&gt;Finally&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;send&lt;/span&gt; &lt;span class="nt"&gt;all&lt;/span&gt; &lt;span class="nt"&gt;non-media&lt;/span&gt; &lt;span class="nt"&gt;requests&lt;/span&gt; &lt;span class="nt"&gt;to&lt;/span&gt; &lt;span class="nt"&gt;the&lt;/span&gt; &lt;span class="nt"&gt;Django&lt;/span&gt; &lt;span class="nt"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+       &lt;span class="nt"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+               &lt;span class="n"&gt;uwsgi_pass&lt;/span&gt;  &lt;span class="m"&gt;163&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;44&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;151&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;44&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;8001&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+               &lt;span class="n"&gt;include&lt;/span&gt;    &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;chen&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;yunka_pool_web&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;uwsgi_params&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;uwsgi_params&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;installed&lt;/span&gt;
+   &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2. Django 项目下需要从 Nginx 源码中复制出一份 &lt;code&gt;uwsgi_params&lt;/code&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;uwsgi_param  QUERY_STRING       &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;query_string&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+&lt;span class="x"&gt;uwsgi_param  REQUEST_METHOD     &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;request_method&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+&lt;span class="x"&gt;uwsgi_param  CONTENT_TYPE       &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;content_type&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+&lt;span class="x"&gt;uwsgi_param  CONTENT_LENGTH     &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;content_length&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+
+&lt;span class="x"&gt;uwsgi_param  REQUEST_URI        &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;request_uri&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+&lt;span class="x"&gt;uwsgi_param  PATH_INFO          &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;document_uri&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+&lt;span class="x"&gt;uwsgi_param  DOCUMENT_ROOT      &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;document_root&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+&lt;span class="x"&gt;uwsgi_param  SERVER_PROTOCOL    &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;server_protocol&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+&lt;span class="x"&gt;uwsgi_param  REQUEST_SCHEME     &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;scheme&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+&lt;span class="x"&gt;uwsgi_param  HTTPS              &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;https&lt;/span&gt;&lt;span class="x"&gt; if_not_empty;&lt;/span&gt;
+
+&lt;span class="x"&gt;uwsgi_param  REMOTE_ADDR        &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;remote_addr&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+&lt;span class="x"&gt;uwsgi_param  REMOTE_PORT        &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;remote_port&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+&lt;span class="x"&gt;uwsgi_param  SERVER_PORT        &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;server_port&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+&lt;span class="x"&gt;uwsgi_param  SERVER_NAME        &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;server_name&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;3. Django 项目下需要一个 &lt;code&gt;yunka_pool_web_wsgi.py&lt;/code&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+
+&lt;span class="nb"&gt;reload&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setdefaultencoding&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;utf8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.core.wsgi&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_wsgi_application&lt;/span&gt;    &lt;span class="c1"&gt;# Django 1.7 前是 from django.core.handlers.wsgi import WSGIHandler&lt;/span&gt;
+
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setdefault&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;DJANGO_SETTINGS_MODULE&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;yunka_pool_web.settings&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;    &lt;span class="c1"&gt;# “你的项目.settings”&lt;/span&gt;
+&lt;span class="n"&gt;application&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_wsgi_application&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;    &lt;span class="c1"&gt;# 1.7以前是 application = WSGIHandler()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;4. uwsgi 启动脚本 &lt;code&gt;yunka_pool_web_socket.xml&lt;/code&gt; 放在 Django 项目下&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;uwsgi&amp;gt;&lt;/span&gt;
+       &lt;span class="nt"&gt;&amp;lt;socket&amp;gt;&lt;/span&gt;163.44.151.44:8001&lt;span class="nt"&gt;&amp;lt;/socket&amp;gt;&lt;/span&gt;
+       &lt;span class="nt"&gt;&amp;lt;chdir&amp;gt;&lt;/span&gt;/home/chen/yunka_pool_web&lt;span class="nt"&gt;&amp;lt;/chdir&amp;gt;&lt;/span&gt;
+       &lt;span class="nt"&gt;&amp;lt;module&amp;gt;&lt;/span&gt;yunka_pool_web_wsgi&lt;span class="nt"&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
+       &lt;span class="nt"&gt;&amp;lt;processes&amp;gt;&lt;/span&gt;4&lt;span class="nt"&gt;&amp;lt;/processes&amp;gt;&lt;/span&gt;
+       &lt;span class="nt"&gt;&amp;lt;daemonize&amp;gt;&lt;/span&gt;/home/chen/yunka_pool_web/uwsgi.log&lt;span class="nt"&gt;&amp;lt;/daemonize&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/uwsgi&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最后重启 Nginx，启动 uwsgi 的脚本 load Django App&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo nginx -s reload
+uwsgi -x  yunka_pool_web_socket.xml
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="devops"></category></entry><entry><title>博客托管迁移、HTTPS 加持-续</title><link href="/secure-with-https-1.html" rel="alternate"></link><published>2016-07-11T22:56:46+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-07-11:secure-with-https-1.html</id><summary type="html">&lt;p&gt;原来写的 &lt;a href="/secure-with-https.html"&gt;博客托管迁移、HTTPS 加持&lt;/a&gt; 没写全，里面的步骤我也没怎么明白，昨天想在 VPS 上装个 Gogs 代码托管用一下的，结果没折腾成功。虽然没把 Nginx 搞坏，但还是不爽，直接重装系统，静态网站配置起来也很快，配置下系统然后再配置 Nginx 就行了，到 HTTPS 这儿又有问题了，搞了好一会才明白。&lt;/p&gt;
 &lt;h2&gt;Let’s Encrypt 配置&lt;/h2&gt;
 &lt;p&gt;先按照小众软件的 &lt;a href="http://www.appinn.com/use-letsencrypt-with-nginx/"&gt;在 Nginx 上使用 Let’s Encrypt 加密(HTTPS)你的网站[简明教程]&lt;/a&gt;，先直接把网站的 HTTPS 跑起来。&lt;/p&gt;
 &lt;p&gt;不过运行 Let’s Encrypt 的命令应该是：&lt;/p&gt;
@@ -2530,7 +2620,7 @@ pip install uwsgi
 &lt;span class="nt"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
        &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;site&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;served&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;
        &lt;span class="n"&gt;listen&lt;/span&gt;      &lt;span class="m"&gt;8000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;domain&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;serve&lt;/span&gt; &lt;span class="n"&gt;for&lt;/span&gt;
+       &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;domain&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;serve&lt;/span&gt; &lt;span class="n"&gt;for&lt;/span&gt;
        &lt;span class="n"&gt;server_name&lt;/span&gt; &lt;span class="n"&gt;XXX&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;XXX&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;XXX&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;XXX&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;substitute&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s IP address or FQDN&lt;/span&gt;
 &lt;span class="s1"&gt;       charset     utf-8;&lt;/span&gt;
 
