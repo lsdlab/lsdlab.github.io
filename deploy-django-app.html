@@ -105,10 +105,12 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <!-- Post Content -->
     <article>
-        <h1>Django + Nginx + uwsgi 部署</h1>
-<p>Django -- 1.9.8
-Nginx -- 1.4.6
-uwsgi -- 2.0.13.1</p>
+        <ul>
+<li>Ubuntu -- 14.04</li>
+<li>Django -- 1.9.8</li>
+<li>Nginx -- 1.4.6</li>
+<li>uwsgi -- 2.0.13.1</li>
+</ul>
 <p>ubuntu 上要依赖三个东西 python-dev, libxml2-dev, pcre。</p>
 <p>libxml2-dev 是用来解析 uwsgi 的 .xml 脚本的，pcre 是 Perl 的正则表达式解析库，Django 解析 URL 的，python-dev 我也不知道是干什么的</p>
 <p>Nginx 开个 80 端口，uwsgi_pass 传给 8001 这个端口，uwsgi 在通过这里把 Django 跑起来。</p>
