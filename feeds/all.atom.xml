@@ -2491,7 +2491,9 @@ location /static {
 &lt;p&gt;{% endraw %}&lt;/p&gt;
 &lt;p&gt;最开始已经把每篇文章通过 &lt;code&gt;for&lt;/code&gt; 循环放在 &lt;code&gt;post&lt;/code&gt; 里面了，想读单独一篇的文章的标签就再用 &lt;code&gt;for&lt;/code&gt; 循环 &lt;code&gt;for tag in post.tag.all&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;还是要多看文档……&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>Two posters i made</title><link href="/tow-posters-i-made.html" rel="alternate"></link><published>2015-04-30T10:27:08+08:00</published><author><name>Chen Jian</name></author><id>tag:,2015-04-30:tow-posters-i-made.html</id><summary type="html">&lt;p&gt;两张海报，我拍的照片，用 iOS 上一个叫 Posters 的 App 做的。&lt;/p&gt;
+&lt;p&gt;Live what you love.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="poster1" src="http://o81quvr4u.bkt.clouddn.com/poster1.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;It does not matter how slowly you go, as long as you do not stop.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="poster2" src="http://o81quvr4u.bkt.clouddn.com/poster2.jpg" /&gt;&lt;/p&gt;</summary><category term="design"></category><category term="poster"></category></entry><entry><title>Django Blog Frontend Reframe</title><link href="/django-blog-frontend-reframe.html" rel="alternate"></link><published>2015-04-19T10:19:48+08:00</published><author><name>Chen Jian</name></author><id>tag:,2015-04-19:django-blog-frontend-reframe.html</id><summary type="html">&lt;p&gt;重构了前端界面，用的 &lt;a href="http://designmodo.github.io/Flat-UI/"&gt;Flat-UI&lt;/a&gt;，好看多了，效果见图，还要吧右边的 sidebar 提上来，提到和 NO MAN'S LAND 标题一个高度，那就正好一屏显示联系方式和下面的几个连接。效果见图：&lt;/p&gt;
 &lt;p&gt;&lt;img alt="django-blog" src="http://o81quvr4u.bkt.clouddn.com/django-blog.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;2015-6-9&lt;/h3&gt;
