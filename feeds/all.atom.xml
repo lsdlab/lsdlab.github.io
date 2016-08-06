@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-07-29T11:11:59+08:00</updated><entry><title>又部署了一遍 Django</title><link href="/deploy-django-app.html" rel="alternate"></link><published>2016-07-29T11:11:59+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-07-29:deploy-django-app.html</id><summary type="html">&lt;ul&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-08-06T15:37:47+08:00</updated><entry><title>正式开个新坑</title><link href="/spending-vis-development-log-0.html" rel="alternate"></link><published>2016-08-06T15:37:47+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-08-06:spending-vis-development-log-0.html</id><summary type="html">&lt;p&gt;之前有几个 side project idea 都因为水平有限，做个雏形就放那儿不做了，后来想想也挺烂的，还好没做。现在终于有一个我觉得不错的点子，我也每天都会在手机上用到的，嫌现有的都不能满足自己需求。&lt;/p&gt;
+&lt;p&gt;手机上的记账 App 实在太多，我也用了不少，最早从用 Sony Xpreria S 的时候用的随手记，用到最后也嫌麻烦了，太难看，两年多的数据也没留下来，可惜了。后来换上 iPhone，开始用 Next for iPhone，就是功能太弱，只能用图表分类，记录个金额和备注，有些统计和图表。&lt;/p&gt;
+&lt;p&gt;具体要做什么就不多写了，简单说就是一个满足我的需求的记账 App。后端自己做，桌面 Web 端做些数据可视化，iOS App 也需要做，简单能用就行，重点放在后端的数据分析上，也学学统计学，希望这三大块都能在明年年前出一个第一版。&lt;/p&gt;
+&lt;h3&gt;2016/07/26&lt;/h3&gt;
+&lt;p&gt;用 datatables 的表格基本完成了。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="表格" src="https://cl.ly/2106201F2Y0T/Screen%20Shot%202016-08-06%20at%2020.16.51.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;2016/08/6&lt;/h3&gt;
+&lt;p&gt;以年、月为单位的统计条形图和折线图基本完成了。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="年" src="https://cl.ly/432l2z3c3U35/Screen%20Shot%202016-08-06%20at%2020.17.09.png" /&gt;
+&lt;img alt="月" src="https://cl.ly/2E21112v2U2n/Screen%20Shot%202016-08-06%20at%2020.17.18.png" /&gt;&lt;/p&gt;</summary><category term="spending-vis"></category><category term="dev-log"></category></entry><entry><title>又部署了一遍 Django</title><link href="/deploy-django-app.html" rel="alternate"></link><published>2016-07-29T11:11:59+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-07-29:deploy-django-app.html</id><summary type="html">&lt;ul&gt;
 &lt;li&gt;Ubuntu -- 14.04&lt;/li&gt;
 &lt;li&gt;Django -- 1.9.8&lt;/li&gt;
 &lt;li&gt;Nginx -- 1.4.6&lt;/li&gt;
