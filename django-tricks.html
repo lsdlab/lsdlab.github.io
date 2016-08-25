@@ -130,13 +130,11 @@
 
 
 <p><code>STATIC_URL</code> 是用来在模板里面载入静态的媒体文件，图片，音频，视频，用法如下：</p>
-<p>{% raw %}</p>
 <div class="highlight"><pre><span></span>{% load staticfiles %}
 <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{% static &quot;</span><span class="na">my_app</span><span class="err">/</span><span class="na">myexample</span><span class="err">.</span><span class="na">jpg</span><span class="err">&quot;</span> <span class="err">%}&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;My image&quot;</span><span class="p">/&gt;</span>
 </pre></div>
 
 
-<p>{% endraw %}</p>
 <p>这个地方还是把图片文件放在了项目下的 <code>static</code> 文件夹，每个 App 单独一个文件夹。</p>
 <div class="highlight"><pre><span></span><span class="c">&lt;!-- loading Bootstrap core CSS --&gt;</span>
 <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ STATIC_URL }}css/bootstrap.min.css&quot;</span><span class="p">&gt;</span>
