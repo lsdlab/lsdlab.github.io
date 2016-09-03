@@ -1,5 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-08-06T15:37:47+08:00</updated><entry><title>正式开个新坑</title><link href="/spending-vis-development-log-0.html" rel="alternate"></link><published>2016-08-06T15:37:47+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-08-06:spending-vis-development-log-0.html</id><summary type="html">&lt;p&gt;之前有几个 side project idea 都因为水平有限，做个雏形就放那儿不做了，后来想想也挺烂的，还好没做。现在终于有一个我觉得不错的点子，我也每天都会在手机上用到的，嫌现有的都不能满足自己需求。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-09-03T13:41:36+08:00</updated><entry><title>PostgreSQL 命令笔记</title><link href="/postgresql-notes.html" rel="alternate"></link><published>2016-09-03T13:41:36+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-09-03:postgresql-notes.html</id><summary type="html">&lt;h2&gt;本地&lt;/h2&gt;
+&lt;p&gt;PostgreSQL 光要让它跑起来就挺麻烦的，Mac 上很方便，就 &lt;code&gt;brew install postgresql&lt;/code&gt;，然后 &lt;code&gt;initdb /usr/local/var/postgres -E utf8&lt;/code&gt; 初始化数据库。&lt;/p&gt;
+&lt;p&gt;我在 &lt;code&gt;~/.zshrc&lt;/code&gt; 里面设置了两个 alias 快速启动停止：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;alias pgstart=&amp;quot;pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start&amp;quot;
+alias pgstop=&amp;quot;pg_ctl -D /usr/local/var/postgres stop -s -m fast&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;还有个非常好用的命令行工具 &lt;a href="https://github.com/dbcli/pgcli/"&gt;pgcli&lt;/a&gt;，有自动补全命令功能。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;brew services&lt;/code&gt; 也能设置开机启动和手动启动停止。&lt;/p&gt;
+&lt;p&gt;Mac 上有个坑就是 PostgreSQL 版本不同需要迁移数据，这个好解决，随便 Google 下就行了。&lt;/p&gt;
+&lt;h2&gt;VPS&lt;/h2&gt;
+&lt;h3&gt;安装 创建用户 密码&lt;/h3&gt;
+&lt;p&gt;debian 的 VPS 上直接 &lt;code&gt;sudo apt-get install postgresql&lt;/code&gt; 就行了，我也不知道为什么刚开始我这么装了之后，安装成功，但是根本没启动起来，最后也不知道怎么搞的就又好了。&lt;/p&gt;
+&lt;p&gt;安装好了之后切到 Linux 的 postgres 用户下，创建一个新用户，设置密码&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo su postgres
+createuser --interactive
+    chen
+    y
+
+psql
+\password chen
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;启动 停止 重启&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/etc/init.d/postgresql start
+/etc/init.d/postgresql stop
+/etc/init.d/postgresql restart
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;远程连接&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo vi /etc/postgres/9.5/main/postgresql.conf
+     listen_addresses = &amp;#39;localhost&amp;#39; # 改成
+     listen_addresses = &amp;#39;*&amp;#39;
+
+sudo vi /etc/postgres/9.5/main/pg_hba.conf
+     host all all 127.0.0.1/32 md5 # 下面加一行
+     host all all 0.0.0.0/0 md5
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后重启一下就能远程连接了。&lt;/p&gt;
+&lt;h2&gt;创建数据库、表 连接 导出 导入&lt;/h2&gt;
+&lt;h3&gt;创建数据库&lt;/h3&gt;
+&lt;p&gt;前面已经建了 &lt;code&gt;chen&lt;/code&gt; 这个用户，直接在这个用户的 shell 下面新建或者删除数据库：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;createdb spending-vis
+dropdb spending-vis
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;或者在 pgcli 里面操作，直接在 shell 里面输入 &lt;code&gt;pgcli&lt;/code&gt; 会默认用当前 Linux 的用户名，作为用户名和数据库名称去连接，所以在前面新建用户的时候就要在 &lt;code&gt;postgres&lt;/code&gt; 用户下把 &lt;code&gt;chen&lt;/code&gt; 这个数据库也创建好。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;create database &amp;quot;spending-vis&amp;quot;
+drop database &amp;quot;spending-vis&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;命令都有自动补全，很方便。&lt;/p&gt;
+&lt;h3&gt;创建表&lt;/h3&gt;
+&lt;p&gt;创建一个 entry 表，id 字增主键：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;CREATE&lt;/span&gt; &lt;span class="k"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="nb"&gt;serial&lt;/span&gt; &lt;span class="k"&gt;PRIMARY&lt;/span&gt; &lt;span class="k"&gt;Key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;categoryid&lt;/span&gt; &lt;span class="nb"&gt;INTEGER&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;date&lt;/span&gt; &lt;span class="nb"&gt;DATE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;year&lt;/span&gt; &lt;span class="nb"&gt;INTEGER&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;month&lt;/span&gt; &lt;span class="nb"&gt;INTEGER&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;day&lt;/span&gt; &lt;span class="nb"&gt;INTEGER&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;amount&lt;/span&gt; &lt;span class="nb"&gt;INTEGER&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;note&lt;/span&gt; &lt;span class="nb"&gt;VARCHAR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;连接&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;psql
+psql -U Chen -d Chen
+psql -U Chen -d spending-vis
+
+pgcli
+pgcli -U Chen -d Chen
+pgcli -U Chen -d spending-vis
+
+pgcli -h 127.0.0.1 -U chen -W -d spending-vis
+    password:
+\l
+\du
+\dt
+\d entry
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;导出 导入&lt;/h3&gt;
+&lt;p&gt;导出：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pg_dump -f spending-vis-postgresql.sql spending-vis
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;导入：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;psql -d spending-vis -f export-postgresql/spending-vis-postgresql.sql
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;本地机器导出之后要导入到 VPS 上，本地用户名为 &lt;code&gt;Chen&lt;/code&gt;，VPS 上是 &lt;code&gt;chen&lt;/code&gt;，要在 &lt;code&gt;.sql&lt;/code&gt; 里面改一下，VPS 要先建好数据库，然后导入。
+还有个坑就是导入的语句，数据库里面有个字段是能够为空的，导入的时候就报错了，没办法，我只能把那个字段写成了 &lt;code&gt;无备注&lt;/code&gt;，然后就能导入了。&lt;/p&gt;
+&lt;h2&gt;postgrest&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/begriffs/postgrest"&gt;postgrest&lt;/a&gt; 这个工具挺好，把现有的 PostgreSQL 数据库直接变成一个 RESTful API。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./postgrest postgres://user:password@localhost:5432/spending-vis \
+          --port 3000 \
+          --schema public \
+          --anonymous postgres \
+          --pool 200
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;直接就能 GET 获得 JSON&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;http://localhost:3000/entry
+http://localhost:3000/entry?date=eq.2014-06-01
+http://localhost:3000/entry?year=eq.2014&amp;amp;month=eq.6
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="devops"></category></entry><entry><title>正式开个新坑</title><link href="/spending-vis-development-log-0.html" rel="alternate"></link><published>2016-08-06T15:37:47+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-08-06:spending-vis-development-log-0.html</id><summary type="html">&lt;p&gt;之前有几个 side project idea 都因为水平有限，做个雏形就放那儿不做了，后来想想也挺烂的，还好没做。现在终于有一个我觉得不错的点子，我也每天都会在手机上用到的，嫌现有的都不能满足自己需求。&lt;/p&gt;
 &lt;p&gt;手机上的记账 App 实在太多，我也用了不少，最早从用 Sony Xpreria S 的时候用的随手记，用到最后也嫌麻烦了，太难看，两年多的数据也没留下来，可惜了。后来换上 iPhone，开始用 Next for iPhone，就是功能太弱，只能用图表分类，记录个金额和备注，有些统计和图表。&lt;/p&gt;
 &lt;p&gt;具体要做什么就不多写了，简单说就是一个满足我的需求的记账 App。后端自己做，桌面 Web 端做些数据可视化，iOS App 也需要做，简单能用就行，重点放在后端的数据分析上，也学学统计学，希望这三大块都能在明年年前出一个第一版。&lt;/p&gt;
 &lt;h3&gt;2016/07/26&lt;/h3&gt;
