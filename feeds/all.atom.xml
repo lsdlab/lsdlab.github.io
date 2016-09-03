@@ -114,11 +114,11 @@ http://localhost:3000/entry?year=eq.2014&amp;amp;month=eq.6
 &lt;p&gt;具体要做什么就不多写了，简单说就是一个满足我的需求的记账 App。后端自己做，桌面 Web 端做些数据可视化，iOS App 也需要做，简单能用就行，重点放在后端的数据分析上，也学学统计学，希望这三大块都能在明年年前出一个第一版。&lt;/p&gt;
 &lt;h3&gt;2016/07/26&lt;/h3&gt;
 &lt;p&gt;用 datatables 的表格基本完成了。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="表格" src="https://cl.ly/2106201F2Y0T/Screen%20Shot%202016-08-06%20at%2020.16.51.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="表格" src="/images/tables.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;2016/08/6&lt;/h3&gt;
 &lt;p&gt;以年、月为单位的统计条形图和折线图基本完成了。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="年" src="https://cl.ly/432l2z3c3U35/Screen%20Shot%202016-08-06%20at%2020.17.09.png" /&gt;
-&lt;img alt="月" src="https://cl.ly/2E21112v2U2n/Screen%20Shot%202016-08-06%20at%2020.17.18.png" /&gt;&lt;/p&gt;</summary><category term="spending-vis"></category><category term="dev-log"></category></entry><entry><title>又部署了一遍 Django</title><link href="/deploy-django-app.html" rel="alternate"></link><published>2016-07-29T11:11:59+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-07-29:deploy-django-app.html</id><summary type="html">&lt;ul&gt;
+&lt;p&gt;&lt;img alt="年" src="/images/chart-year" /&gt;
+&lt;img alt="月" src="/images/chart-month" /&gt;&lt;/p&gt;</summary><category term="spending-vis"></category><category term="dev-log"></category></entry><entry><title>又部署了一遍 Django</title><link href="/deploy-django-app.html" rel="alternate"></link><published>2016-07-29T11:11:59+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-07-29:deploy-django-app.html</id><summary type="html">&lt;ul&gt;
 &lt;li&gt;Ubuntu -- 14.04&lt;/li&gt;
 &lt;li&gt;Django -- 1.9.8&lt;/li&gt;
 &lt;li&gt;Nginx -- 1.4.6&lt;/li&gt;
