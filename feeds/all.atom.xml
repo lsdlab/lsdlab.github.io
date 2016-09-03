@@ -117,8 +117,8 @@ http://localhost:3000/entry?year=eq.2014&amp;amp;month=eq.6
 &lt;p&gt;&lt;img alt="表格" src="/images/tables.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;2016/08/6&lt;/h3&gt;
 &lt;p&gt;以年、月为单位的统计条形图和折线图基本完成了。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="年" src="/images/chart-year" /&gt;
-&lt;img alt="月" src="/images/chart-month" /&gt;&lt;/p&gt;</summary><category term="spending-vis"></category><category term="dev-log"></category></entry><entry><title>又部署了一遍 Django</title><link href="/deploy-django-app.html" rel="alternate"></link><published>2016-07-29T11:11:59+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-07-29:deploy-django-app.html</id><summary type="html">&lt;ul&gt;
+&lt;p&gt;&lt;img alt="年" src="/images/chart-year.png" /&gt;
+&lt;img alt="月" src="/images/chart-month.png" /&gt;&lt;/p&gt;</summary><category term="spending-vis"></category><category term="dev-log"></category></entry><entry><title>又部署了一遍 Django</title><link href="/deploy-django-app.html" rel="alternate"></link><published>2016-07-29T11:11:59+08:00</published><author><name>Chen Jian</name></author><id>tag:,2016-07-29:deploy-django-app.html</id><summary type="html">&lt;ul&gt;
 &lt;li&gt;Ubuntu -- 14.04&lt;/li&gt;
 &lt;li&gt;Django -- 1.9.8&lt;/li&gt;
 &lt;li&gt;Nginx -- 1.4.6&lt;/li&gt;
