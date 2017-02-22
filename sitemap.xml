@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2017-02-22T14:36:44-00:00</lastmod>
+<lastmod>2017-02-22T14:40:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2017-02-22T14:36:44-00:00</lastmod>
+<lastmod>2017-02-22T14:40:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2017-02-22T14:36:44-00:00</lastmod>
+<lastmod>2017-02-22T14:40:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2017-02-22T14:36:44-00:00</lastmod>
+<lastmod>2017-02-22T14:40:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -62,245 +62,245 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://breakwire.me/the-desicion-about-starting-gap.html</loc>
 <lastmod>2017-02-15T22:39:25+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/spengdingviz1.0.html</loc>
 <lastmod>2016-11-25T20:53:32+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/book-review-pre-announce.html</loc>
 <lastmod>2016-10-25T23:34:46+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/postgresql-note.html</loc>
 <lastmod>2016-09-03T13:41:36+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/spending-vis-development-log-0.html</loc>
 <lastmod>2016-08-06T15:37:47+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/deploy-django-app.html</loc>
 <lastmod>2016-07-29T11:11:59+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/secure-with-https-1.html</loc>
 <lastmod>2016-07-11T22:56:46+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/the-desicion-about-leaving-nanjing.html</loc>
 <lastmod>2016-07-04T22:42:43+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/secure-with-https.html</loc>
 <lastmod>2016-06-21T23:19:19+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/i-am-done-here.html</loc>
 <lastmod>2016-06-08T17:17:50+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/screw-you-i-am-going-home.html</loc>
 <lastmod>2016-06-02T23:20:14+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/move-to-pelican.html</loc>
 <lastmod>2016-03-27T13:15:36+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/over-thinking.html</loc>
 <lastmod>2016-01-14T23:02:31+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/2015.html</loc>
 <lastmod>2015-12-31T10:21:39+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/javascript-development-in-module.html</loc>
 <lastmod>2015-11-19T00:50:23+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/python-types-and-methods.html</loc>
 <lastmod>2015-08-25T13:47:21+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/django-tricks.html</loc>
 <lastmod>2015-07-14T15:14:14+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/reformat-code-like-a-pythonista-idiomatic-python.html</loc>
 <lastmod>2015-07-07T14:48:37+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/linux-101-hacks-notes.html</loc>
 <lastmod>2015-07-05T14:02:10+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/translate-why-programming-is-difficult.html</loc>
 <lastmod>2015-06-28T04:06:42+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/django-one-to-one-relationships.html</loc>
 <lastmod>2015-06-16T00:01:39+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/django-many-to-one-relationships.html</loc>
 <lastmod>2015-06-13T14:28:08+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/stay-tuned-with-github-and-open-source.html</loc>
 <lastmod>2015-06-12T18:38:15+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/simple-optimize-with-nginx-zip-and-cache.html</loc>
 <lastmod>2015-06-06T16:46:54+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/django-many-to-many-relationships.html</loc>
 <lastmod>2015-05-25T01:12:07+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/django-many-to-many.html</loc>
 <lastmod>2015-05-19T21:47:57+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tow-posters-i-made.html</loc>
 <lastmod>2015-04-30T10:27:08+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/django-blog-frontend-reframe.html</loc>
 <lastmod>2015-04-19T10:19:48+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/django-blog-deploy-online.html</loc>
 <lastmod>2015-03-26T20:45:15+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/configuration-for-python-development-in-a-debian-server.html</loc>
 <lastmod>2015-03-19T11:41:11+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/about-deploy-django-web-app-something-i-missed.html</loc>
 <lastmod>2015-03-17T15:57:00+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/add-two-new-features-for-octopress.html</loc>
 <lastmod>2015-03-16T15:51:49+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/deploy-django-web-app-with-uwsgi-and-nginx.html</loc>
 <lastmod>2015-02-08T20:04:12+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/octopress-configuration.html</loc>
 <lastmod>2014-11-20T18:54:53+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/octopress-install.html</loc>
 <lastmod>2014-09-23T10:03:54+08:00</lastmod>
-<changefreq>monthly</changefreq>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
