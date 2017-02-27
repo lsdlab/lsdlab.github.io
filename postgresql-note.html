@@ -100,8 +100,8 @@
         <h2>本地</h2>
 <p>PostgreSQL 光要让它跑起来就挺麻烦的，Mac 上很方便，就 <code>brew install postgresql</code>，然后 <code>initdb /usr/local/var/postgres -E utf8</code> 初始化数据库。</p>
 <p>我在 <code>~/.zshrc</code> 里面设置了两个 alias 快速启动停止：</p>
-<div class="highlight"><pre><span></span>alias pgstart=&quot;pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start&quot;
-alias pgstop=&quot;pg_ctl -D /usr/local/var/postgres stop -s -m fast&quot;
+<div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">pgstart</span><span class="o">=</span><span class="s2">&quot;pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start&quot;</span>
+<span class="nb">alias</span> <span class="nv">pgstop</span><span class="o">=</span><span class="s2">&quot;pg_ctl -D /usr/local/var/postgres stop -s -m fast&quot;</span>
 </pre></div>
 
 
@@ -118,7 +118,7 @@ createuser --interactive
     y
 
 psql
-\password chen
+<span class="se">\p</span>assword chen
 </pre></div>
 
 
@@ -131,12 +131,12 @@ psql
 
 <h3>远程连接</h3>
 <div class="highlight"><pre><span></span>sudo vi /etc/postgres/9.5/main/postgresql.conf
-     listen_addresses = &#39;localhost&#39; # 改成
-     listen_addresses = &#39;*&#39;
+     <span class="nv">listen_addresses</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span> <span class="c1"># 改成</span>
+     <span class="nv">listen_addresses</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
 
 sudo vi /etc/postgres/9.5/main/pg_hba.conf
-     host all all 127.0.0.1/32 md5 # 下面加一行
-     host all all 0.0.0.0/0 md5
+     host all all <span class="m">127</span>.0.0.1/32 md5 <span class="c1"># 下面加一行</span>
+     host all all <span class="m">0</span>.0.0.0/0 md5
 </pre></div>
 
 
@@ -150,8 +150,8 @@ dropdb spending-vis
 
 
 <p>或者在 pgcli 里面操作，直接在 shell 里面输入 <code>pgcli</code> 会默认用当前 Linux 的用户名，作为用户名和数据库名称去连接，所以在前面新建用户的时候就要在 <code>postgres</code> 用户下把 <code>chen</code> 这个数据库也创建好。</p>
-<div class="highlight"><pre><span></span>create database &quot;spending-vis&quot;
-drop database &quot;spending-vis&quot;
+<div class="highlight"><pre><span></span>create database <span class="s2">&quot;spending-vis&quot;</span>
+drop database <span class="s2">&quot;spending-vis&quot;</span>
 </pre></div>
 
 
@@ -171,12 +171,12 @@ pgcli
 pgcli -U Chen -d Chen
 pgcli -U Chen -d spending-vis
 
-pgcli -h 127.0.0.1 -U chen -W -d spending-vis
+pgcli -h <span class="m">127</span>.0.0.1 -U chen -W -d spending-vis
     password:
-\l
-\du
-\dt
-\d entry
+<span class="se">\l</span>
+<span class="se">\d</span>u
+<span class="se">\d</span>t
+<span class="se">\d</span> entry
 </pre></div>
 
 
@@ -195,18 +195,18 @@ pgcli -h 127.0.0.1 -U chen -W -d spending-vis
 还有个坑就是导入的语句，数据库里面有个字段是能够为空的，导入的时候就报错了，没办法，我只能把那个字段写成了 <code>无备注</code>，然后就能导入了。</p>
 <h2>postgrest</h2>
 <p><a href="https://github.com/begriffs/postgrest">postgrest</a> 这个工具挺好，把现有的 PostgreSQL 数据库直接变成一个 RESTful API。</p>
-<div class="highlight"><pre><span></span>./postgrest postgres://user:password@localhost:5432/spending-vis \
-          --port 3000 \
-          --schema public \
-          --anonymous postgres \
-          --pool 200
+<div class="highlight"><pre><span></span>./postgrest postgres://user:password@localhost:5432/spending-vis <span class="se">\</span>
+          --port <span class="m">3000</span> <span class="se">\</span>
+          --schema public <span class="se">\</span>
+          --anonymous postgres <span class="se">\</span>
+          --pool <span class="m">200</span>
 </pre></div>
 
 
 <p>直接就能 GET 获得 JSON</p>
 <div class="highlight"><pre><span></span>http://localhost:3000/entry
-http://localhost:3000/entry?date=eq.2014-06-01
-http://localhost:3000/entry?year=eq.2014&amp;month=eq.6
+http://localhost:3000/entry?date<span class="o">=</span>eq.2014-06-01
+http://localhost:3000/entry?year<span class="o">=</span>eq.2014<span class="p">&amp;</span><span class="nv">month</span><span class="o">=</span>eq.6
 </pre></div>
     </article>
 

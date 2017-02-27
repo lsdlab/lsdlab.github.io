@@ -299,7 +299,7 @@
 <h2>长代码行 &amp; 续行</h2>
 <p>保持每行长度不超过80字符。</p>
 <p>在括号/方括号/大括号里使用隐式续行:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">,</span>
             <span class="n">fourth</span><span class="p">,</span> <span class="n">fifth</span><span class="p">,</span> <span class="n">sixth</span><span class="p">):</span>
 <span class="n">output</span> <span class="o">=</span> <span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span> <span class="o">+</span> <span class="n">third</span>
          <span class="o">+</span> <span class="n">fourth</span> <span class="o">+</span> <span class="n">fifth</span> <span class="o">+</span> <span class="n">sixth</span><span class="p">)</span>
@@ -321,7 +321,7 @@
 
 
 <p>文本之间的空格不是必需的，但加空格可以提高可读性。 任何形式的引号都可以使用:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;t&#39;</span> <span class="s1">r&#39;\/\/&#39;</span> <span class="s2">&quot;&quot;&quot;o&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;t&#39;</span> <span class="sa">r</span><span class="s1">&#39;\/\/&#39;</span> <span class="s2">&quot;&quot;&quot;o&quot;&quot;&quot;</span>
 <span class="n">t</span>\<span class="o">/</span>\<span class="o">/</span>
 </pre></div>
 
@@ -824,10 +824,10 @@
 <p>想要控制一个用户定义类实例的真值，使用特殊方法 <code>__nonzero__</code> 或 <code>__len__</code> 。如果你的类是一个有长度的容器:</p>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyContainer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
 
-    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot;Return my length.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
@@ -836,10 +836,10 @@
 <p>如果你的类不是一个容器，使用 <code>__nonzero__</code>:</p>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
 
-    <span class="k">def</span> <span class="nf">__nonzero__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__nonzero__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return my truth value (True or False).&quot;&quot;&quot;</span>
         <span class="c1"># This could be arbitrarily complex:</span>
         <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
@@ -847,7 +847,7 @@
 
 
 <p>在  Python 3.0 中，为了与 bool 内置类型保持一致性， <code>__nonzero__</code> 被改名成了 <code>__bool__</code> 。为了保持兼容性，在类中增加如下定义:</p>
-<div class="highlight"><pre><span></span><span class="n">__bool__</span> <span class="o">=</span> <span class="n">__nonzero__</span>
+<div class="highlight"><pre><span></span><span class="n">__bool__</span> <span class="o">=</span> <span class="fm">__nonzero__</span>
 </pre></div>
 
 
@@ -1014,7 +1014,7 @@
 <p>一个对象实例属性的名字空间实际上就是一个字典， <code>self.__dict__</code> 。
 使用实例名字空间中的名字:</p>
 <div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;We found </span><span class="si">%(error_count)d</span><span class="s2"> errors&quot;</span>
-       <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)</span>
+       <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1295,7 +1295,7 @@ LBYL: 三思而后行</p>
 <p>注意交互环境下，当你需要编辑和「重载 (reload())」一个模块时，这种形式 不适合用于自身。</p>
 <h2>模块和脚本</h2>
 <p>想制作一个既是可导入的模块又是可执行的脚本:</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="c1"># script code here</span>
 </pre></div>
 
@@ -1315,7 +1315,7 @@ LBYL: 三思而后行</p>
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
     <span class="o">...</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">status</span> <span class="o">=</span> <span class="n">main</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
 </pre></div>
@@ -1367,7 +1367,7 @@ LBYL: 三思而后行</p>
     <span class="c1"># run(settings, args)</span>
     <span class="k">return</span> <span class="mi">0</span>        <span class="c1"># success</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">status</span> <span class="o">=</span> <span class="n">main</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
 </pre></div>
@@ -1375,10 +1375,10 @@ LBYL: 三思而后行</p>
 
 <h2>包</h2>
 <div class="highlight"><pre><span></span><span class="n">package</span><span class="o">/</span>
-    <span class="n">__init__</span><span class="o">.</span><span class="n">py</span>
+    <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
     <span class="n">module1</span><span class="o">.</span><span class="n">py</span>
     <span class="n">subpackage</span><span class="o">/</span>
-        <span class="n">__init__</span><span class="o">.</span><span class="n">py</span>
+        <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
         <span class="n">module2</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 

@@ -103,7 +103,7 @@
 <p>像导航栏上的各种项目，需要进行跳转，或者静态文件，媒体文件，需要从开发环境部署上线 的时候就很麻烦。</p>
 <div class="highlight"><pre><span></span><span class="c1"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>    <span class="c1"># 项目的根目录，其它的模板文件，静态文件，媒体文件都是根据 `BASE_DIR`</span>
+<span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>    <span class="c1"># 项目的根目录，其它的模板文件，静态文件，媒体文件都是根据 `BASE_DIR`</span>
 
 <span class="c1"># Template dir</span>
 <span class="n">TEMPLATE_DIRS</span> <span class="o">=</span> <span class="p">(</span>
@@ -138,7 +138,7 @@
 第二个 <code>STATICFILES_DIRS</code> 我还没明白到底是干什么的，文档里面写的是设置不同的静态文件目录，不绑定给特定的 App 用（看了半天英文还是没有明白……不过这个是必须要设置的，不设置那就找不到 CSS 和 JS 文件了）。部署到线上的的话就要把 <code>STATICFILES_DIRS</code> 换成 <code>STATIC_ROOT = "/home/chen/DjangoProjects/static"</code>，服务器上的文件夹。</p>
 <h2>2. URL</h2>
 <p>URL 设置 <code>urls.py</code> 放在每个 App 下面，除非 App 真的很小，功能很少那放在和 <code>settings.py</code> 一个文件夹下的 <code>urls.py</code> 也没问题，一旦 App 大了之后给每个 App 单独设置 URL，和 <code>models.py</code> <code>views.py</code> 一起在 App 文件夹下，这样能够重用 App 到不通的项目中，在项目的 <code>urls.py</code> 中设置：</p>
-<div class="highlight"><pre><span></span><span class="n">url</span><span class="p">(</span><span class="s1">r&#39;^&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;garage.urls&#39;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;garage&#39;</span><span class="p">)),</span>
+<div class="highlight"><pre><span></span><span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;garage.urls&#39;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;garage&#39;</span><span class="p">)),</span>
 </pre></div>
 
 

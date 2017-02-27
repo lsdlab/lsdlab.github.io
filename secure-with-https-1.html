@@ -114,29 +114,29 @@
 <p>运行脚本可能会有权限问题，把 Nginx 里面的 <code>ssl_certificate</code> <code>ssl_certificate_key</code> 改掉就行了，加入 <code>cron</code> 定时任务，搞定。</p>
 <p>最后附上 Nginx 的配置文件：</p>
 <div class="highlight"><pre><span></span><span class="nt">server</span> <span class="p">{</span>
-    <span class="err">#</span> <span class="n">the</span> <span class="n">port</span> <span class="n">your</span> <span class="n">site</span> <span class="n">will</span> <span class="n">be</span> <span class="n">served</span> <span class="n">on</span>
-    <span class="n">listen</span>      <span class="m">443</span> <span class="n">ssl</span><span class="p">;</span>
-    <span class="err">#</span> <span class="n">the</span> <span class="n">domain</span> <span class="n">name</span> <span class="n">it</span> <span class="n">will</span> <span class="n">serve</span> <span class="n">for</span>
-    <span class="n">server_name</span> <span class="n">breakwire</span><span class="o">.</span><span class="n">me</span><span class="p">;</span> <span class="err">#</span> <span class="n">substitute</span> <span class="n">your</span> <span class="n">machine</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">IP</span> <span class="n">address</span> <span class="n">or</span> <span class="n">FQDN</span>
+    <span class="err">#</span> <span class="err">the</span> <span class="err">port</span> <span class="err">your</span> <span class="err">site</span> <span class="err">will</span> <span class="err">be</span> <span class="err">served</span> <span class="err">on</span>
+    <span class="err">listen</span>      <span class="err">443</span> <span class="err">ssl</span><span class="p">;</span>
+    <span class="err">#</span> <span class="err">the</span> <span class="err">domain</span> <span class="err">name</span> <span class="err">it</span> <span class="err">will</span> <span class="err">serve</span> <span class="err">for</span>
+    <span class="err">server_name</span> <span class="err">breakwire.me</span><span class="p">;</span> <span class="err">#</span> <span class="err">substitute</span> <span class="err">your</span> <span class="err">machine&#39;s</span> <span class="err">IP</span> <span class="err">address</span> <span class="err">or</span> <span class="err">FQDN</span>
 
-    <span class="err">#</span> <span class="n">Let</span><span class="err">’</span><span class="n">s</span> <span class="n">Encrypt</span>
-    <span class="n">ssl</span> <span class="n">on</span><span class="p">;</span>
-    <span class="n">ssl_certificate</span>     <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">chen</span><span class="o">/</span><span class="n">breakwire</span><span class="o">.</span><span class="n">chained</span><span class="o">.</span><span class="n">crt</span><span class="p">;</span>
-    <span class="n">ssl_certificate_key</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">chen</span><span class="o">/</span><span class="n">breakwire</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">key</span><span class="p">;</span>
-    <span class="n">ssl_protocols</span> <span class="n">TLSv1</span> <span class="n">TLSv1</span><span class="o">.</span><span class="m">1</span> <span class="n">TLSv1</span><span class="o">.</span><span class="m">2</span><span class="p">;</span>
-    <span class="n">ssl_prefer_server_ciphers</span> <span class="n">on</span><span class="p">;</span>
-    <span class="n">ssl_ciphers</span> <span class="s2">&quot;EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS&quot;</span><span class="p">;</span>
-    <span class="n">allow</span> <span class="n">all</span><span class="p">;</span>
+    <span class="err">#</span> <span class="err">Let’s</span> <span class="err">Encrypt</span>
+    <span class="err">ssl</span> <span class="err">on</span><span class="p">;</span>
+    <span class="err">ssl_certificate</span>     <span class="err">/home/chen/breakwire.chained.crt</span><span class="p">;</span>
+    <span class="err">ssl_certificate_key</span> <span class="err">/home/chen/breakwire.me.key</span><span class="p">;</span>
+    <span class="err">ssl_protocols</span> <span class="err">TLSv1</span> <span class="err">TLSv1.1</span> <span class="err">TLSv1.2</span><span class="p">;</span>
+    <span class="err">ssl_prefer_server_ciphers</span> <span class="err">on</span><span class="p">;</span>
+    <span class="err">ssl_ciphers</span> <span class="err">&quot;EECDH+ECDSA+AESGCM</span> <span class="err">EECDH+aRSA+AESGCM</span> <span class="err">EECDH+ECDSA+SHA384</span> <span class="err">EECDH+ECDSA+SHA256</span> <span class="err">EECDH+aRSA+SHA384</span> <span class="err">EECDH+aRSA+SHA256</span> <span class="err">EECDH+aRSA+RC4</span> <span class="err">EECDH</span> <span class="err">EDH+aRSA</span> <span class="err">RC4</span> <span class="err">!aNULL</span> <span class="err">!eNULL</span> <span class="err">!LOW</span> <span class="err">!3DES</span> <span class="err">!MD5</span> <span class="err">!EXP</span> <span class="err">!PSK</span> <span class="err">!SRP</span> <span class="err">!DSS&quot;</span><span class="p">;</span>
+    <span class="err">allow</span> <span class="err">all</span><span class="p">;</span>
 
-    <span class="err">#</span> <span class="n">location</span>
-    <span class="n">location</span> <span class="o">/</span> <span class="err">{</span>
-       <span class="n">root</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">chen</span><span class="o">/</span><span class="n">BreakWire</span><span class="o">/</span><span class="p">;</span>
-       <span class="n">index</span> <span class="n">index</span><span class="o">.</span><span class="n">html</span><span class="p">;</span>
+    <span class="err">#</span> <span class="err">location</span>
+    <span class="err">location</span> <span class="err">/</span> <span class="err">{</span>
+       <span class="err">root</span> <span class="err">/home/chen/BreakWire/</span><span class="p">;</span>
+       <span class="err">index</span> <span class="err">index.html</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="err">#</span> <span class="nt">logs</span>
-    <span class="nt">access_log</span> <span class="o">/</span><span class="nt">home</span><span class="o">/</span><span class="nt">chen</span><span class="o">/</span><span class="nt">nginx-log</span><span class="o">/</span><span class="nt">access</span><span class="nc">.log</span><span class="o">;</span>
-    <span class="nt">error_log</span> <span class="o">/</span><span class="nt">home</span><span class="o">/</span><span class="nt">chen</span><span class="o">/</span><span class="nt">nginx-log</span><span class="o">/</span><span class="nt">error</span><span class="nc">.log</span><span class="o">;</span>
+    <span class="nt">access_log</span> <span class="o">/</span><span class="nt">home</span><span class="o">/</span><span class="nt">chen</span><span class="o">/</span><span class="nt">nginx-log</span><span class="o">/</span><span class="nt">access</span><span class="p">.</span><span class="nc">log</span><span class="o">;</span>
+    <span class="nt">error_log</span> <span class="o">/</span><span class="nt">home</span><span class="o">/</span><span class="nt">chen</span><span class="o">/</span><span class="nt">nginx-log</span><span class="o">/</span><span class="nt">error</span><span class="p">.</span><span class="nc">log</span><span class="o">;</span>
     <span class="err">#</span> <span class="nt">gzip</span>
     <span class="nt">gzip</span> <span class="nt">on</span><span class="o">;</span>
     <span class="nt">gzip_min_length</span> <span class="nt">1k</span><span class="o">;</span>
@@ -147,9 +147,9 @@
 <span class="err">}</span>
 
 <span class="nt">server</span> <span class="p">{</span>
-    <span class="n">listen</span> <span class="m">80</span><span class="p">;</span>
-    <span class="n">server_name</span> <span class="n">breakwire</span><span class="o">.</span><span class="n">me</span><span class="p">;</span>
-    <span class="n">return</span> <span class="m">301</span> <span class="n">https</span><span class="o">://</span><span class="err">$</span><span class="n">host</span><span class="err">$</span><span class="n">request_uri</span><span class="p">;</span>
+    <span class="err">listen</span> <span class="err">80</span><span class="p">;</span>
+    <span class="err">server_name</span> <span class="err">breakwire.me</span><span class="p">;</span>
+    <span class="err">return</span> <span class="err">301</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="err">$</span><span class="n">host</span><span class="err">$</span><span class="n">request_uri</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
