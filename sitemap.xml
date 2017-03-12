@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2017-02-27T18:45:40-00:00</lastmod>
+<lastmod>2017-03-13T00:54:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2017-02-27T18:45:40-00:00</lastmod>
+<lastmod>2017-03-13T00:54:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2017-02-27T18:45:40-00:00</lastmod>
+<lastmod>2017-03-13T00:54:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2017-02-27T18:45:40-00:00</lastmod>
+<lastmod>2017-03-13T00:54:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -56,13 +56,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://breakwire.me/pages/resume.html</loc>
 <lastmod>2017-02-15T21:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://breakwire.me/the-desicion-about-starting-gap.html</loc>
-<lastmod>2017-02-15T22:39:25+08:00</lastmod>
-<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -334,7 +327,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/category/fml.html</loc>
-<lastmod>2017-02-15T22:39:25+08:06</lastmod>
+<lastmod>2016-07-04T22:42:43+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -424,13 +417,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://breakwire.me/tag/fml.html</loc>
-<lastmod>2017-02-15T22:39:25+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://breakwire.me/tag/projectx.html</loc>
 <lastmod>2016-11-25T20:53:32+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -461,6 +447,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://breakwire.me/tag/dev-log.html</loc>
 <lastmod>2016-08-06T15:37:47+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/tag/fml.html</loc>
+<lastmod>2016-07-04T22:42:43+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -579,7 +572,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/author/chen-jian.html</loc>
-<lastmod>2017-02-15T22:39:25+08:06</lastmod>
+<lastmod>2016-11-25T20:53:32+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
