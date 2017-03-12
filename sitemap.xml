@@ -5,29 +5,36 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2017-03-13T03:10:09-00:00</lastmod>
+<lastmod>2017-03-13T03:10:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2017-03-13T03:10:09-00:00</lastmod>
+<lastmod>2017-03-13T03:10:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2017-03-13T03:10:09-00:00</lastmod>
+<lastmod>2017-03-13T03:10:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2017-03-13T03:10:09-00:00</lastmod>
+<lastmod>2017-03-13T03:10:25-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/pages/wounded_by_school_book_review.html</loc>
+<lastmod>2017-03-13T14:07:42+08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -56,13 +63,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://breakwire.me/pages/resume.html</loc>
 <lastmod>2017-02-15T21:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://breakwire.me/wounded_by_school_book_review.html</loc>
-<lastmod>2017-03-13T14:07:42+08:00</lastmod>
-<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -298,13 +298,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://breakwire.me/category/bookreview.html</loc>
-<lastmod>2017-03-13T14:07:42+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://breakwire.me/category/design.html</loc>
 <lastmod>2015-04-30T10:27:08+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -412,13 +405,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://breakwire.me/category/translate.html</loc>
 <lastmod>2015-06-28T04:06:42+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://breakwire.me/tag/bookreview.html</loc>
-<lastmod>2017-03-13T14:07:42+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -572,7 +558,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/author/chen-jian.html</loc>
-<lastmod>2017-03-13T14:07:42+08:06</lastmod>
+<lastmod>2016-11-25T20:53:32+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
