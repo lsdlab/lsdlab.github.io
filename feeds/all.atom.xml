@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="https://breakwire.me/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2016-11-25T20:53:32+08:00</updated><entry><title>Spendingviz 1.0</title><link href="https://breakwire.me/spengdingviz1.0.html" rel="alternate"></link><published>2016-11-25T20:53:32+08:00</published><updated>2016-11-25T20:53:32+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2016-11-25:/spengdingviz1.0.html</id><summary type="html">&lt;p&gt;我的第一个自用产品 Spendingviz 1.0 完工啦&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/lsdlab/spendingviz"&gt;lsdlab/spendingviz&lt;/a&gt; 现在这个只能自己用用，数据库从 MongoDB 换到了 PostgreSQL，已有一个用户就是我自己，就我自己用用，不开放注册。接下来就开始用 Python 重写，用 Flask，要有给移动设备的 API，那些实用功能我觉得还是不要在网页上做了，网页上就看些大的统计图，实用功能就只放到 iOS App 上做。还要赶快开始学点 Swift，但在做之前得把后端完成，还不太好做，我想要这个后端能够自动对备注进行分类，做自然语言处理，还要有点机器学习能力，能预测支出，然后才开始做 iOS App，希望这个【巨大】的项目能在年前开工，17 年年底能作出个雏形出来，包括 iOS App 和 Web 端网页还有后端，对了，这两个小项目用 Node.JS 写的，感觉不是太好，可能还是用的太少，我也准备弃用了，后面就写 Python 和 Rails 了，前端方面就只打算在学学 Vue 就行了，其他不再看了。&lt;/p&gt;</content><category term="projectx"></category></entry><entry><title>PostgreSQL 命令笔记</title><link href="https://breakwire.me/postgresql-note.html" rel="alternate"></link><published>2016-09-03T13:41:36+08:00</published><updated>2016-09-03T13:41:36+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2016-09-03:/postgresql-note.html</id><summary type="html">&lt;p&gt;这玩意要多坑有多坑……&lt;/p&gt;</summary><content type="html">&lt;h2&gt;本地&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="https://breakwire.me/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2017-03-13T17:26:05+08:00</updated><entry><title>陈坚 应聘技术编辑 作品整理</title><link href="https://breakwire.me/works-summary.html" rel="alternate"></link><published>2017-03-13T17:26:05+08:00</published><updated>2017-03-13T17:26:05+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2017-03-13:/works-summary.html</id><summary type="html">&lt;p&gt;陈坚 应聘技术编辑 作品整理&lt;/p&gt;</summary><content type="html">&lt;h2&gt;陈坚 应聘技术编辑 作品整理&lt;/h2&gt;
+&lt;h3&gt;个人博客&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://breakwire.me/deploy-django-web-app-with-uwsgi-and-nginx.html"&gt;Django web app 使用 uWSGI、Nginx 部署&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://breakwire.me/configuration-for-python-development-in-a-debian-server.html"&gt;Debian 服务器 Python 开发环境配置&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://breakwire.me/django-many-to-many.html"&gt;Django 多对多查询&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://breakwire.me/translate-why-programming-is-difficult.html"&gt;（译文）为什么编程很难&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://breakwire.me/over-thinking.html"&gt;过度思考 Over thinking&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;两个开源项目&lt;/h3&gt;
+&lt;h4&gt;https://github.com/lsdlab/hackathon-starter-cn&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Node.js 的基础用户模块&lt;/li&gt;
+&lt;li&gt;实现基本注册、登录、找回密码功能&lt;/li&gt;
+&lt;li&gt;集成 Postmark 第三方邮件服务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;https://github.com/lsdlab/spendingviz&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;记录我的日常开支数据，并进行数据可视化&lt;/li&gt;
+&lt;li&gt;维护其他 App 的数据清洗转换脚本，备份原始数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;技能&lt;/h3&gt;
+&lt;p&gt;Python/Django/Linux/Server/PostgreSQL/Node.js/HTML/CSS/JS/BootStrap/jQuery/Git/GitHub/Markdown &lt;/p&gt;</content><category term="summary"></category></entry><entry><title>Spendingviz 1.0</title><link href="https://breakwire.me/spengdingviz1.0.html" rel="alternate"></link><published>2016-11-25T20:53:32+08:00</published><updated>2016-11-25T20:53:32+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2016-11-25:/spengdingviz1.0.html</id><summary type="html">&lt;p&gt;我的第一个自用产品 Spendingviz 1.0 完工啦&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/lsdlab/spendingviz"&gt;lsdlab/spendingviz&lt;/a&gt; 现在这个只能自己用用，数据库从 MongoDB 换到了 PostgreSQL，已有一个用户就是我自己，就我自己用用，不开放注册。接下来就开始用 Python 重写，用 Flask，要有给移动设备的 API，那些实用功能我觉得还是不要在网页上做了，网页上就看些大的统计图，实用功能就只放到 iOS App 上做。还要赶快开始学点 Swift，但在做之前得把后端完成，还不太好做，我想要这个后端能够自动对备注进行分类，做自然语言处理，还要有点机器学习能力，能预测支出，然后才开始做 iOS App，希望这个【巨大】的项目能在年前开工，17 年年底能作出个雏形出来，包括 iOS App 和 Web 端网页还有后端，对了，这两个小项目用 Node.JS 写的，感觉不是太好，可能还是用的太少，我也准备弃用了，后面就写 Python 和 Rails 了，前端方面就只打算在学学 Vue 就行了，其他不再看了。&lt;/p&gt;</content><category term="projectx"></category></entry><entry><title>PostgreSQL 命令笔记</title><link href="https://breakwire.me/postgresql-note.html" rel="alternate"></link><published>2016-09-03T13:41:36+08:00</published><updated>2016-09-03T13:41:36+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2016-09-03:/postgresql-note.html</id><summary type="html">&lt;p&gt;这玩意要多坑有多坑……&lt;/p&gt;</summary><content type="html">&lt;h2&gt;本地&lt;/h2&gt;
 &lt;p&gt;PostgreSQL 光要让它跑起来就挺麻烦的，Mac 上很方便，就 &lt;code&gt;brew install postgresql&lt;/code&gt;，然后 &lt;code&gt;initdb /usr/local/var/postgres -E utf8&lt;/code&gt; 初始化数据库。&lt;/p&gt;
 &lt;p&gt;我在 &lt;code&gt;~/.zshrc&lt;/code&gt; 里面设置了两个 alias 快速启动停止：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;pgstart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start&amp;quot;&lt;/span&gt;
@@ -379,7 +399,7 @@ git commit -m &lt;span class="s2"&gt;&amp;quot;update&amp;quot;&lt;/span&gt;
 git push origin master
 &lt;/pre&gt;&lt;/div&gt;</content><category term="pelican"></category></entry><entry><title>过度思考 Over thinking</title><link href="https://breakwire.me/over-thinking.html" rel="alternate"></link><published>2016-01-14T23:02:31+08:00</published><updated>2016-01-14T23:02:31+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2016-01-14:/over-thinking.html</id><summary type="html">&lt;p&gt;Don't over thinking, OK?!&lt;/p&gt;</summary><content type="html">&lt;p&gt;写代码很多的时候都是在思考循环，给定输入、边界条件 (edge case)，获得输出，输入容易，剩下来就是如何抽象出一个循环的过程，构造边界条件了。根据不同的输入，为了让这个程序有尽可能强的容错能力，就需要好好思考如何构造边界条件了。&lt;/p&gt;
 &lt;h2&gt;过度思考的例子&lt;/h2&gt;
-&lt;p&gt;15 年暑假学了两个月的 Android 开发，网络请求获得 JSON 数据之后解析，解析可能会有网络的问题，可能服务端构造 JSON 就错了，移动端解析也解不出来，总之有很多种一样要去 catch()，能把每项异常都想到然后要写代码捕捉错误，根据不同的情况是要重试还是直接提示用户出错了，出错提示信息怎么写？真的把不同的出错原因 Toast 给用户说这个出错了那个出错了吗？用户根本不想知道，你只要告诉我出错了就行，不要告诉我具体原因。你要显示不同的出错信息的话，专业用户可能知道如何解决，是找你报错还是自己的网络原因重试能解决，可专业用户太少，根本没有必要过度思考做的这么细。&lt;/p&gt;
+&lt;p&gt;15 年暑假学了两个月的 Android 开发，网络请求获得 JSON 数据之后解析，解析可能会有网络的问题，可能服务端构造 JSON 就错了，移动端解析也解不出来，总之有很多种异常要去 catch()，能把每项异常都想到然后要写代码捕捉错误，根据不同的情况是要重试还是直接提示用户出错了，出错提示信息怎么写？真的把不同的出错原因 Toast 给用户说这个出错了那个出错了吗？用户根本不想知道，你只要告诉我出错了就行，不要告诉我具体原因。你要显示不同的出错信息的话，专业用户可能知道如何解决，是找你报错还是自己的网络原因重试能解决，可专业用户太少，根本没有必要过度思考做的这么细。&lt;/p&gt;
 &lt;h2&gt;非专业知识的过度思考&lt;/h2&gt;
 &lt;p&gt;实习了也得有三个多月了，刚开始感觉有点难度，逐渐上手，挺开心，又感觉有难度了，前端怎么这么坑！慢慢摸索，看书，不断尝试，又感觉上手了，挺开心，但一定是要继续做前端吗？也不一定，甚至都不一定要做这一行，不做前端做啥？Python 后端也不错，iOS 也不错，都想做，专门研究一个，变成这个语言的专家，可行；研究各种各样的小东西，自己倒腾，也行，没什么对于职业生涯利不利的，其实还没真正上手，成为一名工程师就考虑这些问题？有点过了吧？&lt;/p&gt;</content><category term="thinking"></category></entry><entry><title>2015</title><link href="https://breakwire.me/2015.html" rel="alternate"></link><published>2015-12-31T10:21:39+08:00</published><updated>2015-12-31T10:21:39+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2015-12-31:/2015.html</id><summary type="html">&lt;p&gt;This year was absolute shitty year for me......&lt;/p&gt;</summary><content type="html">&lt;ul&gt;
 &lt;li&gt;大四。&lt;/li&gt;
@@ -2594,15 +2614,15 @@ location /static {
 
 
 &lt;p&gt;关键就在于：&lt;/p&gt;
-&lt;p&gt;{% raw %}&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;标签：&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;nbsp&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;nbsp&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;nbsp&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;nbsp&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;nbsp&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;nbsp
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{% raw %}
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;标签：&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;nbsp&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;nbsp&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;nbsp&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;nbsp&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;nbsp&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;nbsp
 {% for tag in post.tag.all %}
    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;label label-primary&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;{{ tag }}&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 {% endfor %}
+{% endraw %}
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;{% endraw %}&lt;/p&gt;
 &lt;p&gt;最开始已经把每篇文章通过 &lt;code&gt;for&lt;/code&gt; 循环放在 &lt;code&gt;post&lt;/code&gt; 里面了，想读单独一篇的文章的标签就再用 &lt;code&gt;for&lt;/code&gt; 循环 &lt;code&gt;for tag in post.tag.all&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;还是要多看文档……&lt;/p&gt;</content><category term="django"></category></entry><entry><title>Two posters i made</title><link href="https://breakwire.me/tow-posters-i-made.html" rel="alternate"></link><published>2015-04-30T10:27:08+08:00</published><updated>2015-04-30T10:27:08+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2015-04-30:/tow-posters-i-made.html</id><summary type="html">&lt;p&gt;Two posters i made&lt;/p&gt;</summary><content type="html">&lt;p&gt;两张海报，我拍的照片，用 iOS 上一个叫 Posters 的 App 做的。&lt;/p&gt;
 &lt;p&gt;Live what you love.&lt;/p&gt;
