@@ -106,22 +106,22 @@
 <li>对 ECMAScript 的高级功能保持警惕，特别是在你没有使用最新的 JavaScript 引擎或者转码器的时候</li>
 <li>控制你的依赖树，对依赖进行性能测试。</li>
 </ul>
-<p>为了提高一个涉及 IO 的应用的性能，你应该理解 CPU 周期如何开销，更重要的是，如何阻止应用中更高程度的并行计算。</p>
+<p>为了提高一个涉及 IO 的应用性能，你应该理解 CPU 周期如何开销，更重要的是，如何阻止应用中更高程度的并行计算。</p>
 <p>当聚焦在提高 Apache Cassandra 的 <a href="https://github.com/datastax/nodejs-driver">DataStax</a> Node.js 驱动性能的时候，我积累了一些经验并分享在这篇文章中，尝试总结导致应用的吞吐量下降的最重要因素。</p>
 <h2>背景</h2>
-<p>Node.js 使用的 JavaScript 引擎 V8，将 JavaScript 代码编译成机器码然后当作原生代码运行。V8 引擎使用三个部件以同时达到 <a href="https://blog.chromium.org/2010/12/new-crankshaft-for-v8.html">最短启动时间和最高性能</a>：</p>
+<p>Node.js 使用 JavaScript V8 引擎，将 JavaScript 代码编译成机器码然后当作原生代码运行。V8 引擎使用三个部件以同时达到 <a href="https://blog.chromium.org/2010/12/new-crankshaft-for-v8.html">最短启动时间和最高性能</a>：</p>
 <ol>
 <li>一个通用的编译器将 JavaScript 代码尽可能快地编译成机器码。</li>
 <li>一个运行时分析器记录运行每一段代码需要的时间，识别代码是否值得优化。</li>
 <li>一个优化编译器尝试优化运行时分析器识别出来的代码，当优化编译器的假设结果被过度优化时，优化编译器也支持反优化。</li>
 </ol>
 <p>优化编译器将达到最佳性能，但并不是所有的 JavaScript 代码都能被选中优化，有一些代码模式会被优化编译器拒绝优化。</p>
-<p>你可以使用 <a href="https://github.com/GoogleChrome/devtools-docs/issues/53">this ticket from Google Chrome DevTools team</a> 作为指南，用可能的变通方法优化被 V8  引擎拒绝优化的代码模式。包括一些示例：</p>
+<p>你可以使用 <a href="https://github.com/GoogleChrome/devtools-docs/issues/53">this ticket from Google Chrome DevTools team</a> 作为指南，用可能的变通方法优化被 V8  引擎拒绝优化的代码模式，包括一些示例：</p>
 <ul>
 <li>带有 <code>try-catch</code> 异常捕捉语句的方法。</li>
 <li>使用 <code>arguments</code> 给参数赋值的语句。</li>
 </ul>
-<p>尽管优化编译器将使你的代码运行的十分快，但一个 IO 密集型程序的大多数性能提升都围绕这如何记录指令以及使用更低廉的调用，以允许每秒钟内进行更多操作，也将是一下章节要介绍的。</p>
+<p>尽管优化编译器将使你的代码运行得十分快，但一个 IO 密集型程序的大多数性能提升都围绕这如何记录指令以及使用更低廉的调用，以允许每秒钟内进行更多操作，也将是一下章节要介绍的。</p>
 <h2>性能测试</h2>
 <p>为了发现优化能够影响到最大的用户数量，定义一个普通使用情况下的性能测试需要的负载量非常重要，需要模拟真实世界的使用量。</p>
 <p>首先需要测量你的 API 的吞吐量和延迟。你可以给每个内部方法做性能测试，如果你需要更详细的信息，使用 <code>process.hrtime()</code> 获得更高准确率的实时时间和执行的需要的时间。</p>
@@ -148,9 +148,9 @@
 <p>在该示例中，function1 的调用的 99％ 由 function2 进行，根据剖析示例，function3 负责对 function2 的100％ 的调用。</p>
 <p>CPU 分析会话和<a href="http://www.brendangregg.com/blog/2014-09-17/node-flame-graphs-on-linux.html">火焰图</a>是有用的工具，以了解大多数时间内堆栈里面是什么，哪些方法花费 CPU 时间，以发现显而易见的问题。 但重要的是要了解它不会告诉你全部过程：你可能会阻止在你的应用中实现更高程度的并行，异步 IO 操作也将使其更难识别。</p>
 <h2>系统调用</h2>
-<p>Libuv 暴露了一个独立于平台的 API，Node.js 使用它来执行非阻塞 IO，你的应用 IO（套接字，文件系统...）最终转换为系统调用。</p>
-<p>在调度这些系统调用时存在显着的成本，你应该尝试通过分组/批处理写入来最小化系统调用的数量。</p>
-<p>当使用套接字或文件流时，不是每次都发出写入， 你可以不时地缓冲和刷新数据。</p>
+<p>Libuv 暴露了一个独立于平台的 API，Node.js 使用它来执行非阻塞 IO，你的应用 IO（套接字，文件系统...）最终将转换为系统调用。</p>
+<p>在调度这些系统调用时存在明显的成本，你应该尝试通过分组/批处理写入来最小化系统调用的数量。</p>
+<p>当使用套接字或文件流时，不是每次都发出写入命令， 你可以不时地缓冲和刷新数据。</p>
 <p>你可以使用写入队列来处理和分组写入。写队列实现的逻辑应该是：</p>
 <ul>
 <li>虽然有项目要写，我们在窗口大小内</li>
@@ -170,14 +170,14 @@
 <p>在我们的用例中，通过在移除前一个之前 <a href="https://github.com/datastax/nodejs-driver/blob/v3.1.6/lib/connection.js#L434-L443">调度空闲超时(心跳)</a>，确保空闲超时的调度和解调是O(1)操作。</p>
 <h2>ECMAScript 功能</h2>
 <p>有几个高级 ECMAScript 功能，如果你关心性能，你应该避免使用。这样的功能的例子是： <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind">Function.prototype.bind()</a>, <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty()</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties">Object.defineProperties()</a>。</p>
-<p>这些功能中大多数性能较差可以通过 JavaScript 引擎中的实现细节来解释，其中一些问题正在解决，例如：<a href="http://v8project.blogspot.com.es/2016/07/v8-release-53.html">V8 5.3 中的 Promise 性能改进</a> 和 <a href="http://benediktmeurer.de/2015/12/25/a-new-approach-to-function-prototype-bind/">V8 5.4 中的 Function.prototype.bind 性能</a>)。</p>
-<p>对于 ES2015 和 ESNext 中的新语言功能，你应特别小心，这可能会比他们的 ECMAScript 5 对应版本慢得多。<a href="https://fhinkel.github.io/six-speed">six-speed project website</a> 跟踪不同 JavaScript 引擎当前性能。此外，当你无法从现有基准中找到结论性结果时，你可以对不同方法进行小的性能测试。</p>
+<p>这些功能中大多数性能较差可以通过 JavaScript 引擎中的实现细节来解释，其中一些问题正在解决，例如：<a href="http://v8project.blogspot.com.es/2016/07/v8-release-53.html">V8 5.3 中的 Promise 性能改进</a> 和 <a href="http://benediktmeurer.de/2015/12/25/a-new-approach-to-function-prototype-bind/">V8 5.4 中的 Function.prototype.bind 性能</a>。</p>
+<p>对于 ES2015 和 ESNext 中的新语言功能，你应特别小心，这可能会比他们的 ECMAScript 5 对应版本慢得多。<a href="https://fhinkel.github.io/six-speed">six-speed project</a> 网站跟踪不同 JavaScript 引擎的当前性能。此外，当你无法从现有基准中找到结论性结果时，你可以对不同方法进行小的性能测试。</p>
 <p>V8 团队正在努力提高新语言功能的性能，最终达到原始水平，他们的优化功能介绍与 ES2015 的工作通过一个 <a href="https://docs.google.com/document/d/1EA9EbfnydAmmU_lM8R_uEMQ-U_v4l9zulePSBkeYWmY">性能计划</a> 协调，其中 V8 团队收集需要改进的领域，并提出了解决这些问题的设计文件。</p>
 <p>你可以在 <a href="http://v8project.blogspot.com/">博客</a>上跟踪 V8 实现的进度，但是考虑到这些改进可能需要很长时间才能进入 Node.js 的长期支持（LTS）版本：哪个 V8 版本进入 Node.js 的主要版本根据 <a href="https://github.com/nodejs/LTS">LTS 计划</a>，通常在从主控切割分支之前决定。你将不得不等待 6-12 个月，一个新的主要/次要版本的 V8 引擎被包括在 Node.js 运行时。</p>
 <p>Node.js 的主要版本中的新版本 <a href="https://nodejs.org/en/download/releases/">只会更新 V8 引擎的修补程序</a>。</p>
 <h2>依赖</h2>
 <p>Node.js 运行时提供了完整的 IO 库，但是 ECMAScript 标准也提供了一些内置的类型，有时候你需要依赖外部包进行一些基础操作。</p>
-<p>对于流行的外部包也不能保证其实现是最高效的，Node.js 生态系统十分庞大，有一些第三方包包含的一些方法通常你也能够自己实现。</p>
+<p>对于流行的外部包也不能保证其实现是最高效的，Node.js 生态系统十分庞大，有一些第三方包中的一些方法通常你也能够自己实现。</p>
 <p>你应该在重新发明轮子和控制第三方依赖包带来的性能影响取得均衡。</p>
 <p>尽可能避免添加一个新的依赖，不要过分相信你的依赖，但也有个例外就是如果第三方包的开发者进行了非常可靠的测试，比如 <a href="https://github.com/petkaantonov/bluebird/blob/master/docs/docs/benchmarks.md">bluebird</a> 这个包。</p>
 <p>在我们的用例中，<a href="https://github.com/caolan/async">async</a> 会影响到请求的延迟，我们在代码库中大量使用 <a href="https://caolan.github.io/async/docs.html#series">async.series()</a>,  <a href="https://caolan.github.io/async/docs.html#waterfall">async.waterfall()</a> 和 <a href="https://caolan.github.io/async/docs.html#whilst">async.whilst</a>。控制流库作为一个横向关注点，非常难以区分是其否是性能低下的源头。async 作为非常流行的模块之一，也正因为如此，问题也被确认。甚至有直接替换的库比如 <a href="https://github.com/suguru03/neo-async">neo-async</a>，这个库也十分快速并且发布了性能测试。</p>
