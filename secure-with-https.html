@@ -13,6 +13,7 @@
         <link href="https://breakwire.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="BreakWire Full Atom Feed" />
 
         <link href="https://breakwire.me/theme/css/bootstrap-clean-blog.min.css" rel="stylesheet">
+        <link href="https://breakwire.me/theme/css/yue.css" rel="stylesheet">
 
 
         <!-- Custom Fonts -->
@@ -94,7 +95,7 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yue">
     <!-- Post Content -->
     <article>
         <p>博客迁移到 Vultr VPS 上了，然后加上 <a href="https://letsencrypt.org">Let's Encrypt</a> 的免费 SSL 证书，速度好像是比放在 GitHub 上快了点。显示参考的小众软件 <a href="http://www.appinn.com/use-letsencrypt-with-nginx/">在 Nginx 上使用 Let’s Encrypt 加密(HTTPS)你的网站[简明教程]</a>，但是 Nginx 配置的地方 <code>ssl_ciphers</code> 好像是不对，后来参考这个<a href="https://blog.qualys.com/ssllabs/2013/08/05/configuring-apache-nginx-and-openssl-for-forward-secrecy">链接</a> 能够配置成功，Chrome 能出现绿色的小锁。然后就是把 HTTP 的请求也重定向到 HTTPS 上，这步照着小众软件做是对的。最后一步是自动续签脚本，照着小众软件的做是不行的，就参考这个 <a href="https://github.com/xdtianyu/scripts/blob/master/lets-encrypt/README-CN.md">一个快速获取/更新 Let's encrypt 证书的 shell script</a>，设置好，就等到九月份看它能不能自动续签了。</p>

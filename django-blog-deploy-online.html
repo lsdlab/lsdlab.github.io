@@ -13,6 +13,7 @@
         <link href="https://breakwire.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="BreakWire Full Atom Feed" />
 
         <link href="https://breakwire.me/theme/css/bootstrap-clean-blog.min.css" rel="stylesheet">
+        <link href="https://breakwire.me/theme/css/yue.css" rel="stylesheet">
 
 
         <!-- Custom Fonts -->
@@ -95,7 +96,7 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yue">
     <!-- Post Content -->
     <article>
         <p>这个 Django 做的博客 <a href="http://breakwire.me">MO MAN'S LAND</a> 终于是用域名配置好上线了。用 nginx 作为服务器，查了一堆资料看怎么配置，最后还是摸索出来了。一直看人家配置的时候用的 8000 端口，然后 socket 用的 8001 端口，我也就这么做了，然后在 Godaddy 上把不带 www 的 A record 设置指向 VPS，<code>HOST</code> 设置为<code>@</code>，<code>POINT TO</code> 设置为 VPS 的 IP，nginx 上<code>server_name</code> 设置为<code>breakwire.me</code>，然后用域名去访问就显示<code>Welcome to nginx!</code>，不知道是为什么。昨天下午的时候想到去 stackoverflow 上问问吧，很快就有人回复了，把 8000 端口改到默认的 80 就行了，我一试，嘿，果然是这样，我就又问能不能不用默认的 80 端口，人家说不能…… <a href="http://stackoverflow.com/questions/29252958/how-can-i-use-my-godaddy-domain-for-my-django-app">How can I use my godaddy domain for my Django App</a></p>
