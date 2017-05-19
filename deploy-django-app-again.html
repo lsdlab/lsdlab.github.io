@@ -97,7 +97,7 @@
     <!-- Post Content -->
     <article>
         <p>实践证明，部署 Django 应用最方便的发行版是 Ubuntu，我一直以为是 Debian，最近这次部署开了两台服务器对比，还是 Ubuntu 最方便，环境问题最少。</p>
-<p>最早部署一个简单的 Django 应用只要让 Nginx 把非静态文件的所有请求传给 8001 端口，uwsgi 作为 Nginx 和 Django 服务的桥接，最近有仔细看了一边 uwsgi 的示例文档，uwsgi 是推荐用 sock 套接字文件来传递，而且也大部分使用 ini 作为配置文件，uwsgi 的启动命令是 <code>uwsgi --ini dangann/conf/production/uwsgi.ini</code> 。</p>
+<p>最早部署一个简单的 Django 应用只要让 Nginx 把非静态文件的所有请求传给 8001 端口，uwsgi 作为 Nginx 和 Django 服务的桥接，最近有仔细看了一边 uwsgi 的示例文档，uwsgi 是推荐用 sock 套接字文件来传递，而且也大部分使用 ini 作为配置文件，uwsgi 的启动命令是 <code>uwsgi --ini dangann/conf/production/uwsgi.ini</code> .</p>
 <p>也贴上我的 Nginx 配置和 <code>uwsgi.ini</code> 文件</p>
 <div class="highlight"><pre><span></span><span class="nt">upstream</span> <span class="nt">django</span> <span class="p">{</span>
     <span class="err">server</span> <span class="n">unix</span><span class="p">:</span><span class="o">///</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">dangann</span><span class="o">/</span><span class="n">dangann</span><span class="o">.</span><span class="n">sock</span><span class="p">;</span> <span class="err">#</span> <span class="err">for</span> <span class="err">a</span> <span class="err">file</span> <span class="err">socket</span>
