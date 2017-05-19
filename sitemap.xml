@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2017-05-19T22:18:55-00:00</lastmod>
+<lastmod>2017-05-19T23:41:07-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2017-05-19T22:18:55-00:00</lastmod>
+<lastmod>2017-05-19T23:41:07-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2017-05-19T22:18:55-00:00</lastmod>
+<lastmod>2017-05-19T23:41:07-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2017-05-19T22:18:55-00:00</lastmod>
+<lastmod>2017-05-19T23:41:07-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -56,6 +56,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://breakwire.me/pages/resume.html</loc>
 <lastmod>2017-04-28T17:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/my-first-offical-product.html</loc>
+<lastmod>2017-05-19T21:58:53+08:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/deploy-django-app-again.html</loc>
+<lastmod>2017-05-18T21:58:53+08:00</lastmod>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -306,7 +320,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/category/devops.html</loc>
-<lastmod>2016-09-03T13:41:36+08:06</lastmod>
+<lastmod>2017-05-18T21:58:53+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -376,7 +390,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/category/projectx.html</loc>
-<lastmod>2017-04-05T16:59:22+08:06</lastmod>
+<lastmod>2017-05-19T21:58:53+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -411,14 +425,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/tag/projectx.html</loc>
-<lastmod>2017-04-05T16:59:22+08:06</lastmod>
+<lastmod>2017-05-19T21:58:53+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tag/devops.html</loc>
-<lastmod>2016-09-03T13:41:36+08:06</lastmod>
+<lastmod>2017-05-18T21:58:53+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -558,7 +572,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/author/chen-jian.html</loc>
-<lastmod>2017-04-05T16:59:22+08:06</lastmod>
+<lastmod>2017-05-19T21:58:53+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

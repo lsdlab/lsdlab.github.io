@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Chen Jian's Blog: BreakWire | 陈坚 | 断线实验室">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>Django 应用部署继续填坑</title>
+
+        <link href="https://breakwire.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="BreakWire Full Atom Feed" />
+
+        <link href="https://breakwire.me/theme/css/bootstrap-clean-blog.min.css" rel="stylesheet">
+        <link href="https://breakwire.me/theme/css/yue.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+
+        <meta name="description" content="选对发行版很重要……">
+
+        <meta name="author" content="Chen Jian">
+
+        <meta name="tags" content="devops">
+
+	                <meta property="og:locale" content="">
+		<meta property="og:site_name" content="BreakWire">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="https://breakwire.me/author/chen-jian.html">
+	<meta property="og:url" content="https://breakwire.me/deploy-django-app-again.html">
+	<meta property="og:title" content="Django 应用部署继续填坑">
+	<meta property="article:published_time" content="2017-05-18 21:58:53+08:00">
+            <meta property="og:description" content="选对发行版很重要……">
+
+            <meta property="og:image" content="https://breakwire.me//images/new-header.jpeg">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://breakwire.me/">BreakWire</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/pages/about-contact.html">About & Contact</a></li>
+                        <li><a href="/pages/photograph.html">Photograph</a></li>
+                        <li><a href="/pages/project-x.html">Project X</a></li>
+                        <li><a href="/pages/resume.html">Resume</a></li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/images/new-header.jpeg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Django 应用部署继续填坑</h1>
+                        <span class="meta">Posted by
+                                <a href="https://breakwire.me/author/chen-jian.html">Chen Jian</a>
+                             on 2017-05-18 21:58:53
+                        </span>
+                            <span class="meta">Updated on 2017-05-18 21:58:53</span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yue">
+    <!-- Post Content -->
+    <article>
+        <p>实践证明，部署 Django 应用最方便的发行版是 Ubuntu，我一直以为是 Debian，最近这次部署开了两台服务器对比，还是 Ubuntu 最方便，环境问题最少。</p>
+<p>最早部署一个简单的 Django 应用只要让 Nginx 把非静态文件的所有请求传给 8001 端口，uwsgi 作为 Nginx 和 Django 服务的桥接，最近有仔细看了一边 uwsgi 的示例文档，uwsgi 是推荐用 sock 套接字文件来传递，而且也大部分使用 ini 作为配置文件，uwsgi 的启动命令是 <code>uwsgi --ini dangann/conf/production/uwsgi.ini</code> 。</p>
+<p>也贴上我的 Nginx 配置和 <code>uwsgi.ini</code> 文件</p>
+<div class="highlight"><pre><span></span><span class="nt">upstream</span> <span class="nt">django</span> <span class="p">{</span>
+    <span class="err">server</span> <span class="n">unix</span><span class="p">:</span><span class="o">///</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">dangann</span><span class="o">/</span><span class="n">dangann</span><span class="o">.</span><span class="n">sock</span><span class="p">;</span> <span class="err">#</span> <span class="err">for</span> <span class="err">a</span> <span class="err">file</span> <span class="err">socket</span>
+<span class="p">}</span>
+
+<span class="nt">server</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="err">the</span> <span class="err">port</span> <span class="err">your</span> <span class="err">site</span> <span class="err">will</span> <span class="err">be</span> <span class="err">served</span> <span class="err">on</span>
+    <span class="err">listen</span>      <span class="err">80</span><span class="p">;</span>
+    <span class="err">#</span> <span class="err">the</span> <span class="err">domain</span> <span class="err">name</span> <span class="err">it</span> <span class="err">will</span> <span class="err">serve</span> <span class="err">for</span>
+    <span class="err">server_name</span> <span class="err">dangann.com</span><span class="p">;</span> <span class="err">#</span> <span class="err">substitute</span> <span class="err">your</span> <span class="err">machine&#39;s</span> <span class="err">IP</span> <span class="err">address</span> <span class="err">or</span> <span class="err">FQDN</span>
+    <span class="err">charset</span>     <span class="err">utf-8</span><span class="p">;</span>
+
+    <span class="err">#</span> <span class="err">Let</span> <span class="err">Encrypt</span>
+    <span class="err">#ssl</span> <span class="err">on</span><span class="p">;</span>
+    <span class="err">#ssl_certificate</span>     <span class="err">/etc/letsencrypt/live/dangann.com/fullchain.pem</span><span class="p">;</span>
+    <span class="err">#ssl_certificate_key</span> <span class="err">/etc/letsencrypt/live/dangann.com/privkey.pem</span><span class="p">;</span>
+    <span class="err">#ssl_protocols</span> <span class="err">TLSv1</span> <span class="err">TLSv1.1</span> <span class="err">TLSv1.2</span><span class="p">;</span>
+    <span class="err">#ssl_prefer_server_ciphers</span> <span class="err">on</span><span class="p">;</span>
+    <span class="err">#ssl_ciphers</span> <span class="err">&quot;EECDH+ECDSA+AESGCM</span> <span class="err">EECDH+aRSA+AESGCM</span> <span class="err">EECDH+ECDSA+SHA384</span> <span class="err">EECDH+ECDSA+SHA256</span> <span class="err">EECDH+aRSA+SHA384</span> <span class="err">EECDH+aRSA+SHA256</span> <span class="err">EECDH+aRSA+RC4</span> <span class="err">EECDH</span> <span class="err">EDH+aRSA</span> <span class="err">RC4</span> <span class="err">!aNULL</span> <span class="err">!eNULL</span> <span class="err">!LOW</span> <span class="err">!3DES</span> <span class="err">!MD5</span> <span class="err">!EXP</span> <span class="err">!PSK</span> <span class="err">!SRP</span> <span class="err">!DSS&quot;</span><span class="p">;</span>
+    <span class="err">#allow</span> <span class="err">all</span><span class="p">;</span>
+
+    <span class="err">#</span> <span class="err">gzip</span>
+    <span class="err">gzip</span> <span class="err">on</span><span class="p">;</span>
+    <span class="err">gzip_min_length</span> <span class="err">1k</span><span class="p">;</span>
+    <span class="err">gzip_buffers</span> <span class="err">4</span> <span class="err">16k</span><span class="p">;</span>
+    <span class="err">gzip_comp_level</span> <span class="err">6</span><span class="p">;</span>
+    <span class="err">gzip_types</span> <span class="err">text/plain</span> <span class="err">application/x-javascript</span> <span class="err">text/css</span> <span class="err">application/xml</span> <span class="err">text/javascript</span>  <span class="err">image/jpeg</span> <span class="err">image/png</span><span class="p">;</span>
+    <span class="err">gzip_disable</span> <span class="err">&quot;MSIE</span> <span class="cp">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">6</span><span class="cp">]</span><span class="err">\.&quot;</span><span class="p">;</span>
+
+    <span class="err">#</span> <span class="err">max</span> <span class="err">upload</span> <span class="err">size</span>
+    <span class="err">client_max_body_size</span> <span class="err">75M</span><span class="p">;</span>   <span class="err">#</span> <span class="err">adjust</span> <span class="err">to</span> <span class="err">taste</span>
+
+    <span class="err">#</span> <span class="err">logs</span>
+    <span class="err">access_log</span> <span class="err">/root/dangann_logs/access.log</span><span class="p">;</span>
+    <span class="err">error_log</span> <span class="err">/root/dangann_logs/error.log</span><span class="p">;</span>
+
+    <span class="err">#</span> <span class="err">Django</span> <span class="err">media</span>
+    <span class="err">location</span> <span class="err">/media</span> <span class="err">{</span>
+        <span class="err">alias</span> <span class="err">/root/dangann/media</span><span class="p">;</span> <span class="err">#</span> <span class="err">your</span> <span class="err">Django</span> <span class="err">project&#39;s</span> <span class="err">media</span> <span class="err">files</span> <span class="err">-</span> <span class="err">amend</span> <span class="err">as</span> <span class="err">required</span>
+    <span class="p">}</span>
+
+    <span class="nt">location</span> <span class="o">/</span><span class="nt">static</span> <span class="p">{</span>
+        <span class="err">alias</span> <span class="err">/root/dangann/static</span><span class="p">;</span> <span class="err">#</span> <span class="err">your</span> <span class="err">Django</span> <span class="err">project&#39;s</span> <span class="err">static</span> <span class="err">files</span> <span class="err">-</span> <span class="err">amend</span> <span class="err">as</span> <span class="err">required</span>
+    <span class="p">}</span>
+
+    <span class="err">#</span> <span class="nt">Finally</span><span class="o">,</span> <span class="nt">send</span> <span class="nt">all</span> <span class="nt">non-media</span> <span class="nt">requests</span> <span class="nt">to</span> <span class="nt">the</span> <span class="nt">Django</span> <span class="nt">server</span><span class="o">.</span>
+    <span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
+        <span class="err">uwsgi_pass</span>  <span class="err">django</span><span class="p">;</span>
+        <span class="err">include</span>     <span class="err">/root/dangann/conf/production/uwsgi_params</span><span class="p">;</span> <span class="err">#</span> <span class="err">the</span> <span class="err">uwsgi_params</span> <span class="err">file</span> <span class="err">you</span> <span class="err">installed</span>
+    <span class="p">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span># uwsgi.ini file
+[uwsgi]
+
+# Django-related settings
+# the base directory (full path)
+chdir           = /root/dangann/
+# Django&#39;s wsgi file
+module          = dangann.wsgi
+
+# process-related settings
+# master
+master          = true
+# maximum number of worker processes
+processes       = 4
+# the socket (use the full path to be safe
+socket          = /var/log/dangann/dangann.sock
+# ... with appropriate permissions - may be needed
+chmod-socket    = 664
+# clear environment on exit
+vacuum          = true
+
+#  use python thread
+enable-threads  = true
+
+# set request block time
+harakiri        = 600
+# body size
+# buffer-size
+buffer-size=32768
+
+# uwsgi.log
+daemonize=/root/dangann_logs/uwsgi.log
+</pre></div>
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="https://breakwire.me/tag/devops.html">devops</a></p>
+        </div>
+
+    <hr>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                            <li>
+                                <a href="https://breakwire.me/feeds/all.atom.xml" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://medium.com/@breakwire" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://vsco.co/lsdvincent/grid/1" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-camera fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/lsdlab" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+<p class="copyright text-muted">
+    Copyright © 2014-2016 - <a href="mailto:lsdvincent@gmail.com" target="_blank">Chen Jian</a> -
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+</p>
+<p class="copyright text-muted" style="margin-top: 0px;">
+    Blog powered by <a href="http://getpelican.com" target="_blank">Pelican</a>, themed with <a href="https://github.com/gilsondev/pelican-clean-blog" target="_blank">Pelican Clean Blog</a>. Take great advantage of <a href="http://python.org" target="_blank">Python</a>.
+</p>                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://breakwire.me/theme/js/bootstrap-clean-blog.min.js"></script>
+</body>
+
+</html>

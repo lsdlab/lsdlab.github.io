@@ -1,5 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="https://breakwire.me/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2017-04-05T16:59:22+08:00</updated><entry><title>AwesomeCoffice 微信小程序</title><link href="https://breakwire.me/awesomecoffice-weixin-mini-app.html" rel="alternate"></link><published>2017-04-05T16:59:22+08:00</published><updated>2017-04-05T16:59:22+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2017-04-05:/awesomecoffice-weixin-mini-app.html</id><summary type="html">&lt;p&gt;Swift 学得太慢，iOS App 也不是那么容易就做出来的，就先写个微信小程序玩玩了&lt;/p&gt;</summary><content type="html">&lt;p&gt;微信小程序的底层应该是和各种 MVC 的 JS 框架类似，刚出来的时候不支持个人开发者，上个月底刚宣布支持个人开发者，然后我就想把我的这个产品先用微信小程序做个雏形出来。花了几天时间完成了 API，基本功能也做得差不多了，然后就想部署上去，才发现还有个严重的问题，需要备案，非常麻烦，顿时就不想部署了，但毕竟还是写了的，不部署就不部署吧，代码放到 GitHub 上了：&lt;a href="https://github.com/lsdlab/AwesomeCoffice"&gt;lsdlab/AwesomeCoffice&lt;/a&gt;，它有它背靠大树的优势，但还是限制太多，没法和原生应用比，甚至是和移动网页应用都还比不上，我还是把精力放到靠谱的东西上吧。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="https://breakwire.me/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2017-05-19T21:58:53+08:00</updated><entry><title>单干 - 自由职业者社区</title><link href="https://breakwire.me/my-first-offical-product.html" rel="alternate"></link><published>2017-05-19T21:58:53+08:00</published><updated>2017-05-19T21:58:53+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2017-05-19:/my-first-offical-product.html</id><summary type="html">&lt;p&gt;我的一个产品&lt;/p&gt;</summary><content type="html">&lt;p&gt;先说说是个什么产品吧，最早是看到 &lt;a href="https://github.com/ElaWorkshop"&gt;ElaWorkshop/awesome-cn-cafe&lt;/a&gt; 这个 Repo 都是大家提交的适合办公的咖啡馆的数据，GitHub 能够直接渲染 geojson 文件，只要编辑 geojson 文件，就能比较方便的看到地图上的点，评论什么的。我就想我能不能做个 App 更方便的提交分享这些地方，提供更多功能，甚至是做一个社交产品。后来一想，我不会写 iOS App 啊，Swift 也还在学，要做的话岂不是得花个一年半载才能做出来。刚好四月份的适合微信宣布个人开发者也能发布微信小程序了，我就想这个好像能非常快做出一个雏形，立刻就动手了，也和朋友聊了聊，本来写了一个雏形时候就扔在那了，朋友也鼓励我做出个东西来，也帮我备案域名，提出了些建议。&lt;/p&gt;
+&lt;p&gt;说做就做，中间也经历了些麻烦事儿，就不在这篇文章里说了。断断续续做了一个月，后端 Django API 也是快糙猛的做了起来，还好最近一段时间也在折腾服务器，稍稍花了点时间就部署了起来，要照以前对服务器的各种依赖、环境问题没有头绪的情况下，Trouble Shoting 环境问题都要花个几天时间，这次只花了一个多小时就让后端 up &amp;amp; running 了，感觉对 Linux 的使用又多了些经验。&lt;/p&gt;
+&lt;p&gt;为什么想做这个产品，一个原因是觉得自己不能死写代码，况且自己写代码又不是很厉害的情况下，得有自己代表性的作品，这个产品就算是一个尝试。其实我本来不愿意做微信小程序，我非常不喜欢微信，甚至是讨厌微信，但以现在我的技术栈，Python 作为后端，前端基础算是入门，React 等新工具（现在已经不算新了）没怎么大量实际用过，iOS 开发还在慢慢学（从三年前买了这台 MacBook Pro 开始……）的情况下，只能开发微信小程序了。微信小程序的底层应该和 React, Vue 是一样的原理，数据绑定，不用操作 DOM 了，简单的数据展示和交互写起来是十分的方便，如果遇到复杂的组件和交互就会有点麻烦，需要设计好数据传递。当然以前用 jQuery 操作 DOM 也是很麻烦，甚至是有些巨复杂的效果 jQuery 根本实现不了或者实现起来很复杂，现在有了 React 这些 “新” JS 框架就能实现了。虽然微信小程序的实现和 React 比起来肯定是弱很多的，但基本的原理还是一样的。&lt;/p&gt;
+&lt;p&gt;上周和这周都花了些时间在做这个，雏形已经差不多了，再修改修改这个月底就发布。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="0" src="/images/dangann/0.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/images/dangann/1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="/images/dangann/2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="/images/dangann/3.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="/images/dangann/4.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="5" src="/images/dangann/5.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="6" src="/images/dangann/6.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="7" src="/images/dangann/7.png"&gt;&lt;/p&gt;</content><category term="projectx"></category></entry><entry><title>Django 应用部署继续填坑</title><link href="https://breakwire.me/deploy-django-app-again.html" rel="alternate"></link><published>2017-05-18T21:58:53+08:00</published><updated>2017-05-18T21:58:53+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2017-05-18:/deploy-django-app-again.html</id><summary type="html">&lt;p&gt;选对发行版很重要……&lt;/p&gt;</summary><content type="html">&lt;p&gt;实践证明，部署 Django 应用最方便的发行版是 Ubuntu，我一直以为是 Debian，最近这次部署开了两台服务器对比，还是 Ubuntu 最方便，环境问题最少。&lt;/p&gt;
+&lt;p&gt;最早部署一个简单的 Django 应用只要让 Nginx 把非静态文件的所有请求传给 8001 端口，uwsgi 作为 Nginx 和 Django 服务的桥接，最近有仔细看了一边 uwsgi 的示例文档，uwsgi 是推荐用 sock 套接字文件来传递，而且也大部分使用 ini 作为配置文件，uwsgi 的启动命令是 &lt;code&gt;uwsgi --ini dangann/conf/production/uwsgi.ini&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;也贴上我的 Nginx 配置和 &lt;code&gt;uwsgi.ini&lt;/code&gt; 文件&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;upstream&lt;/span&gt; &lt;span class="nt"&gt;django&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;server&lt;/span&gt; &lt;span class="n"&gt;unix&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;///&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dangann&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dangann&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;for&lt;/span&gt; &lt;span class="err"&gt;a&lt;/span&gt; &lt;span class="err"&gt;file&lt;/span&gt; &lt;span class="err"&gt;socket&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;port&lt;/span&gt; &lt;span class="err"&gt;your&lt;/span&gt; &lt;span class="err"&gt;site&lt;/span&gt; &lt;span class="err"&gt;will&lt;/span&gt; &lt;span class="err"&gt;be&lt;/span&gt; &lt;span class="err"&gt;served&lt;/span&gt; &lt;span class="err"&gt;on&lt;/span&gt;
+    &lt;span class="err"&gt;listen&lt;/span&gt;      &lt;span class="err"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;domain&lt;/span&gt; &lt;span class="err"&gt;name&lt;/span&gt; &lt;span class="err"&gt;it&lt;/span&gt; &lt;span class="err"&gt;will&lt;/span&gt; &lt;span class="err"&gt;serve&lt;/span&gt; &lt;span class="err"&gt;for&lt;/span&gt;
+    &lt;span class="err"&gt;server_name&lt;/span&gt; &lt;span class="err"&gt;dangann.com&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;substitute&lt;/span&gt; &lt;span class="err"&gt;your&lt;/span&gt; &lt;span class="err"&gt;machine&amp;#39;s&lt;/span&gt; &lt;span class="err"&gt;IP&lt;/span&gt; &lt;span class="err"&gt;address&lt;/span&gt; &lt;span class="err"&gt;or&lt;/span&gt; &lt;span class="err"&gt;FQDN&lt;/span&gt;
+    &lt;span class="err"&gt;charset&lt;/span&gt;     &lt;span class="err"&gt;utf-8&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;Let&lt;/span&gt; &lt;span class="err"&gt;Encrypt&lt;/span&gt;
+    &lt;span class="err"&gt;#ssl&lt;/span&gt; &lt;span class="err"&gt;on&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;#ssl_certificate&lt;/span&gt;     &lt;span class="err"&gt;/etc/letsencrypt/live/dangann.com/fullchain.pem&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;#ssl_certificate_key&lt;/span&gt; &lt;span class="err"&gt;/etc/letsencrypt/live/dangann.com/privkey.pem&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;#ssl_protocols&lt;/span&gt; &lt;span class="err"&gt;TLSv1&lt;/span&gt; &lt;span class="err"&gt;TLSv1.1&lt;/span&gt; &lt;span class="err"&gt;TLSv1.2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;#ssl_prefer_server_ciphers&lt;/span&gt; &lt;span class="err"&gt;on&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;#ssl_ciphers&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;EECDH+ECDSA+AESGCM&lt;/span&gt; &lt;span class="err"&gt;EECDH+aRSA+AESGCM&lt;/span&gt; &lt;span class="err"&gt;EECDH+ECDSA+SHA384&lt;/span&gt; &lt;span class="err"&gt;EECDH+ECDSA+SHA256&lt;/span&gt; &lt;span class="err"&gt;EECDH+aRSA+SHA384&lt;/span&gt; &lt;span class="err"&gt;EECDH+aRSA+SHA256&lt;/span&gt; &lt;span class="err"&gt;EECDH+aRSA+RC4&lt;/span&gt; &lt;span class="err"&gt;EECDH&lt;/span&gt; &lt;span class="err"&gt;EDH+aRSA&lt;/span&gt; &lt;span class="err"&gt;RC4&lt;/span&gt; &lt;span class="err"&gt;!aNULL&lt;/span&gt; &lt;span class="err"&gt;!eNULL&lt;/span&gt; &lt;span class="err"&gt;!LOW&lt;/span&gt; &lt;span class="err"&gt;!3DES&lt;/span&gt; &lt;span class="err"&gt;!MD5&lt;/span&gt; &lt;span class="err"&gt;!EXP&lt;/span&gt; &lt;span class="err"&gt;!PSK&lt;/span&gt; &lt;span class="err"&gt;!SRP&lt;/span&gt; &lt;span class="err"&gt;!DSS&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;#allow&lt;/span&gt; &lt;span class="err"&gt;all&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;gzip&lt;/span&gt;
+    &lt;span class="err"&gt;gzip&lt;/span&gt; &lt;span class="err"&gt;on&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;gzip_min_length&lt;/span&gt; &lt;span class="err"&gt;1k&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;gzip_buffers&lt;/span&gt; &lt;span class="err"&gt;4&lt;/span&gt; &lt;span class="err"&gt;16k&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;gzip_comp_level&lt;/span&gt; &lt;span class="err"&gt;6&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;gzip_types&lt;/span&gt; &lt;span class="err"&gt;text/plain&lt;/span&gt; &lt;span class="err"&gt;application/x-javascript&lt;/span&gt; &lt;span class="err"&gt;text/css&lt;/span&gt; &lt;span class="err"&gt;application/xml&lt;/span&gt; &lt;span class="err"&gt;text/javascript&lt;/span&gt;  &lt;span class="err"&gt;image/jpeg&lt;/span&gt; &lt;span class="err"&gt;image/png&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;gzip_disable&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;MSIE&lt;/span&gt; &lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="err"&gt;\.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;max&lt;/span&gt; &lt;span class="err"&gt;upload&lt;/span&gt; &lt;span class="err"&gt;size&lt;/span&gt;
+    &lt;span class="err"&gt;client_max_body_size&lt;/span&gt; &lt;span class="err"&gt;75M&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;   &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;adjust&lt;/span&gt; &lt;span class="err"&gt;to&lt;/span&gt; &lt;span class="err"&gt;taste&lt;/span&gt;
+
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;logs&lt;/span&gt;
+    &lt;span class="err"&gt;access_log&lt;/span&gt; &lt;span class="err"&gt;/root/dangann_logs/access.log&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;error_log&lt;/span&gt; &lt;span class="err"&gt;/root/dangann_logs/error.log&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;Django&lt;/span&gt; &lt;span class="err"&gt;media&lt;/span&gt;
+    &lt;span class="err"&gt;location&lt;/span&gt; &lt;span class="err"&gt;/media&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="err"&gt;alias&lt;/span&gt; &lt;span class="err"&gt;/root/dangann/media&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;your&lt;/span&gt; &lt;span class="err"&gt;Django&lt;/span&gt; &lt;span class="err"&gt;project&amp;#39;s&lt;/span&gt; &lt;span class="err"&gt;media&lt;/span&gt; &lt;span class="err"&gt;files&lt;/span&gt; &lt;span class="err"&gt;-&lt;/span&gt; &lt;span class="err"&gt;amend&lt;/span&gt; &lt;span class="err"&gt;as&lt;/span&gt; &lt;span class="err"&gt;required&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="nt"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;static&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="err"&gt;alias&lt;/span&gt; &lt;span class="err"&gt;/root/dangann/static&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;your&lt;/span&gt; &lt;span class="err"&gt;Django&lt;/span&gt; &lt;span class="err"&gt;project&amp;#39;s&lt;/span&gt; &lt;span class="err"&gt;static&lt;/span&gt; &lt;span class="err"&gt;files&lt;/span&gt; &lt;span class="err"&gt;-&lt;/span&gt; &lt;span class="err"&gt;amend&lt;/span&gt; &lt;span class="err"&gt;as&lt;/span&gt; &lt;span class="err"&gt;required&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nt"&gt;Finally&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;send&lt;/span&gt; &lt;span class="nt"&gt;all&lt;/span&gt; &lt;span class="nt"&gt;non-media&lt;/span&gt; &lt;span class="nt"&gt;requests&lt;/span&gt; &lt;span class="nt"&gt;to&lt;/span&gt; &lt;span class="nt"&gt;the&lt;/span&gt; &lt;span class="nt"&gt;Django&lt;/span&gt; &lt;span class="nt"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+    &lt;span class="nt"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="err"&gt;uwsgi_pass&lt;/span&gt;  &lt;span class="err"&gt;django&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;include&lt;/span&gt;     &lt;span class="err"&gt;/root/dangann/conf/production/uwsgi_params&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;uwsgi_params&lt;/span&gt; &lt;span class="err"&gt;file&lt;/span&gt; &lt;span class="err"&gt;you&lt;/span&gt; &lt;span class="err"&gt;installed&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# uwsgi.ini file
+[uwsgi]
+
+# Django-related settings
+# the base directory (full path)
+chdir           = /root/dangann/
+# Django&amp;#39;s wsgi file
+module          = dangann.wsgi
+
+# process-related settings
+# master
+master          = true
+# maximum number of worker processes
+processes       = 4
+# the socket (use the full path to be safe
+socket          = /var/log/dangann/dangann.sock
+# ... with appropriate permissions - may be needed
+chmod-socket    = 664
+# clear environment on exit
+vacuum          = true
+
+#  use python thread
+enable-threads  = true
+
+# set request block time
+harakiri        = 600
+# body size
+# buffer-size
+buffer-size=32768
+
+# uwsgi.log
+daemonize=/root/dangann_logs/uwsgi.log
+&lt;/pre&gt;&lt;/div&gt;</content><category term="devops"></category></entry><entry><title>AwesomeCoffice 微信小程序</title><link href="https://breakwire.me/awesomecoffice-weixin-mini-app.html" rel="alternate"></link><published>2017-04-05T16:59:22+08:00</published><updated>2017-04-05T16:59:22+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2017-04-05:/awesomecoffice-weixin-mini-app.html</id><summary type="html">&lt;p&gt;Swift 学得太慢，iOS App 也不是那么容易就做出来的，就先写个微信小程序玩玩了&lt;/p&gt;</summary><content type="html">&lt;p&gt;微信小程序的底层应该是和各种 MVC 的 JS 框架类似，刚出来的时候不支持个人开发者，上个月底刚宣布支持个人开发者，然后我就想把我的这个产品先用微信小程序做个雏形出来。花了几天时间完成了 API，基本功能也做得差不多了，然后就想部署上去，才发现还有个严重的问题，需要备案，非常麻烦，顿时就不想部署了，但毕竟还是写了的，不部署就不部署吧，代码放到 GitHub 上了：&lt;a href="https://github.com/lsdlab/AwesomeCoffice"&gt;lsdlab/AwesomeCoffice&lt;/a&gt;，它有它背靠大树的优势，但还是限制太多，没法和原生应用比，甚至是和移动网页应用都还比不上，我还是把精力放到靠谱的东西上吧。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="1" src="/images/awesome_coffice_weixin_mini_app/1.png"&gt;
 &lt;img alt="2" src="/images/awesome_coffice_weixin_mini_app/2.png"&gt;
 &lt;img alt="3" src="/images/awesome_coffice_weixin_mini_app/3.png"&gt;
