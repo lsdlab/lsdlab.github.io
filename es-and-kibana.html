@@ -109,15 +109,15 @@
 <p>`
 我用了 Elasticsearch 的官方 Python API <a href="https://github.com/elastic/elasticsearch-py">elasticsearch-py</a>，脚本放在了 <a href="https://gist.github.com/lsdlab/194c7e4c3537741ba760ffb40b3667da">Gist</a> 里面。</p>
 <p>日志存到 ES 中是这个样子：</p>
-<p><img alt="2" src="">(/images/es_and_kibana/2.png)</p>
+<p><img alt="2" src="/images/es_and_kibana/2.png"></p>
 <h2>Kibana</h2>
 <p>Kibana 是一个可是化工具，能看到 ES 中的数据，做一些报表，只要把数据导入到 ES 中，做报表就很简单了，简单的也是有前提的，前提是你要定义好日志的内容。</p>
 <p>Kibana 做出报表就简单了，比如点赞数量，在 Visualize 里面新建一个柱状图，搜索 <code>item.verb="点赞"</code>，然后第一个 Y 轴聚合搜索出来的日志条数，就是点赞的数量，再添加一个 Y 轴 <code>Unique Count</code> <code>item.actor.username.keyword</code> 就能得出多少个用户产生了这么多赞，X 轴的化就是按照时间，我都是按天来，选择 <code>Date Histogram</code>，<code>Interval</code>选 <code>Daily</code>，如果你的日志系统要求的实时性比较高，还能选择 <code>Hourly</code>，然后把实时刷新打开，就能看到比较实时的数据了。</p>
-<p><img alt="4" src="">(/images/es_and_kibana/4.png)
-<img alt="5" src="">(/images/es_and_kibana/5.png)</p>
+<p><img alt="4" src="/images/es_and_kibana/4.png">
+<img alt="5" src="/images/es_and_kibana/5.png"></p>
 <p>Kibana 最终是这个样子：</p>
-<p><img alt="0" src="">(/images/es_and_kibana/0.png)
-<img alt="1" src="">(/images/es_and_kibana/1.png)</p>
+<p><img alt="0" src="/images/es_and_kibana/0.png">
+<img alt="1" src="/images/es_and_kibana/1.png"></p>
     </article>
 
         <div class="tags">
