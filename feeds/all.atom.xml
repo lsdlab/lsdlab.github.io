@@ -151,7 +151,7 @@ sudo nginx
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;完成，然后就是把 nginx 加上压缩，加上 https，再加上那个 google analytics 就齐活了，一个网站就搞定了，要做外贸电商也很容易，woocommerce 插件一幢，paypal 配置好，上架商品，就行了。做码农真的容易被限制思维方式，其实想做任何东西，都有现成的工具可以用，只要整合就行了。&lt;/p&gt;
+&lt;p&gt;完成，然后就是把 nginx 加上压缩，加上 https，再加上那个 google analytics 就齐活了，一个网站就搞定了，要做外贸电商也很容易，woocommerce 插件一装，paypal 配置好，上架商品，就行了。做码农真的容易被限制思维方式，其实想做任何东西，都有现成的工具可以用，只要整合就行了。&lt;/p&gt;
 &lt;h2&gt;参考链接&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lemp-on-ubuntu-16-04#step-1-create-a-mysql-database-and-user-for-wordpress" title="How To Install WordPress with LEMP on Ubuntu 16.04 | DigitalOcean"&gt;How To Install WordPress with LEMP on Ubuntu 16.04 | DigitalOcean&lt;/a&gt;
 &lt;a href="https://www.howtoforge.com/tutorial/installing-nginx-with-php7-fpm-and-mysql-on-ubuntu-16.04-lts-lemp/" title="Installing Nginx with PHP 7 and MySQL 5.7 (LEMP) on Ubuntu 16.04 LTS"&gt;Installing Nginx with PHP 7 and MySQL 5.7 (LEMP) on Ubuntu 16.04 LTS&lt;/a&gt;
