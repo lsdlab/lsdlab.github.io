@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2017-11-12T21:50:13-00:00</lastmod>
+<lastmod>2017-12-14T14:55:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2017-11-12T21:50:13-00:00</lastmod>
+<lastmod>2017-12-14T14:55:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2017-11-12T21:50:13-00:00</lastmod>
+<lastmod>2017-12-14T14:55:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2017-11-12T21:50:13-00:00</lastmod>
+<lastmod>2017-12-14T14:55:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -56,6 +56,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://breakwire.me/pages/resume.html</loc>
 <lastmod>2017-11-12T22:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/fast-install-wordpress-on-ubuntu16.04.html</loc>
+<lastmod>2017-12-14T13:48:38+08:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/.html</loc>
+<lastmod>2017-11-26T16:13:35+08:00</lastmod>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -334,7 +348,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/category/devops.html</loc>
-<lastmod>2017-05-18T21:58:53+08:06</lastmod>
+<lastmod>2017-12-14T13:48:38+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -377,6 +391,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://breakwire.me/category/javascript.html</loc>
 <lastmod>2015-11-19T00:50:23+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/category/misc.html</loc>
+<lastmod>2017-11-26T16:13:35+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -445,6 +466,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://breakwire.me/tag/devops.html</loc>
+<lastmod>2017-12-14T13:48:38+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://breakwire.me/tag/es.html</loc>
 <lastmod>2017-10-02T21:38:07+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -461,13 +489,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://breakwire.me/tag/projectx.html</loc>
 <lastmod>2017-05-19T21:58:53+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://breakwire.me/tag/devops.html</loc>
-<lastmod>2017-05-18T21:58:53+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -600,7 +621,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/author/chen-jian.html</loc>
-<lastmod>2017-10-02T21:38:07+08:06</lastmod>
+<lastmod>2017-12-14T13:48:38+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

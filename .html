@@ -32,7 +32,7 @@
             <meta property="article:author" content="https://breakwire.me/author/chen-jian.html">
 	<meta property="og:url" content="https://breakwire.me/.html">
 	<meta property="og:title" content="">
-	<meta property="article:published_time" content="2017-11-03 22:08:55+08:00">
+	<meta property="article:published_time" content="2017-11-26 16:13:35+08:00">
 
             <meta property="og:image" content="https://breakwire.me//images/new-header.jpeg">
 </head>
@@ -77,9 +77,9 @@
                         <h1></h1>
                         <span class="meta">Posted by
                                 <a href="https://breakwire.me/author/chen-jian.html">Chen Jian</a>
-                             on 2017-11-03 22:08:55
+                             on 2017-11-26 16:13:35
                         </span>
-                            <span class="meta">Updated on 2017-11-03 22:08:55</span>
+                            <span class="meta">Updated on 2017-11-26 16:13:35</span>
                         
                     </div>
                 </div>
@@ -158,8 +158,34 @@
 
       ga('create', 'UA-100052685-1', 'auto');
       ga('send', 'pageview');
-
     </script>
+
+    <!-- Channel Plugin Scripts -->
+    <script>
+      window.channelPluginSettings = {
+        "plugin_id": "d1496b23-35c2-47a8-a3f8-d99983afbe68"
+      };
+      (function() {
+        var node = document.createElement('div');
+        node.id = 'ch-plugin';
+        document.body.appendChild(node);
+        var async_load = function() {
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+          s.charset = 'UTF-8';
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        };
+        if (window.attachEvent) {
+          window.attachEvent('onload', async_load);
+        } else {
+          window.addEventListener('load', async_load, false);
+        }
+      })();
+    </script>
+    <!-- End Channel Plugin -->
 </body>
 
 </html>

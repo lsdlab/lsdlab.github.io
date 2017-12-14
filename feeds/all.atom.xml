@@ -1,5 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="https://breakwire.me/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2017-10-02T21:38:07+08:00</updated><entry><title>基于 Eleasticsearch 和 Kibana 的运营数据可视化后台</title><link href="https://breakwire.me/es-and-kibana.html" rel="alternate"></link><published>2017-10-02T21:38:07+08:00</published><updated>2017-10-02T21:38:07+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2017-10-02:/es-and-kibana.html</id><summary type="html">&lt;p&gt;如何快速为新产品搭建一个运营数据可视化的后台&lt;/p&gt;</summary><content type="html">&lt;p&gt;前一段时间在研究 ELK 这个东西，之前也用过一点，但都没有深入研究，其实这回也没有深入研究，但我找到了在现在情况下我该怎么用这个东西的方法。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire</title><link href="https://breakwire.me/" rel="alternate"></link><link href="//feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2017-12-14T13:48:38+08:00</updated><entry><title>Ubuntu 16.04 快糙猛安装部署 Wordpress</title><link href="https://breakwire.me/fast-install-wordpress-on-ubuntu16.04.html" rel="alternate"></link><published>2017-12-14T13:48:38+08:00</published><updated>2017-12-14T13:48:38+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2017-12-14:/fast-install-wordpress-on-ubuntu16.04.html</id><summary type="html">&lt;p&gt;终于，我也会装 Wordpress 了……&lt;/p&gt;</summary><content type="html">&lt;p&gt;最早玩 Linux 服务器也不知道拿来干啥，就联系联系命令，后来学了 Django，能写个简单的应用然后部署了，Django 部署其实很容易，但对于新手来说还要处理各种依赖安装失败，简直噩梦，后来用的多了，有经验了，再加上使用场景也多了。服务器在 DigitalOcean 上也是随便开着用，想玩个爬虫就临时开机器出来用，安装配置也是分分钟的事儿，处理什么依赖安装失败也很容易，随便搜索搜索再加上经验，很容易就搞定了。但我一直没装过 Wordpress，正好有朋友要我帮忙弄个站点，还有点要求，速度要快，要上 HTTPS，我就先给他在 DigitalOcean 一键安装了出来，先凑合用，一键安装出来是 Apache 做 HTTP 服务器，我不会 HTTP 更不会配置 Apache，所以还是得手动装，我也大致了解 Wordpress 是怎么运行的，nginx + php7.0-fpm + mysql + wordpress 就这四个东西，和其他应用的原理都是一样的，我也把这个过程做个笔记，以后方便查。&lt;/p&gt;
+&lt;p&gt;DigitalOcean 上开个 $5 的机器，选上 &lt;code&gt;add ssh key&lt;/code&gt;，直接用 root 用户，就先不配服务器的用户了，照理说这一步是配置好 ssh 登录，然后把 root 用户登录关闭掉，避免风险的。&lt;/p&gt;
+&lt;h2&gt;登录上服务器，直接更新升级然后安装一波必要东西&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
+sudo apt-get install git gcc g++ vim
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;安装 nginx/mysql-server/php7.0-fpm&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install nginx
+sudo apt-get install mysql-server
+sudo apt-get install php7.0-fpm
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;配置 mysql&lt;/h2&gt;
+&lt;p&gt;创建 wordpress 要用的数据库，这里 mysql 就也不再创建用户了，直接用 root，把密码设置复杂点。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mysql -u root -p
+
+CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+GRANT ALL ON wordpress.* TO ‘root’@‘localhost&amp;#39; IDENTIFIED BY ‘root’;*FLUSH PRIVILEGES;
+EXIT;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;重启 mysql&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo systemctl restart mysql-server
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;安装 php 插件&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;DigitalOcean 里面让安装这些东西，实际我安装完了之后发现报错，还少 mysql 的一个插件：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install php7.0-mysql
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;配置 php7.0-fpm&lt;/h2&gt;
+&lt;p&gt;就是个 wsgi 的中间件。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo vi /etc/php/7.0/fpm/php.ini
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在最后加一行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cgi.fix_pathinfo=0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo vi /var/www/html/info.php
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;粘贴进去：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class="nb"&gt;phpinfo&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="o"&gt;?&lt;/span&gt;&lt;span class="nx"&gt;\&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;把中间件的连接方式换成端口&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo vi /etc/php/7.0/fpm/pool.d/www.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;找到 &lt;code&gt;listen = /var/run/php5-fpm.sock&lt;/code&gt; 注释掉，换成：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;listen = 127.0.0.1:9000
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;重启 php7.0-fpm&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo systemctl restart php7.0-fpm
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;下载解压 wordpress，配置&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;curl -O https://wordpress.org/latest.tar.gz
+tar xzvf latest.tar.gz
+cd wordpress
+cp wordpress-config-sample.php wp-config.php
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;生成 key：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;curl -s https://api.wordpress.org/secret-key/1.1/salt/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;复制后：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo vi wp-config.php
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;找到对应的地方，粘贴替换。&lt;/p&gt;
+&lt;p&gt;数据库的名字、用户名、密码也替换掉之前创建的：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;define(&amp;#39;DB_NAME&amp;#39;, &amp;#39;wordpress&amp;#39;);
+
+/** MySQL database username */
+define(&amp;#39;DB_USER&amp;#39;, &amp;#39;wordpressuser&amp;#39;);
+
+/** MySQL database password */
+define(&amp;#39;DB_PASSWORD&amp;#39;, &amp;#39;password&amp;#39;);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;配置 nginx&lt;/h2&gt;
+&lt;p&gt;nginx 也不新建配置了，直接写在默认配置里面：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo vi /etc/nginx/sites-available/default 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;改掉这几个地方：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="err"&gt;listen&lt;/span&gt; &lt;span class="err"&gt;80&lt;/span&gt; &lt;span class="err"&gt;default_server&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="err"&gt;listen&lt;/span&gt; &lt;span class="err"&gt;198.199.119.75&lt;/span&gt; &lt;span class="err"&gt;default_server&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="err"&gt;root&lt;/span&gt; &lt;span class="err"&gt;/var/www/html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;Add&lt;/span&gt; &lt;span class="err"&gt;index.php&lt;/span&gt; &lt;span class="err"&gt;to&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;list&lt;/span&gt; &lt;span class="err"&gt;if&lt;/span&gt; &lt;span class="err"&gt;you&lt;/span&gt; &lt;span class="err"&gt;are&lt;/span&gt; &lt;span class="err"&gt;using&lt;/span&gt; &lt;span class="err"&gt;PHP&lt;/span&gt;
+  &lt;span class="err"&gt;index&lt;/span&gt; &lt;span class="err"&gt;index.php&lt;/span&gt; &lt;span class="err"&gt;index.html&lt;/span&gt; &lt;span class="err"&gt;index.htm&lt;/span&gt; &lt;span class="err"&gt;index.nginx-debian.html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="err"&gt;server_name&lt;/span&gt; &lt;span class="err"&gt;_&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="err"&gt;location&lt;/span&gt; &lt;span class="err"&gt;/&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;First&lt;/span&gt; &lt;span class="err"&gt;attempt&lt;/span&gt; &lt;span class="err"&gt;to&lt;/span&gt; &lt;span class="err"&gt;serve&lt;/span&gt; &lt;span class="err"&gt;request&lt;/span&gt; &lt;span class="err"&gt;as&lt;/span&gt; &lt;span class="err"&gt;file,&lt;/span&gt; &lt;span class="err"&gt;then&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;as&lt;/span&gt; &lt;span class="err"&gt;directory,&lt;/span&gt; &lt;span class="err"&gt;then&lt;/span&gt; &lt;span class="err"&gt;fall&lt;/span&gt; &lt;span class="err"&gt;back&lt;/span&gt; &lt;span class="err"&gt;to&lt;/span&gt; &lt;span class="err"&gt;displaying&lt;/span&gt; &lt;span class="err"&gt;a&lt;/span&gt; &lt;span class="err"&gt;404.&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;try_files&lt;/span&gt; &lt;span class="err"&gt;$uri&lt;/span&gt; &lt;span class="err"&gt;$uri/&lt;/span&gt; &lt;span class="err"&gt;=404&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;try_files&lt;/span&gt; &lt;span class="err"&gt;$uri&lt;/span&gt; &lt;span class="err"&gt;$uri/&lt;/span&gt; &lt;span class="err"&gt;/index.php$is_args$args&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nt"&gt;pass&lt;/span&gt; &lt;span class="nt"&gt;the&lt;/span&gt; &lt;span class="nt"&gt;PHP&lt;/span&gt; &lt;span class="nt"&gt;scripts&lt;/span&gt; &lt;span class="nt"&gt;to&lt;/span&gt; &lt;span class="nt"&gt;FastCGI&lt;/span&gt; &lt;span class="nt"&gt;server&lt;/span&gt; &lt;span class="nt"&gt;listening&lt;/span&gt; &lt;span class="nt"&gt;on&lt;/span&gt; &lt;span class="nt"&gt;127&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;9000&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt; 
+  &lt;span class="nt"&gt;location&lt;/span&gt;  &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;php&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="err"&gt;include&lt;/span&gt; &lt;span class="err"&gt;snippets/fastcgi-php.conf&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;\#&lt;/span&gt; &lt;span class="err"&gt;With&lt;/span&gt; &lt;span class="err"&gt;php7.0-cgi&lt;/span&gt; &lt;span class="n"&gt;alone&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;fastcgi_pass&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;9000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;\#&lt;/span&gt; &lt;span class="err"&gt;With&lt;/span&gt; &lt;span class="err"&gt;php7.0-&lt;/span&gt;&lt;span class="n"&gt;fpm&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;fastcgi_pass&lt;/span&gt; &lt;span class="n"&gt;unix&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;php&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;php7&lt;/span&gt;&lt;span class="mf"&gt;.0&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fpm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;重启  php7.0-fpm 和 nginx&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo systemctl restart php7.0-fpm
+sudo nginx -s stop
+sudo nginx
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;完成，然后就是把 nginx 加上压缩，加上 https，再加上那个 google analytics 就齐活了，一个网站就搞定了，要做外贸电商也很容易，woocommerce 插件一幢，paypal 配置好，上架商品，就行了。做码农真的容易被限制思维方式，其实想做任何东西，都有现成的工具可以用，只要整合就行了。&lt;/p&gt;
+&lt;h2&gt;参考链接&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lemp-on-ubuntu-16-04#step-1-create-a-mysql-database-and-user-for-wordpress" title="How To Install WordPress with LEMP on Ubuntu 16.04 | DigitalOcean"&gt;How To Install WordPress with LEMP on Ubuntu 16.04 | DigitalOcean&lt;/a&gt;
+&lt;a href="https://www.howtoforge.com/tutorial/installing-nginx-with-php7-fpm-and-mysql-on-ubuntu-16.04-lts-lemp/" title="Installing Nginx with PHP 7 and MySQL 5.7 (LEMP) on Ubuntu 16.04 LTS"&gt;Installing Nginx with PHP 7 and MySQL 5.7 (LEMP) on Ubuntu 16.04 LTS&lt;/a&gt;
+&lt;a href="https://www.rosehosting.com/blog/how-to-fix-the-missing-mysql-extension-error-in-wordpress/" title="How to Fix the Missing MySQL Extension Error in WordPress – RoseHosting Blog"&gt;How to Fix the Missing MySQL Extension Error in WordPress – RoseHosting Blog&lt;/a&gt;&lt;/p&gt;</content><category term="devops"></category></entry><entry><title></title><link href="https://breakwire.me/.html" rel="alternate"></link><published>2017-11-26T16:13:35+08:00</published><updated>2017-11-26T16:13:35+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2017-11-26:/.html</id><summary type="html"></summary><content type="html"></content></entry><entry><title>基于 Eleasticsearch 和 Kibana 的运营数据可视化后台</title><link href="https://breakwire.me/es-and-kibana.html" rel="alternate"></link><published>2017-10-02T21:38:07+08:00</published><updated>2017-10-02T21:38:07+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2017-10-02:/es-and-kibana.html</id><summary type="html">&lt;p&gt;如何快速为新产品搭建一个运营数据可视化的后台&lt;/p&gt;</summary><content type="html">&lt;p&gt;前一段时间在研究 ELK 这个东西，之前也用过一点，但都没有深入研究，其实这回也没有深入研究，但我找到了在现在情况下我该怎么用这个东西的方法。&lt;/p&gt;
 &lt;p&gt;ELK 是一个日志系统的全家桶工具，Elasticsearch 用的人比较多，很多人把这个当作搜索后台，如果你选择了 Django 这样的框架的话也很容易继承搜索功能进去，比如用这个库 &lt;a href="https://github.com/django-haystack/django-haystack"&gt;django-haystack&lt;/a&gt;，当然很多人是用来做日志存储。&lt;/p&gt;
 &lt;p&gt;L 是 Logstash，经过我的调研就发现这个玩意其实不太好用，性能差是主要原因。这个东西的用途就是一个中间件，把多个平台的不同格式的日志全部进行预处理，然后再存入 ES 中，但是作为一个还很小，没那么复杂的后台服务来说，用不着，只有一个日志来源，日志格式也是固定的，一条日志里面有四个 JSON object，每个 object 的 key 不是固定的，只要处理一下时间戳就行了，其他都不用动，直接 mapping 到 ES 中，刚开始我甚至还用到了 filebeat，先用 filebeat 监控文件，然后 filebeat output 给 logstash，然后 logstash 再 output 给 ES，简直了，测试的时候没什么问题，但一上线过了两三天日志数量多了起来我就发现问题了，数量不对，每天都在累加前一天的日志条数，等于说是 tail 文件没成功，每次都从头开始读文件了，外加用了 rsync 这个东西从生产服务器上同步日志到 ES 机器上，我也没整明白到底是哪里出了问题，索性直接弃用 logstash 和 filebeat，只用 ES 和 kibana，我自己写脚本监控文件、把日志写入 ES 中，也把日志按天切分成文件，简单又靠谱。&lt;/p&gt;
 &lt;p&gt;运营数据日志的日志内容其实和消息系统很像，我就直接引用这里的概念 &lt;a href="http://django-activity-stream.readthedocs.io/en/latest/concepts.html"&gt;AVOT&lt;/a&gt;，&lt;code&gt;Actor/Verb/Object/Target&lt;/code&gt;。举例说明: &lt;code&gt;xxx 关注了 yyy&lt;/code&gt;，&lt;code&gt;xxx&lt;/code&gt; 是 Actor，&lt;code&gt;关注&lt;/code&gt; 是 Verb，&lt;code&gt;yyy&lt;/code&gt; 是 Target，这里没有 Object，再举一个例子，xxx 将 uuu 添加到了 yyy 中，这里的 Verb 是 &lt;code&gt;添加&lt;/code&gt;，Object 是 &lt;code&gt;uuu&lt;/code&gt;，&lt;code&gt;Actor/Object/Target&lt;/code&gt; 就是模型，当然我们不用把模型的全部字段都放进去，放个 type/id/name 就够了。按照这样的规则规定好日志内容之后就简单了，在每个需要记录日志的地方进行埋点，这个就是比较麻烦的地方，如果业务比较复杂的化，埋点很多，写的时候一定要一次性写对 Object 和 Target，不要写了一次之后复制粘贴，很容易搞错，一个个写。还有一点就是 &lt;code&gt;Actor/Object/Target&lt;/code&gt; 的 id 都转成字符串存储，因为用户的 id 是 &lt;code&gt;uuid&lt;/code&gt;，日志 object 直接 &lt;code&gt;to_json()&lt;/code&gt;，django logger 直接用，用户 id 会变成字符串，其他 model 的 id 还是 &lt;code&gt;int&lt;/code&gt;，类型如果不一致再存到 ES 里面数据会有冲突。&lt;/p&gt;
@@ -1440,42 +1596,13 @@ set 还支持可变集合操作，修改集合的运算（并/交/差/对称差�
 
 &lt;h2&gt;真值&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;True&lt;/code&gt; 和 &lt;code&gt;False&lt;/code&gt; 是两个 &lt;code&gt;bool&lt;/code&gt; 类型的内置实例，布尔值。 跟 &lt;code&gt;None&lt;/code&gt; 一样，它们各只会有一个实例存在。&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;False&lt;/th&gt;
-&lt;th&gt;True&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;False&lt;/code&gt; (== 0)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;True&lt;/code&gt; (== 1)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;""&lt;/code&gt; (空字符串)   除了 &lt;code&gt;""&lt;/code&gt; 之外的所有字符串(&lt;code&gt;" "&lt;/code&gt;, &lt;code&gt;"anything"&lt;/code&gt;)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;0&lt;/code&gt;, &lt;code&gt;0.0&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;除了 0 之外的所有数(1, 0.1, -1, 3.14)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;[]&lt;/code&gt;, &lt;code&gt;()&lt;/code&gt;, &lt;code&gt;{}&lt;/code&gt;, &lt;code&gt;set()&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;任何非空容器 (&lt;code&gt;[0]&lt;/code&gt;, &lt;code&gt;(None,)&lt;/code&gt;, `[''])&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;None&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;几乎所有未被显式置为False 的对象。&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;| False  |   True |
+| ------| ------ | ------ |
+| &lt;code&gt;False&lt;/code&gt; (== 0) | &lt;code&gt;True&lt;/code&gt; (== 1) |
+| &lt;code&gt;""&lt;/code&gt; (空字符串)   除了 &lt;code&gt;""&lt;/code&gt; 之外的所有字符串(&lt;code&gt;" "&lt;/code&gt;, &lt;code&gt;"anything"&lt;/code&gt;) |
+| &lt;code&gt;0&lt;/code&gt;, &lt;code&gt;0.0&lt;/code&gt; | 除了 0 之外的所有数(1, 0.1, -1, 3.14) |
+| &lt;code&gt;[]&lt;/code&gt;, &lt;code&gt;()&lt;/code&gt;, &lt;code&gt;{}&lt;/code&gt;, &lt;code&gt;set()&lt;/code&gt; | 任何非空容器 (&lt;code&gt;[0]&lt;/code&gt;, &lt;code&gt;(None,)&lt;/code&gt;, &lt;code&gt;['']) |
+|&lt;/code&gt;None`    | 几乎所有未被显式置为False 的对象。 |&lt;/p&gt;
 &lt;p&gt;对象真值示例：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
 &lt;span class="o"&gt;...&lt;/span&gt;  &lt;span class="k"&gt;pass&lt;/span&gt;
