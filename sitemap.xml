@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2017-12-14T14:55:10-00:00</lastmod>
+<lastmod>2017-12-14T14:55:52-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2017-12-14T14:55:10-00:00</lastmod>
+<lastmod>2017-12-14T14:55:52-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2017-12-14T14:55:10-00:00</lastmod>
+<lastmod>2017-12-14T14:55:52-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2017-12-14T14:55:10-00:00</lastmod>
+<lastmod>2017-12-14T14:55:52-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -62,13 +62,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://breakwire.me/fast-install-wordpress-on-ubuntu16.04.html</loc>
 <lastmod>2017-12-14T13:48:38+08:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://breakwire.me/.html</loc>
-<lastmod>2017-11-26T16:13:35+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -391,13 +384,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://breakwire.me/category/javascript.html</loc>
 <lastmod>2015-11-19T00:50:23+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://breakwire.me/category/misc.html</loc>
-<lastmod>2017-11-26T16:13:35+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
