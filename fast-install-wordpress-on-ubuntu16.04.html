@@ -96,7 +96,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yue">
     <!-- Post Content -->
     <article>
-        <p>最早玩 Linux 服务器也不知道拿来干啥，就联系联系命令，后来学了 Django，能写个简单的应用然后部署了，Django 部署其实很容易，但对于新手来说还要处理各种依赖安装失败，简直噩梦，后来用的多了，有经验了，再加上使用场景也多了。服务器在 DigitalOcean 上也是随便开着用，想玩个爬虫就临时开机器出来用，安装配置也是分分钟的事儿，处理什么依赖安装失败也很容易，随便搜索搜索再加上经验，很容易就搞定了。但我一直没装过 Wordpress，正好有朋友要我帮忙弄个站点，还有点要求，速度要快，要上 HTTPS，我就先给他在 DigitalOcean 一键安装了出来，先凑合用，一键安装出来是 Apache 做 HTTP 服务器，我不会 HTTP 更不会配置 Apache，所以还是得手动装，我也大致了解 Wordpress 是怎么运行的，nginx + php7.0-fpm + mysql + wordpress 就这四个东西，和其他应用的原理都是一样的，我也把这个过程做个笔记，以后方便查。</p>
+        <p>最早玩 Linux 服务器也不知道拿来干啥，就练习练习命令，后来学了 Django，能写个简单的应用然后部署了，Django 部署其实很容易，但对于新手来说还要处理各种依赖安装失败，简直噩梦，后来用的多了，有经验了，再加上使用场景也多了。服务器在 DigitalOcean 上也是随便开着用，想玩个爬虫就临时开机器出来用，安装配置也是分分钟的事儿，处理什么依赖安装失败也很容易，随便搜索搜索再加上经验，很容易就搞定了。但我一直没装过 Wordpress，正好有朋友要我帮忙弄个站点，还有点要求，速度要快，要上 HTTPS，我就先给他在 DigitalOcean 一键安装了出来，先凑合用，一键安装出来是 Apache 做 HTTP 服务器，我不会 HTTP 更不会配置 Apache，所以还是得手动装，我也大致了解 Wordpress 是怎么运行的，nginx + php7.0-fpm + mysql + wordpress 就这四个东西，和其他应用的原理都是一样的，我也把这个过程做个笔记，以后方便查。</p>
 <p>DigitalOcean 上开个 $5 的机器，选上 <code>add ssh key</code>，直接用 root 用户，就先不配服务器的用户了，照理说这一步是配置好 ssh 登录，然后把 root 用户登录关闭掉，避免风险的。</p>
 <h2>登录上服务器，直接更新升级然后安装一波必要东西</h2>
 <div class="highlight"><pre><span></span>sudo apt-get update &amp;&amp; sudo apt-get upgrade
