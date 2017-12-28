@@ -4,14 +4,14 @@
 &lt;p&gt;实习的时候是做前端，就使用 jQuery，gulp 就能开发一个大型的 Web 应用，那一套脚手架也是挺厉害的，用过一点 React，用的不多，也没上 Redux，当时我才理解了怎么用 jQuery gulp 开发一个大型 Web 应用，这里面是怎样的一个流程，一下就让我用 React，水平不够啊。后来因为不是全职做前端开发了，React 也没有再去看了，16 17 年也是 React/Vue 前端领域发展最迅速的时候，知乎上也各种撕，各种争。这中间我还是会在写一点前端，jQuery 写一个模态框，里面的是一个查询列表，还带勾选，各种操作，当时写的我脑袋都疼了真是，各种封装，才达到了几乎完美的效果。然后 Vue 也看了看，但都没有实践过，一直到最近，开始写 React。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://pro.ant.design/index-cn"&gt;ANT DESIGN PRO&lt;/a&gt; 是十一月份蚂蚁金服务发布的一个开箱即用的前端解决方案，是用 Ant Design 框架根据业务封装的一套 UI 框架。当时我在 Vue 和 React 之间选择用那个，因为实习的时候觉得 React 学习曲线陡峭，难度有点大，工具链太复杂，想用 Vue，刚好看到 ant-design-pro，本地跑了一下，非常不错，根据业务封装也是常见的东西，查询列表，详情展示、各种表格，表格的功能要够多满足需求，数据可视化部分是用的 g2，也是蚂蚁金服开源的数据可视化框架，样式、配色看起来比百度的 echarts 要舒服点，就决定用这个了。&lt;/p&gt;
 &lt;p&gt;慢慢用下来，我发现 dvajs 把 redux/redux-saga/react-router 封装得非常好，不用把数据流的操作分散到不同文件中写，一个 model 都在一个文件里，dispatch -&amp;gt; action -&amp;gt; state -&amp;gt; view，非常容易理解，另外，用的 roadhog 还能够集成 Mock API，方便开发。我是一路跟着 ant-design-pro 更新，它更新什么代码我就去看改了啥，我有没有用到，然后手动更新，最开始路由还不是动态加载的，后来改成了动态加载我也跟着更新了，查询列表的 CRUD 功能，弹出模态框进行新增/编辑，登录功能，封装其他可视化图，折线图漏斗图，如何 promise all 等等，中间还遇到了个版本的坑。后续我还是得继续研究研究 redux frp 函数式编程，现在前端框架都是这样，是挺好，但也有挺多坑，总之是比以前用 jQuery 开发一个大型 Web 应用要写大量的代码，防御性编程搞得写代码啰嗦到不行要好多了，如果应用简单，特别容易理解，如果应用复杂，数据较多，就要考虑考虑如何设计组件和组件间的数据传递了，然后还有些性能上的考虑，比如可视化图表的渲染。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="dva0" src="/images/dva/dva0.jpg"&gt;
-&lt;img alt="dva1" src="/images/dva/dva1.jpg"&gt;
-&lt;img alt="dva2" src="/images/dva/dva2.jpg"&gt;
-&lt;img alt="dva3" src="/images/dva/dva3.jpg"&gt;
-&lt;img alt="dva4" src="/images/dva/dva4.jpg"&gt;
-&lt;img alt="dva5" src="/images/dva/dva5.jpg"&gt;
-&lt;img alt="dva6" src="/images/dva/dva6.jpg"&gt;
-&lt;img alt="dva7" src="/images/dva/dva7.jpg"&gt;&lt;/p&gt;</content><category term="frontend"></category></entry><entry><title>Ubuntu 16.04 快糙猛安装部署 Wordpress</title><link href="https://breakwire.me/fast-install-wordpress-on-ubuntu16.04.html" rel="alternate"></link><published>2017-12-14T13:48:38+08:00</published><updated>2017-12-14T13:48:38+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2017-12-14:/fast-install-wordpress-on-ubuntu16.04.html</id><summary type="html">&lt;p&gt;终于，我也会装 Wordpress 了……&lt;/p&gt;</summary><content type="html">&lt;p&gt;最早玩 Linux 服务器也不知道拿来干啥，就练习练习命令，后来学了 Django，能写个简单的应用然后部署了，Django 部署其实很容易，但对于新手来说还要处理各种依赖安装失败，简直噩梦，后来用的多了，有经验了，再加上使用场景也多了。服务器在 DigitalOcean 上也是随便开着用，想玩个爬虫就临时开机器出来用，安装配置也是分分钟的事儿，处理什么依赖安装失败也很容易，随便搜索搜索再加上经验，很容易就搞定了。但我一直没装过 Wordpress，正好有朋友要我帮忙弄个站点，还有点要求，速度要快，要上 HTTPS，我就先给他在 DigitalOcean 一键安装了出来，先凑合用，一键安装出来是 Apache 做 HTTP 服务器，我不会 HTTP 更不会配置 Apache，所以还是得手动装，我也大致了解 Wordpress 是怎么运行的，nginx + php7.0-fpm + mysql + wordpress 就这四个东西，和其他应用的原理都是一样的，我也把这个过程做个笔记，以后方便查。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="dva0" src="/images/dva/dva0.png"&gt;
+&lt;img alt="dva1" src="/images/dva/dva1.png"&gt;
+&lt;img alt="dva2" src="/images/dva/dva2.png"&gt;
+&lt;img alt="dva3" src="/images/dva/dva3.png"&gt;
+&lt;img alt="dva4" src="/images/dva/dva4.png"&gt;
+&lt;img alt="dva5" src="/images/dva/dva5.png"&gt;
+&lt;img alt="dva6" src="/images/dva/dva6.png"&gt;
+&lt;img alt="dva7" src="/images/dva/dva7.png"&gt;&lt;/p&gt;</content><category term="frontend"></category></entry><entry><title>Ubuntu 16.04 快糙猛安装部署 Wordpress</title><link href="https://breakwire.me/fast-install-wordpress-on-ubuntu16.04.html" rel="alternate"></link><published>2017-12-14T13:48:38+08:00</published><updated>2017-12-14T13:48:38+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2017-12-14:/fast-install-wordpress-on-ubuntu16.04.html</id><summary type="html">&lt;p&gt;终于，我也会装 Wordpress 了……&lt;/p&gt;</summary><content type="html">&lt;p&gt;最早玩 Linux 服务器也不知道拿来干啥，就练习练习命令，后来学了 Django，能写个简单的应用然后部署了，Django 部署其实很容易，但对于新手来说还要处理各种依赖安装失败，简直噩梦，后来用的多了，有经验了，再加上使用场景也多了。服务器在 DigitalOcean 上也是随便开着用，想玩个爬虫就临时开机器出来用，安装配置也是分分钟的事儿，处理什么依赖安装失败也很容易，随便搜索搜索再加上经验，很容易就搞定了。但我一直没装过 Wordpress，正好有朋友要我帮忙弄个站点，还有点要求，速度要快，要上 HTTPS，我就先给他在 DigitalOcean 一键安装了出来，先凑合用，一键安装出来是 Apache 做 HTTP 服务器，我不会 HTTP 更不会配置 Apache，所以还是得手动装，我也大致了解 Wordpress 是怎么运行的，nginx + php7.0-fpm + mysql + wordpress 就这四个东西，和其他应用的原理都是一样的，我也把这个过程做个笔记，以后方便查。&lt;/p&gt;
 &lt;p&gt;DigitalOcean 上开个 $5 的机器，选上 &lt;code&gt;add ssh key&lt;/code&gt;，直接用 root 用户，就先不配服务器的用户了，照理说这一步是配置好 ssh 登录，然后把 root 用户登录关闭掉，避免风险的。&lt;/p&gt;
 &lt;h2&gt;登录上服务器，直接更新升级然后安装一波必要东西&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
