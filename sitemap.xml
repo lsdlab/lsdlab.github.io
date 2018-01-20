@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2018-01-14T20:35:27-00:00</lastmod>
+<lastmod>2018-01-20T19:43:16-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2018-01-14T20:35:27-00:00</lastmod>
+<lastmod>2018-01-20T19:43:16-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2018-01-14T20:35:27-00:00</lastmod>
+<lastmod>2018-01-20T19:43:16-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2018-01-14T20:35:27-00:00</lastmod>
+<lastmod>2018-01-20T19:43:16-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -56,6 +56,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://breakwire.me/pages/resume.html</loc>
 <lastmod>2017-12-29T21:05:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/.html</loc>
+<lastmod>2018-01-15T02:20:48+08:00</lastmod>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -396,6 +403,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://breakwire.me/category/misc.html</loc>
+<lastmod>2018-01-15T02:20:48+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://breakwire.me/category/nix.html</loc>
 <lastmod>2015-07-05T14:02:10+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -614,7 +628,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/author/chen-jian.html</loc>
-<lastmod>2017-12-28T18:45:00+08:06</lastmod>
+<lastmod>2018-01-15T02:20:48+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
