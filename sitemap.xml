@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2018-02-10T13:09:27-00:00</lastmod>
+<lastmod>2018-02-11T21:45:45-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2018-02-10T13:09:27-00:00</lastmod>
+<lastmod>2018-02-11T21:45:45-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2018-02-10T13:09:27-00:00</lastmod>
+<lastmod>2018-02-11T21:45:45-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2018-02-10T13:09:27-00:00</lastmod>
+<lastmod>2018-02-11T21:45:45-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -55,6 +55,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://breakwire.me/dockerize-flask-application.html</loc>
 <lastmod>2018-02-10T12:46:17+08:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/development-related-services-and-tools-recommendation.html</loc>
+<lastmod>2018-02-06T23:44:04+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -361,6 +368,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://breakwire.me/category/development.html</loc>
+<lastmod>2018-02-06T23:44:04+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://breakwire.me/category/devops.html</loc>
 <lastmod>2017-12-14T13:48:38+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -482,6 +496,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://breakwire.me/tag/docker.html</loc>
 <lastmod>2018-02-10T12:46:17+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/tag/development.html</loc>
+<lastmod>2018-02-06T23:44:04+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

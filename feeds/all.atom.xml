@@ -53,7 +53,31 @@ services:
 
 networks:
     flask-redis-celery:
-&lt;/pre&gt;&lt;/div&gt;</content><category term="docker"></category></entry><entry><title>Python 生成初始头像</title><link href="https://breakwire.me/my-first-python-package-avatar-gen.html" rel="alternate"></link><published>2018-02-02T14:08:09+08:00</published><updated>2018-02-02T14:08:09+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2018-02-02:/my-first-python-package-avatar-gen.html</id><summary type="html">&lt;p&gt;Python 生成初始头像，字母或者中文第一个字符，或者像素化的头像&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/lsdlab/avatar-gen"&gt;avatar-gen&lt;/a&gt;&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="docker"></category></entry><entry><title>提升开发效率和体验的 SASS 工具/服务推荐</title><link href="https://breakwire.me/development-related-services-and-tools-recommendation.html" rel="alternate"></link><published>2018-02-06T23:44:04+08:00</published><updated>2018-02-06T23:44:04+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2018-02-06:/development-related-services-and-tools-recommendation.html</id><summary type="html">&lt;p&gt;推荐一些我在用的和看起来不错的 SASS 工具/服务&lt;/p&gt;</summary><content type="html">&lt;p&gt;推荐一些我在用的和看起来不错的 SASS 工具，有开发用的也有增长用的一些服务，好服务当然也是要付费的，而且还不便宜，但是好的工具和服务用起来就是舒服，效率也很高。&lt;/p&gt;
+&lt;h2&gt;线上监控&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://nodequery.com"&gt;http://nodequery.com&lt;/a&gt; 一个简单的服务器监控报警服务，需要在 root 下安装 agent，每九十秒上报一次信息，功能很简单，免费账户能添加十个服务器，我也不在用了，现在的 VPS 服务商都有自己的监控提醒了，DigitalOcean 也能添加监控规则，能发邮件或者 Slack 通知。&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://amplify.nginx.com/overview/"&gt;https://amplify.nginx.com/overview/&lt;/a&gt; Nginx 监控，能看 Nginx 的性能数据，请求次数等等。&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://my-netdata.io/"&gt;https://my-netdata.io/&lt;/a&gt; 开源监控工具，黑色背景大屏看起来非常帅，安装升级都很简单，支持物联网设备，底层用 C 写成，所以不会非常消耗太多 CPU 和内存。&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://hyperping.io"&gt;https://hyperping.io&lt;/a&gt; ping 监控，免费账户三个域名，这种 ping 监控服务太多了，这个算是便宜的。&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://lsdlab.statusticker.com/"&gt;https://lsdlab.statusticker.com/&lt;/a&gt; 监控各种 SASS 服务的服务，有人想知道自己在用的各种服务是不是正常的吧。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;异常捕获及 APM&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://sentry.io"&gt;http://sentry.io&lt;/a&gt; 异常捕获，支持各种框架的前后端应用，免费账户一万条消息，对于个人小项目也够用了，不想买服务的话也能自己部署。&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://opbeat.com"&gt;https://opbeat.com&lt;/a&gt; 应用性能分析服务，APM 服务国内国外都有很多，国外有名的就是 datadog/new relic，这个也不错。&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.datadoghq.com/"&gt;https://www.datadoghq.com/&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://newrelic.com/"&gt;https://newrelic.com/&lt;/a&gt; datadog 和 new relic 算是国外比较有名的产品了，商用付费应该不错，公司用可以考虑，个人就不用考虑了，太贵。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;增长工具&lt;/h2&gt;
+&lt;p&gt;如果你有开发新的产品，想看用户的使用情况、一些指标，除了 Google Analysis 和国内的什么 CNZZ 百度，但是国内真的别用，都不是什么好东西，尽量用 GA，增长黑客里面倒是推荐了好多个这样的工具，当然，都是要付费的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://mixpanel.com/"&gt;https://mixpanel.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.gosquared.com/"&gt;https://www.gosquared.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.kissmetrics.com/"&gt;https://www.kissmetrics.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;搜索&lt;/h2&gt;
+&lt;p&gt;如果有比较重的搜索需求，又不想用 ES 作为搜索后端的化用 &lt;a href="https://www.algolia.com/"&gt;https://www.algolia.com/&lt;/a&gt; 好像也不错的样子。&lt;/p&gt;</content><category term="development"></category></entry><entry><title>Python 生成初始头像</title><link href="https://breakwire.me/my-first-python-package-avatar-gen.html" rel="alternate"></link><published>2018-02-02T14:08:09+08:00</published><updated>2018-02-02T14:08:09+08:00</updated><author><name>Chen Jian</name></author><id>tag:breakwire.me,2018-02-02:/my-first-python-package-avatar-gen.html</id><summary type="html">&lt;p&gt;Python 生成初始头像，字母或者中文第一个字符，或者像素化的头像&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/lsdlab/avatar-gen"&gt;avatar-gen&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;参考了 &lt;a href="https://github.com/maethor/avatar-generator"&gt;avatar-generator&lt;/a&gt; 和 &lt;a href="https://github.com/richardasaurus/randomavatar"&gt;randomavatar&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;第一个库用的字体不能生成中文，换成了思源黑体，然后位置也调整了一下才能把字放在中间。&lt;/p&gt;
 &lt;p&gt;有空可以学习一下 Pillow 这个图像处理库。&lt;/p&gt;
