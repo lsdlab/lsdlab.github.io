@@ -28,6 +28,8 @@
         <meta name="author" content="Chen Jian">
 
         <meta name="tags" content="docker">
+        <meta name="tags" content="flask">
+        <meta name="tags" content="python">
 
 	                <meta property="og:locale" content="">
 		<meta property="og:site_name" content="BreakWire | 断线">
@@ -102,7 +104,7 @@
 <p>Docker 化 Flask 应用，我只用了 gunicorn，因为还用了 Celery 任务队列，Celery 还要依赖 Redis，还有个问题就是在 Docker 里面 Redis 的数据持久化我还没搞明白怎么弄，挂载了目录但是没有生成 dump.rdb 文件。还要个需要注意的点就是因为 redis 也在 Docker 里面，<code>app.py</code> 里面的 <code>app.config.update()</code> Redis 作为 Celery 的 Broker,
 redis host 用 docker-compose.yml 的 container_name <code>avatar-gen-redis</code>。</p>
 <p>其实我只是把这个应用跑起来了而已，Docker 很多概念都没搞明白，比如 Dockerfile 和 docker-compose 里面都有 CMD 或者是 command，docker-compose.yml flask 配置中的 <code>build: .</code> 是会用到 Dockerfile，那我用 docker-compose up 启动的时候到底是哪条命令启动的 Flask 应用和 Celery 呢，这个我也不知道，还要就是Docker 化了之后怎么看日志呢，Docker 一旦用上手了是挺好，尤其是对于本地开发，但是如果上线的化就又有很多问题了，复杂度上升，原来原生的部署方式各个组件都能控制，Docker 化就进入黑盒里面了，又需要新的解决方案，所以现在各种容器云，容器编排管理，k8s 各种玩意。</p>
-<p>Dockerfile </p>
+<p>Dockerfile</p>
 <div class="highlight"><pre><span></span>FROM python:3.6.3
 MAINTAINER lsdvincent lsdvincent@gmail.com
 COPY . /avatar-gen
@@ -156,7 +158,7 @@ networks:
     </article>
 
         <div class="tags">
-            <p>tags: <a href="https://breakwire.me/tag/docker.html">docker</a></p>
+            <p>tags: <a href="https://breakwire.me/tag/docker.html">docker</a>, <a href="https://breakwire.me/tag/flask.html">flask</a>, <a href="https://breakwire.me/tag/python.html">python</a></p>
         </div>
 
     <hr>
