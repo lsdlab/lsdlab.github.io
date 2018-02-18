@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2018-02-12T13:05:16-00:00</lastmod>
+<lastmod>2018-02-18T21:34:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2018-02-12T13:05:16-00:00</lastmod>
+<lastmod>2018-02-18T21:34:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2018-02-12T13:05:16-00:00</lastmod>
+<lastmod>2018-02-18T21:34:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2018-02-12T13:05:16-00:00</lastmod>
+<lastmod>2018-02-18T21:34:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -49,6 +49,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://breakwire.me/pages/project-x.html</loc>
 <lastmod>2017-06-20T16:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/my-first-car-2017-mazda-3-axlea-hatchback-with-sonic-sliver.html</loc>
+<lastmod>2018-02-18T18:28:11+08:00</lastmod>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -361,6 +368,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://breakwire.me/category/cars.html</loc>
+<lastmod>2018-02-18T18:28:11+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://breakwire.me/category/design.html</loc>
 <lastmod>2015-04-30T10:27:08+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -489,6 +503,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://breakwire.me/category/writing.html</loc>
 <lastmod>2018-01-22T21:22:03+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/tag/cars.html</loc>
+<lastmod>2018-02-18T18:28:11+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -656,7 +677,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/author/jc.html</loc>
-<lastmod>2018-02-10T12:46:17+08:06</lastmod>
+<lastmod>2018-02-18T18:28:11+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
