@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta name="description" content="BreakWire | 断线 | 陈坚的博客 | 断线实验室" />
         <meta name="keywords" content="BreakWire, 断线, 陈坚的博客, 断线实验室, Chen Jian, Data Visualization, Python, JavaScript, Full Stack Development, Growth Hacker" />
         <meta name="author" content="Chen Jian, 陈坚" />
@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-        <title>BreakWire | 断线 - Tag devops</title>
+        <title>自建服务推荐</title>
 
         <link href="https://breakwire.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="BreakWire | 断线 Full Atom Feed" />
 
@@ -22,8 +22,25 @@
         <!-- Custom Fonts -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-                <meta property="og:locale" content="">
+
+
+        <meta name="description" content="之前有推荐一些SASS服务，有些都是收费的，不便宜还不一定合适，毕竟都是国外的，这次推荐一些我在用的自建服务。">
+
+        <meta name="author" content="JC">
+
+        <meta name="tags" content="devops">
+
+	                <meta property="og:locale" content="">
 		<meta property="og:site_name" content="BreakWire | 断线">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="https://breakwire.me/author/jc.html">
+	<meta property="og:url" content="https://breakwire.me/self-host-services-recommendation.html">
+	<meta property="og:title" content="自建服务推荐">
+	<meta property="article:published_time" content="2018-04-20 22:12:02+08:00">
+            <meta property="og:description" content="之前有推荐一些SASS服务，有些都是收费的，不便宜还不一定合适，毕竟都是国外的，这次推荐一些我在用的自建服务。">
+
+            <meta property="og:image" content="https://breakwire.me//images/new-header.jpeg">
 </head>
 
 <body>
@@ -57,12 +74,19 @@
         <!-- /.container -->
     </nav>
 
+    <!-- Page Header -->
         <header class="intro-header" style="background-image: url('/images/new-header.jpeg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
-                        <h1>Tag devops</h1>
+                    <div class="post-heading">
+                        <h1>自建服务推荐</h1>
+                        <span class="meta">Posted by
+                                <a href="https://breakwire.me/author/jc.html">JC</a>
+                             on 2018-04-20 22:12:02
+                        </span>
+                            <span class="meta">Updated on 2018-04-20 22:12:02</span>
+                        
                     </div>
                 </div>
             </div>
@@ -73,40 +97,39 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yue">
-        <div class="post-preview">
-            <a href="https://breakwire.me/about-deploy-django-web-app-something-i-missed.html" rel="bookmark" title="Permalink to Django 应用部署填坑">
-                <h2 class="post-title">
-                    Django 应用部署填坑
-                </h2>
-            </a>
-                Django 应用部署填坑
-            <p class="post-meta">Posted by
-                    <a href="https://breakwire.me/author/jc.html">JC</a>
-                 on 2015-03-17 15:57:00
-            </p>
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="https://breakwire.me/deploy-django-web-app-with-uwsgi-and-nginx.html" rel="bookmark" title="Permalink to Django web app 使用 uWSGI、Nginx 部署">
-                <h2 class="post-title">
-                    Django web app 使用 uWSGI、Nginx 部署
-                </h2>
-            </a>
-                Django web app 使用 uWSGI、Nginx 部署
-            <p class="post-meta">Posted by
-                    <a href="https://breakwire.me/author/jc.html">JC</a>
-                 on 2015-02-08 20:04:12
-            </p>
-        </div>
-        <hr>
+    <!-- Post Content -->
+    <article>
+        <h2>开发</h2>
+<ul>
+<li><a href="https://about.gitlab.com/installation/">GitLab</a> 自建 Git 服务，比较适合稍大的团队，至少十人以上那种，功能大而全，还有 CI，感觉比一五年的时候用起来好很多了，因为大而全，所以对硬件要求很高，至少4G内存，所以个人还是不适合了，除非你家里有个16G内存的NAS，分配个四分之一内存出来用也行。<strong>已试用</strong></li>
+<li><a href="https://gogs.io/docs/installation/install_from_binary">Gogs</a> Go 写的 Git 服务，部署容易，功能简单易用。<strong>已试用</strong></li>
+<li><a href="https://docs.gitea.io/zh-cn/install-from-binary/">Gitea</a> Gogs 的 fork，有人嫌 Gogs 是一个人开发的，速度太慢功能太少，就 fork 了一个出来由社区继续开发。<strong>已试用</strong></li>
+<li><a href="https://sentry.io/">Sentry</a> 应用的异常catch服务，免费账户消息数量有限制，<a href="https://github.com/getsentry/onpremise">getsentry/onpremise</a> Docker 起一个也很方便，各种应用、服务的异常全部搜集过来好处理。<strong>已试用</strong></li>
+<li><a href="https://about.mattermost.com">mattermost</a> 开源 IM，类似 Slack。</li>
+<li><a href="https://rocket.chat/">Rocket Chat</a> 另一个开源 IM。</li>
+<li><a href="https://minimal.chat/">Minimal Chat</a> 也是 IM，还没发布。</li>
+<li><a href="https://jenkins.io">Jenkins</a> CI 服务，比较老的一个东西，有个好看点的 <a href="https://jenkins.io/doc/book/blueocean/getting-started/">Blueocean主题</a>，Docker 安装了之后没法在CI里面再用Docker构建，可能是我的姿势不对，只能原生安装，Java 写的，巨大，十分消耗内存，配置看不懂，好不容易跑通了一个项目后想再完善一下Slack和邮件通知，试了几个插件后发现搞不定，还不如直接把这些过程写成Python脚本然后运行呢。<strong>已试用</strong></li>
+<li><a href="http://docs.drone.io/zh/">Drone</a> 一个新的 CI 工具，<a href="http://docs.drone.io/zh/installation/">Docker 安装</a>，试了一下，没安装成功，不过看界面还是挺不错的。</li>
+<li><a href="https://my-netdata.io/">netdata</a> 开源监控工具，黑色背景大屏看起来非常帅，安装升级都很简单，支持物联网设备，底层用 C 写成，所以不会非常消耗太多 CPU 和内存。<strong>已试用</strong></li>
+</ul>
+<h2>非开发</h2>
+<ul>
+<li><a href="https://syncthing.net/">Syncthing</a> 个人云存储，网页版，页面还是比较好看的。<strong>已试用</strong></li>
+<li>
+<p><a href="http://hackmd.io">HackMD</a> Markdown 文档写作，最近刚知道 MD 还能插入流程图和甘特图，<a href="https://github.com/hackmdio/hackmd#hackmd-by-docker-container">Docker安装</a>，已经试过了，很容易。<strong>已试用</strong></p>
+</li>
+<li>
+<p><a href="http://flarum.org">FLARUM</a> 论坛，比其他乱七八糟的各种论坛好看多了，虽然也是PHP的。</p>
+</li>
+<li><a href="https://www.elastic.co/cn/solutions/apm">elastic apm</a> elasticsearch 的 apm 应用性能监控，目前支持 Node.js, Django, Flask</li>
+</ul>
+<p>参考链接 <a href="https://github.com/Kickball/awesome-selfhosted">Kickball/awesome-selfhosted</a></p>
+    </article>
 
-    <!-- Pager -->
-    <ul class="pager">
-        <li class="next">
-                <a href="https://breakwire.me/tag/devops.html" style="min-width: 200px;"> &larr; Newest Posts</a>
-        </li>
-    </ul>
-    Page 2 / 2
+        <div class="tags">
+            <p>tags: <a href="https://breakwire.me/tag/devops.html">devops</a></p>
+        </div>
+
     <hr>
             </div>
         </div>
