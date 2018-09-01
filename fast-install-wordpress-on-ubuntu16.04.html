@@ -154,9 +154,9 @@ EXIT;
 
 
 <p>粘贴进去：</p>
-<div class="highlight"><pre><span></span><span class="err">\</span><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 <span class="nb">phpinfo</span><span class="p">();</span>
-<span class="o">?</span><span class="nx">\</span><span class="o">&gt;</span>
+<span class="cp">?&gt;</span>
 </pre></div>
 
 
@@ -331,6 +331,21 @@ sudo nginx
         ga('create', 'UA-100052685-1', 'auto');
         ga('send', 'pageview');
     </script>
+
+    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
+    <script>
+    (function(f, a, t, h, o, m){
+        a[h]=a[h]||function(){
+            (a[h].q=a[h].q||[]).push(arguments)
+        };
+        o=f.createElement('script'),
+        m=f.getElementsByTagName('script')[0];
+        o.async=1; o.src=t; o.id='fathom-script';
+        m.parentNode.insertBefore(o,m)
+    })(document, window, '/fathom.breakwire.me/tracker.js', 'fathom');
+    fathom('trackPageview');
+    </script>
+    <!-- / Fathom -->
 
     <!-- Channel Plugin Scripts -->
     <script>
