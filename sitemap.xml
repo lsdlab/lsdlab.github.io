@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2019-04-18T18:33:33-00:00</lastmod>
+<lastmod>2019-04-20T14:27:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2019-04-18T18:33:33-00:00</lastmod>
+<lastmod>2019-04-20T14:27:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2019-04-18T18:33:33-00:00</lastmod>
+<lastmod>2019-04-20T14:27:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2019-04-18T18:33:33-00:00</lastmod>
+<lastmod>2019-04-20T14:27:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -49,6 +49,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://breakwire.me/pages/project-x.html</loc>
 <lastmod>2017-06-20T16:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/all-my-fault-is-acutely-sensitive.html</loc>
+<lastmod>2019-04-18T23:38:40+08:00</lastmod>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -432,7 +439,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/category/fml.html</loc>
-<lastmod>2019-04-17T21:40:16+08:06</lastmod>
+<lastmod>2019-04-18T23:38:40+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -530,7 +537,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/tag/fml.html</loc>
-<lastmod>2019-04-17T21:40:16+08:06</lastmod>
+<lastmod>2019-04-18T23:38:40+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -698,7 +705,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/author/jc.html</loc>
-<lastmod>2019-04-17T21:40:16+08:06</lastmod>
+<lastmod>2019-04-18T23:38:40+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
