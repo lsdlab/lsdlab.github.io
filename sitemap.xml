@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2019-04-22T11:18:41-00:00</lastmod>
+<lastmod>2019-04-22T11:19:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2019-04-22T11:18:41-00:00</lastmod>
+<lastmod>2019-04-22T11:19:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2019-04-22T11:18:41-00:00</lastmod>
+<lastmod>2019-04-22T11:19:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2019-04-22T11:18:41-00:00</lastmod>
+<lastmod>2019-04-22T11:19:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -515,13 +515,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://breakwire.me/category/startup.html</loc>
-<lastmod>2019-04-21T23:22:04+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://breakwire.me/category/thinking.html</loc>
 <lastmod>2016-01-14T23:02:31+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -543,6 +536,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://breakwire.me/category/values.html</loc>
+<lastmod>2019-04-21T23:22:04+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://breakwire.me/category/writing.html</loc>
 <lastmod>2018-01-22T21:22:03+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -550,7 +550,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://breakwire.me/tag/startup.html</loc>
+<loc>https://breakwire.me/tag/values.html</loc>
 <lastmod>2019-04-21T23:22:04+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
