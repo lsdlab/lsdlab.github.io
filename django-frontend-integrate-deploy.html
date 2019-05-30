@@ -98,10 +98,8 @@
     <!-- Post Content -->
     <article>
         <p>https://cloud.tencent.com/developer/article/1005607</p>
-<ol>
-<li>前端代码 build 后放入 Django 项目下</li>
-<li>urls.py 添加两行</li>
-</ol>
+<h3>前端代码 build 后放入 Django 项目下</h3>
+<h3>urls.py 添加两行</h3>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
 
 <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
@@ -110,9 +108,7 @@
 </pre></div>
 
 
-<ol>
-<li>TEMPLATES 添加 DIRS</li>
-</ol>
+<h3>TEMPLATES 添加 DIRS</h3>
 <div class="highlight"><pre><span></span>TEMPLATES = [
     {
         &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;,
@@ -131,16 +127,14 @@
 </pre></div>
 
 
-<ol>
-<li>添加 STATICFILES_DIRS css/js 静态文件放进去</li>
-</ol>
-<p><code>python
-   STATICFILES_DIRS = [
-       os.path.join(BASE_DIR, "dist/static"),
-   ]</code></p>
-<ol>
-<li>python3 manange.py runserver 后就能访问了</li>
-</ol>
+<h3>添加 STATICFILES_DIRS css/js 静态文件放进去</h3>
+<div class="highlight"><pre><span></span><span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;dist/static&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+
+<h3>python3 manange.py runserver 后就能访问了</h3>
     </article>
 
         <div class="tags">
