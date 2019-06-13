@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2019-06-13T11:26:17-00:00</lastmod>
+<lastmod>2019-06-13T11:55:05-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2019-06-13T11:26:17-00:00</lastmod>
+<lastmod>2019-06-13T11:55:05-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2019-06-13T11:26:17-00:00</lastmod>
+<lastmod>2019-06-13T11:55:05-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2019-06-13T11:26:17-00:00</lastmod>
+<lastmod>2019-06-13T11:55:05-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -53,7 +53,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://breakwire.me/github.html</loc>
+<loc>https://breakwire.me/github-contribution.html</loc>
 <lastmod>2019-06-10T17:05:33+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
