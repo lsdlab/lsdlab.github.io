@@ -1,5 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire | 断线</title><link href="https://breakwire.me/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2019-06-10T17:05:33+08:00</updated><subtitle>JC's Blog</subtitle><entry><title>My GitHub contribution</title><link href="https://breakwire.me/github-contribution.html" rel="alternate"></link><published>2019-06-10T17:05:33+08:00</published><updated>2019-06-10T17:05:33+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2019-06-10:/github-contribution.html</id><summary type="html">&lt;p&gt;终于有一个独立开发的大项目了，去年十月作到现在，前半年全职做，后半年兼职做&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="http://ghchart.rshah.org/lsdlab"&gt;&lt;/p&gt;</content><category term="github"></category></entry><entry><title>Django 前后端统一部署</title><link href="https://breakwire.me/django-frontend-integrate-deploy.html" rel="alternate"></link><published>2019-05-30T11:31:38+08:00</published><updated>2019-05-30T11:31:38+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2019-05-30:/django-frontend-integrate-deploy.html</id><summary type="html">&lt;p&gt;学习了一个把 Django API 和分离前端代码统一部署的方法&lt;/p&gt;</summary><content type="html">&lt;p&gt;https://cloud.tencent.com/developer/article/1005607&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire | 断线</title><link href="https://breakwire.me/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2019-08-06T15:19:14+08:00</updated><subtitle>JC's Blog</subtitle><entry><title>kubernetes 集群安装配置</title><link href="https://breakwire.me/k8s-installation.html" rel="alternate"></link><published>2019-08-06T15:19:14+08:00</published><updated>2019-08-06T15:19:14+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2019-08-06:/k8s-installation.html</id><summary type="html">&lt;p&gt;Docker 是个好东西，但是 k8s 也挺坑，没那个技术能力的人和团队还是不要勉强上了，传统部署如果做了比较多的准备工作也是能有比较好的扩展性和分布式性能的&lt;/p&gt;</summary><content type="html">&lt;h2&gt;安装 Docker&lt;/h2&gt;
+&lt;p&gt;在内网里面装 Docker ，连接国外就很慢，更不用说被墙掉的东西了，先按照清华大学的镜像站 https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/，把 Docker 在三台 ubuntu 16.04 机器上装好，再安装好 docker-compose https://docs.docker.com/compose/install/。&lt;/p&gt;
+&lt;h2&gt;安装 k8s&lt;/h2&gt;
+&lt;h3&gt;安装 kubeadm kubelet kubectl&lt;/h3&gt;
+&lt;p&gt;还是得用国内镜像源&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo vi /etc/apt/sources.list.d/kubernetes.list
+deb http://mirrors.ustc.edu.cn/kubernetes/apt kubernetes-xenial main
+sudo apt-get update
+apt-get install kubelet kubeadm kubectl
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这里有个坑，安装好这三个组件后，kubelet 可能会起不来，照理说应该是会作为 system services 自动启动的，多等一会，如果还是不能启动的话就手动 &lt;code&gt;sudo kubelet&lt;/code&gt; 启动一下，然后杀掉，再等一会看会不会启动，完全看运气，查了很多的资料发现各种文档教程都没写明白，装 k8s 有好几个坑，没一个说明白的，全靠自己想办法和猜，总之 kubelet 要启动起来。&lt;/p&gt;
+&lt;h3&gt;在宿主机上下载好 k8s 需要的 image 并打好 tag&lt;/h3&gt;
+&lt;p&gt;根据当前系统的版本，或得 k8s 需要 image 的版本&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;kubeadm config images list
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;得到版本号后从阿里云下载 k8s 需要的 image&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.15.1
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.15.1
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.15.1
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.15.1
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.3.10
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.3.1
+
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.15.1 k8s.gcr.io/kube-apiserver:v1.15.1
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.15.1 k8s.gcr.io/kube-controller-manager:v1.15.1
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.15.1 k8s.gcr.io/kube-scheduler:v1.15.1
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.15.1 k8s.gcr.io/kube-proxy:v1.15.1
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 k8s.gcr.io/pause:3.1
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.3.10 k8s.gcr.io/etcd:3.3.10
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.3.1 k8s.gcr.io/coredns:1.3.1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;在宿主机上启动 master 节点&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo kubeadm init
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;不加任何参数，很多的文档教程都写了不通的网络组件用不通的参数，默认就应该用 CNI，不加任何参数，启动 master 节点完成后会显示 kubeadm join 的命令，基本算是完成了启动，但是还没法用，得编辑 CNI 网络组件的两个文件才行。&lt;/p&gt;
+&lt;p&gt;init 完成后会出现三条编辑配置的命令，顺序执行就好。&lt;/p&gt;
+&lt;h3&gt;宿主机上编辑 CNI 网络组件配置&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mkdir -p /etc/cni/net.d
+
+sudo nano /etc/cni/net.d/10-mynet.conf
+
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;&amp;quot;cniVersion&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;0.3.0&amp;quot;&lt;/span&gt;,
+    &lt;span class="s2"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;mynet&amp;quot;&lt;/span&gt;,
+    &lt;span class="s2"&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;bridge&amp;quot;&lt;/span&gt;,
+    &lt;span class="s2"&gt;&amp;quot;bridge&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;cni0&amp;quot;&lt;/span&gt;,
+    &lt;span class="s2"&gt;&amp;quot;isGateway&amp;quot;&lt;/span&gt;: true,
+    &lt;span class="s2"&gt;&amp;quot;ipMasq&amp;quot;&lt;/span&gt;: true,
+    &lt;span class="s2"&gt;&amp;quot;ipam&amp;quot;&lt;/span&gt;: &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;host-local&amp;quot;&lt;/span&gt;,
+        &lt;span class="s2"&gt;&amp;quot;subnet&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;10.244.0.0/16&amp;quot;&lt;/span&gt;,
+        &lt;span class="s2"&gt;&amp;quot;routes&amp;quot;&lt;/span&gt;: &lt;span class="o"&gt;[&lt;/span&gt;
+            &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dst&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;0.0.0.0/0&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+        &lt;span class="o"&gt;]&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+sudo nano /etc/cni/net.d/99-loopback.conf
+
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;&amp;quot;cniVersion&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;0.3.0&amp;quot;&lt;/span&gt;,
+    &lt;span class="s2"&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;loopback&amp;quot;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;检查主节点是否 ready&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo kubectl get nodes -o wide
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;检查主节点容器是否正常运行&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo kubectl get pods -n kube-system
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果显示 Ready，并且容器也都是 running 状态，那就证明主节点正常运行了。&lt;/p&gt;
+&lt;h2&gt;子节点安装 配置&lt;/h2&gt;
+&lt;p&gt;子节点同样安装上面 kubectl kubeadm kubelet 三个组件，同样会遇到 kebelet 不启动的问题，碰运气解决，主节点需要的七个 image 子节点只需要两个，kube-proxy 和 pause，同样下载好打好 tag，然后就执行主节点初始化完成的 &lt;code&gt;kubeadm join&lt;/code&gt; 命令，也需要编辑两个 CNI 配置，命令参照上面。&lt;/p&gt;
+&lt;h2&gt;检查集群是否安装完成&lt;/h2&gt;
+&lt;p&gt;在两个子节点都完成了操作后，回到主节点，执行 &lt;code&gt;sudo kubectl get nodes -o wide&lt;/code&gt; 如果显示三个节点都是 Ready，就证明集群已经安装配置完成。&lt;/p&gt;
+&lt;p&gt;今天也遇到了其他的问题，这三个机器是虚拟机创建出来的，上面 CNI 网络组件需要一个虚拟网段，可能是公司的防火墙原因，我在 k8s 上部署了 nginx 后发现不能访问，直接进入了防火墙的报错页面，这个问题还得研究研究，或者就不要再自己部署了，直接用云服务，只需要学习如何写配置就行了。&lt;/p&gt;</content><category term="k8s"></category></entry><entry><title>My GitHub contribution</title><link href="https://breakwire.me/github-contribution.html" rel="alternate"></link><published>2019-06-10T17:05:33+08:00</published><updated>2019-06-10T17:05:33+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2019-06-10:/github-contribution.html</id><summary type="html">&lt;p&gt;终于有一个独立开发的大项目了，去年十月作到现在，前半年全职做，后半年兼职做&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="http://ghchart.rshah.org/lsdlab"&gt;&lt;/p&gt;</content><category term="github"></category></entry><entry><title>Django 前后端统一部署</title><link href="https://breakwire.me/django-frontend-integrate-deploy.html" rel="alternate"></link><published>2019-05-30T11:31:38+08:00</published><updated>2019-05-30T11:31:38+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2019-05-30:/django-frontend-integrate-deploy.html</id><summary type="html">&lt;p&gt;学习了一个把 Django API 和分离前端代码统一部署的方法&lt;/p&gt;</summary><content type="html">&lt;p&gt;https://cloud.tencent.com/developer/article/1005607&lt;/p&gt;
 &lt;h3&gt;前端代码 build 后放入 Django 项目下&lt;/h3&gt;
 &lt;h3&gt;urls.py 添加两行&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.views.generic&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;TemplateView&lt;/span&gt;
