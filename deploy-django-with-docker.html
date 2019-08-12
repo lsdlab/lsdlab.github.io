@@ -100,7 +100,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yue">
     <!-- Post Content -->
     <article>
-        <p>https://github.com/lsdlab/k8sdjango</p>
+        <p><a href="https://github.com/lsdlab/k8sdjango">https://github.com/lsdlab/k8sdjango</a></p>
 <p>在本地用了很长时间的 Docker，都一直没有在生产环境上用过，虽然现在还是没什么项目可以用，但是最近加了点时间还好学了学怎么用，写了一个示例项目，把 Django 依赖的东西都装进去了，postgresql 允许远程连接，redis 用默认配置，不允许远程连接，celery broker 用 rabbitmq，开了 management web ui，允许远程连接，目前唯一的问题就是 celery worker/beat 会再 rabbitmq 之前启动，会报错，连不上 broker，因为它也依赖了 django 的 Dockerfile，所以就没按照 depends_on 的顺序启动，但是也不影响，rabbitmq 启动完成就 celery 就会正常。</p>
 <p>后续研究一下怎么再 swarm 上部署以及 k8s 的部署。</p>
     </article>
