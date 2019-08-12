@@ -3,14 +3,14 @@
 <html lang="zh-cn">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta name="description" content="BreakWire | 断线 | 断线实验室" />
         <meta name="keywords" content="BreakWire, 断线, 断线实验室, JC, Data Visualization, Python, JavaScript, Full Stack Development, Growth Hacker" />
         <meta name="author" content="JC" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>breakwire | 断线 - Tags</title>
+        <title>Django 项目 Docker 部署完整踩坑版</title>
 
         <link href="https://breakwire.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="breakwire | 断线 Full Atom Feed" />
 
@@ -22,8 +22,27 @@
         <!-- Custom Fonts -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-                <meta property="og:locale" content="">
+
+
+        <meta name="description" content="Django 项目 Docker 部署完整踩坑版">
+
+        <meta name="author" content="JC">
+
+        <meta name="tags" content="devops">
+        <meta name="tags" content="django">
+        <meta name="tags" content="docker">
+
+	                <meta property="og:locale" content="">
 		<meta property="og:site_name" content="breakwire | 断线">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="https://breakwire.me/author/jc.html">
+	<meta property="og:url" content="https://breakwire.me/deploy-django-with-docker.html">
+	<meta property="og:title" content="Django 项目 Docker 部署完整踩坑版">
+	<meta property="article:published_time" content="2019-08-08 21:09:28+08:00">
+            <meta property="og:description" content="Django 项目 Docker 部署完整踩坑版">
+
+            <meta property="og:image" content="https://breakwire.me//images/new-header.jpeg">
 </head>
 
 <body>
@@ -62,7 +81,13 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>breakwire | 断线 - Tags</h1>
+                        <h1>Django 项目 Docker 部署完整踩坑版</h1>
+                        <span class="meta">Posted by
+                                <a href="https://breakwire.me/author/jc.html">JC</a>
+                             on 2019-08-08 21:09:28
+                        </span>
+                            <span class="meta">Updated on 2019-08-08 21:09:28</span>
+                        
                     </div>
                 </div>
             </div>
@@ -73,32 +98,18 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yue">
-    <h1>Tags for breakwire | 断线</h1>        <li><a href="https://breakwire.me/tag/cars.html">cars</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/debian.html">debian</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/design.html">design</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/devops.html">devops</a> (13)</li>
-        <li><a href="https://breakwire.me/tag/django.html">django</a> (10)</li>
-        <li><a href="https://breakwire.me/tag/docker.html">docker</a> (3)</li>
-        <li><a href="https://breakwire.me/tag/eleasticsearch.html">EleasticSearch</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/flask.html">flask</a> (2)</li>
-        <li><a href="https://breakwire.me/tag/fml.html">fml</a> (6)</li>
-        <li><a href="https://breakwire.me/tag/frontend.html">frontend</a> (2)</li>
-        <li><a href="https://breakwire.me/tag/github.html">github</a> (2)</li>
-        <li><a href="https://breakwire.me/tag/javascript.html">javascript</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/k8s.html">k8s</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/nginx.html">nginx</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/octopress.html">octopress</a> (3)</li>
-        <li><a href="https://breakwire.me/tag/pelican.html">pelican</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/poster.html">poster</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/projectx.html">projectx</a> (5)</li>
-        <li><a href="https://breakwire.me/tag/python.html">python</a> (4)</li>
-        <li><a href="https://breakwire.me/tag/recommendation.html">recommendation</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/reformat.html">reformat</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/thinking.html">thinking</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/translate.html">translate</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/unix.html">unix</a> (2)</li>
-        <li><a href="https://breakwire.me/tag/values.html">values</a> (1)</li>
-        <li><a href="https://breakwire.me/tag/writing.html">writing</a> (3)</li>
+    <!-- Post Content -->
+    <article>
+        <p>https://github.com/lsdlab/k8sdjango</p>
+<p>在本地用了很长时间的 Docker，都一直没有在生产环境上用过，虽然现在还是没什么项目可以用，但是最近加了点时间还好学了学怎么用，写了一个示例项目，把 Django 依赖的东西都装进去了，postgresql 允许远程连接，redis 用默认配置，不允许远程连接，celery broker 用 rabbitmq，开了 management web ui，允许远程连接，目前唯一的问题就是 celery worker/beat 会再 rabbitmq 之前启动，会报错，连不上 broker，因为它也依赖了 django 的 Dockerfile，所以就没按照 depends_on 的顺序启动，但是也不影响，rabbitmq 启动完成就 celery 就会正常。</p>
+<p>后续研究一下怎么再 swarm 上部署以及 k8s 的部署。</p>
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="https://breakwire.me/tag/devops.html">devops</a>, <a href="https://breakwire.me/tag/django.html">django</a>, <a href="https://breakwire.me/tag/docker.html">docker</a></p>
+        </div>
+
+    <hr>
             </div>
         </div>
 

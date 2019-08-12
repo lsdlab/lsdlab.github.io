@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>breakwire | 断线</title><link href="https://breakwire.me/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2019-08-06T15:19:14+08:00</updated><subtitle>JC's Blog</subtitle><entry><title>kubernetes 集群安装配置</title><link href="https://breakwire.me/k8s-installation.html" rel="alternate"></link><published>2019-08-06T15:19:14+08:00</published><updated>2019-08-06T15:19:14+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2019-08-06:/k8s-installation.html</id><summary type="html">&lt;p&gt;Docker 是个好东西，但是 k8s 也挺坑，没那个技术能力的人和团队还是不要勉强上了，传统部署如果做了比较多的准备工作也是能有比较好的扩展性和分布式性能的&lt;/p&gt;</summary><content type="html">&lt;h2&gt;安装 Docker&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>breakwire | 断线</title><link href="https://breakwire.me/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2019-08-10T00:34:05+08:00</updated><subtitle>JC's Blog</subtitle><entry><title>旧文重写 三个北上广</title><link href="https://breakwire.me/three-bei-shang-guang.html" rel="alternate"></link><published>2019-08-10T00:34:05+08:00</published><updated>2019-08-10T00:34:05+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2019-08-10:/three-bei-shang-guang.html</id><summary type="html">&lt;p&gt;旧文重写，补上第三部分&lt;/p&gt;</summary><content type="html">&lt;p&gt;两年前的 https://breakwire.me/three-top-cities.html 旧文重写，补上第三部分&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://wanqu.co/a/4827/2017-03-21-the-three-bay-areas-the-bold-italic.html/?s=/issues"&gt;三个湾区&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://thebolditalic.com/the-three-bay-areas-b09aa2c4d727?utm_source=wanqu.co&amp;amp;utm_campaign=Wanqu+Daily&amp;amp;utm_medium=website"&gt;The Three Bay Areas&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;引用湾区日报的短评：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;旧金山湾区长大的三个不同家境的人：1，家境好，读藤校或斯坦福，毕业后生活小资；2，家境中等，读非伯克利的州立大学或二流文理学院，最终湾区待不下去，搬到外州；3，家境一般，父母一方是移民，社区学校毕业，屌丝一生。
+阶层是会流动的，只是流动得很慢。家庭能提供的起点，真的对以后的路怎么走影响很大。你能举出一些出身贫寒最终发达人尽皆知的例子，但更多的情况是家境好、接受好教育、有好的人际圈子、毕业后高收入或创业小成功（卖几千万但不被新闻报道的那种）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我的短评：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;北上广，江浙沪地区三个不同家境的人：1，家境好，读交大或者复旦，毕业后生活小资，薪酬可观，事业可期，在一线城市生活定居；2，家境中等，读双非或其他不知名一本，最终北上广待不下去，搬到新一线城市，在房价猛涨时，靠家里的支持买下一套价格不菲的房；3，家境一般，没有资金支持也没有个人能力，新一线城市也无法定居，回到老家，做父母安排的稳定工作，终其一生。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;一&lt;/h1&gt;
+&lt;p&gt;1990 年后，你出生在一线城市，小学初中高中都是上的片区里最好的学校，附小、附中。班上的同学非富即贵，小学的家长会或者春游秋游，甚至是接送上下学，停在学校门口的各色豪车，丝毫不输一个五线城市的汽车展销会。你的父亲年轻的时候是国企的一名技术工人，用自己的技术和拼搏已经在这个大型国企中有了一席之地，你的母亲是一所附属中学的教导主任，同样管理着许多老师和学生。&lt;/p&gt;
+&lt;p&gt;你高中毕业后进入了一个老牌 985 大学，听从父母的意见，选择了金融专业，尽管你不感兴趣，但也不抵触。凭借着高中学习训练的底子，你也能够获得不错的成绩。毕业后，你和你的大学同学一样进入了四大工作，工作枯燥乏味，出差频繁，压力极大，让你怀疑自己的父母是不是帮你选错了专业。尽管四大的薪酬已经非常可观，但想到你有一个认识的同学毕业后没有从事本专业的工作，而是去了腾讯做产品经理，拿着三十多万的年薪，你有些嫉妒，因为你知道你比他聪明。&lt;/p&gt;
+&lt;p&gt;当你离开校园开始工作时，你在自如上租了一个离公司只有三站地铁的房间，一个月租金三千五。这个精装修的三室一厅并没有被隔断，所以你的房间并不是主卧也需要三千五百块。你的两个室友，一个在证券公司工作，一周工作九十个小时以上，从不在厨房做饭，只吃餐厅外卖，总是把便当盒留在餐桌上，用过的餐具留在水池里，当和他争吵了几次公共空间的打扫问题后，你同意请保洁公司打扫。在经过两三年和室友关于清洁问题的争吵后，你在二十六岁的时候租了一个一室一厅的公寓自己一个人住，一个月租金 5000。又过了几年，在你二十九岁的时候，你在当地房价稍低的区首付二百万买下了一个两室一厅的九十年代的二手房。&lt;/p&gt;
+&lt;p&gt;你很少去超市，全部通过网购，日用百货，零食，都在固定的电商上购买，水果也在生鲜电商上固定采购，这也都形成了习惯，你把你的储蓄分散在几大 P2P 平台上，每天都会看自己的收益，或者自己买的几只股票情况。工作日的中饭也是通过订餐 App 解决。&lt;/p&gt;
+&lt;p&gt;你的所有朋友都在金融、互联网行业，你经常思考自己是否应该创业，因为你看到有的朋友的创业公司十分成功，你有些嫉妒。当你认识一个新朋友的时候，第一件事情就是询问他们的工作，看是否有合作或者合伙创业的机会。&lt;/p&gt;
+&lt;p&gt;你支持同性婚姻、LGBTQ，你十分确定你自己没有性别歧视，没有同性恋歧视，尽管你的朋友圈子中没有一个 Gay 或者 Lesbian。&lt;/p&gt;
+&lt;p&gt;在一线城市生活了五年多，从滴滴、Uber 刚开始运营的时候你就是忠实用户，一直用到现在，已经变成了出行必备。&lt;/p&gt;
+&lt;h2&gt;二&lt;/h2&gt;
+&lt;p&gt;你从一个不是 985 也不是 211 的学校本科毕业，毕业后你的父母希望你能够回到老家工作，你有些犹豫，因为你做的更好。老家虽然不是一线城市，但也算是仅次于省会城市，各方面也比一线城市有差距，但也差不了太多。你觉得自己在学校的牌子上已经是和那些 985/211 的毕业生有了差距，如果回到老家工作，在工作上的积累会差距更大，没了学校的各种牵制，你觉得在工作中一定能够发挥自己的能力，达到理想的目标。&lt;/p&gt;
+&lt;p&gt;你比班上的其他同学提前找到了一个实习工作，因为工作上手很快，在不到两个月的时候就拿到了正式 Offer，你没有立刻接下来，因为你觉得你还能找到更好的，更大的公司，更可观的薪酬。但到了毕业的时候，因为忙于论文、毕业设计，不再想准备面试，跑东跑西了，所以你接受了这个 Offer，薪酬算是中上，超过了很多人，但也远达不到能够炫耀的地步。当你向父母汇报这些情况的时候，他们又在念叨：你拿这点钱还不如回来工作，你那里生活成本那么高，回来的话和我们住，吃住不用给钱，赚得钱都是到手的，blabla……你很无奈，一遍遍的解释自己的现在的工作，自己的专业，不想在刚进入社会的时候就去那些不好、甚至是很差的公司工作，说自己和现在的同事相处的很好很开心，同事都很厉害，能向同事、老板请教问题，他们都会乐意回答。你父母的一句话：这有什么用？就把你直接打回去了，你决定不再和父母解释自己的工作了，以后只向他们说好，其他的事情全部打哈哈回去，解释实在是浪费口水。&lt;/p&gt;
+&lt;p&gt;空闲的时候和高中朋友聊天，他们毕业后回到了老家工作，一两年后他们都买了车，甚至有的人已经结婚，更有人连孩子都有了。节假日的小聚会上，你打趣到都是人生赢家，自己还什么都没有赚到，事业、友情、爱情的各种目标都还差得太远，还需要努力。有人劝你回老家，回家了什么都有了，你笑笑，本来像说两句，但一想到自己和父母谈论这个问题的结果，你就立刻收住了跳过了这个话题。&lt;/p&gt;
+&lt;p&gt;又过了两三年后，你跳了一次槽，薪水涨了不少，但相对于一线城市的房价来说还是小巫见大巫，于是你也不再考虑在一线城市定居了，开始着手考虑杭州南京，甚至是考虑回老家。&lt;/p&gt;
+&lt;h2&gt;三&lt;/h2&gt;
+&lt;p&gt;第三部分真的很难写，与我的价值观差异过大，仅供娱乐。&lt;/p&gt;</content><category term="writing"></category></entry><entry><title>Django 项目 Docker 部署完整踩坑版</title><link href="https://breakwire.me/deploy-django-with-docker.html" rel="alternate"></link><published>2019-08-08T21:09:28+08:00</published><updated>2019-08-08T21:09:28+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2019-08-08:/deploy-django-with-docker.html</id><summary type="html">&lt;p&gt;Django 项目 Docker 部署完整踩坑版&lt;/p&gt;</summary><content type="html">&lt;p&gt;https://github.com/lsdlab/k8sdjango&lt;/p&gt;
+&lt;p&gt;在本地用了很长时间的 Docker，都一直没有在生产环境上用过，虽然现在还是没什么项目可以用，但是最近加了点时间还好学了学怎么用，写了一个示例项目，把 Django 依赖的东西都装进去了，postgresql 允许远程连接，redis 用默认配置，不允许远程连接，celery broker 用 rabbitmq，开了 management web ui，允许远程连接，目前唯一的问题就是 celery worker/beat 会再 rabbitmq 之前启动，会报错，连不上 broker，因为它也依赖了 django 的 Dockerfile，所以就没按照 depends_on 的顺序启动，但是也不影响，rabbitmq 启动完成就 celery 就会正常。&lt;/p&gt;
+&lt;p&gt;后续研究一下怎么再 swarm 上部署以及 k8s 的部署。&lt;/p&gt;</content><category term="devops"></category><category term="django"></category><category term="docker"></category></entry><entry><title>kubernetes 集群安装配置</title><link href="https://breakwire.me/k8s-installation.html" rel="alternate"></link><published>2019-08-06T15:19:14+08:00</published><updated>2019-08-06T15:19:14+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2019-08-06:/k8s-installation.html</id><summary type="html">&lt;p&gt;Docker 是个好东西，但是 k8s 也挺坑，没那个技术能力的人和团队还是不要勉强上了，传统部署如果做了比较多的准备工作也是能有比较好的扩展性和分布式性能的&lt;/p&gt;</summary><content type="html">&lt;h2&gt;安装 Docker&lt;/h2&gt;
 &lt;p&gt;在内网里面装 Docker ，连接国外就很慢，更不用说被墙掉的东西了，先按照清华大学的镜像站 https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/，把 Docker 在三台 ubuntu 16.04 机器上装好，再安装好 docker-compose https://docs.docker.com/compose/install/。&lt;/p&gt;
 &lt;h2&gt;安装 k8s&lt;/h2&gt;
 &lt;h3&gt;安装 kubeadm kubelet kubectl&lt;/h3&gt;
