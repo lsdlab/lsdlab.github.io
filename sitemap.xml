@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2019-08-12T19:29:54-00:00</lastmod>
+<lastmod>2019-08-12T19:31:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2019-08-12T19:29:54-00:00</lastmod>
+<lastmod>2019-08-12T19:31:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2019-08-12T19:29:54-00:00</lastmod>
+<lastmod>2019-08-12T19:31:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2019-08-12T19:29:54-00:00</lastmod>
+<lastmod>2019-08-12T19:31:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -49,13 +49,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://breakwire.me/pages/project-x.html</loc>
 <lastmod>2017-06-20T16:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://breakwire.me/three-bei-shang-guang.html</loc>
-<lastmod>2019-08-10T00:34:05+08:00</lastmod>
-<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -586,14 +579,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/category/writing.html</loc>
-<lastmod>2019-08-10T00:34:05+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://breakwire.me/tag/writing.html</loc>
-<lastmod>2019-08-10T00:34:05+08:06</lastmod>
+<lastmod>2018-01-22T21:22:03+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -678,6 +664,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://breakwire.me/tag/recommendation.html</loc>
 <lastmod>2018-02-06T23:44:04+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/tag/writing.html</loc>
+<lastmod>2018-01-22T21:22:03+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -775,7 +768,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/author/jc.html</loc>
-<lastmod>2019-08-10T00:34:05+08:06</lastmod>
+<lastmod>2019-08-08T21:09:28+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
