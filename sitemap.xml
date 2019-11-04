@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/</loc>
-<lastmod>2019-10-16T00:12:21-00:00</lastmod>
+<lastmod>2019-11-04T22:09:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/archives.html</loc>
-<lastmod>2019-10-16T00:12:21-00:00</lastmod>
+<lastmod>2019-11-04T22:09:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/tags.html</loc>
-<lastmod>2019-10-16T00:12:21-00:00</lastmod>
+<lastmod>2019-11-04T22:09:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://breakwire.me/categories.html</loc>
-<lastmod>2019-10-16T00:12:21-00:00</lastmod>
+<lastmod>2019-11-04T22:09:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -56,6 +56,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://breakwire.me/pages/project-x.html</loc>
 <lastmod>2017-06-20T16:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://breakwire.me/my-first-track-day.html</loc>
+<lastmod>2019-11-04T21:28:18+08:00</lastmod>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -432,7 +439,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/category/cars.html</loc>
-<lastmod>2018-02-18T18:28:11+08:06</lastmod>
+<lastmod>2019-11-04T21:28:18+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -585,6 +592,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://breakwire.me/tag/cars.html</loc>
+<lastmod>2019-11-04T21:28:18+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://breakwire.me/tag/devops.html</loc>
 <lastmod>2019-08-08T21:09:28+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -629,13 +643,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://breakwire.me/tag/projectx.html</loc>
 <lastmod>2019-03-20T11:00:04+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://breakwire.me/tag/cars.html</loc>
-<lastmod>2018-02-18T18:28:11+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -768,7 +775,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://breakwire.me/author/jc.html</loc>
-<lastmod>2019-08-08T21:09:28+08:06</lastmod>
+<lastmod>2019-11-04T21:28:18+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
