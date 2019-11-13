@@ -11,8 +11,8 @@
 &lt;img alt="" src="https://breakwire.oss-cn-shanghai.aliyuncs.com/abigail/IMG_3B9BCD0842D3-1.jpeg"&gt;
 &lt;img alt="" src="https://breakwire.oss-cn-shanghai.aliyuncs.com/abigail/IMG_68EC2EBA4179-1.jpeg"&gt;
 &lt;img alt="" src="https://breakwire.oss-cn-shanghai.aliyuncs.com/abigail/IMG_DFF342A2C436-1.jpeg"&gt;&lt;/p&gt;
-&lt;div&gt;
-&lt;video style="text-align: center;" id="pelican-installation" class="video-js vjs-default-skin" controls
+&lt;div style="text-align: center;" &gt;
+&lt;video id="pelican-installation" class="video-js vjs-default-skin" controls
 preload="auto" width="683" height="384" data-setup="{}"&gt;
 &lt;source src="https://breakwire.oss-cn-shanghai.aliyuncs.com/abigail/1573612330289.MOV" type='video/mp4'&gt;
 &lt;/video&gt;
