@@ -40,7 +40,7 @@
 	<meta property="article:published_time" content="2015-07-07 14:48:37+08:00">
             <meta property="og:description" content="Python专家一样编程: 地道的 Python 重新排版整理">
 
-            <meta property="og:image" content="https://breakwire.me//images/new-header.jpeg">
+            <meta property="og:image" content="https://breakwire.me//images/new-header.jpg">
 </head>
 
 <body>
@@ -75,7 +75,7 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('/images/new-header.jpeg')">
+        <header class="intro-header" style="background-image: url('/images/new-header.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -920,10 +920,10 @@
 
 
 <p>问题在于 a_list 的默认值，一个空列表，是在函数定义时被求值的。 所以每次调用这个函数，我们得到的是同一个默认值。试试重复做几次:</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; print bad_append(&#39;one&#39;)
-[&#39;one&#39;]
-&gt;&gt;&gt; print bad_append(&#39;two&#39;)
-[&#39;one&#39;, &#39;two&#39;]
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">bad_append</span><span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">bad_append</span><span class="p">(</span><span class="s1">&#39;two&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]</span>
 </pre></div>
 
 

@@ -42,7 +42,7 @@
 	<meta property="article:published_time" content="2018-02-10 12:46:17+08:00">
             <meta property="og:description" content="把 https://github.com/lsdlab/avatar-gen 用 Docker 部署">
 
-            <meta property="og:image" content="https://breakwire.me//images/new-header.jpeg">
+            <meta property="og:image" content="https://breakwire.me//images/new-header.jpg">
 </head>
 
 <body>
@@ -77,7 +77,7 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('/images/new-header.jpeg')">
+        <header class="intro-header" style="background-image: url('/images/new-header.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -106,55 +106,55 @@
 redis host 用 docker-compose.yml 的 container_name <code>avatar-gen-redis</code>。</p>
 <p>其实我只是把这个应用跑起来了而已，Docker 很多概念都没搞明白，比如 Dockerfile 和 docker-compose 里面都有 CMD 或者是 command，docker-compose.yml flask 配置中的 <code>build: .</code> 是会用到 Dockerfile，那我用 docker-compose up 启动的时候到底是哪条命令启动的 Flask 应用和 Celery 呢，这个我也不知道，还要就是Docker 化了之后怎么看日志呢，Docker 一旦用上手了是挺好，尤其是对于本地开发，但是如果上线的化就又有很多问题了，复杂度上升，原来原生的部署方式各个组件都能控制，Docker 化就进入黑盒里面了，又需要新的解决方案，所以现在各种容器云，容器编排管理，k8s 各种玩意。</p>
 <p>Dockerfile</p>
-<div class="highlight"><pre><span></span>FROM python:3.6.3
-MAINTAINER lsdvincent lsdvincent@gmail.com
-COPY . /avatar-gen
-WORKDIR /avatar-gen
-RUN pip install -r requirements.txt
-CMD [&quot;gunicorn&quot;, &quot;app:app&quot;, &quot;-c&quot;, &quot;gunicorn.conf&quot;]
-CMD [&quot;celery&quot;, &quot;-A&quot;, &quot;app.celery&quot;, &quot;worker&quot;, &quot;--loglevel=info&quot;, &quot;--autoscale=4,2&quot;]
+<div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="nl">python</span><span class="p">:</span><span class="mf">3.6.3</span><span class="w"></span>
+<span class="n">MAINTAINER</span><span class="w"> </span><span class="n">lsdvincent</span><span class="w"> </span><span class="n">lsdvincent</span><span class="nv">@gmail</span><span class="p">.</span><span class="n">com</span><span class="w"></span>
+<span class="n">COPY</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="o">/</span><span class="n">avatar</span><span class="o">-</span><span class="n">gen</span><span class="w"></span>
+<span class="n">WORKDIR</span><span class="w"> </span><span class="o">/</span><span class="n">avatar</span><span class="o">-</span><span class="n">gen</span><span class="w"></span>
+<span class="n">RUN</span><span class="w"> </span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="n">requirements</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">CMD</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;gunicorn&quot;, &quot;app:app&quot;, &quot;-c&quot;, &quot;gunicorn.conf&quot;</span><span class="o">]</span><span class="w"></span>
+<span class="n">CMD</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;celery&quot;, &quot;-A&quot;, &quot;app.celery&quot;, &quot;worker&quot;, &quot;--loglevel=info&quot;, &quot;--autoscale=4,2&quot;</span><span class="o">]</span><span class="w"></span>
 </pre></div>
 
 
 <p>docker-compose.yml</p>
-<div class="highlight"><pre><span></span>version: &quot;3&quot;
-services:
-  flask:
-    container_name: avatar-gen-flask
-    build: .
-    command: gunicorn app:app -c gunicorn.conf
-    restart: always
-    ports:
-      - &#39;5000:5000&#39;
-    volumes:
-      - .:/avatar-gen
-    networks:
-      - flask-redis-celery
+<div class="highlight"><pre><span></span><span class="k">version</span><span class="p">:</span> <span class="ss">&quot;3&quot;</span>
+<span class="n">services</span><span class="p">:</span>
+  <span class="n">flask</span><span class="p">:</span>
+    <span class="n">container_name</span><span class="p">:</span> <span class="n">avatar</span><span class="o">-</span><span class="n">gen</span><span class="o">-</span><span class="n">flask</span>
+    <span class="n">build</span><span class="p">:</span> <span class="p">.</span>
+    <span class="n">command</span><span class="p">:</span> <span class="n">gunicorn</span> <span class="n">app</span><span class="p">:</span><span class="n">app</span> <span class="o">-</span><span class="k">c</span> <span class="n">gunicorn</span><span class="p">.</span><span class="n">conf</span>
+    <span class="k">restart</span><span class="p">:</span> <span class="n">always</span>
+    <span class="n">ports</span><span class="p">:</span>
+      <span class="o">-</span> <span class="s1">&#39;5000:5000&#39;</span>
+    <span class="n">volumes</span><span class="p">:</span>
+      <span class="o">-</span> <span class="p">.:</span><span class="o">/</span><span class="n">avatar</span><span class="o">-</span><span class="n">gen</span>
+    <span class="n">networks</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">flask</span><span class="o">-</span><span class="n">redis</span><span class="o">-</span><span class="n">celery</span>
 
-  redis:
-    container_name: avatar-gen-redis
-    image: &#39;redis&#39;
-    command: redis-server
-    restart: always
-    ports:
-      - &#39;6379:6379&#39;
-    volumes:
-      - ./avatar_gen:/data
-    networks:
-      - flask-redis-celery
+  <span class="n">redis</span><span class="p">:</span>
+    <span class="n">container_name</span><span class="p">:</span> <span class="n">avatar</span><span class="o">-</span><span class="n">gen</span><span class="o">-</span><span class="n">redis</span>
+    <span class="n">image</span><span class="p">:</span> <span class="s1">&#39;redis&#39;</span>
+    <span class="n">command</span><span class="p">:</span> <span class="n">redis</span><span class="o">-</span><span class="n">server</span>
+    <span class="k">restart</span><span class="p">:</span> <span class="n">always</span>
+    <span class="n">ports</span><span class="p">:</span>
+      <span class="o">-</span> <span class="s1">&#39;6379:6379&#39;</span>
+    <span class="n">volumes</span><span class="p">:</span>
+      <span class="o">-</span> <span class="p">.</span><span class="o">/</span><span class="n">avatar_gen</span><span class="p">:</span><span class="o">/</span><span class="k">data</span>
+    <span class="n">networks</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">flask</span><span class="o">-</span><span class="n">redis</span><span class="o">-</span><span class="n">celery</span>
 
-  celery:
-    container_name: avatar-gen-celery
-    build: .
-    command: celery -A app.celery worker --loglevel=info --autoscale=4,2
-    restart: always
-    volumes:
-      - .:/avatar-gen
-    networks:
-      - flask-redis-celery
+  <span class="n">celery</span><span class="p">:</span>
+    <span class="n">container_name</span><span class="p">:</span> <span class="n">avatar</span><span class="o">-</span><span class="n">gen</span><span class="o">-</span><span class="n">celery</span>
+    <span class="n">build</span><span class="p">:</span> <span class="p">.</span>
+    <span class="n">command</span><span class="p">:</span> <span class="n">celery</span> <span class="o">-</span><span class="n">A</span> <span class="n">app</span><span class="p">.</span><span class="n">celery</span> <span class="n">worker</span> <span class="c1">--loglevel=info --autoscale=4,2</span>
+    <span class="k">restart</span><span class="p">:</span> <span class="n">always</span>
+    <span class="n">volumes</span><span class="p">:</span>
+      <span class="o">-</span> <span class="p">.:</span><span class="o">/</span><span class="n">avatar</span><span class="o">-</span><span class="n">gen</span>
+    <span class="n">networks</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">flask</span><span class="o">-</span><span class="n">redis</span><span class="o">-</span><span class="n">celery</span>
 
-networks:
-    flask-redis-celery:
+<span class="n">networks</span><span class="p">:</span>
+    <span class="n">flask</span><span class="o">-</span><span class="n">redis</span><span class="o">-</span><span class="n">celery</span><span class="p">:</span>
 </pre></div>
 
 

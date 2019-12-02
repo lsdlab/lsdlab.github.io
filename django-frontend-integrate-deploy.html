@@ -40,7 +40,7 @@
 	<meta property="article:published_time" content="2019-05-30 11:31:38+08:00">
             <meta property="og:description" content="学习了一个把 Django API 和分离前端代码统一部署的方法">
 
-            <meta property="og:image" content="https://breakwire.me//images/new-header.jpeg">
+            <meta property="og:image" content="https://breakwire.me//images/new-header.jpg">
 </head>
 
 <body>
@@ -75,7 +75,7 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('/images/new-header.jpeg')">
+        <header class="intro-header" style="background-image: url('/images/new-header.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -111,21 +111,21 @@
 
 
 <h3>TEMPLATES 添加 DIRS</h3>
-<div class="highlight"><pre><span></span>TEMPLATES = [
-    {
-        &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;,
-        &#39;DIRS&#39;: [&#39;dist&#39;],
-        &#39;APP_DIRS&#39;: True,
-        &#39;OPTIONS&#39;: {
-            &#39;context_processors&#39;: [
-                &#39;django.template.context_processors.debug&#39;,
-                &#39;django.template.context_processors.request&#39;,
-                &#39;django.contrib.auth.context_processors.auth&#39;,
-                &#39;django.contrib.messages.context_processors.messages&#39;,
-            ],
-        },
-    },
-]
+<div class="highlight"><pre><span></span><span class="n">TEMPLATES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="err">{</span>
+        <span class="s1">&#39;BACKEND&#39;</span><span class="p">:</span> <span class="s1">&#39;django.template.backends.django.DjangoTemplates&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;DIRS&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;dist&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;APP_DIRS&#39;</span><span class="p">:</span> <span class="k">True</span><span class="p">,</span>
+        <span class="s1">&#39;OPTIONS&#39;</span><span class="p">:</span> <span class="err">{</span>
+            <span class="s1">&#39;context_processors&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s1">&#39;django.template.context_processors.debug&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;django.template.context_processors.request&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;django.contrib.auth.context_processors.auth&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;django.contrib.messages.context_processors.messages&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="err">}</span><span class="p">,</span>
+    <span class="err">}</span><span class="p">,</span>
+<span class="p">]</span>
 </pre></div>
 
 
