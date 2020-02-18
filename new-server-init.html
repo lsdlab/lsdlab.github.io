@@ -99,32 +99,32 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yue">
     <!-- Post Content -->
     <article>
-        <h3>内网 ubuntu</h3>
+        <h2>内网 ubuntu</h2>
 <p>Ubuntu 镜像软件源 https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</p>
 <p>Debian https://mirror.tuna.tsinghua.edu.cn/help/debian/</p>
 <p>Docker https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/</p>
 <p>gitlab https://mirror.tuna.tsinghua.edu.cn/help/gitlab-ce/</p>
 <p>gitlab-runner https://mirror.tuna.tsinghua.edu.cn/help/gitlab-runner/</p>
 <p>pypi https://mirror.tuna.tsinghua.edu.cn/help/pypi/</p>
-<h3>基础软件</h3>
+<h2>基础软件</h2>
 <div class="highlight"><pre><span></span>sudo apt-get install wget curl zsh tmux git vim gcc g++
 </pre></div>
 
 
-<h3>on-my-zsh</h3>
+<h2>on-my-zsh</h2>
 <div class="highlight"><pre><span></span>sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&quot;</span>
 </pre></div>
 
 
-<h3>tmux</h3>
+<h2>tmux</h2>
 <p>https://github.com/wklken/k-tmux</p>
 <div class="highlight"><pre><span></span>curl https://raw.githubusercontent.com/wklken/k-tmux/master/tmux.conf &gt; ~/.tmux.conf
 </pre></div>
 
 
-<h3>vim</h3>
+<h2>vim</h2>
 <p>https://github.com/wklken/k-vim</p>
-<h3>pyenv</h3>
+<h2>pyenv</h2>
 <div class="highlight"><pre><span></span>curl https://pyenv.run <span class="p">|</span> bash
 </pre></div>
 
@@ -136,18 +136,18 @@
 </pre></div>
 
 
-<h3>ssr</h3>
+<h2>ssr</h2>
 <p>https://github.com/ToyoDAdoubi/doubi#ssrmush</p>
 <div class="highlight"><pre><span></span>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh <span class="o">&amp;&amp;</span> chmod +x ssrmu.sh <span class="o">&amp;&amp;</span> bash ssrmu.sh
 </pre></div>
 
 
-<h3>v2ray</h3>
+<h2>v2ray</h2>
 <p>https://toutyrater.github.io</p>
 <p>https://www.v2ray.com/chapter_00/install.html</p>
-<h3>go-fastdfs</h3>
+<h2>go-fastdfs</h2>
 <p>https://github.com/sjqzhang/go-fastdfs</p>
-<h3>certbot</h3>
+<h2>certbot</h2>
 <p>https://letsencrypt.org</p>
 <p>https://github.com/acmesh-official/acme.sh/wiki/说明</p>
 <p>https://certbot.eff.org/lets-encrypt/debianbuster-nginx</p>
@@ -158,26 +158,26 @@ certbot delete --cert-name
 </pre></div>
 
 
-<h3>nginx postgresql redis rabbitmq</h3>
+<h2>nginx postgresql redis rabbitmq</h2>
 <p>verynginx: https://github.com/alexazhou/VeryNginx/blob/master/readme_zh.md</p>
 <div class="highlight"><pre><span></span>apt-get install redis-server rabbitmq-server
 </pre></div>
 
 
-<h3>postgresql</h3>
+<h2>postgresql</h2>
 <p>https://www.postgresql.org/download/linux/debian/</p>
-<h4>导出 导入</h4>
+<h3>导出 导入</h3>
 <p>导出： <code>pg_dump -f spendingviz-postgresql.sql spendingviz</code></p>
 <p>导入： <code>psql -d spendingviz -f export-postgresql/spendingviz-postgresql.sql</code></p>
 <p>创建数据库  <code>createdb spendingviz</code></p>
 <p>删除数据库  <code>dropdb spendingviz</code></p>
-<h4>启动 重启</h4>
+<h3>启动 重启</h3>
 <div class="highlight"><pre><span></span>/etc/init.d/postgresql start
 /etc/init.d/postgresql restart
 </pre></div>
 
 
-<h4>用户 密码 远程连接</h4>
+<h3>用户 密码 远程连接</h3>
 <div class="highlight"><pre><span></span>sudo su postgres
 createuser --interactive
 chen
@@ -202,10 +202,10 @@ pgcli -h <span class="m">107</span>.170.238.235 -U chen -W -d dbname
 </pre></div>
 
 
-<h4>根据系统配置生成优化的 <code>postgresql.conf</code></h4>
+<h3>根据系统配置生成优化的  <code>postgresql.conf</code></h3>
 <p><a href="http://pgtune.leopard.in.ua/">http://pgtune.leopard.in.ua/</a></p>
-<h3>nginx</h3>
-<h4>Django</h4>
+<h2>nginx</h2>
+<h3>Django</h3>
 <div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
     <span class="kn">listen</span>      <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
     <span class="kn">server_name</span> <span class="s">breakwire.me</span><span class="p">;</span>
@@ -247,7 +247,7 @@ pgcli -h <span class="m">107</span>.170.238.235 -U chen -W -d dbname
 </pre></div>
 
 
-<h4>breakwire.me 静态网页</h4>
+<h3>breakwire.me 静态网页</h3>
 <p>Django 实例中的三个 location 换成下面这个</p>
 <div class="highlight"><pre><span></span><span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
    <span class="kn">root</span> <span class="s">/root/lsdlab.github.io/</span><span class="p">;</span>
@@ -256,115 +256,56 @@ pgcli -h <span class="m">107</span>.170.238.235 -U chen -W -d dbname
 </pre></div>
 
 
-<h4>微信 Node.js Nginx 3000 端口反代</h4>
+<h3>端口反代</h3>
 <div class="highlight"><pre><span></span><span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
     <span class="kn">proxy_pass</span> <span class="s">http://localhost:3000</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
 
-<p><strong>## wordpress.conf</strong></p>
+<h3>wordpress.conf</h3>
 <div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
-
     <span class="kn">root</span> <span class="s">/var/www/html</span><span class="p">;</span>
-
-
-
     <span class="c1"># Add index.php to the list if you are using PHP</span>
-
     <span class="kn">index</span> <span class="s">index.php</span> <span class="s">index.html</span> <span class="s">index.htm</span> <span class="s">index.nginx-debian.html</span><span class="p">;</span>
-
-
-
     <span class="c1"># Let Encrypt</span>
-
     <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
-
     <span class="kn">include</span> <span class="s">/etc/letsencrypt/options-ssl-nginx.conf</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
-
     <span class="kn">ssl_dhparam</span> <span class="s">/etc/letsencrypt/ssl-dhparams.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
-
-
-
     <span class="c1"># logs</span>
-
     <span class="kn">access_log</span> <span class="s">/root/nginx-log/access.log</span><span class="p">;</span>
-
     <span class="kn">error_log</span> <span class="s">/root/nginx-log/error.log</span><span class="p">;</span>
-
-
-
     <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-
             <span class="c1"># First attempt to serve request as file, then</span>
-
             <span class="c1"># as directory, then fall back to displaying a 404.</span>
-
             <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">/index.php</span><span class="nv">$is_args$args</span><span class="p">;</span>
-
     <span class="p">}</span>
-
-
-
-
-
     <span class="c1"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span>
-
-    <span class="c1">#</span>
-
     <span class="kn">location</span> <span class="p">~</span> <span class="sr">.php$</span> <span class="p">{</span>
-
         <span class="kn">include</span> <span class="s">snippets/fastcgi-php.conf</span><span class="p">;</span>
-
     <span class="c1">#</span>
-
     <span class="c1">#   # With php7.0-cgi alone:</span>
-
         <span class="kn">fastcgi_pass</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">9000</span><span class="p">;</span>
-
     <span class="c1">#   # With php7.0-fpm:</span>
-
     <span class="c1">#   fastcgi_pass unix:/run/php/php7.0-fpm.sock;</span>
-
     <span class="p">}</span>
-
-
-
     <span class="c1"># gzip</span>
-
     <span class="kn">gzip</span> <span class="no">on</span><span class="p">;</span>
-
     <span class="kn">gzip_min_length</span> <span class="mi">1k</span><span class="p">;</span>
-
     <span class="kn">gzip_buffers</span> <span class="mi">4</span> <span class="mi">16k</span><span class="p">;</span>
-
     <span class="kn">gzip_comp_level</span> <span class="mi">5</span><span class="p">;</span>
-
     <span class="kn">gzip_types</span> <span class="s">text/plain</span> <span class="s">application/x-javascript</span> <span class="s">text/css</span> <span class="s">application/xml</span> <span class="s">application/json</span> <span class="s">text/javascript</span> <span class="s">image/jpeg</span> <span class="s">image/png</span><span class="p">;</span>
-
     <span class="kn">gzip_disable</span> <span class="s">&quot;MSIE</span> <span class="s">[1-6].&quot;</span><span class="p">;</span>
-
 <span class="p">}</span>
-
-
-
 <span class="k">server</span> <span class="p">{</span>
-
     <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
-
     <span class="kn">server_name</span> <span class="s">paikung.com</span><span class="p">;</span>
-
     <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://</span><span class="nv">$server_name$request_uri</span><span class="p">;</span>
-
 <span class="p">}</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>
-</pre></div>
-
-
-<h4>proxy_params</h4>
+<h3>proxy_params</h3>
 <div class="highlight"><pre><span></span><span class="k">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$http_host</span><span class="p">;</span>
 <span class="k">proxy_set_header</span> <span class="s">X-Real-IP</span> <span class="nv">$remote_addr</span><span class="p">;</span>
 <span class="k">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
@@ -372,7 +313,7 @@ pgcli -h <span class="m">107</span>.170.238.235 -U chen -W -d dbname
 </pre></div>
 
 
-<h4>/etc/nginx/nginx.conf</h4>
+<h3>/etc/nginx/nginx.conf</h3>
 <div class="highlight"><pre><span></span><span class="k">user</span> <span class="s">root</span><span class="p">;</span>
 <span class="k">worker_processes</span> <span class="mi">5</span><span class="p">;</span>
 <span class="k">pid</span> <span class="s">/run/nginx.pid</span><span class="p">;</span>
