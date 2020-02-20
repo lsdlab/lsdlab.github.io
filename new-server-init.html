@@ -204,6 +204,15 @@ pgcli -h <span class="m">107</span>.170.238.235 -U chen -W -d dbname
 
 <h3>根据系统配置生成优化的  <code>postgresql.conf</code></h3>
 <p><a href="http://pgtune.leopard.in.ua/">http://pgtune.leopard.in.ua/</a></p>
+<h2>rabbitmq</h2>
+<div class="highlight"><pre><span></span>sudo rabbitmqctl add_user djshop passwordxxx
+sudo rabbitmqctl set_user_tags djshop administrator
+sudo rabbitmqctl set_permissions -p / djshop <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span>
+
+rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management rabbitmq_stomp rabbitmq_web_stomp
+</pre></div>
+
+
 <h2>nginx</h2>
 <h3>Django</h3>
 <div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>

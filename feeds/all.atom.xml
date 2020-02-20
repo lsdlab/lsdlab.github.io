@@ -104,6 +104,15 @@ pgcli -h &lt;span class="m"&gt;107&lt;/span&gt;.170.238.235 -U chen -W -d dbname
 
 &lt;h3&gt;根据系统配置生成优化的  &lt;code&gt;postgresql.conf&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://pgtune.leopard.in.ua/"&gt;http://pgtune.leopard.in.ua/&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;rabbitmq&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo rabbitmqctl add_user djshop passwordxxx
+sudo rabbitmqctl set_user_tags djshop administrator
+sudo rabbitmqctl set_permissions -p / djshop &lt;span class="s2"&gt;&amp;quot;.*&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;.*&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;.*&amp;quot;&lt;/span&gt;
+
+rabbitmq-plugins &lt;span class="nb"&gt;enable&lt;/span&gt; rabbitmq_management rabbitmq_stomp rabbitmq_web_stomp
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;nginx&lt;/h2&gt;
 &lt;h3&gt;Django&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
