@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire | 断线</title><link href="https://breakwire.me/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2020-02-17T21:40:45+08:00</updated><subtitle>JC's Blog</subtitle><entry><title>新服务器基础配置</title><link href="https://breakwire.me/new-server-init.html" rel="alternate"></link><published>2020-02-17T21:40:45+08:00</published><updated>2020-02-17T21:40:45+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2020-02-17:/new-server-init.html</id><summary type="html">&lt;p&gt;每开个新服务器都要装些工具，还是记录一下，方面后面用&lt;/p&gt;</summary><content type="html">&lt;h2&gt;内网 ubuntu&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire | 断线</title><link href="https://breakwire.me/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2020-02-17T21:40:45+08:00</updated><subtitle>JC's Blog</subtitle><entry><title>新服务器基础配置</title><link href="https://breakwire.me/new-server-init.html" rel="alternate"></link><published>2020-02-17T21:40:45+08:00</published><updated>2020-02-17T21:40:45+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2020-02-17:/new-server-init.html</id><summary type="html">&lt;p&gt;每开个新服务器都要装些工具，还是记录一下，方面后面用&lt;/p&gt;</summary><content type="html">&lt;h2&gt;内网 ubuntu 镜像源&lt;/h2&gt;
 &lt;p&gt;Ubuntu 镜像软件源 https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/&lt;/p&gt;
 &lt;p&gt;Debian https://mirror.tuna.tsinghua.edu.cn/help/debian/&lt;/p&gt;
 &lt;p&gt;Docker https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/&lt;/p&gt;
@@ -58,12 +58,8 @@ certbot delete --cert-name
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;nginx postgresql redis rabbitmq&lt;/h2&gt;
+&lt;h2&gt;nginx&lt;/h2&gt;
 &lt;p&gt;verynginx: https://github.com/alexazhou/VeryNginx/blob/master/readme_zh.md&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;apt-get install redis-server rabbitmq-server
-&lt;/pre&gt;&lt;/div&gt;
-
-
 &lt;h2&gt;postgresql&lt;/h2&gt;
 &lt;p&gt;https://www.postgresql.org/download/linux/debian/&lt;/p&gt;
 &lt;h3&gt;导出 导入&lt;/h3&gt;
@@ -105,7 +101,8 @@ pgcli -h &lt;span class="m"&gt;107&lt;/span&gt;.170.238.235 -U chen -W -d dbname
 &lt;h3&gt;根据系统配置生成优化的  &lt;code&gt;postgresql.conf&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://pgtune.leopard.in.ua/"&gt;http://pgtune.leopard.in.ua/&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;rabbitmq&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo rabbitmqctl add_user djshop passwordxxx
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install rabbitmq-server
+sudo rabbitmqctl add_user djshop passwordxxx
 sudo rabbitmqctl set_user_tags djshop administrator
 sudo rabbitmqctl set_permissions -p / djshop &lt;span class="s2"&gt;&amp;quot;.*&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;.*&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;.*&amp;quot;&lt;/span&gt;
 
