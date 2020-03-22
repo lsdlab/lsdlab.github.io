@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire | 断线</title><link href="https://breakwire.me/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2020-02-17T21:40:45+08:00</updated><subtitle>JC's Blog</subtitle><entry><title>新服务器基础配置</title><link href="https://breakwire.me/new-server-init.html" rel="alternate"></link><published>2020-02-17T21:40:45+08:00</published><updated>2020-02-17T21:40:45+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2020-02-17:/new-server-init.html</id><summary type="html">&lt;p&gt;每开个新服务器都要装些工具，还是记录一下，方面后面用&lt;/p&gt;</summary><content type="html">&lt;h2&gt;内网 ubuntu 镜像源&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>BreakWire | 断线</title><link href="https://breakwire.me/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>https://breakwire.me/</id><updated>2020-03-22T22:13:08+08:00</updated><subtitle>JC's Blog</subtitle><entry><title>2020 spending plan</title><link href="https://breakwire.me/2020-spanding-plan.html" rel="alternate"></link><published>2020-03-22T22:13:08+08:00</published><updated>2020-03-22T22:13:08+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2020-03-22:/2020-spanding-plan.html</id><summary type="html">&lt;p&gt;cut off all nonessential spendings&lt;/p&gt;</summary><content type="html">&lt;p&gt;由于众所周知的原因，2020 将会很可怕，所以我也将调整 2020 的消费计划，减少、取消非必须消费，在吃饭、租房上花钱，小米电视，Bilibili 大会员都停掉，App Store 不再买付费内容，不下馆子，不旅游，不去电影院看电影等等等等。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;开始做饭，采购源头，山姆会员，盒马鲜生，牛腱，半成品菜&lt;/li&gt;
+&lt;li&gt;四月底房租到期，搬到吴江，换两室一厅，民用水电燃气，总预算尽量不超过 3000&lt;/li&gt;
+&lt;li&gt;不下馆子，不旅游，不去电影院&lt;/li&gt;
+&lt;li&gt;不去商场购买非食物物品&lt;/li&gt;
+&lt;li&gt;不购买任何鞋子&lt;/li&gt;
+&lt;li&gt;淘宝购买衣服控制数量&lt;/li&gt;
+&lt;li&gt;车贷还有五期，8月5日还完最后一期&lt;/li&gt;
+&lt;li&gt;改装计划暂缓，改装基金转作现金储蓄&lt;/li&gt;
+&lt;li&gt;尝试取出部分公积金，需要租房缴税发票，&lt;strong&gt;待研究&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;停掉视频网站会员，不买 app，只留下每月一个服务器，5 美金，SS 暂时蹭别人的&lt;/li&gt;
+&lt;li&gt;早饭一半时间吃面包、饼干，一半时间 KFC 早餐&lt;/li&gt;
+&lt;li&gt;暂停购买实体书籍，部分实体书籍多抓鱼回收掉&lt;/li&gt;
+&lt;/ul&gt;</content><category term="FML"></category><category term="fml"></category></entry><entry><title>新服务器基础配置</title><link href="https://breakwire.me/new-server-init.html" rel="alternate"></link><published>2020-02-17T21:40:45+08:00</published><updated>2020-02-17T21:40:45+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2020-02-17:/new-server-init.html</id><summary type="html">&lt;p&gt;每开个新服务器都要装些工具，还是记录一下，方面后面用&lt;/p&gt;</summary><content type="html">&lt;h2&gt;内网 ubuntu 镜像源&lt;/h2&gt;
 &lt;p&gt;Ubuntu 镜像软件源 https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/&lt;/p&gt;
 &lt;p&gt;Debian https://mirror.tuna.tsinghua.edu.cn/help/debian/&lt;/p&gt;
 &lt;p&gt;Docker https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/&lt;/p&gt;
