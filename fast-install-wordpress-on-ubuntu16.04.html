@@ -102,118 +102,118 @@
         <p>最早玩 Linux 服务器也不知道拿来干啥，就练习练习命令，后来学了 Django，能写个简单的应用然后部署了，Django 部署其实很容易，但对于新手来说还要处理各种依赖安装失败，简直噩梦，后来用的多了，有经验了，再加上使用场景也多了。服务器在 DigitalOcean 上也是随便开着用，想玩个爬虫就临时开机器出来用，安装配置也是分分钟的事儿，处理什么依赖安装失败也很容易，随便搜索搜索再加上经验，很容易就搞定了。但我一直没装过 Wordpress，正好有朋友要我帮忙弄个站点，还有点要求，速度要快，要上 HTTPS，我就先给他在 DigitalOcean 一键安装了出来，先凑合用，一键安装出来是 Apache 做 HTTP 服务器，我不会 HTTP 更不会配置 Apache，所以还是得手动装，我也大致了解 Wordpress 是怎么运行的，nginx + php7.0-fpm + mysql + wordpress 就这四个东西，和其他应用的原理都是一样的，我也把这个过程做个笔记，以后方便查。</p>
 <p>DigitalOcean 上开个 $5 的机器，选上 <code>add ssh key</code>，直接用 root 用户，就先不配服务器的用户了，照理说这一步是配置好 ssh 登录，然后把 root 用户登录关闭掉，避免风险的。</p>
 <h2>登录上服务器，直接更新升级然后安装一波必要东西</h2>
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">upgrade</span>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">upgrade</span>
 <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">git</span> <span class="n">gcc</span> <span class="k">g</span><span class="o">++</span> <span class="n">vim</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>安装 nginx/mysql-server/php7.0-fpm</h2>
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">nginx</span>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">nginx</span>
 <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">mysql</span><span class="o">-</span><span class="n">server</span>
 <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">php7</span><span class="p">.</span><span class="mi">0</span><span class="o">-</span><span class="n">fpm</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>配置 mysql</h2>
 <p>创建 wordpress 要用的数据库，这里 mysql 就也不再创建用户了，直接用 root，把密码设置复杂点。</p>
-<div class="highlight"><pre><span></span><span class="nv">mysql</span> <span class="o">-</span><span class="nv">u</span> <span class="nv">root</span> <span class="o">-</span><span class="nv">p</span>
+<div class="highlight"><pre><span></span><code><span class="nv">mysql</span> <span class="o">-</span><span class="nv">u</span> <span class="nv">root</span> <span class="o">-</span><span class="nv">p</span>
 
 <span class="nv">CREATE</span> <span class="nv">DATABASE</span> <span class="nv">wordpress</span> <span class="nv">DEFAULT</span> <span class="nv">CHARACTER</span> <span class="nv">SET</span> <span class="nv">utf8</span> <span class="nv">COLLATE</span> <span class="nv">utf8_unicode_ci</span><span class="c1">;</span>
 <span class="nv">GRANT</span> <span class="nv">ALL</span> <span class="nv">ON</span> <span class="nv">wordpress</span>.<span class="o">*</span> <span class="nv">TO</span> ‘<span class="nv">root</span>’@‘<span class="nv">localhost</span><span class="s1">&#39;</span><span class="s"> IDENTIFIED BY ‘root’;*FLUSH PRIVILEGES;</span>
 <span class="k">EXIT</span><span class="c1">;</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>重启 mysql</h2>
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="k">restart</span> <span class="n">mysql</span><span class="o">-</span><span class="n">server</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">systemctl</span> <span class="k">restart</span> <span class="n">mysql</span><span class="o">-</span><span class="n">server</span>
+</code></pre></div>
 
 
 <h2>安装 php 插件</h2>
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">php</span><span class="o">-</span><span class="n">curl</span> <span class="n">php</span><span class="o">-</span><span class="n">gd</span> <span class="n">php</span><span class="o">-</span><span class="n">mbstring</span> <span class="n">php</span><span class="o">-</span><span class="n">mcrypt</span> <span class="n">php</span><span class="o">-</span><span class="n">xml</span> <span class="n">php</span><span class="o">-</span><span class="n">xmlrpc</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">php</span><span class="o">-</span><span class="n">curl</span> <span class="n">php</span><span class="o">-</span><span class="n">gd</span> <span class="n">php</span><span class="o">-</span><span class="n">mbstring</span> <span class="n">php</span><span class="o">-</span><span class="n">mcrypt</span> <span class="n">php</span><span class="o">-</span><span class="n">xml</span> <span class="n">php</span><span class="o">-</span><span class="n">xmlrpc</span>
+</code></pre></div>
 
 
 <p>DigitalOcean 里面让安装这些东西，实际我安装完了之后发现报错，还少 mysql 的一个插件：</p>
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">php7</span><span class="p">.</span><span class="mi">0</span><span class="o">-</span><span class="n">mysql</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">php7</span><span class="p">.</span><span class="mi">0</span><span class="o">-</span><span class="n">mysql</span>
+</code></pre></div>
 
 
 <h2>配置 php7.0-fpm</h2>
 <p>就是个 wsgi 的中间件。</p>
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">php</span><span class="o">/</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">fpm</span><span class="o">/</span><span class="n">php</span><span class="p">.</span><span class="n">ini</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">php</span><span class="o">/</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">fpm</span><span class="o">/</span><span class="n">php</span><span class="p">.</span><span class="n">ini</span>
+</code></pre></div>
 
 
 <p>在最后加一行：</p>
-<div class="highlight"><pre><span></span><span class="n">cgi</span><span class="p">.</span><span class="n">fix_pathinfo</span><span class="o">=</span><span class="mi">0</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">cgi</span><span class="p">.</span><span class="n">fix_pathinfo</span><span class="o">=</span><span class="mi">0</span>
+</code></pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vi</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">info</span><span class="p">.</span><span class="n">php</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">vi</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">info</span><span class="p">.</span><span class="n">php</span>
+</code></pre></div>
 
 
 <p>粘贴进去：</p>
-<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
 <span class="nb">phpinfo</span><span class="p">();</span>
 <span class="cp">?&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>把中间件的连接方式换成端口</p>
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">php</span><span class="o">/</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">fpm</span><span class="o">/</span><span class="n">pool</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">www</span><span class="p">.</span><span class="n">conf</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">php</span><span class="o">/</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">fpm</span><span class="o">/</span><span class="n">pool</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">www</span><span class="p">.</span><span class="n">conf</span>
+</code></pre></div>
 
 
 <p>找到 <code>listen = /var/run/php5-fpm.sock</code> 注释掉，换成：</p>
-<div class="highlight"><pre><span></span><span class="k">listen</span> <span class="o">=</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">9000</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">listen</span> <span class="o">=</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">9000</span>
+</code></pre></div>
 
 
 <h2>重启 php7.0-fpm</h2>
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="k">restart</span> <span class="n">php7</span><span class="p">.</span><span class="mi">0</span><span class="o">-</span><span class="n">fpm</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">systemctl</span> <span class="k">restart</span> <span class="n">php7</span><span class="p">.</span><span class="mi">0</span><span class="o">-</span><span class="n">fpm</span>
+</code></pre></div>
 
 
 <h2>下载解压 wordpress，配置</h2>
-<div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">O</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">wordpress</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">latest</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+<div class="highlight"><pre><span></span><code><span class="n">curl</span> <span class="o">-</span><span class="n">O</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">wordpress</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">latest</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
 <span class="n">tar</span> <span class="n">xzvf</span> <span class="n">latest</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
 <span class="n">cd</span> <span class="n">wordpress</span>
 <span class="n">cp</span> <span class="n">wordpress</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">sample</span><span class="p">.</span><span class="n">php</span> <span class="n">wp</span><span class="o">-</span><span class="n">config</span><span class="p">.</span><span class="n">php</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>生成 key：</p>
-<div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">wordpress</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">secret</span><span class="o">-</span><span class="k">key</span><span class="o">/</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="o">/</span><span class="n">salt</span><span class="o">/</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">wordpress</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">secret</span><span class="o">-</span><span class="k">key</span><span class="o">/</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="o">/</span><span class="n">salt</span><span class="o">/</span>
+</code></pre></div>
 
 
 <p>复制后：</p>
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vi</span> <span class="n">wp</span><span class="o">-</span><span class="n">config</span><span class="p">.</span><span class="n">php</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">vi</span> <span class="n">wp</span><span class="o">-</span><span class="n">config</span><span class="p">.</span><span class="n">php</span>
+</code></pre></div>
 
 
 <p>找到对应的地方，粘贴替换。</p>
 <p>数据库的名字、用户名、密码也替换掉之前创建的：</p>
-<div class="highlight"><pre><span></span><span class="n">define</span><span class="p">(</span><span class="s1">&#39;DB_NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;wordpress&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">define</span><span class="p">(</span><span class="s1">&#39;DB_NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;wordpress&#39;</span><span class="p">);</span>
 
 <span class="cm">/** MySQL database username */</span>
 <span class="n">define</span><span class="p">(</span><span class="s1">&#39;DB_USER&#39;</span><span class="p">,</span> <span class="s1">&#39;wordpressuser&#39;</span><span class="p">);</span>
 
 <span class="cm">/** MySQL database password */</span>
 <span class="n">define</span><span class="p">(</span><span class="s1">&#39;DB_PASSWORD&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">);</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>配置 nginx</h2>
 <p>nginx 也不新建配置了，直接写在默认配置里面：</p>
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="k">default</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="k">default</span>
+</code></pre></div>
 
 
 <p>改掉这几个地方：</p>
-<div class="highlight"><pre><span></span><span class="nv">server</span> {
+<div class="highlight"><pre><span></span><code><span class="nv">server</span> {
   <span class="nv">listen</span> <span class="mi">80</span> <span class="nv">default_server</span><span class="c1">;</span>
   <span class="nv">listen</span> <span class="mi">198</span>.<span class="mi">199</span>.<span class="mi">119</span>.<span class="mi">75</span> <span class="nv">default_server</span><span class="c1">;</span>
 
@@ -241,14 +241,14 @@
 # \# <span class="nv">With</span> <span class="nv">php7</span>.<span class="mi">0</span><span class="o">-</span><span class="nv">fpm</span>:
 # <span class="nv">fastcgi_pass</span> <span class="nv">unix</span>:<span class="o">/</span><span class="nv">run</span><span class="o">/</span><span class="nv">php</span><span class="o">/</span><span class="nv">php7</span>.<span class="mi">0</span><span class="o">-</span><span class="nv">fpm</span>.<span class="nv">sock</span><span class="c1">;</span>
   }
-</pre></div>
+</code></pre></div>
 
 
 <h2>重启  php7.0-fpm 和 nginx</h2>
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="k">restart</span> <span class="n">php7</span><span class="p">.</span><span class="mi">0</span><span class="o">-</span><span class="n">fpm</span>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">systemctl</span> <span class="k">restart</span> <span class="n">php7</span><span class="p">.</span><span class="mi">0</span><span class="o">-</span><span class="n">fpm</span>
 <span class="n">sudo</span> <span class="n">nginx</span> <span class="o">-</span><span class="n">s</span> <span class="n">stop</span>
 <span class="n">sudo</span> <span class="n">nginx</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>完成，然后就是把 nginx 加上压缩，加上 https，再加上那个 google analytics 就齐活了，一个网站就搞定了，要做外贸电商也很容易，woocommerce 插件一装，paypal 配置好，上架商品，就行了。做码农真的容易被限制思维方式，其实想做任何东西，都有现成的工具可以用，只要整合就行了。</p>

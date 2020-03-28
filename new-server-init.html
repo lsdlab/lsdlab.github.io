@@ -107,39 +107,39 @@
 <p>gitlab-runner https://mirror.tuna.tsinghua.edu.cn/help/gitlab-runner/</p>
 <p>pypi https://mirror.tuna.tsinghua.edu.cn/help/pypi/</p>
 <h2>基础软件</h2>
-<div class="highlight"><pre><span></span>sudo apt-get install wget curl zsh tmux git vim gcc g++
-</pre></div>
+<div class="highlight"><pre><span></span><code>sudo apt-get install wget curl zsh tmux git vim gcc g++
+</code></pre></div>
 
 
 <h2>on-my-zsh</h2>
-<div class="highlight"><pre><span></span>sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&quot;</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
 
 
 <h2>tmux</h2>
 <p>https://github.com/wklken/k-tmux</p>
-<div class="highlight"><pre><span></span>curl https://raw.githubusercontent.com/wklken/k-tmux/master/tmux.conf &gt; ~/.tmux.conf
-</pre></div>
+<div class="highlight"><pre><span></span><code>curl https://raw.githubusercontent.com/wklken/k-tmux/master/tmux.conf &gt; ~/.tmux.conf
+</code></pre></div>
 
 
 <h2>vim</h2>
 <p>https://github.com/wklken/k-vim</p>
 <h2>pyenv</h2>
-<div class="highlight"><pre><span></span>curl https://pyenv.run <span class="p">|</span> bash
-</pre></div>
+<div class="highlight"><pre><span></span><code>curl https://pyenv.run <span class="p">|</span> bash
+</code></pre></div>
 
 
 <p>加入 zshrc</p>
-<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/root/.pyenv/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/root/.pyenv/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 <span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&quot;</span>
 <span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv virtualenv-init -<span class="k">)</span><span class="s2">&quot;</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>ssr</h2>
 <p>https://github.com/ToyoDAdoubi/doubi#ssrmush</p>
-<div class="highlight"><pre><span></span>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh <span class="o">&amp;&amp;</span> chmod +x ssrmu.sh <span class="o">&amp;&amp;</span> bash ssrmu.sh
-</pre></div>
+<div class="highlight"><pre><span></span><code>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh <span class="o">&amp;&amp;</span> chmod +x ssrmu.sh <span class="o">&amp;&amp;</span> bash ssrmu.sh
+</code></pre></div>
 
 
 <h2>v2ray</h2>
@@ -151,11 +151,11 @@
 <p>https://letsencrypt.org</p>
 <p>https://github.com/acmesh-official/acme.sh/wiki/说明</p>
 <p>https://certbot.eff.org/lets-encrypt/debianbuster-nginx</p>
-<div class="highlight"><pre><span></span>sudo apt-get install certbot python-certbot-nginx
+<div class="highlight"><pre><span></span><code>sudo apt-get install certbot python-certbot-nginx
 certbot certonly
 certbot certificates
 certbot delete --cert-name
-</pre></div>
+</code></pre></div>
 
 
 <h2>nginx</h2>
@@ -168,13 +168,13 @@ certbot delete --cert-name
 <p>创建数据库  <code>createdb spendingviz</code></p>
 <p>删除数据库  <code>dropdb spendingviz</code></p>
 <h3>启动 重启</h3>
-<div class="highlight"><pre><span></span>/etc/init.d/postgresql start
+<div class="highlight"><pre><span></span><code>/etc/init.d/postgresql start
 /etc/init.d/postgresql restart
-</pre></div>
+</code></pre></div>
 
 
 <h3>用户 密码 远程连接</h3>
-<div class="highlight"><pre><span></span>sudo su postgres
+<div class="highlight"><pre><span></span><code>sudo su postgres
 createuser --interactive
 chen
 y
@@ -195,24 +195,24 @@ pgcli -h <span class="m">107</span>.170.238.235 -U chen -W -d dbname
 <span class="se">\d</span>t
 <span class="se">\d</span> entry
 ​<span class="sb">```</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>根据系统配置生成优化的  <code>postgresql.conf</code></h3>
 <p><a href="http://pgtune.leopard.in.ua/">http://pgtune.leopard.in.ua/</a></p>
 <h2>rabbitmq</h2>
-<div class="highlight"><pre><span></span>sudo apt-get install rabbitmq-server
+<div class="highlight"><pre><span></span><code>sudo apt-get install rabbitmq-server
 sudo rabbitmqctl add_user djshop passwordxxx
 sudo rabbitmqctl set_user_tags djshop administrator
 sudo rabbitmqctl set_permissions -p / djshop <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span>
 
 rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management rabbitmq_stomp rabbitmq_web_stomp
-</pre></div>
+</code></pre></div>
 
 
 <h2>nginx</h2>
 <h3>Django</h3>
-<div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
     <span class="kn">listen</span>      <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
     <span class="kn">server_name</span> <span class="s">breakwire.me</span><span class="p">;</span>
     <span class="c1"># location</span>
@@ -250,27 +250,27 @@ rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management rabbitmq_sto
     <span class="kn">server_name</span> <span class="s">breakwire.me</span><span class="p">;</span>
     <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://</span><span class="nv">$server_name$request_uri</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>breakwire.me 静态网页</h3>
 <p>Django 实例中的三个 location 换成下面这个</p>
-<div class="highlight"><pre><span></span><span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
    <span class="kn">root</span> <span class="s">/root/lsdlab.github.io/</span><span class="p">;</span>
    <span class="kn">index</span> <span class="s">index.html</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>端口反代</h3>
-<div class="highlight"><pre><span></span><span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
     <span class="kn">proxy_pass</span> <span class="s">http://localhost:3000</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>wordpress.conf</h3>
-<div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
     <span class="kn">root</span> <span class="s">/var/www/html</span><span class="p">;</span>
     <span class="c1"># Add index.php to the list if you are using PHP</span>
     <span class="kn">index</span> <span class="s">index.php</span> <span class="s">index.html</span> <span class="s">index.htm</span> <span class="s">index.nginx-debian.html</span><span class="p">;</span>
@@ -308,19 +308,19 @@ rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management rabbitmq_sto
     <span class="kn">server_name</span> <span class="s">paikung.com</span><span class="p">;</span>
     <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://</span><span class="nv">$server_name$request_uri</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>proxy_params</h3>
-<div class="highlight"><pre><span></span><span class="k">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$http_host</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$http_host</span><span class="p">;</span>
 <span class="k">proxy_set_header</span> <span class="s">X-Real-IP</span> <span class="nv">$remote_addr</span><span class="p">;</span>
 <span class="k">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
 <span class="k">proxy_set_header</span> <span class="s">X-Forwarded-Proto</span> <span class="nv">$scheme</span><span class="p">;</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>/etc/nginx/nginx.conf</h3>
-<div class="highlight"><pre><span></span><span class="k">user</span> <span class="s">root</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">user</span> <span class="s">root</span><span class="p">;</span>
 <span class="k">worker_processes</span> <span class="mi">5</span><span class="p">;</span>
 <span class="k">pid</span> <span class="s">/run/nginx.pid</span><span class="p">;</span>
 
@@ -350,7 +350,7 @@ rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management rabbitmq_sto
 
     <span class="kn">include</span> <span class="s">/etc/nginx/sites-enabled/*.conf</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>gitlab</h2>

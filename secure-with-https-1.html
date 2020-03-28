@@ -103,8 +103,8 @@
 <h2>Let’s Encrypt 配置</h2>
 <p>先按照小众软件的 <a href="http://www.appinn.com/use-letsencrypt-with-nginx/">在 Nginx 上使用 Let’s Encrypt 加密(HTTPS)你的网站[简明教程]</a>，先直接把网站的 HTTPS 跑起来。</p>
 <p>不过运行 Let’s Encrypt 的命令应该是：</p>
-<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">-</span><span class="n">auto</span> <span class="n">certonly</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">/</span><span class="n">letsencrypt</span><span class="o">-</span><span class="n">auto</span> <span class="n">certonly</span>
+</code></pre></div>
 
 
 <p>没有 <code>–standalone</code> 这个参数，是在图形界面里面选择这个选项。</p>
@@ -115,7 +115,7 @@
 <p>用 <a href="https://github.com/xdtianyu/scripts/blob/master/lets-encrypt/README-CN.md">一个快速获取/更新 Let's encrypt 证书的 shell script</a> 是搞定了。</p>
 <p>运行脚本可能会有权限问题，把 Nginx 里面的 <code>ssl_certificate</code> <code>ssl_certificate_key</code> 改掉就行了，加入 <code>cron</code> 定时任务，搞定。</p>
 <p>最后附上 Nginx 的配置文件：</p>
-<div class="highlight"><pre><span></span><span class="nv">server</span> {
+<div class="highlight"><pre><span></span><code><span class="nv">server</span> {
     # <span class="nv">the</span> <span class="nv">port</span> <span class="nv">your</span> <span class="nv">site</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">served</span> <span class="nv">on</span>
     <span class="nv">listen</span>      <span class="mi">443</span> <span class="nv">ssl</span><span class="c1">;</span>
     # <span class="nv">the</span> <span class="nv">domain</span> <span class="nv">name</span> <span class="nv">it</span> <span class="nv">will</span> <span class="nv">serve</span> <span class="k">for</span>
@@ -153,7 +153,7 @@
     <span class="nv">server_name</span> <span class="nv">breakwire</span>.<span class="nv">me</span><span class="c1">;</span>
     <span class="k">return</span> <span class="mi">301</span> <span class="nv">https</span>:<span class="o">//</span>$<span class="nv">host</span>$<span class="nv">request_uri</span><span class="c1">;</span>
 }
-</pre></div>
+</code></pre></div>
 
 
 <h2>HTTP 重定向至 HTTPS</h2>

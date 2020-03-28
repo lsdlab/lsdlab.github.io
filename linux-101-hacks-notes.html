@@ -102,25 +102,25 @@
         <p>很多有用的实用技巧，原书是英文，很久很久前哈工大的一些学生的学习资料，他们一些学生翻译的，记录些我自己现在用到的 tricks，非鸟哥的那本书上讲到的基础的东西。</p>
 <h2>cd</h2>
 <h3>设置 cd 的根目录，就是最最常用的目录，写入到 <code>~/.bash_profile</code> 中，能在任何目录下快速切换</h3>
-<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CDPATH</span><span class="o">=</span>/etc
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CDPATH</span><span class="o">=</span>/etc
+</code></pre></div>
 
 
 <h3>cd 和 alias 配合快速返回多级上层目录</h3>
 <p>进入了很深的目录想要向上返回两级或者三级就很麻烦，要写很多 <code>../../..</code>，特别麻烦，把这个写入到 <code>~/.bash_profile</code> 中就很方便用了：</p>
-<div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">cd1</span><span class="o">=</span><span class="s2">&quot;cd ..&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">cd1</span><span class="o">=</span><span class="s2">&quot;cd ..&quot;</span>
 <span class="nb">alias</span> <span class="nv">cd2</span><span class="o">=</span><span class="s2">&quot;cd ../..&quot;</span>
 <span class="nb">alias</span> <span class="nv">cd3</span><span class="o">=</span><span class="s2">&quot;cd ../../..&quot;</span>
 <span class="nb">alias</span> <span class="nv">cd4</span><span class="o">=</span><span class="s2">&quot;cd ../../../..&quot;</span>
 <span class="nb">alias</span> <span class="nv">cd5</span><span class="o">=</span><span class="s2">&quot;cd ../../../../..&quot;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>设置了五层，应该够用的，命令的简写怎么自己方便怎么来，也可以直接写成点 <code>..</code> <code>...</code> <code>....</code>，也可以前面加个 cd，<code>cd..</code> <code>cd...</code> <code>cd....</code>，又或者 <code>..</code> <code>..2</code> <code>..3</code>，还是第一种最好使。</p>
 <h3>创建新目录的同时进入目录</h3>
 <p>在 <code>~/.bash_profile</code> 中添加：</p>
-<div class="highlight"><pre><span></span><span class="k">function</span> mkdircd <span class="o">()</span> <span class="o">{</span> mkdir -p <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">eval</span> <span class="nb">cd</span> <span class="s2">&quot;\&quot;\$</span><span class="nv">$#</span><span class="s2">\&quot;&quot;</span><span class="p">;</span> <span class="o">}</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">function</span> mkdircd <span class="o">()</span> <span class="o">{</span> mkdir -p <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">eval</span> <span class="nb">cd</span> <span class="s2">&quot;\&quot;\$</span><span class="nv">$#</span><span class="s2">\&quot;&quot;</span><span class="p">;</span> <span class="o">}</span>
+</code></pre></div>
 
 
 <h2>history</h2>

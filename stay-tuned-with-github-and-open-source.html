@@ -103,24 +103,24 @@
 <p>以昨天我刚给别人的一个项目加了个小功能为例，先是要在别人的仓库里 Fork 到自己的仓库中，然后 <code>git clone</code> 下来，然后就是写代码了，写完了，测试好了，那就 <code>add commit push</code> 走下去，在自己的仓库上创建 Pull Request，说明做了什么更改，等原仓库所有者审核合并到主分支上。</p>
 <p>原仓库再次更新添加了代码，我本地怎么才能同步获得新代码呢，原来就一个人用用不知道，后来查了查就基本会用了。</p>
 <p>原来 clone 自己的 Fork 仓库有两个 origin 来源，都是指向的自己的 Frok 仓库，要再次获得更新，就要建立原仓库的跟踪来源：</p>
-<div class="highlight"><pre><span></span>$ git remote add upstream git@github.com:Andrew-liu/my_blog_tutorial.git
+<div class="highlight"><pre><span></span><code>$ git remote add upstream git@github.com:Andrew-liu/my_blog_tutorial.git
 $ git remote -v
 origin  git@github.com:lsdlab/my_blog_tutorial.git <span class="o">(</span>fetch<span class="o">)</span>
 origin  git@github.com:lsdlab/my_blog_tutorial.git <span class="o">(</span>push<span class="o">)</span>
 upstream    git@github.com:Andrew-liu/my_blog_tutorial.git <span class="o">(</span>fetch<span class="o">)</span>
 upstream    git@github.com:Andrew-liu/my_blog_tutorial.git <span class="o">(</span>push<span class="o">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>下载原仓库最新内容：</p>
-<div class="highlight"><pre><span></span>$ git fetch upstream
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ git fetch upstream
+</code></pre></div>
 
 
 <p>合并：</p>
-<div class="highlight"><pre><span></span>$ git checkout master
+<div class="highlight"><pre><span></span><code>$ git checkout master
 $ git merge upstream/master
-</pre></div>
+</code></pre></div>
     </article>
 
         <div class="tags">

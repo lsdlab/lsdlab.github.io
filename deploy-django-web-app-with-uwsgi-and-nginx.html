@@ -104,49 +104,49 @@
 <h3>0. 原理</h3>
 <p>Nginx 作为服务器最前端，接受所有请求，静态请求，媒体文件由 Nginx 处理，非静态请求由 uWSGI 传递给 Django 处理。</p>
 <h3>1. 安装 Nginx</h3>
-<div class="highlight"><pre><span></span>sudo apt-get install nginx
+<div class="highlight"><pre><span></span><code>sudo apt-get install nginx
 sudo /etc/init.d/nginx start
-</pre></div>
+</code></pre></div>
 
 
 <p>还有其他的用法<code>Usage: nginx {start|stop|restart|reload|force-reload|status|configtest}</code>，后面每次修改站点的ngnix 配置文件都需要<code>reload</code>。</p>
 <h3>2. 安装 uWSGI</h3>
-<div class="highlight"><pre><span></span>sudo apt-get install python-dev
+<div class="highlight"><pre><span></span><code>sudo apt-get install python-dev
 pip install uwsgi
-</pre></div>
+</code></pre></div>
 
 
 <p>我也不知道前面的 <code>python-dev</code> 是干嘛的，但看别人说要不装就有可能要出错。 还有最后配置文件写在 XML 里面，还要装个 <code>libxml</code></p>
-<div class="highlight"><pre><span></span>sudo apt-get install libxml2-dev
-</pre></div>
+<div class="highlight"><pre><span></span><code>sudo apt-get install libxml2-dev
+</code></pre></div>
 
 
 <h3>3. 测试 Django 应用是否能直接运行并更改为部署配置</h3>
 <p>整个项目放到服务器上，<code>python manage.py runserver 0.0.0.0:8000</code>，在8000 这个端口上打开试试，运行没有问题就把项目里的<code>settings.py</code>开发配置改成部署配置。</p>
-<div class="highlight"><pre><span></span><span class="n">DEBUG</span> <span class="o">=</span> <span class="n">FALSE</span>
+<div class="highlight"><pre><span></span><code><span class="n">DEBUG</span> <span class="o">=</span> <span class="n">FALSE</span>
 <span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">]</span>
 
 <span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">&#39;/static/&#39;</span>
 <span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">(</span>
    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;static&quot;</span><span class="p">),</span>
 <span class="p">)</span>    <span class="c1"># 删掉这个配置项</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>这个地方要把 <code>STATICFILES_DIRS</code> 删掉改成 <code>STATIC_ROOT = "/home/chen/DjangoProjects/static"</code>, 然后在执行 <code>python manage.py collectstatic</code>, 这一步会把一些静态文件全复制到项目的静态文件夹下，这个步骤如果不执行的话就会发现部署上去后台是看不到样式的。</p>
 <h3>4.  测试 uWSGI</h3>
 <p>在项目下面新建<code>test.py</code></p>
-<div class="highlight"><pre><span></span><span class="c1"># test.py</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># test.py</span>
 <span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
    <span class="n">start_response</span><span class="p">(</span><span class="s1">&#39;200 OK&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span><span class="s1">&#39;text/html&#39;</span><span class="p">)])</span>
    <span class="k">return</span> <span class="s2">&quot;Hello World&quot;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>uwsgi --http :8000 --wsgi-file test.py</code>，在 <code>8000</code> 端口打开试试，能出现 <code>Hello World</code> 就没问题，这个地方由可能回出现一个 <code>libpcre</code> 库 <a href="http://www.linuxfromscratch.org/blfs/view/svn/general/pcre.html">PCRE-8.36</a> 的问题，要自己下回来编译装上就行了。</p>
 <h3>5. <code>my_blog_wsgi.py</code> uWSGI 配置文件</h3>
 <p>这个地方要是直接照抄各种中文博客到最后肯定都跑不起来，因为他们的 Django 版本太老了，这个地方还是查 stackoverflow 改了就整个跑起来了，<a href="http://stackoverflow.com/questions/25537905/django-1-7-throws-django-core-exceptions-appregistrynotready-models-arent-load">Django 1.7 throws django.core.exceptions.AppRegistryNotReady: Models aren't loaded yet</a></p>
-<div class="highlight"><pre><span></span><span class="c1"># my_blog_wsgi.py</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># my_blog_wsgi.py</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
@@ -157,13 +157,13 @@ pip install uwsgi
 
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;DJANGO_SETTINGS_MODULE&quot;</span><span class="p">,</span> <span class="s2">&quot;my_blog.settings&quot;</span><span class="p">)</span>    <span class="c1"># “你的项目.settings”</span>
 <span class="n">application</span> <span class="o">=</span> <span class="n">get_wsgi_application</span><span class="p">()</span>    <span class="c1"># 1.7以前是 application = WSGIHandler()</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>6. 配置 Nginx</h3>
 <p>首先由一个文件要复制到项目下面 可以从这里复制粘贴 <a href="https://github.com/nginx/nginx/blob/master/conf/uwsgi_params">nginx/conf/uwsgi_params</a>，也可以从 <code>/etc/nginx</code> 里复制过去，可能权限要改下，还是直接自己 vi 粘贴比较好。</p>
 <p>第二步是站点的 nginx 配置文件，刚开始我照着别人的做，把这个文件放在自己的项目下，然后软连接上去，结果看 log 说我没有这个文件，然后在放到<code>/etc/nginx/sites-enabled</code> 才行。</p>
-<div class="highlight"><pre><span></span># <span class="nv">my_blog__nginx</span>.<span class="nv">conf</span>
+<div class="highlight"><pre><span></span><code># <span class="nv">my_blog__nginx</span>.<span class="nv">conf</span>
 
 <span class="nv">server</span> {
        # <span class="nv">the</span> <span class="nv">port</span> <span class="nv">your</span> <span class="nv">site</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">served</span> <span class="nv">on</span>
@@ -194,26 +194,26 @@ pip install uwsgi
                <span class="k">include</span>     <span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">chen</span><span class="o">/</span><span class="nv">DjangoProjects</span><span class="o">/</span><span class="nv">my_blog</span><span class="o">/</span><span class="nv">uwsgi_params</span><span class="c1">; # the uwsgi_params file you installed</span>
    }
 }
-</pre></div>
+</code></pre></div>
 
 
 <p>首页就在 <code>8000</code> 这个端口上，<code>server_name</code> 是 VPS 的 IP，<code>logs</code> 文件夹要自己创建，哪都行，<code>/media /static</code> 两个文件夹是静态请求，由 nginx 处理，其他非静态请求由 <code>uwsgi_pass</code> 通过 socket 传递给 Django 处理，用的 8001 端口，<code>include</code> 就是复制的那个文件，放在项目下。</p>
 <h3>7. <code>my_blog_socket.xml</code> XML 配置文件</h3>
-<div class="highlight"><pre><span></span><span class="nt">&lt;uwsgi&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;uwsgi&gt;</span>
        <span class="nt">&lt;socket&gt;</span>XXX.XXX.XXX.XXX:8001<span class="nt">&lt;/socket&gt;</span>
        <span class="nt">&lt;chdir&gt;</span>/home/chen/DjangoProjects/my_blog<span class="nt">&lt;/chdir&gt;</span>
        <span class="nt">&lt;module&gt;</span>my_blog_wsgi<span class="nt">&lt;/module&gt;</span>
        <span class="nt">&lt;processes&gt;</span>4<span class="nt">&lt;/processes&gt;</span>
        <span class="nt">&lt;daemonize&gt;</span>/home/chen/DjangoProjects/my_blog/uwsgi.log<span class="nt">&lt;/daemonize&gt;</span>
 <span class="nt">&lt;/uwsgi&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>socket</code> 就是刚才<code>my_blog_bginx.conf</code> 里面的<code>uwsgi_pass</code>通过socket 传递过来，<code>chdir</code> 是项目文件夹，<code>module</code> 是<code>my_blog_wsgi.py</code> wsgi 配置文件，<code>processes</code> nginx 分配四个线程，<code>daemonize</code> 是日志文件，要是配置不成功，错误信息都在里面，什么 <code>libpcre</code> 库没有啊，没有 app load 起来啊。</p>
 <h3>8. 最后一步</h3>
-<div class="highlight"><pre><span></span>sudo /etc/init.d/nginx reload
+<div class="highlight"><pre><span></span><code>sudo /etc/init.d/nginx reload
 uwsgi -x my_blog_socket.xml
-</pre></div>
+</code></pre></div>
 
 
 <p><code>reload</code> 一下 nginx 的配置文件，然后用 xml 配置把 uwsgi 把应用挂起来，提示 <code>[uWSGI] parsing config file my_blog_socket.xml</code>，然后到 <code>ip:8000</code> 端口下看成不成功，不成功的话到项目的<code>uwsgi.log</code> 最后面看，错误信息都在里面，然后去查。</p>

@@ -102,7 +102,7 @@
         <p>实践证明，部署 Django 应用最方便的发行版是 Ubuntu，我一直以为是 Debian，最近这次部署开了两台服务器对比，还是 Ubuntu 最方便，环境问题最少。</p>
 <p>最早部署一个简单的 Django 应用只要让 Nginx 把非静态文件的所有请求传给 8001 端口，uwsgi 作为 Nginx 和 Django 服务的桥接，最近有仔细看了一边 uwsgi 的示例文档，uwsgi 是推荐用 sock 套接字文件来传递，而且也大部分使用 ini 作为配置文件，uwsgi 的启动命令是 <code>uwsgi --ini dangann/conf/production/uwsgi.ini</code> .</p>
 <p>也贴上我的 Nginx 配置和 <code>uwsgi.ini</code> 文件</p>
-<div class="highlight"><pre><span></span><span class="nv">upstream</span> <span class="nv">django</span> {
+<div class="highlight"><pre><span></span><code><span class="nv">upstream</span> <span class="nv">django</span> {
     <span class="nv">server</span> <span class="nv">unix</span>:<span class="o">///</span><span class="nv">var</span><span class="o">/</span><span class="nv">log</span><span class="o">/</span><span class="nv">dangann</span><span class="o">/</span><span class="nv">dangann</span>.<span class="nv">sock</span><span class="c1">; # for a file socket</span>
 }
 
@@ -152,10 +152,10 @@
         <span class="k">include</span>     <span class="o">/</span><span class="nv">root</span><span class="o">/</span><span class="nv">dangann</span><span class="o">/</span><span class="nv">conf</span><span class="o">/</span><span class="nv">production</span><span class="o">/</span><span class="nv">uwsgi_params</span><span class="c1">; # the uwsgi_params file you installed</span>
     }
 }
-</pre></div>
+</code></pre></div>
 
 
-<div class="highlight"><pre><span></span># <span class="nv">uwsgi</span>.<span class="nv">ini</span> <span class="nv">file</span>
+<div class="highlight"><pre><span></span><code># <span class="nv">uwsgi</span>.<span class="nv">ini</span> <span class="nv">file</span>
 [<span class="nv">uwsgi</span>]
 
 # <span class="nv">Django</span><span class="o">-</span><span class="nv">related</span> <span class="nv">settings</span>
@@ -187,7 +187,7 @@
 
 # <span class="nv">uwsgi</span>.<span class="nv">log</span>
 <span class="nv">daemonize</span><span class="o">=/</span><span class="nv">root</span><span class="o">/</span><span class="nv">dangann_logs</span><span class="o">/</span><span class="nv">uwsgi</span>.<span class="nv">log</span>
-</pre></div>
+</code></pre></div>
     </article>
 
         <div class="tags">

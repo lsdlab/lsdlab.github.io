@@ -187,7 +187,7 @@
 <h2>Python之禅 (1)</h2>
 <p>这是 Python的指导性原则，但其解释是开放性的。想要正确解释它们， 需要点儿幽默感。</p>
 <p>如果你正在用一门以小品喜剧剧团命名的编程语言，你最好有点儿幽默感。</p>
-<div class="highlight"><pre><span></span><span class="n">Beautiful</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">ugly</span><span class="o">.</span>
+<div class="highlight"><pre><span></span><code><span class="n">Beautiful</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">ugly</span><span class="o">.</span>
 <span class="n">Explicit</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">implicit</span><span class="o">.</span>
 <span class="n">Simple</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="nb">complex</span><span class="o">.</span>
 <span class="n">Complex</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">complicated</span><span class="o">.</span>
@@ -200,11 +200,11 @@
 <span class="n">Unless</span> <span class="n">explicitly</span> <span class="n">silenced</span><span class="o">.</span>
 
    <span class="o">...</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>Python之禅 (2)</h2>
-<div class="highlight"><pre><span></span><span class="n">In</span> <span class="n">the</span> <span class="n">face</span> <span class="n">of</span> <span class="n">ambiguity</span><span class="p">,</span> <span class="n">refuse</span> <span class="n">the</span> <span class="n">temptation</span> <span class="n">to</span> <span class="n">guess</span><span class="o">.</span>
+<div class="highlight"><pre><span></span><code><span class="n">In</span> <span class="n">the</span> <span class="n">face</span> <span class="n">of</span> <span class="n">ambiguity</span><span class="p">,</span> <span class="n">refuse</span> <span class="n">the</span> <span class="n">temptation</span> <span class="n">to</span> <span class="n">guess</span><span class="o">.</span>
 <span class="n">There</span> <span class="n">should</span> <span class="n">be</span> <span class="n">one</span><span class="err">—</span><span class="ow">and</span> <span class="n">preferably</span> <span class="n">only</span> <span class="n">one</span><span class="err">—</span><span class="n">obvious</span> <span class="n">way</span> <span class="n">to</span> <span class="n">do</span> <span class="n">it</span><span class="o">.</span>
 <span class="n">Although</span> <span class="n">that</span> <span class="n">way</span> <span class="n">may</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">obvious</span> <span class="n">at</span> <span class="n">first</span> <span class="n">unless</span> <span class="n">you</span><span class="s1">&#39;re Dutch.</span>
 <span class="n">Now</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">never</span><span class="o">.</span>
@@ -213,7 +213,7 @@
 <span class="n">If</span> <span class="n">the</span> <span class="n">implementation</span> <span class="ow">is</span> <span class="n">easy</span> <span class="n">to</span> <span class="n">explain</span><span class="p">,</span> <span class="n">it</span> <span class="n">may</span> <span class="n">be</span> <span class="n">a</span> <span class="n">good</span> <span class="n">idea</span><span class="o">.</span>
 <span class="n">Namespaces</span> <span class="n">are</span> <span class="n">one</span> <span class="n">honking</span> <span class="n">great</span> <span class="n">idea</span><span class="err">—</span><span class="n">let</span><span class="s1">&#39;s do more of those!</span>
 <span class="err">—</span><span class="n">Tim</span> <span class="n">Peters</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>这首特别的「诗」以某种玩笑开头，不过它确实揭示了很多  python 背后哲学的真相。 「 Python 之禅」已经正式进入了 PEP 20，它的摘要里说：</p>
@@ -223,20 +223,20 @@
 </blockquote>
 <p>你可以想想你是一个「 Python 先锋」还是一个「 Python 专家」。这两个术语有些不一样的内涵。</p>
 <p>每当心存疑虑时:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">this</span>
+</code></pre></div>
 
 
 <p>试试在 python交互环境中输入:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">this</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">this</span>
+</code></pre></div>
 
 
 <p>这是另一个彩蛋:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">braces</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">braces</span>
 <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">SyntaxError</span><span class="p">:</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">chance</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>【译注：上面这段意思是想在特性中引入大括号，会出来一个语法异常：没机会了。 其内涵不用解释了吧】</p>
@@ -271,12 +271,12 @@
 <li>紧邻括号的内部，也就是参数列表的最前面，不加空格</li>
 <li>紧邻 docstrings 的内部不加空格</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_squares</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">make_squares</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Return a dictionary and a list...&quot;&quot;&quot;</span>
     <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">}</span>
     <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">d</span><span class="p">,</span> <span class="n">l</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>命名</h2>
@@ -301,54 +301,54 @@
 <h2>长代码行 &amp; 续行</h2>
 <p>保持每行长度不超过80字符。</p>
 <p>在括号/方括号/大括号里使用隐式续行:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">,</span>
             <span class="n">fourth</span><span class="p">,</span> <span class="n">fifth</span><span class="p">,</span> <span class="n">sixth</span><span class="p">):</span>
 <span class="n">output</span> <span class="o">=</span> <span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span> <span class="o">+</span> <span class="n">third</span>
          <span class="o">+</span> <span class="n">fourth</span> <span class="o">+</span> <span class="n">fifth</span> <span class="o">+</span> <span class="n">sixth</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>在最后加上反斜杠表示显式续行:</p>
-<div class="highlight"><pre><span></span><span class="n">VeryLong</span><span class="o">.</span><span class="n">left_hand_side</span> \
+<div class="highlight"><pre><span></span><code><span class="n">VeryLong</span><span class="o">.</span><span class="n">left_hand_side</span> \
     <span class="o">=</span> <span class="n">even_longer</span><span class="o">.</span><span class="n">right_hand_side</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>反斜杠是脆弱的，它必须是一行的最后一个字符。如果你在反斜杠后面加上一个空格， 它就不再工作了。另外，它也是丑陋的。</p>
 <h2>长字符串</h2>
 <p>相邻的字符串文本会被语法分析器自动连接：</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;o&#39;</span> <span class="s1">&#39;n&#39;</span> <span class="s2">&quot;e&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;o&#39;</span> <span class="s1">&#39;n&#39;</span> <span class="s2">&quot;e&quot;</span>
 <span class="n">one</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>文本之间的空格不是必需的，但加空格可以提高可读性。 任何形式的引号都可以使用:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;t&#39;</span> <span class="sa">r</span><span class="s1">&#39;\/\/&#39;</span> <span class="s2">&quot;&quot;&quot;o&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;t&#39;</span> <span class="sa">r</span><span class="s1">&#39;\/\/&#39;</span> <span class="s2">&quot;&quot;&quot;o&quot;&quot;&quot;</span>
 <span class="n">t</span>\<span class="o">/</span>\<span class="o">/</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>字符串加一个「r」前缀表示「原生」字符串。反斜杠在原生字符串中不再解释为脱字符。 这在写正则表达式和Windows文件系统路径时很有帮助。</p>
 <p>注意，字符串变量不会被连接：</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;three&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;three&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;four&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="n">b</span>
 <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
        <span class="n">a</span> <span class="n">b</span>
 
 <span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>那是因为这种自动连接是  Python 语法分析器/编译器的特性，而不是解释器的。 在运行时连接字符串，你必须使用「+」操作符。</p>
-<div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Long strings can be made up &#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Long strings can be made up &#39;</span>
         <span class="s1">&#39;of several shorter strings.&#39;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>括号允许隐式续行。</p>
 <p>多行字符串用三引号：</p>
-<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Triple</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;Triple</span>
 <span class="sd">double</span>
 <span class="sd">quotes&quot;&quot;&quot;</span>
 <span class="sd">&#39;&#39;&#39;\</span>
@@ -356,24 +356,24 @@
 <span class="sd">single</span>
 <span class="sd">quotes\</span>
 <span class="sd">&#39;&#39;&#39;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>上面的最后一个例子(三单引号)，演示了如何使用反斜杠来避免换行。 它消除了额外的换行，并将文字和引号保持为漂亮的左对齐。 反斜杠必须是每行的最后一个符号。</p>
 <h2>复合语句</h2>
 <p>Good:</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">foo</span> <span class="o">==</span> <span class="s1">&#39;blah&#39;</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">foo</span> <span class="o">==</span> <span class="s1">&#39;blah&#39;</span><span class="p">:</span>
   <span class="n">do_something</span><span class="p">()</span>
 <span class="n">do_one</span><span class="p">()</span>
 <span class="n">do_two</span><span class="p">()</span>
 <span class="n">do_three</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Bad:</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">foo</span> <span class="o">==</span> <span class="s1">&#39;blah&#39;</span><span class="p">:</span> <span class="n">do_something</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">foo</span> <span class="o">==</span> <span class="s1">&#39;blah&#39;</span><span class="p">:</span> <span class="n">do_something</span><span class="p">()</span>
 <span class="n">do_one</span><span class="p">();</span> <span class="n">do_two</span><span class="p">();</span> <span class="n">do_three</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>空格和缩进可以非常有效的视觉化展现程序流程。上面「Good」第二行的 缩进就告诉了读者发生了什么事，而缺乏缩进的「Bad」则让「if」语句 变得不那么明显。</p>
@@ -388,12 +388,12 @@
 <li>如果这个方法跟一个调用者有紧密的绑定，对这个调用者做一些说明。 （但是要小心这个调用者以后可能会发生变化）</li>
 </ul>
 <p>注释解释了为什么，是给你代码的维护者看的。 这里有一些例子，包括写给你自己的说明，比如:</p>
-<div class="highlight"><pre><span></span><span class="c1"># !!! BUG: ...</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># !!! BUG: ...</span>
 
 <span class="c1"># !!! FIX: This is a hack</span>
 
 <span class="c1"># ??? Why is this here?</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>这里的「用户」和「维护者」都包含了 你自己 ，所以，把 Docstrings 和注释写好点！</p>
@@ -420,15 +420,15 @@
 <p>... 无论如何实用性不能把纯粹性打成一团肉酱！</p>
 <h2>值交换</h2>
 <p>在其它语言里:</p>
-<div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">a</span>
+<div class="highlight"><pre><span></span><code><span class="n">temp</span> <span class="o">=</span> <span class="n">a</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>在 Python里:</p>
-<div class="highlight"><pre><span></span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+</code></pre></div>
 
 
 <p>可能你以前已经见过。但是你知道它是如何工作的吗？</p>
@@ -439,7 +439,7 @@
 </ul>
 <p>右手边 <strong>解包(unpacked)</strong> 到左手边 tuple 里对应的名字</p>
 <p>更多 unpacking 的例子：</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39; pythonista&#39;</span><span class="p">,</span> <span class="s1">&#39;+1-514-555-1234&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39; pythonista&#39;</span><span class="p">,</span> <span class="s1">&#39;+1-514-555-1234&#39;</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">phone</span> <span class="o">=</span> <span class="n">l</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">name</span>
 <span class="s1">&#39;David&#39;</span>
@@ -447,23 +447,23 @@
 <span class="s1">&#39; pythonista&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">phone</span>
 <span class="s1">&#39;+1-514-555-1234&#39;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>对于循环处理结构数据很有用：</p>
 <p>l (L) 是我们刚刚在上面建立的 (David 的信息)。所以 people 是一个包含两个项的 list，每个项都是一个包含3个项的 list。</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">people</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Guido&#39;</span><span class="p">,</span> <span class="s1">&#39;BDFL&#39;</span><span class="p">,</span> <span class="s1">&#39;unlisted&#39;</span><span class="p">]]</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">people</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Guido&#39;</span><span class="p">,</span> <span class="s1">&#39;BDFL&#39;</span><span class="p">,</span> <span class="s1">&#39;unlisted&#39;</span><span class="p">]]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">phone</span><span class="p">)</span> <span class="ow">in</span> <span class="n">people</span><span class="p">:</span>
 <span class="o">...</span>     <span class="k">print</span> <span class="n">name</span><span class="p">,</span> <span class="n">phone</span>
 <span class="o">...</span>
 <span class="n">David</span> <span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">514</span><span class="o">-</span><span class="mi">555</span><span class="o">-</span><span class="mi">1234</span>
 <span class="n">Guido</span> <span class="n">unlisted</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>people</code> 中的每一项都被 unpacked 到<code>(name, title, phone)</code>这个 tuple。</p>
 <p>可以任意嵌套 (只要保证左右两边的结构匹配):</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">david</span><span class="p">,</span> <span class="p">(</span><span class="n">gname</span><span class="p">,</span> <span class="n">gtitle</span><span class="p">,</span> <span class="n">gphone</span><span class="p">)</span> <span class="o">=</span> <span class="n">people</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">david</span><span class="p">,</span> <span class="p">(</span><span class="n">gname</span><span class="p">,</span> <span class="n">gtitle</span><span class="p">,</span> <span class="n">gphone</span><span class="p">)</span> <span class="o">=</span> <span class="n">people</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">gname</span>
 <span class="s1">&#39;Guido&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">gtitle</span>
@@ -472,59 +472,59 @@
 <span class="s1">&#39;unlisted&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">david</span>
 <span class="p">[</span><span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39; pythonista&#39;</span><span class="p">,</span> <span class="s1">&#39;+1-514-555-1234&#39;</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>关于 tuple 的更多</h2>
 <p>我们注意到，逗号是 tuple 的构造项，而不是括号。例如：</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="p">,</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>为了清晰起见， Python 解释器会显示括号。我也同样推荐你使用括号：</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>不要忘记逗号！</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="mi">1</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>在单元素 tuple中，尾部的逗号是必需的；在两个及以上元素的 tuple 中， 尾部的逗号是可选的。0 元素的 tuple，也就是空 tuple，用一对括号来作为简化语法。</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">()</span>
 <span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">tuple</span><span class="p">()</span>
 <span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>一个常见的错误就是在不需要 tuple 的地方留了一个逗号 【译注：于是变成了一个 tuple】 这会很轻易的让你的代码发生错误。</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">value</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>所以如果你在意想不到的地方看到了一个 tuple，检查逗号！</p>
 <h2>交互模式下的 "_"</h2>
 <p>这真的是一个非常有用的特性。奇怪的是很少有人知道。</p>
 <p>在交互式解释器里，当你对一个表达式求值或调用了一个函数，其结果会 存入一个临时名称， <code>_</code> (一个下划线):</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="mi">2</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">_</span>
 <span class="mi">2</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>_</code> 保存最后一个打印出来的结果</p>
 <p>当结果是 <code>None</code> 的时候，什么也没有打印，所以 <code>_</code> 不会发生变化。 这很方便！</p>
 <p>这只在交互式解释器里有用，在 module 里没用。</p>
 <p>当你交互式的解决一个问题，然后你想保存上一步的结果时，这个功能尤其方便。</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">math</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span>
 <span class="mf">1.0471975511965976</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">angle</span> <span class="o">=</span> <span class="n">_</span>
@@ -532,28 +532,28 @@
 <span class="mf">0.50000000000000011</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">_</span>
 <span class="mf">0.50000000000000011</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>通过子字符串构建字符串</h2>
 <p>从一个字符串列表开始：</p>
-<div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">]</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">]</span>
+</code></pre></div>
 
 
 <p>我们想把全部这些字符串合并成一个大字符串。尤其是子字符串数量很大的时候...
 别这样做:</p>
-<div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">+=</span> <span class="n">s</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>这么做非常的低效。</p>
 <p>这是一个典型的恐怖内存占用和恐怖性能的范例。「合并结果」在 每一个中间步骤都会计算、存储然后被抛弃。</p>
 <p>相反的，你应该这么做:</p>
-<div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>字符串方法 <code>join()</code> 会一次性做完全部的复制动作。</p>
@@ -561,52 +561,52 @@
 <h2>构建字符串, 变化 1</h2>
 <p>这里有一些使用字符串方法 <code>join()</code> 的技巧。
 如果你想在每一个子字符串之间插入一个空格:</p>
-<div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>或者是逗号加空格:</p>
-<div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>这是一种常见情况:</p>
-<div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">]</span>
 <span class="k">print</span> <span class="s1">&#39;Choose&#39;</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colors</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> \
      <span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>为了生成语法更漂亮的句子，我们想在除了最后一对数据之外的全部数据对之间插入一个逗号， 最后一对数据之间我们放一个单词「or」。【译注：当然这符合的是英文语法。 中文可能更常见的是顿号和「和」】「直到 -1元素的切片」 (<code>[:-1]</code>) 给出了除最后数据之外的全部数据，它们之间用「逗号加空格」分隔合并。</p>
 <p>当然，这个代码在边际条件下无法运行，当 list 的长度为 0 或 1 时。</p>
 <p>输出结果:</p>
-<div class="highlight"><pre><span></span><span class="n">Choose</span> <span class="n">red</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">green</span> <span class="ow">or</span> <span class="n">yellow</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">Choose</span> <span class="n">red</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">green</span> <span class="ow">or</span> <span class="n">yellow</span>
+</code></pre></div>
 
 
 <h2>构建字符串, 变化 2</h2>
 <p>如果你需要应用一个函数来产生子字符串:</p>
-<div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">items</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">items</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>这涉及生成表达式(generator expression) ，我们随后会讨论。
 如果你要增量计算子字符串的话，先将它们累积到一个列表中:</p>
-<div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="o">...</span>
 <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>  <span class="c1"># many times</span>
 <span class="o">...</span>
 <span class="c1"># items is now complete</span>
 <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">items</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>我们先把需要处理的部分累积到一个列表中， 然后我们就可以应用字符串方法 join ，高效处理。</p>
 <h2>可能的话就用 <code>in</code> (1)</h2>
 <p>Good:</p>
-<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
     <span class="k">print</span> <span class="n">key</span>
-</pre></div>
+</code></pre></div>
 
 
 <ul>
@@ -615,68 +615,68 @@
 <li>in 也是一个操作符 (我们马上就会看到).</li>
 </ul>
 <p>Bad:</p>
-<div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="k">print</span> <span class="n">key</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>这会限制为只能操作有 keys() 方法的对象。</p>
 <h2>可能的话就用 <code>in</code> (2)</h2>
 <p>但当我们修改一个字典时， <code>.keys()</code> 是必需的:</p>
-<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">d</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>d.keys()</code> 创建了一个包含字典键值的静态链表。 如果不这样做, 你会得到一个异常 "RuntimeError: dictionary changed size during iteration".
 从一致性来考虑, 使用 <code>key in dict</code>, 而不是 <code>dict.has_key()</code>:</p>
-<div class="highlight"><pre><span></span><span class="c1"># do this:</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># do this:</span>
 <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
     <span class="o">...</span><span class="n">do</span> <span class="n">something</span> <span class="k">with</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="c1"># not this:</span>
 <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="o">...</span><span class="n">do</span> <span class="n">something</span> <span class="k">with</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>在这种用法里， <code>in</code> 是一个操作符.</p>
 <h2>字典的 <code>get</code> 方法</h2>
 <p>We often have to initialize dictionary entries before use: 通常我们需要在使用之前初始化一个字典。</p>
 <p>这是比较幼稚的做法:</p>
-<div class="highlight"><pre><span></span><span class="n">navs</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight"><pre><span></span><code><span class="n">navs</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="n">equity</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
 <span class="k">if</span> <span class="n">portfolio</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">navs</span><span class="p">:</span>
     <span class="n">navs</span><span class="p">[</span><span class="n">portfolio</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">navs</span><span class="p">[</span><span class="n">portfolio</span><span class="p">]</span> <span class="o">+=</span> <span class="n">position</span> <span class="o">*</span> <span class="n">prices</span><span class="p">[</span><span class="n">equity</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>dict.get(key, default)</code> 移除了对条件判断的需要:</p>
-<div class="highlight"><pre><span></span><span class="n">navs</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight"><pre><span></span><code><span class="n">navs</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="n">equity</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
     <span class="n">navs</span><span class="p">[</span><span class="n">portfolio</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">navs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
                       <span class="o">+</span> <span class="n">position</span> <span class="o">*</span> <span class="n">prices</span><span class="p">[</span><span class="n">equity</span><span class="p">])</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>直观多了。</p>
 <h2>字典的 <code>setdefault</code> 方法 (1)</h2>
 <p>现在我们要用初始化一个可变的字典的值。每个字典值是一个 list。 这是比较幼稚的做法：</p>
 <p>Initializing mutable dictionary values:</p>
-<div class="highlight"><pre><span></span><span class="n">equities</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight"><pre><span></span><code><span class="n">equities</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="n">equity</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">portfolio</span> <span class="ow">in</span> <span class="n">equities</span><span class="p">:</span>
         <span class="n">equities</span><span class="p">[</span><span class="n">portfolio</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">equity</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">equities</span><span class="p">[</span><span class="n">portfolio</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">equity</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>dict.setdefault(key, default)</code> 可以以高得多的效率完成同样的工作:</p>
-<div class="highlight"><pre><span></span><span class="n">equities</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight"><pre><span></span><code><span class="n">equities</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="n">equity</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
     <span class="n">equities</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">equity</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>dict.setdefault()</code> 等价于 <code>get, or set &amp; get</code>. 也就是 "如果有必要的话，<code>set</code>，然后 <code>get</code>. 它对于字典键值计算代价昂贵或很长难以输入的情况特别有价值。</p>
@@ -685,11 +685,11 @@
 <h2>字典的 <code>setdefault</code> 方法 (2)</h2>
 <p>现在我们来看看字典方法 <code>setdefault</code> 也可以用在独立语句中。</p>
 <p><code>setdefault</code> 同样可以用于独立语句中:</p>
-<div class="highlight"><pre><span></span><span class="n">navs</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight"><pre><span></span><code><span class="n">navs</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="n">equity</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
     <span class="n">navs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">navs</span><span class="p">[</span><span class="n">portfolio</span><span class="p">]</span> <span class="o">+=</span> <span class="n">position</span> <span class="o">*</span> <span class="n">prices</span><span class="p">[</span><span class="n">equity</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>The <code>setdefault</code> dictionary method returns the default value, but we ignore it here. We're taking advantage of <code>setdefault</code>'s side effect, that it sets the dictionary value only if there is no value already. 字典方法 <code>setdefault</code> 返回一个默认值，但是在这里我们忽略了它。 我们用到了 <code>setdefault</code> 的边际效应带来的优点， 它仅仅在字典对应键值没有值的情况下才会去设置值。</p>
@@ -702,38 +702,38 @@
 </ul>
 <p>有两种方法可以得到一个 <code>defaultdict</code>:</p>
 <p>导入 <code>collections</code> 模块并通过模块引用</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">collections</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>或直接导入 <code>defaultdict</code> 名称:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>这是前面用过的一个例子，每一个字典值都必须被初始化成一个空 list， 现在用 <code>defaultdict</code> 改写它：</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 <span class="err">å</span>
 <span class="n">equities</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="n">equity</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
     <span class="n">equities</span><span class="p">[</span><span class="n">portfolio</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">equity</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>根本没有做什么探索工作。在这个例子里，默认工厂函数是 <code>list</code> ， 返回一个空 list。</p>
 <p>这个例子演示了如何得到一个初始值为 0 的字典：使用 <code>int</code> 作为默认工厂函数:</p>
-<div class="highlight"><pre><span></span><span class="n">navs</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">navs</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="n">equity</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
     <span class="n">navs</span><span class="p">[</span><span class="n">portfolio</span><span class="p">]</span> <span class="o">+=</span> <span class="n">position</span> <span class="o">*</span> <span class="n">prices</span><span class="p">[</span><span class="n">equity</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>不过你还是得小心使用 <code>defaultdict</code> 。从一个正确初始化的 defaultdict 实例里你永远得不到 KeyError 异常。如果你需要检查特定键值存在与否， 必须使用「key in dict」条件判断。</p>
 <h2>构建和拆分字典</h2>
 <p>下面是一个很有用的技巧，如何通过两个 list (或其它序列)构建一个字典: 一个 list 是键，一个 list 是值。</p>
-<div class="highlight"><pre><span></span><span class="n">given</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Eric&#39;</span><span class="p">,</span> <span class="s1">&#39;Terry&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">given</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Eric&#39;</span><span class="p">,</span> <span class="s1">&#39;Terry&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael&#39;</span><span class="p">]</span>
 <span class="n">family</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cleese&#39;</span><span class="p">,</span> <span class="s1">&#39;Idle&#39;</span><span class="p">,</span> <span class="s1">&#39;Gilliam&#39;</span><span class="p">,</span> <span class="s1">&#39;Palin&#39;</span><span class="p">]</span>
  <span class="n">pythons</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">given</span><span class="p">,</span> <span class="n">family</span><span class="p">))</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span> <span class="n">pythons</span><span class="p">)</span>
@@ -741,35 +741,35 @@
  <span class="s1">&#39;Michael&#39;</span><span class="p">:</span> <span class="s1">&#39;Palin&#39;</span><span class="p">,</span>
  <span class="s1">&#39;Eric&#39;</span><span class="p">:</span> <span class="s1">&#39;Idle&#39;</span><span class="p">,</span>
  <span class="s1">&#39;Terry&#39;</span><span class="p">:</span> <span class="s1">&#39;Gilliam&#39;</span><span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>反过来，当然，也很直观:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span>  <span class="n">pythons</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span>  <span class="n">pythons</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="p">[</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Eric&#39;</span><span class="p">,</span> <span class="s1">&#39;Terry&#39;</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span>  <span class="n">pythons</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 <span class="p">[</span><span class="s1">&#39;Cleese&#39;</span><span class="p">,</span> <span class="s1">&#39;Palin&#39;</span><span class="p">,</span> <span class="s1">&#39;Idle&#39;</span><span class="p">,</span> <span class="s1">&#39;Gilliam&#39;</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>注意结果中 .keys() 和 .values() 的顺序和构建字典时的项顺序不同。 进去的顺序跟出来的顺序不一样。这是因为字典本质上是非顺序的。然而， 这个顺序可以保证一致性（换句话说，键的顺序和值的顺序是一一对应的）， 只要两次调用之间字典没有发生改变.</p>
 <h2>真值测试</h2>
-<div class="highlight"><pre><span></span><span class="c1"># 这样做:         # 不要这样做:</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 这样做:         # 不要这样做:</span>
 <span class="k">if</span> <span class="n">x</span><span class="p">:</span>            <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
     <span class="k">pass</span>             <span class="k">pass</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>这种方法优雅且高效的利用了  python 对象内置的真值。</p>
 <p>测试一个列表:</p>
-<div class="highlight"><pre><span></span><span class="c1"># 这样做:         # 不要这样做:</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 这样做:         # 不要这样做:</span>
 <span class="k">if</span> <span class="n">items</span><span class="p">:</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
     <span class="k">pass</span>             <span class="k">pass</span>
 
                  <span class="c1"># 千万不要这样做:</span>
                  <span class="k">if</span> <span class="n">item</span>
                      <span class="k">pass</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>真值</h2>
@@ -782,7 +782,7 @@
 | <code>[]</code>, <code>()</code>, <code>{}</code>, <code>set()</code> | 任何非空容器 (<code>[0]</code>, <code>(None,)</code>, <code>['']) |
 |</code>None`    | 几乎所有未被显式置为False 的对象。 |</p>
 <p>对象真值示例：</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
 <span class="o">...</span>  <span class="k">pass</span>
 <span class="o">...</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">o</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
@@ -790,12 +790,12 @@
 <span class="bp">True</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">bool</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
 <span class="bp">True</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>(Examples: execute <a href="http://www.ch-linghu.me/article/idiomatic/truth.py">truth.py</a>.)</p>
 <p>想要控制一个用户定义类实例的真值，使用特殊方法 <code>__nonzero__</code> 或 <code>__len__</code> 。如果你的类是一个有长度的容器:</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyContainer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyContainer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
@@ -803,11 +803,11 @@
     <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot;Return my length.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>如果你的类不是一个容器，使用 <code>__nonzero__</code>:</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
@@ -816,41 +816,41 @@
         <span class="sd">&quot;&quot;&quot;Return my truth value (True or False).&quot;&quot;&quot;</span>
         <span class="c1"># This could be arbitrarily complex:</span>
         <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>在  Python 3.0 中，为了与 bool 内置类型保持一致性， <code>__nonzero__</code> 被改名成了 <code>__bool__</code> 。为了保持兼容性，在类中增加如下定义:</p>
-<div class="highlight"><pre><span></span><span class="n">__bool__</span> <span class="o">=</span> <span class="fm">__nonzero__</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">__bool__</span> <span class="o">=</span> <span class="fm">__nonzero__</span>
+</code></pre></div>
 
 
 <h2>索引和项 (1)</h2>
 <p>当你需要一个单词列表的时候，有种可爱的方法可以节省你的打字时间:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">items</span> <span class="o">=</span> <span class="s1">&#39;zero one two three&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">items</span> <span class="o">=</span> <span class="s1">&#39;zero one two three&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">items</span>
 <span class="p">[</span><span class="s1">&#39;zero&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>假设我们需要遍历这些项，并且我们同时需要项和项的索引值:</p>
-<div class="highlight"><pre><span></span>                      <span class="o">-</span> <span class="err">或</span> <span class="o">-</span>
+<div class="highlight"><pre><span></span><code>                      <span class="o">-</span> <span class="err">或</span> <span class="o">-</span>
 <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>              <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
     <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span>                   <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>索引和项 (2): <code>enumerate</code></h2>
 <p>函数 <code>enumerate</code> 接受一个 list，并返回 (索引值, 项) 对:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">))</span>
 <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;zero&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">)]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>输出结果时，我们得用一个 <code>list</code> 进行一下包装，因为 <code>enumerate</code> 是一个惰性函数: 它仅仅在需要时才一次产生一项，一个索引项对。 for 循环就是一个一次需要一个结果的所在。 <code>enumerate</code> 是生成器(generator) 的一个例子，我们将会在以后详细的讲解生成器。 <code>print</code> 不是一次拿一个结果 —— 我们需要整个结果，所以我们在打印时， 必须显式的将一个生成器转换为一个 list。</p>
 <p>我们的循环变得简单多了:</p>
-<div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
     <span class="k">print</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span>
 
 <span class="c1"># 对比:                     # 对比:</span>
@@ -858,12 +858,12 @@
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>         <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="k">print</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span>
     <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>enumerate</code> 版本比左边的版本短得多也简单得多，而且也更加易读易理解。</p>
 <p>下面这个例子展现 <code>enumerate</code> 函数实际上是如何返回一个迭代器(iterator)的 (生成器就是一种迭代器):</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
 <span class="o">&lt;</span><span class="nb">enumerate</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x011EA1C0</span><span class="o">&gt;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">e</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">e</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
@@ -878,7 +878,7 @@
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
     <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="err">?</span>
 <span class="ne">StopIteration</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>其它语言拥有「变量」</h2>
@@ -913,27 +913,27 @@
 ➔</p>
 <h2>参数默认值</h2>
 <p>这是一个初学者常见的错误。甚至一些有经验的程序员， 如果他们没有理解  python「名字」，也会犯同样的错误。</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bad_append</span><span class="p">(</span><span class="n">new_item</span><span class="p">,</span> <span class="n">a_list</span><span class="o">=</span><span class="p">[]):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">bad_append</span><span class="p">(</span><span class="n">new_item</span><span class="p">,</span> <span class="n">a_list</span><span class="o">=</span><span class="p">[]):</span>
     <span class="n">a_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_item</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">a_list</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>问题在于 a_list 的默认值，一个空列表，是在函数定义时被求值的。 所以每次调用这个函数，我们得到的是同一个默认值。试试重复做几次:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">bad_append</span><span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">bad_append</span><span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">)</span>
 <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">bad_append</span><span class="p">(</span><span class="s1">&#39;two&#39;</span><span class="p">)</span>
 <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>列表是一个可变对象；我们可以改变它们的内容。 得到一个默认列表的正确方法是在运行时创建，在函数内部:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">good_append</span><span class="p">(</span><span class="n">new_item</span><span class="p">,</span> <span class="n">a_list</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">good_append</span><span class="p">(</span><span class="n">new_item</span><span class="p">,</span> <span class="n">a_list</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">a_list</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">a_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">a_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_item</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">a_list</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>% 字符串格式化</h2>
@@ -941,17 +941,17 @@
 就算你对 C 语言不了解，关系也不大。基本上，你给出了一个模板， 或者说是格式，以及用于插入的数据。</p>
 <p>在这个例子里，模板包含了两个转换规则：「%s」表示「在这里插入一个字符串」， 「%i」表示「将一个整型数转换成一个字符串并插入到这里」。 「%s」特别有用，因为它使用了  Python 的内置 str() 函数将任何对象转换成字符串。</p>
 <p>用于插入的数据必须跟模板匹配；这里我们用了两个数据，一个 tuple。</p>
-<div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;David&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;David&#39;</span>
 <span class="n">messages</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%s</span><span class="s1">, you have </span><span class="si">%i</span><span class="s1"> messages&#39;</span>
         <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">messages</span><span class="p">))</span>
 <span class="k">print</span> <span class="n">text</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>输出结果:</p>
-<div class="highlight"><pre><span></span><span class="n">Hello</span> <span class="n">David</span><span class="p">,</span> <span class="n">you</span> <span class="n">have</span> <span class="mi">3</span> <span class="n">messages</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">Hello</span> <span class="n">David</span><span class="p">,</span> <span class="n">you</span> <span class="n">have</span> <span class="mi">3</span> <span class="n">messages</span>
+</code></pre></div>
 
 
 <p>详细的讨论在  python 库参考 ，第 2.3.6.2 节， 「字符串格式化操作」 。 一定要记得去看！
@@ -959,101 +959,101 @@
 <h2>高级 % 字符串格式化</h2>
 <p>大多数人都不知道有另外一种更灵活的字符串格式化方式:
 利用字典键值:</p>
-<div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">:</span> <span class="n">messages</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">:</span> <span class="n">messages</span><span class="p">}</span>
 <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%(name)s</span><span class="s1">, you have </span><span class="si">%(messages)i</span><span class="s1"> &#39;</span>
        <span class="s1">&#39;messages&#39;</span> <span class="o">%</span> <span class="n">values</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>这里我们指定了插入数据的名字，这些名字可以在随后提供的字典中找到。</p>
 <p>注意到什么冗余之处没有？ 名字 「name」 和 「messages」已经在本地命名空间中定义了。 我们可以利用这一点。</p>
 <p>使用本地命名空间中的名字:</p>
-<div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%(name)s</span><span class="s1">, you have </span><span class="si">%(messages)i</span><span class="s1"> &#39;</span>
+<div class="highlight"><pre><span></span><code><span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%(name)s</span><span class="s1">, you have </span><span class="si">%(messages)i</span><span class="s1"> &#39;</span>
        <span class="s1">&#39;messages&#39;</span> <span class="o">%</span> <span class="nb">locals</span><span class="p">())</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>locals()</code> 函数返回一个本地可用的名字的字典。</p>
 <p>这非常强大。利用它，我们可以完成你想要的任何字符串格式化， 不用考虑模板的插入数据问题。</p>
 <p>不过能力也会带来危险。（「能力越大，责任越大」） 如果对一个外部提供的模板字符串使用 <code>locals()</code> 形式， 你实际上将你的整个本地命名空间都暴露给了调用者。你必须对此保持警惕。</p>
 <p>检查你的本地命名空间:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">pprint</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>pprint</code> 是一个非常有用的模块。如果你还不知道，尝试去把玩把玩。 它会让你调试数据结构更加轻松！</p>
 <h2>高级 % 字符串格式化</h2>
 <p>一个对象实例属性的名字空间实际上就是一个字典， <code>self.__dict__</code> 。
 使用实例名字空间中的名字:</p>
-<div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;We found </span><span class="si">%(error_count)d</span><span class="s2"> errors&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;We found </span><span class="si">%(error_count)d</span><span class="s2"> errors&quot;</span>
        <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>等价于，但比下面的形式更灵活:</p>
-<div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;We found </span><span class="si">%d</span><span class="s2"> errors&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;We found </span><span class="si">%d</span><span class="s2"> errors&quot;</span>
        <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_count</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>注意：类属性在类的 <code>__dict__</code> 里。名字空间查找实际上是链式字典查找。</p>
 <h2>列表推导</h2>
 <p>列表推导 (List Comprehensions) (简写为「listcomps」) 是以下这种常见模式的语法简写:
 传统方法，使用 for 和 if 语句:</p>
-<div class="highlight"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight"><pre><span></span><code><span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
         <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>使用列表推导:</p>
-<div class="highlight"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">fn</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">a_list</span>
+<div class="highlight"><pre><span></span><code><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">fn</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">a_list</span>
     <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">item</span><span class="p">)]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>从某种程度上来说，列表推导清晰、简洁。你可以在列表推导中使用多个 <code>for</code> 循环和 <code>if</code> 条件，但是如果总数超过两个或三个， 或者条件非常复杂，我还是建议使用传统的 <code>for</code> 循环。套用  python之禅 的说法，选择更易读的那个。
 举个例子来说，0-9 的平方列表:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">n</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">n</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>0-9 中奇数的平方列表:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">n</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">n</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">81</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>生成器表达式(1)</h2>
 <p>假设我们要求 1-100 的平方的和:
 循环解法:</p>
-<div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
     <span class="n">total</span> <span class="o">+=</span> <span class="n">num</span> <span class="o">*</span> <span class="n">num</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>通过构造适当的序列，我们可以使用 <code>sum</code> 函数更快的达到目的。</p>
 <p>列表推导解法:</p>
-<div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)])</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)])</span>
+</code></pre></div>
 
 
 <p>生成器表达式解法:</p>
-<div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
+</code></pre></div>
 
 
 <p>生成器表达式 (Generator expressions) (「genexps」) 跟列表推导很像， 不过列表推导是贪婪的，而生成器表达式是惰性的。列表推导一次性计算出 整个列表的全部结果，并以列表形式返回。生成器表达式只会在需要时一次计算一个数据， 以一个单独的值形式返回。这对于那种对很长的序列求解， 但计算结果只是中间步骤而并非最终结果的情况特别有用。</p>
 <p>在上面的例子中，我们只关心求和的结果，我们不需要列表中每个元素平方的中间结果。 基于同样的理由，我们使用了 <code>xrange</code> ：它惰性产生结果，每次一个。</p>
 <h2>生成器表达式 (2)</h2>
 <p>举个例子来说，如果我们要计算数十亿整数的平方和，如果使用列表推导， 会内存溢出，但生成器表达式没有问题。不过要花些时间。</p>
-<div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span>
+<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span>
     <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000000000</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>语法方面的差别在于列表推导有方括号，生成器表达式没有。 有些时候生成器表达式需要用括号括住，所以你最好每次都这样做。
@@ -1072,33 +1072,33 @@
 <li>我们希望同时以字符串和整型检查月份。所以我们使用 int() 和 str() 函数来做，并在此基础上进行查找。</li>
 </ul>
 <p>最近的例子:</p>
-<div class="highlight"><pre><span></span><span class="n">month_codes</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">fn</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">code</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">month_codes</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">fn</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">code</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">code</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s1">&#39;FGHJKMNQUVXZ&#39;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>month_codes</code> 的结果:</p>
-<div class="highlight"><pre><span></span><span class="p">{</span> <span class="mi">1</span><span class="p">:</span>  <span class="s1">&#39;F&#39;</span><span class="p">,</span>  <span class="mi">2</span><span class="p">:</span>  <span class="s1">&#39;G&#39;</span><span class="p">,</span>  <span class="mi">3</span><span class="p">:</span>  <span class="s1">&#39;H&#39;</span><span class="p">,</span>  <span class="mi">4</span><span class="p">:</span>  <span class="s1">&#39;J&#39;</span><span class="p">,</span> <span class="o">...</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span> <span class="mi">1</span><span class="p">:</span>  <span class="s1">&#39;F&#39;</span><span class="p">,</span>  <span class="mi">2</span><span class="p">:</span>  <span class="s1">&#39;G&#39;</span><span class="p">,</span>  <span class="mi">3</span><span class="p">:</span>  <span class="s1">&#39;H&#39;</span><span class="p">,</span>  <span class="mi">4</span><span class="p">:</span>  <span class="s1">&#39;J&#39;</span><span class="p">,</span> <span class="o">...</span>
 <span class="s1">&#39;1&#39;</span><span class="p">:</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">:</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">:</span> <span class="s1">&#39;J&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>排序</h2>
 <p>在  Python 里对一个 list 进行排序非常简单:</p>
-<div class="highlight"><pre><span></span><span class="n">a_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">a_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+</code></pre></div>
 
 
 <p>(注意，list的排序是就地进行的：原先的 list 直接变成排序好的，而且 <code>sort</code> 方法不会返回这个list或其拷贝。)
 但是当你不想以正常顺序 (比如，按第一列排序，然后按第二列，等等) 排序列表数据是应该怎么做呢？比如你想按先第二列排序，然后按第四列。</p>
 <p>我们可以为内置的 <code>sort</code> 方法传入一个自定义函数:</p>
-<div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">custom_cmp</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">custom_cmp</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">cmp</span><span class="p">((</span><span class="n">item1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">item1</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span>
                    <span class="p">(</span><span class="n">item2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">item2</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
 
     <span class="n">a_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">custom_cmp</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>这行得通，不过在处理大型列表时会非常非常慢。</p>
@@ -1108,7 +1108,7 @@
 <li>注意: DSU现在一般用不到了。新的方法见下一节， <a href="http://www.ch-linghu.me/article/idiomatic/handout_cn.html#id29">按键值排序</a></li>
 </ul>
 <p>我们创建一个会自然排序的辅助列表，而不是创建一个自定义比较函数</p>
-<div class="highlight"><pre><span></span><span class="c1"># 修饰</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 修饰</span>
 <span class="n">to_sort</span> <span class="o">=</span> <span class="p">[(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">item</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">a_list</span>
 
@@ -1117,7 +1117,7 @@
 
 <span class="c1"># 反修饰:</span>
 <span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">to_sort</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>第一行我们创建一个包含 tuples 的列表，按优先级顺序复制排序列，后面跟着完整的数据记录
@@ -1126,10 +1126,10 @@
 这是一个空间、复杂度和时间的权衡。更简单、更快，但是我们需要复制一份原始列表。</p>
 <h2>按键值排序</h2>
 <p>Python 2.4 为 <code>sort</code> 列表方法引入了一个可选参数，「key」， 用于指定一个单参数函数来返回列表中每个元素用于比较的键值。举例来说:</p>
-<div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">my_key</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">my_key</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
     <span class="n">to_sort</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">my_key</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>函数 <code>my_key</code> 会在操作 <code>to_sort</code> 列表每一个项时都调用一次。</p>
@@ -1141,7 +1141,7 @@
 </ul>
 <h2>生成器</h2>
 <p>我们已经见过生成器表达式了。我们还可以定制我们自己的任意复杂的生成器， 就像定义函数一样:</p>
-<div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">my_range_generator</span><span class="p">(</span><span class="n">stop</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">my_range_generator</span><span class="p">(</span><span class="n">stop</span><span class="p">):</span>
         <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">while</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">:</span>
             <span class="k">yield</span> <span class="n">value</span>
@@ -1149,7 +1149,7 @@
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">my_range_generator</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
         <span class="n">do_something</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>yield</code> 关键字把一个函数转变成一个生成器 (generator)。当我们调用一个生成器函数，  Python 并不是立即去运行代码，而是返回一个生成器对象，本质上它是一个迭代器； 它有一个 <code>next</code> 方法。 <code>for</code> 循环每次都会去调用迭代器的 <code>next</code> 方法， 直到 <code>StopIteration</code> 异常抛出。 你也可以显式抛出 <code>StopIteration</code> , 或者如上所示，在生成器代码运行结束时隐式抛出。</p>
@@ -1159,31 +1159,31 @@
 <p>Python 重复调用迭代器的 <code>next</code> 方法，将返回值复制给循环计数器(本例中就是 <code>i</code> )， 然后执行循环体内的代码。这个动作周而复始，直到抛出 <code>StopIteration</code> 异常， 或者在代码中执行到 <code>break</code> 语句。</p>
 <p><code>for</code> 循环可以有一个 <code>else</code> 子句，它会在迭代器运行完成后执行， 但不会在 <code>break</code> 语句之后执行。这种区别可以用来完成一些优雅的使用。 <code>else</code> 子句在 <code>for</code> 循环中并不常用，但它们可以派上用场。 有时 <code>else</code> 子句可以完美的表达你需要的逻辑。</p>
 <p>举个例子，如果我们需要对一个序列中的项做条件检查，只要任意项的条件符合就通过:</p>
-<div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
             <span class="k">break</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Condition not satisfied.&#39;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>生成器举例</h2>
 <p>从一个 CSV reader (或一个 list 的项)中过滤空行:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filter_rows</span><span class="p">(</span><span class="n">row_iterator</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">filter_rows</span><span class="p">(</span><span class="n">row_iterator</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">row_iterator</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">row</span><span class="p">:</span>
             <span class="k">yield</span> <span class="n">row</span>
 
 <span class="n">data_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
 <span class="n">irows</span> <span class="o">=</span> <span class="n">filter_rows</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">data_file</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>从文本/数据文件中按行读取</h2>
-<div class="highlight"><pre><span></span><span class="n">datafile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;datafile&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datafile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;datafile&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">datafile</span><span class="p">:</span>
     <span class="n">do_something</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>这样做是可以的，因为文件对象支持 <code>next</code> 方法，就像其它迭代器所做的那样: lists、tuples、字典(的键值)、生成器。</p>
@@ -1200,28 +1200,28 @@ LBYL: 三思而后行</p>
 <li>异常
 如果一个对象必须是一个特定类型，使用强制转换。 如果 x 必须是一个字符串才能让代码工作，为什么不直接调用</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>而不是去做尝试：</p>
-<div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</code></pre></div>
 
 
 <h2>EAFP风格的 try/except 举例</h2>
 <p>你可以把容易发生异常的代码包裹进一个 <code>try/except</code> 代码块来捕获错误， 你可以最终会给出一个非常通用的解决方案，而不是试图预测每一种可能性。</p>
-<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
     <span class="o">...</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>注意：一定要指定捕获的异常。永远不要使用裸 <code>except</code> 子句【译注：不带任何异常声明的 except， 如： except: pass 这样】。裸 <code>except</code> 子句会捕获你不希望捕获的异常， 让你的代码非常难以调试。</p>
 <h2>导入</h2>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="o">*</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="o">*</span>
+</code></pre></div>
 
 
 <p>你可能见过这种「通配符」形式的导入语句。你甚至可能喜欢这样做。 不要这样用。</p>
@@ -1248,35 +1248,35 @@ LBYL: 三思而后行</p>
 <p>命名空间污染警告！
 相反地,
 通过模块引用名字(完整规格的标识符):</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">module</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">module</span>
 <span class="n">module</span><span class="o">.</span><span class="n">name</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>或者通过较短的名称导入较长名字的模块 (别名):</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">long_module_name</span> <span class="kn">as</span> <span class="nn">mod</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">long_module_name</span> <span class="kn">as</span> <span class="nn">mod</span>
 <span class="n">mod</span><span class="o">.</span><span class="n">name</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>或者显式的仅仅导入你需要的名字:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="n">name</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="n">name</span>
 <span class="n">name</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>注意交互环境下，当你需要编辑和「重载 (reload())」一个模块时，这种形式 不适合用于自身。</p>
 <h2>模块和脚本</h2>
 <p>想制作一个既是可导入的模块又是可执行的脚本:</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="c1"># script code here</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>当模块被导入时，它的 <code>__name__</code> 属性被设置成模块的文件名，不含「.py」。 因此上面那段用 if 语句守护着的代码不会在导入时被执行。 当以脚本形式执行的时候， <code>__name__</code>属性会被设置称 <code>"__main__"</code>, 这段脚本代码 会 运行。</p>
 <p>除了一些特殊情况，你不应该在最顶层放置任何重要可执行代码。 将代码放入函数、类、方法，或者用 <code>if __name__ == '__main__'</code> 守护起来。</p>
 <h2>模块结构</h2>
-<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;module docstring(模块 docstring)&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;module docstring(模块 docstring)&quot;&quot;&quot;</span>
 
 <span class="c1"># imports(导入)</span>
 <span class="c1"># constants(常量)</span>
@@ -1291,13 +1291,13 @@ LBYL: 三思而后行</p>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">status</span> <span class="o">=</span> <span class="n">main</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>模块应该拥有如上一样的代码结构.</p>
 <h2>命令行处理</h2>
 <p>Example: <a href="http://www.ch-linghu.me/article/idiomatic/cmdline.py">cmdline.py</a>:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env  python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env  python</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Module docstring.</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -1343,17 +1343,17 @@ LBYL: 三思而后行</p>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">status</span> <span class="o">=</span> <span class="n">main</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>包</h2>
-<div class="highlight"><pre><span></span><span class="n">package</span><span class="o">/</span>
+<div class="highlight"><pre><span></span><code><span class="n">package</span><span class="o">/</span>
     <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
     <span class="n">module1</span><span class="o">.</span><span class="n">py</span>
     <span class="n">subpackage</span><span class="o">/</span>
         <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
         <span class="n">module2</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
+</code></pre></div>
 
 
 <ul>
@@ -1362,15 +1362,15 @@ LBYL: 三思而后行</p>
 <li>减少导入名字冲突.</li>
 </ul>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">package.module1</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">package.module1</span>
 <span class="kn">from</span> <span class="nn">package.subpackage</span> <span class="kn">import</span> <span class="n">module2</span>
 <span class="kn">from</span> <span class="nn">package.subpackage.module2</span> <span class="kn">import</span> <span class="n">name</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>在 Python 2.5中我们可以通过一个future import来实现绝对导入和相对导入:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+</code></pre></div>
 
 
 <p>我自己还没有深入研究过这个特性，所以我们不会深入讨论它。</p>
