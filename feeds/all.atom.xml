@@ -21,254 +21,307 @@
 &lt;p&gt;gitlab-runner https://mirror.tuna.tsinghua.edu.cn/help/gitlab-runner/&lt;/p&gt;
 &lt;p&gt;pypi https://mirror.tuna.tsinghua.edu.cn/help/pypi/&lt;/p&gt;
 &lt;h2&gt;基础软件&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt-get install wget curl zsh tmux git vim gcc g++
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;curl&lt;/span&gt; &lt;span class="n"&gt;zsh&lt;/span&gt; &lt;span class="n"&gt;tmux&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="n"&gt;gcc&lt;/span&gt; &lt;span class="k"&gt;g&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;on-my-zsh&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sh -c &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;tmux&lt;/h2&gt;
 &lt;p&gt;https://github.com/wklken/k-tmux&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;curl https://raw.githubusercontent.com/wklken/k-tmux/master/tmux.conf &amp;gt; ~/.tmux.conf
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;curl&lt;/span&gt; &lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;raw&lt;/span&gt;.&lt;span class="nv"&gt;githubusercontent&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;wklken&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;k&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;tmux&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;master&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;tmux&lt;/span&gt;.&lt;span class="nv"&gt;conf&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;.&lt;span class="nv"&gt;tmux&lt;/span&gt;.&lt;span class="nv"&gt;conf&lt;/span&gt;
+
+&lt;span class="nv"&gt;curl&lt;/span&gt; &lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;raw&lt;/span&gt;.&lt;span class="nv"&gt;githubusercontent&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;wklken&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;server&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;master&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;vimrc&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;.&lt;span class="nv"&gt;vimrc&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;vim&lt;/h2&gt;
 &lt;p&gt;https://github.com/wklken/k-vim&lt;/p&gt;
+&lt;p&gt;https://github.com/wklken/vim-for-server&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;curl&lt;/span&gt; &lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;raw&lt;/span&gt;.&lt;span class="nv"&gt;githubusercontent&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;wklken&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;server&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;master&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;vimrc&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;.&lt;span class="nv"&gt;vimrc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;pyenv&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;curl https://pyenv.run &lt;span class="p"&gt;|&lt;/span&gt; bash
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;curl&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;pyenv&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;bash&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;加入 zshrc&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/root/.pyenv/bin:&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;pyenv init -&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;pyenv virtualenv-init -&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;/root/.pyenv/bin:$PATH&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;eval&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;$(pyenv init -)&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;eval&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;$(pyenv virtualenv-init -)&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;ssr&lt;/h2&gt;
-&lt;p&gt;https://github.com/ToyoDAdoubi/doubi#ssrmush&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; chmod +x ssrmu.sh &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; bash ssrmu.sh
+&lt;h2&gt;Debian/Ubuntu 编译安装 python-3.8.2&lt;/h2&gt;
+&lt;p&gt;pyenv 太慢&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ftp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tgz&lt;/span&gt;
+
+&lt;span class="n"&gt;gzip&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;Python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tgz&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="n"&gt;gcc&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;essential&lt;/span&gt; &lt;span class="n"&gt;libssl&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;zlib1g&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;
+&lt;span class="n"&gt;libbz2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libreadline&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libsqlite3&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;curl&lt;/span&gt; &lt;span class="n"&gt;llvm&lt;/span&gt; &lt;span class="n"&gt;libncurses5&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;
+&lt;span class="n"&gt;libncursesw5&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;xz&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;utils&lt;/span&gt; &lt;span class="n"&gt;tk&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libffi&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;liblzma&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;configure&lt;/span&gt; &lt;span class="c1"&gt;--enable-optimizations --prefix=/usr/python3&lt;/span&gt;
+
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
+
+&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;setuptools&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;v2ray&lt;/h2&gt;
-&lt;p&gt;https://toutyrater.github.io&lt;/p&gt;
-&lt;p&gt;https://www.v2ray.com/chapter_00/install.html&lt;/p&gt;
-&lt;h2&gt;go-fastdfs&lt;/h2&gt;
-&lt;p&gt;https://github.com/sjqzhang/go-fastdfs&lt;/p&gt;
-&lt;h2&gt;certbot&lt;/h2&gt;
-&lt;p&gt;https://letsencrypt.org&lt;/p&gt;
-&lt;p&gt;https://github.com/acmesh-official/acme.sh/wiki/说明&lt;/p&gt;
-&lt;p&gt;https://certbot.eff.org/lets-encrypt/debianbuster-nginx&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt-get install certbot python-certbot-nginx
-certbot certonly
-certbot certificates
-certbot delete --cert-name
+&lt;h2&gt;postgresql&lt;/h2&gt;
+&lt;p&gt;https://www.postgresql.org/download/linux/debian/&lt;/p&gt;
+&lt;h3&gt;导出 导入&lt;/h3&gt;
+&lt;p&gt;导出： &lt;code&gt;pg_dump -f spendingviz-postgresql.sql spendingviz&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;导入：&lt;code&gt;psql -d spendingviz -f export-postgresql/spendingviz-postgresql.sql&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;创建数据库  &lt;code&gt;createdb spendingviz&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;删除数据库  &lt;code&gt;dropdb spendingviz&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;启动 重启&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;postgresql&lt;/span&gt; &lt;span class="k"&gt;start&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;postgresql&lt;/span&gt; &lt;span class="k"&gt;restart&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;用户 密码 远程连接&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;su&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;span class="k"&gt;createuser&lt;/span&gt; &lt;span class="c1"&gt;--interactive&lt;/span&gt;
+&lt;span class="n"&gt;chen&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt;
+&lt;span class="n"&gt;psql&lt;/span&gt;
+&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="n"&gt;chen&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;vi&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;postgresql&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;
+&lt;span class="n"&gt;listen_addresses&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;vi&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;pg_hba&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;
+&lt;span class="k"&gt;host&lt;/span&gt; &lt;span class="k"&gt;all&lt;/span&gt; &lt;span class="k"&gt;all&lt;/span&gt; &lt;span class="mi"&gt;127&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt; &lt;span class="n"&gt;md5&lt;/span&gt; &lt;span class="err"&gt;下加一行&lt;/span&gt;
+&lt;span class="k"&gt;host&lt;/span&gt; &lt;span class="k"&gt;all&lt;/span&gt; &lt;span class="k"&gt;all&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;md5&lt;/span&gt;
+&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;Chen&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;span class="n"&gt;pgcli&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;Chen&lt;/span&gt;
+&lt;span class="n"&gt;pgcli&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;Chen&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;dbname&lt;/span&gt;
+&lt;span class="n"&gt;pgcli&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="mi"&gt;107&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;170&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;238&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;235&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;chen&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;W&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;dbname&lt;/span&gt;
+&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;
+&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;du&lt;/span&gt;
+&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;
+&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;entry&lt;/span&gt;
+&lt;span class="err"&gt;​&lt;/span&gt;&lt;span class="o"&gt;```&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;根据系统配置生成优化的  postgresql.conf&lt;/h3&gt;
+&lt;p&gt;http://pgtune.leopard.in.ua/&lt;/p&gt;
+&lt;h2&gt;rabbitmq&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;rabbitmq&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;rabbitmqctl&lt;/span&gt; &lt;span class="n"&gt;add_user&lt;/span&gt; &lt;span class="n"&gt;djshop&lt;/span&gt; &lt;span class="n"&gt;passwordxxx&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;rabbitmqctl&lt;/span&gt; &lt;span class="n"&gt;set_user_tags&lt;/span&gt; &lt;span class="n"&gt;djshop&lt;/span&gt; &lt;span class="n"&gt;administrator&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;rabbitmqctl&lt;/span&gt; &lt;span class="n"&gt;set_permissions&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;djshop&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;.*&amp;quot;&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;.*&amp;quot;&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;.*&amp;quot;&lt;/span&gt;
+
+&lt;span class="n"&gt;rabbitmq&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;plugins&lt;/span&gt; &lt;span class="n"&gt;enable&lt;/span&gt; &lt;span class="n"&gt;rabbitmq_management&lt;/span&gt; &lt;span class="n"&gt;rabbitmq_stomp&lt;/span&gt; &lt;span class="n"&gt;rabbitmq_web_stomp&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;nginx&lt;/h2&gt;
 &lt;p&gt;verynginx: https://github.com/alexazhou/VeryNginx/blob/master/readme_zh.md&lt;/p&gt;
-&lt;h2&gt;postgresql&lt;/h2&gt;
-&lt;p&gt;https://www.postgresql.org/download/linux/debian/&lt;/p&gt;
-&lt;h3&gt;导出 导入&lt;/h3&gt;
-&lt;p&gt;导出： &lt;code&gt;pg_dump -f spendingviz-postgresql.sql spendingviz&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;导入： &lt;code&gt;psql -d spendingviz -f export-postgresql/spendingviz-postgresql.sql&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;创建数据库  &lt;code&gt;createdb spendingviz&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;删除数据库  &lt;code&gt;dropdb spendingviz&lt;/code&gt;&lt;/p&gt;
-&lt;h3&gt;启动 重启&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/etc/init.d/postgresql start
-/etc/init.d/postgresql restart
+&lt;h3&gt;proxy_params&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;proxy_set_header&lt;/span&gt; &lt;span class="nv"&gt;Host&lt;/span&gt; $&lt;span class="nv"&gt;http_host&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;proxy_set_header&lt;/span&gt; &lt;span class="nv"&gt;X&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;Real&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;IP&lt;/span&gt; $&lt;span class="nv"&gt;remote_addr&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;proxy_set_header&lt;/span&gt; &lt;span class="nv"&gt;X&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;Forwarded&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;For&lt;/span&gt; $&lt;span class="nv"&gt;proxy_add_x_forwarded_for&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;proxy_set_header&lt;/span&gt; &lt;span class="nv"&gt;X&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;Forwarded&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;Proto&lt;/span&gt; $&lt;span class="nv"&gt;scheme&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;用户 密码 远程连接&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo su postgres
-createuser --interactive
-chen
-y
-psql
-&lt;span class="se"&gt;\p&lt;/span&gt;assword chen
-sudo vi /etc/postgres/9.5/main/postgresql.conf
-&lt;span class="nv"&gt;listen_addresses&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; ‘*&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
-sudo vi /etc/postgres/9.5/main/pg_hba.conf
-host all all &lt;span class="m"&gt;127&lt;/span&gt;.0.0.1/32 md5 下加一行
-host all all &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0/0 md5
-psql -U postgres -d postgres
-psql -U Chen -d postgres
-pgcli -U Chen
-pgcli -U Chen -d dbname
-pgcli -h &lt;span class="m"&gt;107&lt;/span&gt;.170.238.235 -U chen -W -d dbname
-&lt;span class="se"&gt;\l&lt;/span&gt;
-&lt;span class="se"&gt;\d&lt;/span&gt;u
-&lt;span class="se"&gt;\d&lt;/span&gt;t
-&lt;span class="se"&gt;\d&lt;/span&gt; entry
-​&lt;span class="sb"&gt;```&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;根据系统配置生成优化的  &lt;code&gt;postgresql.conf&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://pgtune.leopard.in.ua/"&gt;http://pgtune.leopard.in.ua/&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;rabbitmq&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt-get install rabbitmq-server
-sudo rabbitmqctl add_user djshop passwordxxx
-sudo rabbitmqctl set_user_tags djshop administrator
-sudo rabbitmqctl set_permissions -p / djshop &lt;span class="s2"&gt;&amp;quot;.*&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;.*&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;.*&amp;quot;&lt;/span&gt;
-
-rabbitmq-plugins &lt;span class="nb"&gt;enable&lt;/span&gt; rabbitmq_management rabbitmq_stomp rabbitmq_web_stomp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;nginx&lt;/h2&gt;
 &lt;h3&gt;Django&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kn"&gt;listen&lt;/span&gt;      &lt;span class="mi"&gt;443&lt;/span&gt; &lt;span class="s"&gt;ssl&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;server_name&lt;/span&gt; &lt;span class="s"&gt;breakwire.me&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="c1"&gt;# location&lt;/span&gt;
-    &lt;span class="kn"&gt;location&lt;/span&gt; &lt;span class="s"&gt;/static&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="kn"&gt;alias&lt;/span&gt; &lt;span class="s"&gt;/root/ade/apps/static&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="kn"&gt;location&lt;/span&gt; &lt;span class="s"&gt;/media&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="kn"&gt;alias&lt;/span&gt; &lt;span class="s"&gt;/root/ade/apps/media&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="kn"&gt;location&lt;/span&gt; &lt;span class="s"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="kn"&gt;include&lt;/span&gt; &lt;span class="s"&gt;proxy_params&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="kn"&gt;proxy_pass&lt;/span&gt; &lt;span class="s"&gt;http://unix:/root/ade/ade.sock&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="c1"&gt;# Let Encrypt&lt;/span&gt;
-    &lt;span class="kn"&gt;ssl&lt;/span&gt; &lt;span class="no"&gt;on&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;ssl_certificate&lt;/span&gt;     &lt;span class="s"&gt;/etc/letsencrypt/live/breakwire.me/fullchain.pem&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;ssl_certificate_key&lt;/span&gt; &lt;span class="s"&gt;/etc/letsencrypt/live/breakwire.me/privkey.pem&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;ssl_protocols&lt;/span&gt; &lt;span class="s"&gt;TLSv1&lt;/span&gt; &lt;span class="s"&gt;TLSv1.1&lt;/span&gt; &lt;span class="s"&gt;TLSv1.2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;ssl_prefer_server_ciphers&lt;/span&gt; &lt;span class="no"&gt;on&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;ssl_ciphers&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;EECDH+ECDSA+AESGCM&lt;/span&gt; &lt;span class="s"&gt;EECDH+aRSA+AESGCM&lt;/span&gt; &lt;span class="s"&gt;EECDH+ECDSA+SHA384&lt;/span&gt; &lt;span class="s"&gt;EECDH+ECDSA+SHA256&lt;/span&gt; &lt;span class="s"&gt;EECDH+aRSA+SHA384&lt;/span&gt; &lt;span class="s"&gt;EECDH+aRSA+SHA256&lt;/span&gt; &lt;span class="s"&gt;EECDH+aRSA+RC4&lt;/span&gt; &lt;span class="s"&gt;EECDH&lt;/span&gt; &lt;span class="s"&gt;EDH+aRSA&lt;/span&gt; &lt;span class="s"&gt;RC4&lt;/span&gt; &lt;span class="s"&gt;!aNULL&lt;/span&gt; &lt;span class="s"&gt;!eNULL&lt;/span&gt; &lt;span class="s"&gt;!LOW&lt;/span&gt; &lt;span class="s"&gt;!3DES&lt;/span&gt; &lt;span class="s"&gt;!MD5&lt;/span&gt; &lt;span class="s"&gt;!EXP&lt;/span&gt; &lt;span class="s"&gt;!PSK&lt;/span&gt; &lt;span class="s"&gt;!SRP&lt;/span&gt; &lt;span class="s"&gt;!DSS&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;allow&lt;/span&gt; &lt;span class="s"&gt;all&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;*&lt;/span&gt;&lt;span class="c1"&gt;# logs*&lt;/span&gt;
-    &lt;span class="s"&gt;access_log&lt;/span&gt; &lt;span class="s"&gt;/root/logs/nginx.access.log&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;error_log&lt;/span&gt; &lt;span class="s"&gt;/root/logs/nginx.error.log&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;*&lt;/span&gt;&lt;span class="c1"&gt;# gzip*&lt;/span&gt;
-    &lt;span class="s"&gt;gzip&lt;/span&gt; &lt;span class="no"&gt;on&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;gzip_min_length&lt;/span&gt; &lt;span class="mi"&gt;1k&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;gzip_buffers&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="mi"&gt;16k&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;gzip_comp_level&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;gzip_types&lt;/span&gt; &lt;span class="s"&gt;text/plain&lt;/span&gt; &lt;span class="s"&gt;text/css&lt;/span&gt; &lt;span class="s"&gt;application/javascript&lt;/span&gt; &lt;span class="s"&gt;application/xml&lt;/span&gt; &lt;span class="s"&gt;application/xhtml+xml&lt;/span&gt; &lt;span class="s"&gt;application/json&lt;/span&gt; &lt;span class="s"&gt;image/gif&lt;/span&gt; &lt;span class="s"&gt;image/jpeg&lt;/span&gt; &lt;span class="s"&gt;image/png&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;gzip_disable&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;MSIE&lt;/span&gt; &lt;span class="s"&gt;[1-6]\.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="k"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kn"&gt;listen&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;server_name&lt;/span&gt; &lt;span class="s"&gt;breakwire.me&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;301&lt;/span&gt; &lt;span class="s"&gt;https://&lt;/span&gt;&lt;span class="nv"&gt;$server_name$request_uri&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;server&lt;/span&gt; {
+    &lt;span class="nv"&gt;listen&lt;/span&gt;      &lt;span class="mi"&gt;443&lt;/span&gt; &lt;span class="nv"&gt;ssl&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;server_name&lt;/span&gt; &lt;span class="nv"&gt;breakwire&lt;/span&gt;.&lt;span class="nv"&gt;me&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    # &lt;span class="nv"&gt;location&lt;/span&gt;
+    &lt;span class="nv"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;static&lt;/span&gt; {
+        &lt;span class="nv"&gt;alias&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;root&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;ade&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;apps&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;static&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+    &lt;span class="nv"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;media&lt;/span&gt; {
+        &lt;span class="nv"&gt;alias&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;root&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;ade&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;apps&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;media&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+    &lt;span class="nv"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; {
+        &lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="nv"&gt;proxy_params&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;proxy_pass&lt;/span&gt; &lt;span class="nv"&gt;http&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;unix&lt;/span&gt;:&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;root&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;ade&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;ade&lt;/span&gt;.&lt;span class="nv"&gt;sock&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+    # &lt;span class="nv"&gt;Let&lt;/span&gt; &lt;span class="nv"&gt;Encrypt&lt;/span&gt;
+    &lt;span class="nv"&gt;ssl&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;ssl_certificate&lt;/span&gt;     &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;letsencrypt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;live&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;breakwire&lt;/span&gt;.&lt;span class="nv"&gt;me&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;fullchain&lt;/span&gt;.&lt;span class="nv"&gt;pem&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;ssl_certificate_key&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;letsencrypt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;live&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;breakwire&lt;/span&gt;.&lt;span class="nv"&gt;me&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;privkey&lt;/span&gt;.&lt;span class="nv"&gt;pem&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;ssl_protocols&lt;/span&gt; &lt;span class="nv"&gt;TLSv1&lt;/span&gt; &lt;span class="nv"&gt;TLSv1&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;TLSv1&lt;/span&gt;.&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;ssl_prefer_server_ciphers&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;ssl_ciphers&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;allow&lt;/span&gt; &lt;span class="nv"&gt;all&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="o"&gt;*&lt;/span&gt;# &lt;span class="nv"&gt;logs&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+    &lt;span class="nv"&gt;access_log&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;root&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;logs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;nginx&lt;/span&gt;.&lt;span class="nv"&gt;access&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;error_log&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;root&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;logs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;nginx&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="o"&gt;*&lt;/span&gt;# &lt;span class="nv"&gt;gzip&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+    &lt;span class="nv"&gt;gzip&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;gzip_min_length&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="nv"&gt;k&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;gzip_buffers&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="nv"&gt;k&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;gzip_comp_level&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;gzip_types&lt;/span&gt; &lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;plain&lt;/span&gt; &lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;css&lt;/span&gt; &lt;span class="nv"&gt;application&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;javascript&lt;/span&gt; &lt;span class="nv"&gt;application&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;xml&lt;/span&gt; &lt;span class="nv"&gt;application&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;xhtml&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;xml&lt;/span&gt; &lt;span class="nv"&gt;application&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;json&lt;/span&gt; &lt;span class="nv"&gt;image&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;gif&lt;/span&gt; &lt;span class="nv"&gt;image&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;jpeg&lt;/span&gt; &lt;span class="nv"&gt;image&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;png&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;gzip_disable&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;MSIE [1-6]\.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+&lt;span class="nv"&gt;server&lt;/span&gt; {
+    &lt;span class="nv"&gt;listen&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;server_name&lt;/span&gt; &lt;span class="nv"&gt;breakwire&lt;/span&gt;.&lt;span class="nv"&gt;me&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;301&lt;/span&gt; &lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;$&lt;span class="nv"&gt;server_name&lt;/span&gt;$&lt;span class="nv"&gt;request_uri&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;breakwire.me 静态网页&lt;/h3&gt;
 &lt;p&gt;Django 实例中的三个 location 换成下面这个&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;location&lt;/span&gt; &lt;span class="s"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-   &lt;span class="kn"&gt;root&lt;/span&gt; &lt;span class="s"&gt;/root/lsdlab.github.io/&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-   &lt;span class="kn"&gt;index&lt;/span&gt; &lt;span class="s"&gt;index.html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+   &lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lsdlab&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;io&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="k"&gt;index&lt;/span&gt; &lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;端口反代&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;location&lt;/span&gt; &lt;span class="s"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kn"&gt;proxy_pass&lt;/span&gt; &lt;span class="s"&gt;http://localhost:3000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;proxy_pass&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;wordpress.conf&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kn"&gt;root&lt;/span&gt; &lt;span class="s"&gt;/var/www/html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="c1"&gt;# Add index.php to the list if you are using PHP&lt;/span&gt;
-    &lt;span class="kn"&gt;index&lt;/span&gt; &lt;span class="s"&gt;index.php&lt;/span&gt; &lt;span class="s"&gt;index.html&lt;/span&gt; &lt;span class="s"&gt;index.htm&lt;/span&gt; &lt;span class="s"&gt;index.nginx-debian.html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="c1"&gt;# Let Encrypt&lt;/span&gt;
-    &lt;span class="kn"&gt;listen&lt;/span&gt; &lt;span class="mi"&gt;443&lt;/span&gt; &lt;span class="s"&gt;ssl&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;# managed by Certbot&lt;/span&gt;
-    &lt;span class="kn"&gt;include&lt;/span&gt; &lt;span class="s"&gt;/etc/letsencrypt/options-ssl-nginx.conf&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;# managed by Certbot&lt;/span&gt;
-    &lt;span class="kn"&gt;ssl_dhparam&lt;/span&gt; &lt;span class="s"&gt;/etc/letsencrypt/ssl-dhparams.pem&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;# managed by Certbot&lt;/span&gt;
-    &lt;span class="c1"&gt;# logs&lt;/span&gt;
-    &lt;span class="kn"&gt;access_log&lt;/span&gt; &lt;span class="s"&gt;/root/nginx-log/access.log&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;error_log&lt;/span&gt; &lt;span class="s"&gt;/root/nginx-log/error.log&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;location&lt;/span&gt; &lt;span class="s"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="c1"&gt;# First attempt to serve request as file, then&lt;/span&gt;
-            &lt;span class="c1"&gt;# as directory, then fall back to displaying a 404.&lt;/span&gt;
-            &lt;span class="kn"&gt;try_files&lt;/span&gt; &lt;span class="nv"&gt;$uri&lt;/span&gt; &lt;span class="nv"&gt;$uri/&lt;/span&gt; &lt;span class="s"&gt;/index.php&lt;/span&gt;&lt;span class="nv"&gt;$is_args$args&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="c1"&gt;# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000&lt;/span&gt;
-    &lt;span class="kn"&gt;location&lt;/span&gt; &lt;span class="p"&gt;~&lt;/span&gt; &lt;span class="sr"&gt;.php$&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="kn"&gt;include&lt;/span&gt; &lt;span class="s"&gt;snippets/fastcgi-php.conf&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="c1"&gt;#&lt;/span&gt;
-    &lt;span class="c1"&gt;#   # With php7.0-cgi alone:&lt;/span&gt;
-        &lt;span class="kn"&gt;fastcgi_pass&lt;/span&gt; &lt;span class="n"&gt;127.0.0.1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;9000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="c1"&gt;#   # With php7.0-fpm:&lt;/span&gt;
-    &lt;span class="c1"&gt;#   fastcgi_pass unix:/run/php/php7.0-fpm.sock;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="c1"&gt;# gzip&lt;/span&gt;
-    &lt;span class="kn"&gt;gzip&lt;/span&gt; &lt;span class="no"&gt;on&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;gzip_min_length&lt;/span&gt; &lt;span class="mi"&gt;1k&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;gzip_buffers&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="mi"&gt;16k&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;gzip_comp_level&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;gzip_types&lt;/span&gt; &lt;span class="s"&gt;text/plain&lt;/span&gt; &lt;span class="s"&gt;application/x-javascript&lt;/span&gt; &lt;span class="s"&gt;text/css&lt;/span&gt; &lt;span class="s"&gt;application/xml&lt;/span&gt; &lt;span class="s"&gt;application/json&lt;/span&gt; &lt;span class="s"&gt;text/javascript&lt;/span&gt; &lt;span class="s"&gt;image/jpeg&lt;/span&gt; &lt;span class="s"&gt;image/png&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;gzip_disable&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;MSIE&lt;/span&gt; &lt;span class="s"&gt;[1-6].&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="k"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kn"&gt;listen&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;server_name&lt;/span&gt; &lt;span class="s"&gt;paikung.com&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;301&lt;/span&gt; &lt;span class="s"&gt;https://&lt;/span&gt;&lt;span class="nv"&gt;$server_name$request_uri&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;server&lt;/span&gt; {
+    &lt;span class="nv"&gt;root&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;www&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;html&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    # &lt;span class="nv"&gt;Add&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt;.&lt;span class="nv"&gt;php&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;list&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;PHP&lt;/span&gt;
+    &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt;.&lt;span class="nv"&gt;php&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt;.&lt;span class="nv"&gt;html&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt;.&lt;span class="nv"&gt;htm&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt;.&lt;span class="nv"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;debian&lt;/span&gt;.&lt;span class="nv"&gt;html&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    # &lt;span class="nv"&gt;Let&lt;/span&gt; &lt;span class="nv"&gt;Encrypt&lt;/span&gt;
+    &lt;span class="nv"&gt;listen&lt;/span&gt; &lt;span class="mi"&gt;443&lt;/span&gt; &lt;span class="nv"&gt;ssl&lt;/span&gt;&lt;span class="c1"&gt;; # managed by Certbot&lt;/span&gt;
+    &lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;letsencrypt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;options&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;ssl&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;nginx&lt;/span&gt;.&lt;span class="nv"&gt;conf&lt;/span&gt;&lt;span class="c1"&gt;; # managed by Certbot&lt;/span&gt;
+    &lt;span class="nv"&gt;ssl_dhparam&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;letsencrypt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;ssl&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;dhparams&lt;/span&gt;.&lt;span class="nv"&gt;pem&lt;/span&gt;&lt;span class="c1"&gt;; # managed by Certbot&lt;/span&gt;
+    # &lt;span class="nv"&gt;logs&lt;/span&gt;
+    &lt;span class="nv"&gt;access_log&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;root&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;access&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;error_log&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;root&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;error&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; {
+            # &lt;span class="nv"&gt;First&lt;/span&gt; &lt;span class="nv"&gt;attempt&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;serve&lt;/span&gt; &lt;span class="nv"&gt;request&lt;/span&gt; &lt;span class="nv"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt;, &lt;span class="k"&gt;then&lt;/span&gt;
+            # &lt;span class="nv"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;directory&lt;/span&gt;, &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="nv"&gt;fall&lt;/span&gt; &lt;span class="nv"&gt;back&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;displaying&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="mi"&gt;404&lt;/span&gt;.
+            &lt;span class="nv"&gt;try_files&lt;/span&gt; $&lt;span class="nv"&gt;uri&lt;/span&gt; $&lt;span class="nv"&gt;uri&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;index&lt;/span&gt;.&lt;span class="nv"&gt;php&lt;/span&gt;$&lt;span class="nv"&gt;is_args&lt;/span&gt;&lt;span class="mh"&gt;$a&lt;/span&gt;&lt;span class="nv"&gt;rgs&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+    # &lt;span class="nv"&gt;pass&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;PHP&lt;/span&gt; &lt;span class="nv"&gt;scripts&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;FastCGI&lt;/span&gt; &lt;span class="nv"&gt;server&lt;/span&gt; &lt;span class="nv"&gt;listening&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt; &lt;span class="mi"&gt;127&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt;:&lt;span class="mi"&gt;9000&lt;/span&gt;
+    &lt;span class="nv"&gt;location&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt; .&lt;span class="nv"&gt;php&lt;/span&gt;$ {
+        &lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="nv"&gt;snippets&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;fastcgi&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;php&lt;/span&gt;.&lt;span class="nv"&gt;conf&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    #
+    #   # &lt;span class="nv"&gt;With&lt;/span&gt; &lt;span class="nv"&gt;php7&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;cgi&lt;/span&gt; &lt;span class="nv"&gt;alone&lt;/span&gt;:
+        &lt;span class="nv"&gt;fastcgi_pass&lt;/span&gt; &lt;span class="mi"&gt;127&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt;:&lt;span class="mi"&gt;9000&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    #   # &lt;span class="nv"&gt;With&lt;/span&gt; &lt;span class="nv"&gt;php7&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;fpm&lt;/span&gt;:
+    #   &lt;span class="nv"&gt;fastcgi_pass&lt;/span&gt; &lt;span class="nv"&gt;unix&lt;/span&gt;:&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;php&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;php7&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;fpm&lt;/span&gt;.&lt;span class="nv"&gt;sock&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+    # &lt;span class="nv"&gt;gzip&lt;/span&gt;
+    &lt;span class="nv"&gt;gzip&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;gzip_min_length&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="nv"&gt;k&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;gzip_buffers&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="nv"&gt;k&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;gzip_comp_level&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;gzip_types&lt;/span&gt; &lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;plain&lt;/span&gt; &lt;span class="nv"&gt;application&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;javascript&lt;/span&gt; &lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;css&lt;/span&gt; &lt;span class="nv"&gt;application&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;xml&lt;/span&gt; &lt;span class="nv"&gt;application&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;json&lt;/span&gt; &lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;javascript&lt;/span&gt; &lt;span class="nv"&gt;image&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;jpeg&lt;/span&gt; &lt;span class="nv"&gt;image&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;png&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;gzip_disable&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;MSIE [1-6].&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+&lt;span class="nv"&gt;server&lt;/span&gt; {
+    &lt;span class="nv"&gt;listen&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;server_name&lt;/span&gt; &lt;span class="nv"&gt;paikung&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;301&lt;/span&gt; &lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;$&lt;span class="nv"&gt;server_name&lt;/span&gt;$&lt;span class="nv"&gt;request_uri&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;proxy_params&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;proxy_set_header&lt;/span&gt; &lt;span class="s"&gt;Host&lt;/span&gt; &lt;span class="nv"&gt;$http_host&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;proxy_set_header&lt;/span&gt; &lt;span class="s"&gt;X-Real-IP&lt;/span&gt; &lt;span class="nv"&gt;$remote_addr&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;proxy_set_header&lt;/span&gt; &lt;span class="s"&gt;X-Forwarded-For&lt;/span&gt; &lt;span class="nv"&gt;$proxy_add_x_forwarded_for&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;proxy_set_header&lt;/span&gt; &lt;span class="s"&gt;X-Forwarded-Proto&lt;/span&gt; &lt;span class="nv"&gt;$scheme&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;h3&gt;/etc/nginx/nginx.conf 优化&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;user&lt;/span&gt; &lt;span class="nv"&gt;root&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;worker_processes&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;pid&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;nginx&lt;/span&gt;.&lt;span class="nv"&gt;pid&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;modules&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;enabled&lt;/span&gt;&lt;span class="cm"&gt;/*.conf;&lt;/span&gt;
+
+&lt;span class="cm"&gt;events {&lt;/span&gt;
+&lt;span class="cm"&gt;        worker_connections 1024;&lt;/span&gt;
+&lt;span class="cm"&gt;}&lt;/span&gt;
+
+&lt;span class="cm"&gt;http {&lt;/span&gt;
+&lt;span class="cm"&gt;    log_format  main  &amp;#39;$remote_addr - $remote_user [$time_local] &amp;quot;$request&amp;quot; &amp;#39;&lt;/span&gt;
+&lt;span class="cm"&gt;                      &amp;#39;$status $body_bytes_sent &amp;quot;$http_referer&amp;quot; &amp;#39;&lt;/span&gt;
+&lt;span class="cm"&gt;                      &amp;#39;&amp;quot;$http_user_agent&amp;quot; &amp;quot;$http_x_forwarded_for&amp;quot;&amp;#39;;&lt;/span&gt;
+
+&lt;span class="cm"&gt;    log_format timed_combined &amp;#39;$remote_addr - $remote_user [$time_local]  &amp;#39;&lt;/span&gt;
+&lt;span class="cm"&gt;                              &amp;#39;&amp;quot;$request&amp;quot; $status $body_bytes_sent &amp;#39;&lt;/span&gt;
+&lt;span class="cm"&gt;                              &amp;#39;&amp;quot;$http_referer&amp;quot; &amp;quot;$http_user_agent&amp;quot; $request_time $upstream_response_time&amp;#39;;&lt;/span&gt;
+
+&lt;span class="cm"&gt;    client_body_buffer_size 10K;&lt;/span&gt;
+&lt;span class="cm"&gt;    client_header_buffer_size 1k;&lt;/span&gt;
+&lt;span class="cm"&gt;    client_max_body_size 8m;&lt;/span&gt;
+&lt;span class="cm"&gt;    large_client_header_buffers 2 1k;&lt;/span&gt;
+&lt;span class="cm"&gt;    client_body_timeout 12;&lt;/span&gt;
+&lt;span class="cm"&gt;    client_header_timeout 12;&lt;/span&gt;
+&lt;span class="cm"&gt;    keepalive_timeout 15;&lt;/span&gt;
+&lt;span class="cm"&gt;    send_timeout 10;&lt;/span&gt;
+
+&lt;span class="cm"&gt;    include /etc/nginx/sites-enabled/*.conf;&lt;/span&gt;
+&lt;span class="cm"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;/etc/nginx/nginx.conf&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;user&lt;/span&gt; &lt;span class="s"&gt;root&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;worker_processes&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;pid&lt;/span&gt; &lt;span class="s"&gt;/run/nginx.pid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-&lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="n"&gt;/etc/nginx/modules-enabled/*.conf&lt;/span&gt;;
-
-&lt;span class="k"&gt;events&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="kn"&gt;worker_connections&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-
-&lt;span class="k"&gt;http&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kn"&gt;log_format&lt;/span&gt;  &lt;span class="s"&gt;main&lt;/span&gt;  &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$remote_addr&lt;/span&gt; &lt;span class="s"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;$remote_user&lt;/span&gt; &lt;span class="s"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;$time_local]&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$request&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
-                      &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$status&lt;/span&gt; &lt;span class="nv"&gt;$body_bytes_sent&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$http_referer&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
-                      &lt;span class="s"&gt;&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$http_user_agent&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$http_x_forwarded_for&amp;quot;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-    &lt;span class="kn"&gt;log_format&lt;/span&gt; &lt;span class="s"&gt;timed_combined&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$remote_addr&lt;/span&gt; &lt;span class="s"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;$remote_user&lt;/span&gt; &lt;span class="s"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;$time_local]&lt;/span&gt;  &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
-                              &lt;span class="s"&gt;&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$request&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;$status&lt;/span&gt; &lt;span class="nv"&gt;$body_bytes_sent&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
-                              &lt;span class="s"&gt;&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$http_referer&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$http_user_agent&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;$request_time&lt;/span&gt; &lt;span class="nv"&gt;$upstream_response_time&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-    &lt;span class="kn"&gt;client_body_buffer_size&lt;/span&gt; &lt;span class="s"&gt;10K&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;client_header_buffer_size&lt;/span&gt; &lt;span class="mi"&gt;1k&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;client_max_body_size&lt;/span&gt; &lt;span class="mi"&gt;8m&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;large_client_header_buffers&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="mi"&gt;1k&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;client_body_timeout&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;client_header_timeout&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;keepalive_timeout&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kn"&gt;send_timeout&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-    &lt;span class="kn"&gt;include&lt;/span&gt; &lt;span class="s"&gt;/etc/nginx/sites-enabled/*.conf&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;h2&gt;certbot&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://letsencrypt.org/"&gt;https://letsencrypt.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;https://github.com/acmesh-official/acme.sh/wiki/说明&lt;/p&gt;
+&lt;p&gt;https://certbot.eff.org/lets-encrypt/debianbuster-nginx&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;certbot&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;certbot&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;
+&lt;span class="n"&gt;certbot&lt;/span&gt; &lt;span class="n"&gt;certonly&lt;/span&gt;
+&lt;span class="n"&gt;certbot&lt;/span&gt; &lt;span class="n"&gt;certificates&lt;/span&gt;
+&lt;span class="n"&gt;certbot&lt;/span&gt; &lt;span class="k"&gt;delete&lt;/span&gt; &lt;span class="c1"&gt;--cert-name&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h2&gt;ssr&lt;/h2&gt;
+&lt;p&gt;https://github.com/ToyoDAdoubi/doubi#ssrmush&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="c1"&gt;--no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh &amp;amp;&amp;amp; chmod +x ssrmu.sh &amp;amp;&amp;amp; bash ssrmu.sh&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;v2ray&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://toutyrater.github.io/"&gt;https://toutyrater.github.io&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;https://www.v2ray.com/chapter_00/install.html&lt;/p&gt;
 &lt;h2&gt;gitlab&lt;/h2&gt;
-&lt;p&gt;https://about.gitlab.com/install/#debian&lt;/p&gt;</content><category term="DevOps"></category><category term="devops"></category></entry><entry><title>近期采购清单</title><link href="https://breakwire.me/shopping-list.html" rel="alternate"></link><published>2020-02-12T12:05:04+08:00</published><updated>2020-02-12T12:05:04+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2020-02-12:/shopping-list.html</id><summary type="html">&lt;p&gt;开始储备物资、装备&lt;/p&gt;</summary><content type="html">&lt;h2&gt;口罩、防护眼镜、消毒、清洁&lt;/h2&gt;
+&lt;p&gt;https://about.gitlab.com/install/#debian&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://mirror.tuna.tsinghua.edu.cn/help/gitlab-ce/"&gt;Gitlab Ce | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;go-fastdfs&lt;/h2&gt;
+&lt;p&gt;https://github.com/sjqzhang/go-fastdfs&lt;/p&gt;
+&lt;h2&gt;nps&lt;/h2&gt;
+&lt;p&gt;端口代理 SSH 代理工具&lt;/p&gt;
+&lt;p&gt;https://github.com/ehang-io/nps/releases&lt;/p&gt;
+&lt;p&gt;https://ehang-io.github.io/nps/#/run&lt;/p&gt;
+&lt;p&gt;下载对应的 server client，先启动服务端，然后新建客户端，客户端连接上服务端，在网页上新建一个 TCP 隧道，建立成功就可以从外网访问到内网上，记得使用复杂密码，不要被爆破。&lt;/p&gt;
+&lt;h2&gt;其他&lt;/h2&gt;
+&lt;p&gt;https://github.com/haiiiiiyun/awesome-selfhosted-cn&lt;/p&gt;
+&lt;h3&gt;开发&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://gogs.io/docs/installation/install_from_binary"&gt;Gogs&lt;/a&gt; Go 写的 Git 服务，部署容易，功能简单易用。&lt;strong&gt;已试用&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.gitea.io/zh-cn/install-from-binary/"&gt;Gitea&lt;/a&gt; Gogs 的 fork，有人嫌 Gogs 是一个人开发的，速度太慢功能太少，就 fork 了一个出来由社区继续开发。&lt;strong&gt;已试用&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.sentry.io/server/installation/"&gt;Sentry&lt;/a&gt; 应用的异常catch服务，免费账户消息数量有限制，Docker 起一个也很方便，各种应用、服务的异常全部搜集过来好处理。&lt;strong&gt;已试用，安装需要 2核***&lt;em&gt;2G&lt;/em&gt;&lt;/strong&gt;&lt;em&gt;以上机器&lt;/em&gt;*&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.mattermost.com/install/install-debian.html#"&gt;Mattermost&lt;/a&gt; 开源 IM，类似 Slack，&lt;strong&gt;已试用，并且用上域名和 HTTPS&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://docs.drone.io/"&gt;Drone&lt;/a&gt; 一个新的 CI 工具，&lt;a href="https://docs.drone.io/server/provider/gitlab/"&gt;Docker 安装&lt;/a&gt;，试了一下，没安装成功，不过看界面还是挺不错的。&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://my-netdata.io/"&gt;netdata&lt;/a&gt; 开源监控工具，黑色背景大屏看起来非常帅，安装升级都很简单，支持物联网设备，底层用 C 写成，所以不会非常消耗太多 CPU 和内存，&lt;strong&gt;已试用&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;https://github.com/ezaquarii/vpn-at-home&lt;/li&gt;
+&lt;li&gt;https://docs.gitea.io/zh-cn/install-from-binary/&lt;/li&gt;
+&lt;li&gt;https://gogs.io/docs/installation/install_from_binary&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;非开发&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://syncthing.net/"&gt;Syncthing&lt;/a&gt; 个人云存储，网页版，页面还是比较好看的。&lt;strong&gt;已试用&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://restic.readthedocs.io/"&gt;restic&lt;/a&gt; 备份工具&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://misago.gitbook.io/docs/setup/misago"&gt;Misago&lt;/a&gt; 论坛，Python/Django 界面不错&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.elastic.co/cn/solutions/apm"&gt;elastic apm&lt;/a&gt; elasticsearch 的 apm 应用性能监控，目前支持 Node.js, Django, Flask&lt;/li&gt;
+&lt;/ul&gt;</content><category term="DevOps"></category><category term="devops"></category></entry><entry><title>近期采购清单</title><link href="https://breakwire.me/shopping-list.html" rel="alternate"></link><published>2020-02-12T12:05:04+08:00</published><updated>2020-02-12T12:05:04+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2020-02-12:/shopping-list.html</id><summary type="html">&lt;p&gt;开始储备物资、装备&lt;/p&gt;</summary><content type="html">&lt;h2&gt;口罩、防护眼镜、消毒、清洁&lt;/h2&gt;
 &lt;p&gt;以家庭为单位，口罩存储必须保证一家三口一个月的使用量，只有保证了口罩存储，才有后面的食物采购。&lt;/p&gt;
 &lt;h3&gt;家庭单位&lt;/h3&gt;
 &lt;ul&gt;
