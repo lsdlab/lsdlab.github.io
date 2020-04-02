@@ -99,11 +99,11 @@
     <!-- Post Content -->
     <article>
         <p>在测试 Django 应用能都在服务器上执行 <code>python manage.py runserver</code>, 功能正常，要把开发配置改成部署配置之后还有关键的一步：</p>
-<div class="highlight"><pre><span></span><span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">&#39;/static/&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">&#39;/static/&#39;</span>
 <span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">(</span>
    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;static&quot;</span><span class="p">),</span>
 <span class="p">)</span>    <span class="c1"># 删掉这个配置项</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>这个地方要把 <code>STATICFILES_DIRS</code> 删掉改成 <code>STATIC_ROOT = "/home/chen/DjangoProjects/my_blog/static"</code>, 然后在执行 <code>python manage.py collectstatic</code>, 这一步会把一些静态文件全复制到项目的静态文件夹下，这个步骤如果不执行的话就会发现部署之后后台的样式就没有了。</p>

@@ -106,45 +106,45 @@
 <p>gitlab-runner https://mirror.tuna.tsinghua.edu.cn/help/gitlab-runner/</p>
 <p>pypi https://mirror.tuna.tsinghua.edu.cn/help/pypi/</p>
 <h2>基础软件</h2>
-<div class="highlight"><pre><span></span><span class="err">apt-get install wget curl zsh tmux git vim gcc g++</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">wget</span> <span class="n">curl</span> <span class="n">zsh</span> <span class="n">tmux</span> <span class="n">git</span> <span class="n">vim</span> <span class="n">gcc</span> <span class="k">g</span><span class="o">++</span>
+</code></pre></div>
 
 
 <h2>on-my-zsh</h2>
-<div class="highlight"><pre><span></span><span class="err">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">sh</span> <span class="o">-</span><span class="k">c</span> <span class="ss">&quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span>
+</code></pre></div>
 
 
 <h2>tmux</h2>
 <p>https://github.com/wklken/k-tmux</p>
-<div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="p">.</span><span class="n">githubusercontent</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">wklken</span><span class="o">/</span><span class="n">k</span><span class="o">-</span><span class="n">tmux</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">tmux</span><span class="p">.</span><span class="n">conf</span> <span class="o">&gt;</span> <span class="o">~/</span><span class="p">.</span><span class="n">tmux</span><span class="p">.</span><span class="n">conf</span>
+<div class="highlight"><pre><span></span><code><span class="nv">curl</span> <span class="nv">https</span>:<span class="o">//</span><span class="nv">raw</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">wklken</span><span class="o">/</span><span class="nv">k</span><span class="o">-</span><span class="nv">tmux</span><span class="o">/</span><span class="nv">master</span><span class="o">/</span><span class="nv">tmux</span>.<span class="nv">conf</span> <span class="o">&gt;</span> <span class="o">~/</span>.<span class="nv">tmux</span>.<span class="nv">conf</span>
 
-<span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="p">.</span><span class="n">githubusercontent</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">wklken</span><span class="o">/</span><span class="n">vim</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">vimrc</span> <span class="o">&gt;</span> <span class="o">~/</span><span class="p">.</span><span class="n">vimrc</span>
-</pre></div>
+<span class="nv">curl</span> <span class="nv">https</span>:<span class="o">//</span><span class="nv">raw</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">wklken</span><span class="o">/</span><span class="nv">vim</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">server</span><span class="o">/</span><span class="nv">master</span><span class="o">/</span><span class="nv">vimrc</span> <span class="o">&gt;</span> <span class="o">~/</span>.<span class="nv">vimrc</span>
+</code></pre></div>
 
 
 <h2>vim</h2>
 <p>https://github.com/wklken/k-vim</p>
 <p>https://github.com/wklken/vim-for-server</p>
-<div class="highlight"><pre><span></span><span class="err">curl https://raw.githubusercontent.com/wklken/vim-for-server/master/vimrc &gt; ~/.vimrc</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">curl</span> <span class="nv">https</span>:<span class="o">//</span><span class="nv">raw</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">wklken</span><span class="o">/</span><span class="nv">vim</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">server</span><span class="o">/</span><span class="nv">master</span><span class="o">/</span><span class="nv">vimrc</span> <span class="o">&gt;</span> <span class="o">~/</span>.<span class="nv">vimrc</span>
+</code></pre></div>
 
 
 <h2>pyenv</h2>
-<div class="highlight"><pre><span></span><span class="err">curl https://pyenv.run | bash</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pyenv</span><span class="p">.</span><span class="n">run</span> <span class="o">|</span> <span class="n">bash</span>
+</code></pre></div>
 
 
 <p>加入 zshrc</p>
-<div class="highlight"><pre><span></span><span class="err">export PATH=&quot;/root/.pyenv/bin:$PATH&quot;</span>
-<span class="err">eval &quot;$(pyenv init -)&quot;</span>
-<span class="err">eval &quot;$(pyenv virtualenv-init -)&quot;</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="ss">&quot;/root/.pyenv/bin:$PATH&quot;</span>
+<span class="n">eval</span> <span class="ss">&quot;$(pyenv init -)&quot;</span>
+<span class="n">eval</span> <span class="ss">&quot;$(pyenv virtualenv-init -)&quot;</span>
+</code></pre></div>
 
 
 <h2>Debian/Ubuntu 编译安装 python-3.8.2</h2>
 <p>pyenv 太慢</p>
-<div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">python</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">ftp</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="mi">3</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">2</span><span class="o">/</span><span class="n">Python</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="n">tgz</span>
+<div class="highlight"><pre><span></span><code><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">python</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">ftp</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="mi">3</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">2</span><span class="o">/</span><span class="n">Python</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="n">tgz</span>
 
 <span class="n">gzip</span> <span class="o">-</span><span class="n">d</span> <span class="n">Python</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="n">tgz</span> <span class="n">python</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">2</span>
 
@@ -159,7 +159,7 @@
 <span class="n">sudo</span> <span class="n">make</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
 
 <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">pip</span> <span class="n">setuptools</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>postgresql</h2>
@@ -170,13 +170,13 @@
 <p>创建数据库  <code>createdb spendingviz</code></p>
 <p>删除数据库  <code>dropdb spendingviz</code></p>
 <h3>启动 重启</h3>
-<div class="highlight"><pre><span></span><span class="err">/etc/init.d/postgresql start</span>
-<span class="err">/etc/init.d/postgresql restart</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">postgresql</span> <span class="k">start</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">postgresql</span> <span class="k">restart</span>
+</code></pre></div>
 
 
 <h3>用户 密码 远程连接</h3>
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">su</span> <span class="n">postgres</span>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">su</span> <span class="n">postgres</span>
 <span class="k">createuser</span> <span class="c1">--interactive</span>
 <span class="n">chen</span>
 <span class="n">y</span>
@@ -209,7 +209,7 @@
 
 
 <span class="o">##</span> <span class="n">rabbitmq</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>sudo apt-get install rabbitmq-server
@@ -217,7 +217,7 @@ sudo rabbitmqctl add_user djshop passwordxxx
 sudo rabbitmqctl set_user_tags djshop administrator
 sudo rabbitmqctl set_permissions -p / djshop ".<em>" ".</em>" ".*"</p>
 <p>rabbitmq-plugins enable rabbitmq_management rabbitmq_stomp rabbitmq_web_stomp</p>
-<div class="highlight"><pre><span></span><span class="o">##</span> <span class="n">nginx</span>
+<div class="highlight"><pre><span></span><code><span class="o">##</span> <span class="n">nginx</span>
 
 
 
@@ -226,15 +226,15 @@ sudo rabbitmqctl set_permissions -p / djshop ".<em>" ".</em>" ".*"</p>
 
 
 <span class="o">###</span> <span class="n">proxy_params</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>proxy_set_header Host $http_host;
 proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 proxy_set_header X-Forwarded-Proto $scheme;</p>
-<div class="highlight"><pre><span></span><span class="err">### Django</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">###</span> <span class="n">Django</span>
+</code></pre></div>
 
 
 <p>server {
@@ -275,27 +275,27 @@ server {
     server_name breakwire.me;
     return 301 https://$server_name$request_uri;
 }</p>
-<div class="highlight"><pre><span></span><span class="o">###</span> <span class="n">breakwire</span><span class="p">.</span><span class="n">me</span> <span class="err">静态网页</span>
+<div class="highlight"><pre><span></span><code><span class="o">###</span> <span class="n">breakwire</span><span class="p">.</span><span class="n">me</span> <span class="err">静态网页</span>
 
 
 
 <span class="n">Django</span> <span class="err">实例中的三个</span> <span class="k">location</span> <span class="err">换成下面这个</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>location / {
    root /root/lsdlab.github.io/;
    index index.html;
 }</p>
-<div class="highlight"><pre><span></span><span class="err">### 端口反代</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">###</span> <span class="err">端口反代</span>
+</code></pre></div>
 
 
 <p>location / {
     proxy_pass http://localhost:3000;
 }</p>
-<div class="highlight"><pre><span></span><span class="err">### wordpress.conf</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">###</span> <span class="n">wordpress</span><span class="p">.</span><span class="n">conf</span>
+</code></pre></div>
 
 
 <p>server {
@@ -336,8 +336,8 @@ server {
     server_name paikung.com;
     return 301 https://$server_name$request_uri;
 }</p>
-<div class="highlight"><pre><span></span><span class="err">### /etc/nginx/nginx.conf 优化</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">###</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">nginx</span><span class="p">.</span><span class="n">conf</span> <span class="err">优化</span>
+</code></pre></div>
 
 
 <p>user root;
@@ -351,42 +351,42 @@ pid /run/nginx.pid;</p>
     log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for"';</p>
-<div class="highlight"><pre><span></span><span class="n">log_format</span> <span class="n">timed_combined</span> <span class="s1">&#39;$remote_addr - $remote_user [$time_local]  &#39;</span>
-                          <span class="s1">&#39;&quot;$request&quot; $status $body_bytes_sent &#39;</span>
-                          <span class="s1">&#39;&quot;$http_referer&quot; &quot;$http_user_agent&quot; $request_time $upstream_response_time&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">log_format</span> <span class="nv">timed_combined</span> <span class="s1">&#39;</span><span class="s">$remote_addr - $remote_user [$time_local]  </span><span class="s1">&#39;</span>
+                          <span class="s1">&#39;</span><span class="s">&quot;$request&quot; $status $body_bytes_sent </span><span class="s1">&#39;</span>
+                          <span class="s1">&#39;</span><span class="s">&quot;$http_referer&quot; &quot;$http_user_agent&quot; $request_time $upstream_response_time</span><span class="s1">&#39;</span><span class="c1">;</span>
 
-<span class="n">client_body_buffer_size</span> <span class="mi">10</span><span class="n">K</span><span class="p">;</span>
-<span class="n">client_header_buffer_size</span> <span class="mi">1</span><span class="n">k</span><span class="p">;</span>
-<span class="n">client_max_body_size</span> <span class="mi">8</span><span class="n">m</span><span class="p">;</span>
-<span class="n">large_client_header_buffers</span> <span class="mi">2</span> <span class="mi">1</span><span class="n">k</span><span class="p">;</span>
-<span class="n">client_body_timeout</span> <span class="mi">12</span><span class="p">;</span>
-<span class="n">client_header_timeout</span> <span class="mi">12</span><span class="p">;</span>
-<span class="n">keepalive_timeout</span> <span class="mi">15</span><span class="p">;</span>
-<span class="n">send_timeout</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nv">client_body_buffer_size</span> <span class="mi">10</span><span class="nv">K</span><span class="c1">;</span>
+<span class="nv">client_header_buffer_size</span> <span class="mi">1</span><span class="nv">k</span><span class="c1">;</span>
+<span class="nv">client_max_body_size</span> <span class="mi">8</span><span class="nv">m</span><span class="c1">;</span>
+<span class="nv">large_client_header_buffers</span> <span class="mi">2</span> <span class="mi">1</span><span class="nv">k</span><span class="c1">;</span>
+<span class="nv">client_body_timeout</span> <span class="mi">12</span><span class="c1">;</span>
+<span class="nv">client_header_timeout</span> <span class="mi">12</span><span class="c1">;</span>
+<span class="nv">keepalive_timeout</span> <span class="mi">15</span><span class="c1">;</span>
+<span class="nv">send_timeout</span> <span class="mi">10</span><span class="c1">;</span>
 
-<span class="n">include</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">enabled</span><span class="cm">/*.conf;</span>
-</pre></div>
+<span class="k">include</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">sites</span><span class="o">-</span><span class="nv">enabled</span><span class="cm">/*.conf;</span>
+</code></pre></div>
 
 
 <p>}</p>
-<div class="highlight"><pre><span></span><span class="o">##</span> <span class="n">certbot</span>
+<div class="highlight"><pre><span></span><code><span class="o">##</span> <span class="n">certbot</span>
 
 <span class="p">[</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">letsencrypt</span><span class="p">.</span><span class="n">org</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">letsencrypt</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="p">)</span>
 
 <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">acmesh</span><span class="o">-</span><span class="n">official</span><span class="o">/</span><span class="n">acme</span><span class="p">.</span><span class="n">sh</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="err">说明</span>
 
 <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">certbot</span><span class="p">.</span><span class="n">eff</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">lets</span><span class="o">-</span><span class="n">encrypt</span><span class="o">/</span><span class="n">debianbuster</span><span class="o">-</span><span class="n">nginx</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>sudo apt-get install certbot python-certbot-nginx
 certbot certonly
 certbot certificates
 certbot delete --cert-name</p>
-<div class="highlight"><pre><span></span><span class="o">##</span> <span class="n">ssr</span>
+<div class="highlight"><pre><span></span><code><span class="o">##</span> <span class="n">ssr</span>
 
 <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ToyoDAdoubi</span><span class="o">/</span><span class="n">doubi</span><span class="o">#</span><span class="n">ssrmush</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh &amp;&amp; chmod +x ssrmu.sh &amp;&amp; bash ssrmu.sh
@@ -410,7 +410,7 @@ certbot delete --cert-name</p>
 <ul>
 <li><a href="https://gogs.io/docs/installation/install_from_binary">Gogs</a> Go 写的 Git 服务，部署容易，功能简单易用。<strong>已试用</strong></li>
 <li><a href="https://docs.gitea.io/zh-cn/install-from-binary/">Gitea</a> Gogs 的 fork，有人嫌 Gogs 是一个人开发的，速度太慢功能太少，就 fork 了一个出来由社区继续开发。<strong>已试用</strong></li>
-<li><a href="https://docs.sentry.io/server/installation/">Sentry</a> 应用的异常catch服务，免费账户消息数量有限制，Docker 起一个也很方便，各种应用、服务的异常全部搜集过来好处理。<strong>已试用，安装需要 2核<strong><em>*2G</em></strong>*以上机器</strong></li>
+<li><a href="https://docs.sentry.io/server/installation/">Sentry</a> 应用的异常catch服务，免费账户消息数量有限制，Docker 起一个也很方便，各种应用、服务的异常全部搜集过来好处理。<strong>已试用，安装需要 2核***<em>2G</em></strong><em>以上机器</em>*</li>
 <li><a href="https://docs.mattermost.com/install/install-debian.html#">Mattermost</a> 开源 IM，类似 Slack，<strong>已试用，并且用上域名和 HTTPS</strong></li>
 <li><a href="http://docs.drone.io/">Drone</a> 一个新的 CI 工具，<a href="https://docs.drone.io/server/provider/gitlab/">Docker 安装</a>，试了一下，没安装成功，不过看界面还是挺不错的。</li>
 <li><a href="https://my-netdata.io/">netdata</a> 开源监控工具，黑色背景大屏看起来非常帅，安装升级都很简单，支持物联网设备，底层用 C 写成，所以不会非常消耗太多 CPU 和内存，<strong>已试用</strong></li>

@@ -102,13 +102,13 @@
 <p><img alt="move-to-pelican" src="https://breakwire.oss-cn-shanghai.aliyuncs.com/move-to-pelican.png"></p>
 <h2>RSS 设置</h2>
 <p><code>pelicanconf.py</code>:</p>
-<div class="highlight"><pre><span></span><span class="c1"># Feed generation is usually not desired when developing</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Feed generation is usually not desired when developing</span>
 <span class="n">FEED_DOMAIN</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span>
 <span class="n">FEED_ALL_ATOM</span> <span class="o">=</span> <span class="s1">&#39;feeds/all.atom.xml&#39;</span>
-<span class="n">CATEGORY_FEED_ATOM</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">TRANSLATION_FEED_ATOM</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">AUTHOR_FEED_ATOM</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">AUTHOR_FEED_RSS</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">CATEGORY_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">TRANSLATION_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">AUTHOR_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">AUTHOR_FEED_RSS</span> <span class="o">=</span> <span class="bp">None</span>
 
 <span class="c1"># Social widget</span>
 <span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;rss&#39;</span><span class="p">,</span> <span class="s1">&#39;http://blog.breakwire.me/feeds/all.atom.xml&#39;</span><span class="p">),</span>
@@ -116,42 +116,42 @@
           <span class="p">(</span><span class="s1">&#39;Instagram&#39;</span><span class="p">,</span> <span class="s1">&#39;https://instagram.com/lsdvincent&#39;</span><span class="p">),</span>
           <span class="p">(</span><span class="s1">&#39;GitHub&#39;</span><span class="p">,</span> <span class="s1">&#39;https://github.com/lsdlab&#39;</span><span class="p">),</span>
           <span class="p">(</span><span class="s1">&#39;Medium&#39;</span><span class="p">,</span> <span class="s1">&#39;https://medium.com/@breakwire&#39;</span><span class="p">),)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>RSS 的设置就是三个地方要改动，<code>FEED_DOMAIN</code> 和 <code>FEED_ALL_ATOM</code>，<code>SOCIAL</code> 就是页边底部的几个图标，</p>
 <h2>本地图片的引用</h2>
 <p>在文章中要引用本地图片需要设置静态目录：</p>
-<div class="highlight"><pre><span></span><span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="sa">u</span><span class="s2">&quot;images&quot;</span><span class="p">]</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="sa">u</span><span class="s2">&quot;images&quot;</span><span class="p">]</span>
+</code></pre></div>
 
 
 <p>这是个数组，在 <code>content</code> 目录下新建一个 <code>images</code> 目录，要想在 content 中的一篇文章中直接引用图片就是这样：</p>
-<div class="highlight"><pre><span></span><span class="err">!</span><span class="o">[</span><span class="n">posters2</span><span class="o">]</span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">breakwire</span><span class="p">.</span><span class="n">oss</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">shanghai</span><span class="p">.</span><span class="n">aliyuncs</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">poster2</span><span class="p">.</span><span class="n">jpg</span><span class="p">)</span><span class="w"></span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="o">[</span><span class="n">posters2</span><span class="o">]</span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">breakwire</span><span class="p">.</span><span class="n">oss</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">shanghai</span><span class="p">.</span><span class="n">aliyuncs</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">poster2</span><span class="p">.</span><span class="n">jpg</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 
 
 <p>再 <code>make html</code> 生成文件的时候他会把 <code>images</code> 目录中的文件复制到 <code>output</code> 中的 <code>images</code> 目录中。</p>
 <p>还有一个就是 <code>gilsondev/pelican-clean-blog</code> 的每篇文章都有个题图能设置，和直接在文章中引用是一样的：</p>
-<div class="highlight"><pre><span></span><span class="c">Header_Cover: /images/my-road-bike.jpg</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">Header_Cover</span><span class="p">:</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">road</span><span class="o">-</span><span class="n">bike</span><span class="p">.</span><span class="n">jpg</span>
+</code></pre></div>
 
 
 <p><strong>需要注意的是图片文件名不能有中文</strong></p>
 <h2>在文章中直接引用另一篇文章</h2>
 <p>应用的默认目录是 <code>content</code>，所以我在 <code>pages</code> ，<code>About</code> 页面中想引用一篇文章应该是这样：</p>
-<div class="highlight"><pre><span></span><span class="err">Ref to [Working for living]({filename}/2016-03-19.md).</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">Ref</span> <span class="nv">to</span> [<span class="nv">Working</span> <span class="k">for</span> <span class="nv">living</span>]<span class="ss">(</span>{<span class="nv">filename</span>}<span class="o">/</span><span class="mi">2016</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">19</span>.<span class="nv">md</span><span class="ss">)</span>.
+</code></pre></div>
 
 
 <p>要在一篇文章中引用一个页面也很简单：</p>
-<div class="highlight"><pre><span></span><span class="err">Ref to [Working for living]({filename}/pages/about.md).</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">Ref</span> <span class="nv">to</span> [<span class="nv">Working</span> <span class="k">for</span> <span class="nv">living</span>]<span class="ss">(</span>{<span class="nv">filename</span>}<span class="o">/</span><span class="nv">pages</span><span class="o">/</span><span class="nv">about</span>.<span class="nv">md</span><span class="ss">)</span>.
+</code></pre></div>
 
 
 <h2>新文章以及更新至 GitHub Pages 的 shell 脚本</h2>
 <p><a href="https://gist.github.com/lsdlab/957cc8887ef20514e27d">lsdlab/newblog.sh</a></p>
-<div class="highlight"><pre><span></span><span class="ch">#! /bin/zsh</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#! /bin/zsh</span>
 
 <span class="nb">cd</span> content/
 
@@ -168,18 +168,18 @@ cat&gt;<span class="si">${</span><span class="nv">fileName</span><span class="si
 <span class="s">Authors: Chen Jian</span>
 <span class="s">Summary:</span>
 <span class="s">EOF</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><a href="https://gist.github.com/lsdlab/89f6fbbd3c6681285167">lsdlab/publishblog.sh</a></p>
-<div class="highlight"><pre><span></span><span class="ch">#! /bin/zsh</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#! /bin/zsh</span>
 
 make html
 <span class="nb">cd</span> output
 git add .
 git commit -m <span class="s2">&quot;update&quot;</span>
 git push origin master
-</pre></div>
+</code></pre></div>
     </article>
 
 

@@ -127,7 +127,7 @@
 参数二：函数，与数组相对应</p>
 <p>保证所有的依赖（数组中的模块）被加载完成之后才会执行回调函数。</p>
 <p>underscore.js 在 RequireJS 中的 config 方法中配置模块名称与实际模块之间的映射关系：</p>
-<div class="highlight"><pre><span></span><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+<div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
     <span class="nx">path</span><span class="o">:</span> <span class="p">{</span>
         <span class="s1">&#39;underscore&#39;</span><span class="o">:</span> <span class="s1">&#39;libs/underscore/underscore&#39;</span>
         <span class="p">},</span>
@@ -137,7 +137,7 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">});</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>path 中可以省略扩展名 <code>.js</code>，shims 中暴露出 <code>_</code> underscore。</p>

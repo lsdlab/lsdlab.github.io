@@ -101,19 +101,19 @@
         <p>Octopress 是基于 jeklly 的开源博客引擎，静态界面 + Markdown + Git + 不需要服务器，搭建于 GitHub Pages 托管，配置还是十分简单的。暑假的时候看到有人写过 Blog，也尝试了一下，遇到了各种各样问题。由于没有学过 Ruby，在添加各种插件的尝试中也是有各种问题，前后重复了不下二三十次，暑假的时候安装好了一次，也调整好了主题 CSS，上上周上课的时候也不知道改动了什么文件，就给彻底搞坏了，花了好久才修好 Orz。这过程中还顺带学了 Git，Terminal 和 Vim 都是十分酷的东西，把步骤整理一下备忘。</p>
 <h3>0.  Git 和 Ruby 环境</h3>
 <p>这两个可以用 Homebrew 安装，Homebrew 安装、使用参考<a href="http://brew.sh/index_zh-cn.html">Homebrew</a>。安装完成后查看版本：</p>
-<div class="highlight"><pre><span></span>git —version
+<div class="highlight"><pre><span></span><code>git —version
 ruby --version
-</pre></div>
+</code></pre></div>
 
 
 <h3>1.  Octopress git clone 到本地</h3>
 <p>进入主目录 octopress 文件夹下安装相关依赖项及 Ruby 相关问题：</p>
-<div class="highlight"><pre><span></span>git clone git://github.com/imathis/octopress.git octopress
+<div class="highlight"><pre><span></span><code>git clone git://github.com/imathis/octopress.git octopress
 <span class="nb">cd</span> octopress
 gem install bundler
 rbenv rehash
 bundle install
-</pre></div>
+</code></pre></div>
 
 
 <p><code>gem install bundler</code> 如提示权限问题这条命令可能要加上：<code>sudo</code>。
@@ -125,38 +125,38 @@ bundle install
 每当切换 Ruby 版本和执行 <code>bundle install</code> 后都必须执行一次 <code>rbenv rehash</code>。</p>
 <h3>2. 继续安装默认主题或者是安装第三方主题</h3>
 <p>各种主题参考：<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">3rd Party Octopress Themes</a></p>
-<div class="highlight"><pre><span></span>rake install    <span class="c1"># 安装默认主题</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>rake install    <span class="c1"># 安装默认主题</span>
+</code></pre></div>
 
 
 <p>我这里用的是 <a href="https://github.com/lucaslew/whitespace">whitespace</a> 主题：</p>
-<div class="highlight"><pre><span></span>git clone git://github.com/lucaslew/whitespace.git .themes/whitespace
+<div class="highlight"><pre><span></span><code>git clone git://github.com/lucaslew/whitespace.git .themes/whitespace
 rake install<span class="o">[</span><span class="s2">&quot;whitespace&quot;</span><span class="o">]</span>
 rake generate    <span class="c1"># 生成静态界面</span>
 rake preview    <span class="c1"># localhost:4000 端口预览，预览完成 Ctrl+C</span>
 rake deploy    <span class="c1"># 部署</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>3. 在 GitHub 上进行部署</h3>
 <p>GitHub 创建一个 repository，名为<code>yourBlogname.github.io</code>。</p>
-<div class="highlight"><pre><span></span>rake setup_github_pages    <span class="c1"># input your repository&#39;s url</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>rake setup_github_pages    <span class="c1"># input your repository&#39;s url</span>
+</code></pre></div>
 
 
 <p>然后就是用Git 本地文件上传至GitHub 仓库：</p>
-<div class="highlight"><pre><span></span>git add .    <span class="c1"># 工作区全部修改提交至暂存区</span>
+<div class="highlight"><pre><span></span><code>git add .    <span class="c1"># 工作区全部修改提交至暂存区</span>
 git commit -m <span class="s2">&quot;first commit&quot;</span>    <span class="c1"># 添加commit 信息</span>
 git push origin <span class="nb">source</span>   <span class="c1"># 提交至source 分支</span>
 rake deploy    <span class="c1"># 部署</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>到这里结束就已经搭建完成了，但是里面什么东西都没有。 octopress 目录中<code>_config.yml</code> 是配置文件，里面保存这配置信息，博客名称，第三方组件设置信息，这个就留着第二篇在写吧。</p>
 <p>还有就是建立电脑 SSH Key 链接到 GitHub 的问题，很容易，直接看 GitHub 的英文说明都能看得懂：<a href="https://help.github.com/articles/generating-ssh-keys">Generating SSH Keys</a>。</p>
 <h3>4. 发布文章</h3>
-<div class="highlight"><pre><span></span>rake new_post<span class="o">[</span><span class="s2">&quot;title&quot;</span><span class="o">]</span>    <span class="c1"># 生成 source/_post/YYYY-MM-DD-title.markdown 文件</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>rake new_post<span class="o">[</span><span class="s2">&quot;title&quot;</span><span class="o">]</span>    <span class="c1"># 生成 source/_post/YYYY-MM-DD-title.markdown 文件</span>
+</code></pre></div>
 
 
 <p>编辑好文章之后从第四步的 <code>git add .</code>，接下来四个命令就完成了文章的发布。</p>

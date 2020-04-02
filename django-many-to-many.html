@@ -101,33 +101,33 @@
         <h3><code>ManyToManyField</code></h3>
 <p>Django 框架中外键就是 QuerySet  对象，刚开始我一直没明白很多复杂的查询在 Django 里面怎么实现，昨天在 StackOverflow 上问了下，果然就搞明白了，这下有的就好办多了：</p>
 <h4><code>models.py</code></h4>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
 
 
 <span class="c1"># Create your models here.</span>
 <span class="k">class</span> <span class="nc">Tag</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
    <span class="n">tag_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
 
-   <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+   <span class="k">def</span> <span class="fm">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag_name</span>
 
 
 <span class="k">class</span> <span class="nc">Article</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
    <span class="n">category</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-   <span class="n">tag</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Tag</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-   <span class="n">publish_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-   <span class="n">update_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+   <span class="n">tag</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Tag</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+   <span class="n">publish_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+   <span class="n">update_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
    <span class="n">content</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>一篇文章有多个标签，<code>Article</code> 表中 <code>tag</code> 字段是 <code>Tag</code> 表的多对多外键，我要在文章列表做首页的地方怎么把每篇文章的标签全列出来我就不明白了，在 <code>views.py</code> 里面能通过 <code>id</code> 先把这篇文章取出来，再把对应的 <code>tag</code> 取出来，两个参数列表传到模板中进行渲染：<code>post = Article.objects.get(id=str(id))    tags = post.tag.all()</code>，这个倒是能理解。</p>
 <h4><code>views.py</code></h4>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
    <span class="n">posts</span> <span class="o">=</span> <span class="n">Article</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-publish_time&#39;</span><span class="p">)</span>
    <span class="n">paginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">posts</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
    <span class="n">page</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">)</span>
@@ -138,12 +138,12 @@
    <span class="k">except</span> <span class="n">EmptyPage</span><span class="p">:</span>
        <span class="n">post_list</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">paginator</span><span class="p">(</span><span class="n">paginator</span><span class="o">.</span><span class="n">num_pages</span><span class="p">)</span>
    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;home.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;post_list&#39;</span><span class="p">:</span> <span class="n">post_list</span><span class="p">})</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>这里只把全部文章取出来，然后按发布时间倒序排列，还进行了分页，四篇一页，放在 <code>post_list</code> 这个参数列表中，然后在给 <code>home.html</code> 渲染：</p>
 <h4><code>home.html</code></h4>
-<div class="highlight"><pre><span></span>{% raw %}
+<div class="highlight"><pre><span></span><code>{% raw %}
 {% block content %}
    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;blog-post&quot;</span><span class="p">&gt;</span>
        {% for post in post_list %}
@@ -188,17 +188,17 @@
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span><span class="c">&lt;!-- /.blog-post --&gt;</span>
 {% endblock %}
 {% endraw %}
-</pre></div>
+</code></pre></div>
 
 
 <p>关键就在于：</p>
-<div class="highlight"><pre><span></span>{% raw %}
+<div class="highlight"><pre><span></span><code>{% raw %}
 <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>标签：<span class="err">&amp;</span>nbsp<span class="err">&amp;</span>nbsp<span class="err">&amp;</span>nbsp<span class="err">&amp;</span>nbsp<span class="err">&amp;</span>nbsp<span class="err">&amp;</span>nbsp
 {% for tag in post.tag.all %}
    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;label label-primary&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>{{ tag }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 {% endfor %}
 {% endraw %}
-</pre></div>
+</code></pre></div>
 
 
 <p>最开始已经把每篇文章通过 <code>for</code> 循环放在 <code>post</code> 里面了，想读单独一篇的文章的标签就再用 <code>for</code> 循环 <code>for tag in post.tag.all</code>。</p>

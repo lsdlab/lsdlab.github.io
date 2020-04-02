@@ -108,7 +108,7 @@
 <p>libxml2-dev 是用来解析 uwsgi 的 .xml 脚本的，pcre 是 Perl 的正则表达式解析库，Django 解析 URL 的，python-dev 我也不知道是干什么的</p>
 <p>Nginx 开个 80 端口，uwsgi_pass 传给 8001 这个端口，uwsgi 在通过这里把 Django 跑起来。</p>
 <h3>1. Nginx 配置 <code>/etc/nginx/sites-enabled/my_app.conf</code></h3>
-<div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
        <span class="c1"># the port your site will be served on</span>
        <span class="kn">listen</span>      <span class="mi">80</span><span class="p">;</span>
        <span class="c1"># the domain name it will serve for</span>
@@ -137,11 +137,11 @@
                <span class="kn">include</span>    <span class="s">/home/chen/my_app/uwsgi_params</span><span class="p">;</span> <span class="c1"># the uwsgi_params file you installed</span>
    <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>2. Django 项目下需要从 Nginx 源码中复制出一份 <code>uwsgi_params</code></h3>
-<div class="highlight"><pre><span></span><span class="n">uwsgi_param</span>  <span class="n">QUERY_STRING</span>       <span class="err">$</span><span class="n">query_string</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="n">uwsgi_param</span>  <span class="n">QUERY_STRING</span>       <span class="err">$</span><span class="n">query_string</span><span class="p">;</span>
 <span class="n">uwsgi_param</span>  <span class="n">REQUEST_METHOD</span>     <span class="err">$</span><span class="n">request_method</span><span class="p">;</span>
 <span class="n">uwsgi_param</span>  <span class="n">CONTENT_TYPE</span>       <span class="err">$</span><span class="n">content_type</span><span class="p">;</span>
 <span class="n">uwsgi_param</span>  <span class="n">CONTENT_LENGTH</span>     <span class="err">$</span><span class="n">content_length</span><span class="p">;</span>
@@ -157,40 +157,40 @@
 <span class="n">uwsgi_param</span>  <span class="n">REMOTE_PORT</span>        <span class="err">$</span><span class="n">remote_port</span><span class="p">;</span>
 <span class="n">uwsgi_param</span>  <span class="n">SERVER_PORT</span>        <span class="err">$</span><span class="n">server_port</span><span class="p">;</span>
 <span class="n">uwsgi_param</span>  <span class="n">SERVER_NAME</span>        <span class="err">$</span><span class="n">server_name</span><span class="p">;</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>3. Django 项目下需要一个 <code>my_app_wsgi.py</code></h3>
-<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="n">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
+<span class="nb">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">django.core.wsgi</span> <span class="kn">import</span> <span class="n">get_wsgi_application</span>    <span class="c1"># Django 1.7 前是 from django.core.handlers.wsgi import WSGIHandler</span>
 
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;DJANGO_SETTINGS_MODULE&quot;</span><span class="p">,</span> <span class="s2">&quot;my_app.settings&quot;</span><span class="p">)</span>    <span class="c1"># “你的项目.settings”</span>
 <span class="n">application</span> <span class="o">=</span> <span class="n">get_wsgi_application</span><span class="p">()</span>    <span class="c1"># 1.7以前是 application = WSGIHandler()</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>4. uwsgi 启动脚本 <code>my_app_socket.xml</code> 放在 Django 项目下</h3>
-<div class="highlight"><pre><span></span>&lt;uwsgi&gt;
+<div class="highlight"><pre><span></span><code>&lt;uwsgi&gt;
        &lt;socket&gt;IP OR DOMAIN:8001&lt;/socket&gt;
        &lt;chdir&gt;/home/chen/my_app&lt;/chdir&gt;
        &lt;module&gt;my_app_wsgi&lt;/module&gt;
        &lt;processes&gt;4&lt;/processes&gt;
        &lt;daemonize&gt;/home/chen/my_app/uwsgi.log&lt;/daemonize&gt;
 &lt;/uwsgi&gt;
-</pre></div>
+</code></pre></div>
 
 
 <p>最后重启 Nginx，启动 uwsgi 的脚本 load Django App</p>
-<div class="highlight"><pre><span></span>sudo nginx -s reload
+<div class="highlight"><pre><span></span><code>sudo nginx -s reload
 uwsgi -x  my_app_socket.xml
-</pre></div>
+</code></pre></div>
     </article>
 
 

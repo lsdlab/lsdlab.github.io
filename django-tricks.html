@@ -102,7 +102,7 @@
 新手建议，可以参考，第四点我还是没明白，看了别人的代码都是把各种业务逻辑写在 <code>views.py</code>，怎么写到另外的地方。</p>
 <h2>1. 硬编码</h2>
 <p>像导航栏上的各种项目，需要进行跳转，或者静态文件，媒体文件，需要从开发环境部署上线 的时候就很麻烦。</p>
-<div class="highlight"><pre><span></span><span class="c1"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>    <span class="c1"># 项目的根目录，其它的模板文件，静态文件，媒体文件都是根据 `BASE_DIR`</span>
 
@@ -118,35 +118,35 @@
     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;static&quot;</span><span class="p">),</span>
     <span class="s1">&#39;/var/www/static/&#39;</span><span class="p">,</span>
 <span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>STATIC_URL</code> 是用来在模板里面载入静态的媒体文件，图片，音频，视频，用法如下：</p>
-<div class="highlight"><pre><span></span>{% load staticfiles %}
+<div class="highlight"><pre><span></span><code>{% load staticfiles %}
 <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{% static &quot;</span><span class="na">my_app</span><span class="err">/</span><span class="na">myexample</span><span class="err">.</span><span class="na">jpg</span><span class="err">&quot;</span> <span class="err">%}&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;My image&quot;</span><span class="p">/&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>这个地方还是把图片文件放在了项目下的 <code>static</code> 文件夹，每个 App 单独一个文件夹。</p>
-<div class="highlight"><pre><span></span><span class="c">&lt;!-- loading Bootstrap core CSS --&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="c">&lt;!-- loading Bootstrap core CSS --&gt;</span>
 <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ STATIC_URL }}css/bootstrap.min.css&quot;</span><span class="p">&gt;</span>
 <span class="c">&lt;!-- loading customise CSS --&gt;</span>
 <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ STATIC_URL }}css/base_customise.css&quot;</span><span class="p">&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>CSS, JS 文件设置，注意 <code>css</code> 前没有 <code>/</code>，在 <code>STATIC_URL</code> 中已经有了斜杠。
 第二个 <code>STATICFILES_DIRS</code> 我还没明白到底是干什么的，文档里面写的是设置不同的静态文件目录，不绑定给特定的 App 用（看了半天英文还是没有明白……不过这个是必须要设置的，不设置那就找不到 CSS 和 JS 文件了）。部署到线上的的话就要把 <code>STATICFILES_DIRS</code> 换成 <code>STATIC_ROOT = "/home/chen/DjangoProjects/static"</code>，服务器上的文件夹。</p>
 <h2>2. URL</h2>
 <p>URL 设置 <code>urls.py</code> 放在每个 App 下面，除非 App 真的很小，功能很少那放在和 <code>settings.py</code> 一个文件夹下的 <code>urls.py</code> 也没问题，一旦 App 大了之后给每个 App 单独设置 URL，和 <code>models.py</code> <code>views.py</code> 一起在 App 文件夹下，这样能够重用 App 到不通的项目中，在项目的 <code>urls.py</code> 中设置：</p>
-<div class="highlight"><pre><span></span><span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;garage.urls&#39;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;garage&#39;</span><span class="p">)),</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;garage.urls&#39;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;garage&#39;</span><span class="p">)),</span>
+</code></pre></div>
 
 
 <p>这里的 <code>namespace</code> 是给在模板中直接调用 URL 用的，避免硬编码</p>
 <p>{% raw %}</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;garage:index&#39; %}&quot;</span><span class="p">&gt;</span>BookGarage<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;garage:index&#39; %}&quot;</span><span class="p">&gt;</span>BookGarage<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
 
 
 <p>{% endraw %}</p>

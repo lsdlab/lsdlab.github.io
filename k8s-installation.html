@@ -103,22 +103,22 @@
 <h2>安装 k8s</h2>
 <h3>安装 kubeadm kubelet kubectl</h3>
 <p>还是得用国内镜像源</p>
-<div class="highlight"><pre><span></span>sudo vi /etc/apt/sources.list.d/kubernetes.list
+<div class="highlight"><pre><span></span><code>sudo vi /etc/apt/sources.list.d/kubernetes.list
 deb http://mirrors.ustc.edu.cn/kubernetes/apt kubernetes-xenial main
 sudo apt-get update
 apt-get install kubelet kubeadm kubectl
-</pre></div>
+</code></pre></div>
 
 
 <p>这里有个坑，安装好这三个组件后，kubelet 可能会起不来，照理说应该是会作为 system services 自动启动的，多等一会，如果还是不能启动的话就手动 <code>sudo kubelet</code> 启动一下，然后杀掉，再等一会看会不会启动，完全看运气，查了很多的资料发现各种文档教程都没写明白，装 k8s 有好几个坑，没一个说明白的，全靠自己想办法和猜，总之 kubelet 要启动起来。</p>
 <h3>在宿主机上下载好 k8s 需要的 image 并打好 tag</h3>
 <p>根据当前系统的版本，或得 k8s 需要 image 的版本</p>
-<div class="highlight"><pre><span></span>kubeadm config images list
-</pre></div>
+<div class="highlight"><pre><span></span><code>kubeadm config images list
+</code></pre></div>
 
 
 <p>得到版本号后从阿里云下载 k8s 需要的 image</p>
-<div class="highlight"><pre><span></span>docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.15.1
+<div class="highlight"><pre><span></span><code>docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.15.1
 docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.15.1
 docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.15.1
 docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.15.1
@@ -133,18 +133,18 @@ docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.15.
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 k8s.gcr.io/pause:3.1
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.3.10 k8s.gcr.io/etcd:3.3.10
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.3.1 k8s.gcr.io/coredns:1.3.1
-</pre></div>
+</code></pre></div>
 
 
 <h3>在宿主机上启动 master 节点</h3>
-<div class="highlight"><pre><span></span>sudo kubeadm init
-</pre></div>
+<div class="highlight"><pre><span></span><code>sudo kubeadm init
+</code></pre></div>
 
 
 <p>不加任何参数，很多的文档教程都写了不通的网络组件用不通的参数，默认就应该用 CNI，不加任何参数，启动 master 节点完成后会显示 kubeadm join 的命令，基本算是完成了启动，但是还没法用，得编辑 CNI 网络组件的两个文件才行。</p>
 <p>init 完成后会出现三条编辑配置的命令，顺序执行就好。</p>
 <h3>宿主机上编辑 CNI 网络组件配置</h3>
-<div class="highlight"><pre><span></span>mkdir -p /etc/cni/net.d
+<div class="highlight"><pre><span></span><code>mkdir -p /etc/cni/net.d
 
 sudo nano /etc/cni/net.d/10-mynet.conf
 
@@ -170,17 +170,17 @@ sudo nano /etc/cni/net.d/99-loopback.conf
     <span class="s2">&quot;cniVersion&quot;</span>: <span class="s2">&quot;0.3.0&quot;</span>,
     <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;loopback&quot;</span>
 <span class="o">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>检查主节点是否 ready</p>
-<div class="highlight"><pre><span></span>sudo kubectl get nodes -o wide
-</pre></div>
+<div class="highlight"><pre><span></span><code>sudo kubectl get nodes -o wide
+</code></pre></div>
 
 
 <p>检查主节点容器是否正常运行</p>
-<div class="highlight"><pre><span></span>sudo kubectl get pods -n kube-system
-</pre></div>
+<div class="highlight"><pre><span></span><code>sudo kubectl get pods -n kube-system
+</code></pre></div>
 
 
 <p>如果显示 Ready，并且容器也都是 running 状态，那就证明主节点正常运行了。</p>
