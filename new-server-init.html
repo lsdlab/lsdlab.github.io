@@ -107,45 +107,45 @@
 <p>gitlab-runner https://mirror.tuna.tsinghua.edu.cn/help/gitlab-runner/</p>
 <p>pypi https://mirror.tuna.tsinghua.edu.cn/help/pypi/</p>
 <h2>基础软件</h2>
-<div class="highlight"><pre><span></span><code><span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">wget</span> <span class="n">curl</span> <span class="n">zsh</span> <span class="n">tmux</span> <span class="n">git</span> <span class="n">vim</span> <span class="n">gcc</span> <span class="k">g</span><span class="o">++</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="err">apt-get install wget curl zsh tmux git vim gcc g++</span>
+</pre></div>
 
 
 <h2>on-my-zsh</h2>
-<div class="highlight"><pre><span></span><code><span class="n">sh</span> <span class="o">-</span><span class="k">c</span> <span class="ss">&quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="err">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span>
+</pre></div>
 
 
 <h2>tmux</h2>
 <p>https://github.com/wklken/k-tmux</p>
-<div class="highlight"><pre><span></span><code><span class="nv">curl</span> <span class="nv">https</span>:<span class="o">//</span><span class="nv">raw</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">wklken</span><span class="o">/</span><span class="nv">k</span><span class="o">-</span><span class="nv">tmux</span><span class="o">/</span><span class="nv">master</span><span class="o">/</span><span class="nv">tmux</span>.<span class="nv">conf</span> <span class="o">&gt;</span> <span class="o">~/</span>.<span class="nv">tmux</span>.<span class="nv">conf</span>
+<div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="p">.</span><span class="n">githubusercontent</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">wklken</span><span class="o">/</span><span class="n">k</span><span class="o">-</span><span class="n">tmux</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">tmux</span><span class="p">.</span><span class="n">conf</span> <span class="o">&gt;</span> <span class="o">~/</span><span class="p">.</span><span class="n">tmux</span><span class="p">.</span><span class="n">conf</span>
 
-<span class="nv">curl</span> <span class="nv">https</span>:<span class="o">//</span><span class="nv">raw</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">wklken</span><span class="o">/</span><span class="nv">vim</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">server</span><span class="o">/</span><span class="nv">master</span><span class="o">/</span><span class="nv">vimrc</span> <span class="o">&gt;</span> <span class="o">~/</span>.<span class="nv">vimrc</span>
-</code></pre></div>
+<span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="p">.</span><span class="n">githubusercontent</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">wklken</span><span class="o">/</span><span class="n">vim</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">vimrc</span> <span class="o">&gt;</span> <span class="o">~/</span><span class="p">.</span><span class="n">vimrc</span>
+</pre></div>
 
 
 <h2>vim</h2>
 <p>https://github.com/wklken/k-vim</p>
 <p>https://github.com/wklken/vim-for-server</p>
-<div class="highlight"><pre><span></span><code><span class="nv">curl</span> <span class="nv">https</span>:<span class="o">//</span><span class="nv">raw</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">wklken</span><span class="o">/</span><span class="nv">vim</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">server</span><span class="o">/</span><span class="nv">master</span><span class="o">/</span><span class="nv">vimrc</span> <span class="o">&gt;</span> <span class="o">~/</span>.<span class="nv">vimrc</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="err">curl https://raw.githubusercontent.com/wklken/vim-for-server/master/vimrc &gt; ~/.vimrc</span>
+</pre></div>
 
 
 <h2>pyenv</h2>
-<div class="highlight"><pre><span></span><code><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pyenv</span><span class="p">.</span><span class="n">run</span> <span class="o">|</span> <span class="n">bash</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="err">curl https://pyenv.run | bash</span>
+</pre></div>
 
 
 <p>加入 zshrc</p>
-<div class="highlight"><pre><span></span><code><span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="ss">&quot;/root/.pyenv/bin:$PATH&quot;</span>
-<span class="n">eval</span> <span class="ss">&quot;$(pyenv init -)&quot;</span>
-<span class="n">eval</span> <span class="ss">&quot;$(pyenv virtualenv-init -)&quot;</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="err">export PATH=&quot;/root/.pyenv/bin:$PATH&quot;</span>
+<span class="err">eval &quot;$(pyenv init -)&quot;</span>
+<span class="err">eval &quot;$(pyenv virtualenv-init -)&quot;</span>
+</pre></div>
 
 
 <h2>Debian/Ubuntu 编译安装 python-3.8.2</h2>
 <p>pyenv 太慢</p>
-<div class="highlight"><pre><span></span><code><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">python</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">ftp</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="mi">3</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">2</span><span class="o">/</span><span class="n">Python</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="n">tgz</span>
+<div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">python</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">ftp</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="mi">3</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">2</span><span class="o">/</span><span class="n">Python</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="n">tgz</span>
 
 <span class="n">gzip</span> <span class="o">-</span><span class="n">d</span> <span class="n">Python</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="n">tgz</span> <span class="n">python</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">2</span>
 
@@ -160,7 +160,7 @@
 <span class="n">sudo</span> <span class="n">make</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
 
 <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">pip</span> <span class="n">setuptools</span>
-</code></pre></div>
+</pre></div>
 
 
 <h2>postgresql</h2>
@@ -171,13 +171,13 @@
 <p>创建数据库  <code>createdb spendingviz</code></p>
 <p>删除数据库  <code>dropdb spendingviz</code></p>
 <h3>启动 重启</h3>
-<div class="highlight"><pre><span></span><code><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">postgresql</span> <span class="k">start</span>
-<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">postgresql</span> <span class="k">restart</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="err">/etc/init.d/postgresql start</span>
+<span class="err">/etc/init.d/postgresql restart</span>
+</pre></div>
 
 
 <h3>用户 密码 远程连接</h3>
-<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">su</span> <span class="n">postgres</span>
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">su</span> <span class="n">postgres</span>
 <span class="k">createuser</span> <span class="c1">--interactive</span>
 <span class="n">chen</span>
 <span class="n">y</span>
@@ -198,182 +198,200 @@
 <span class="err">\</span><span class="n">dt</span>
 <span class="err">\</span><span class="n">d</span> <span class="n">entry</span>
 <span class="err">​</span><span class="o">```</span>
-</code></pre></div>
 
 
-<h3>根据系统配置生成优化的  postgresql.conf</h3>
-<p>http://pgtune.leopard.in.ua/</p>
-<h2>rabbitmq</h2>
-<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span>
-<span class="n">sudo</span> <span class="n">rabbitmqctl</span> <span class="n">add_user</span> <span class="n">djshop</span> <span class="n">passwordxxx</span>
-<span class="n">sudo</span> <span class="n">rabbitmqctl</span> <span class="n">set_user_tags</span> <span class="n">djshop</span> <span class="n">administrator</span>
-<span class="n">sudo</span> <span class="n">rabbitmqctl</span> <span class="n">set_permissions</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span> <span class="n">djshop</span> <span class="ss">&quot;.*&quot;</span> <span class="ss">&quot;.*&quot;</span> <span class="ss">&quot;.*&quot;</span>
 
-<span class="n">rabbitmq</span><span class="o">-</span><span class="n">plugins</span> <span class="n">enable</span> <span class="n">rabbitmq_management</span> <span class="n">rabbitmq_stomp</span> <span class="n">rabbitmq_web_stomp</span>
-</code></pre></div>
+<span class="o">###</span> <span class="err">根据系统配置生成优化的</span>  <span class="n">postgresql</span><span class="p">.</span><span class="n">conf</span>
 
 
-<h2>nginx</h2>
-<p>verynginx: https://github.com/alexazhou/VeryNginx/blob/master/readme_zh.md</p>
-<h3>proxy_params</h3>
-<div class="highlight"><pre><span></span><code><span class="nv">proxy_set_header</span> <span class="nv">Host</span> $<span class="nv">http_host</span><span class="c1">;</span>
-<span class="nv">proxy_set_header</span> <span class="nv">X</span><span class="o">-</span><span class="nv">Real</span><span class="o">-</span><span class="nv">IP</span> $<span class="nv">remote_addr</span><span class="c1">;</span>
-<span class="nv">proxy_set_header</span> <span class="nv">X</span><span class="o">-</span><span class="nv">Forwarded</span><span class="o">-</span><span class="k">For</span> $<span class="nv">proxy_add_x_forwarded_for</span><span class="c1">;</span>
-<span class="nv">proxy_set_header</span> <span class="nv">X</span><span class="o">-</span><span class="nv">Forwarded</span><span class="o">-</span><span class="nv">Proto</span> $<span class="nv">scheme</span><span class="c1">;</span>
-</code></pre></div>
+
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">pgtune</span><span class="p">.</span><span class="n">leopard</span><span class="p">.</span><span class="k">in</span><span class="p">.</span><span class="n">ua</span><span class="o">/</span>
 
 
-<h3>Django</h3>
-<div class="highlight"><pre><span></span><code><span class="nv">server</span> {
-    <span class="nv">listen</span>      <span class="mi">443</span> <span class="nv">ssl</span><span class="c1">;</span>
-    <span class="nv">server_name</span> <span class="nv">breakwire</span>.<span class="nv">me</span><span class="c1">;</span>
-    # <span class="nv">location</span>
-    <span class="nv">location</span> <span class="o">/</span><span class="nv">static</span> {
-        <span class="nv">alias</span> <span class="o">/</span><span class="nv">root</span><span class="o">/</span><span class="nv">ade</span><span class="o">/</span><span class="nv">apps</span><span class="o">/</span><span class="nv">static</span><span class="c1">;</span>
+
+<span class="o">##</span> <span class="n">rabbitmq</span>
+</pre></div>
+
+
+<p>sudo apt-get install rabbitmq-server
+sudo rabbitmqctl add_user djshop passwordxxx
+sudo rabbitmqctl set_user_tags djshop administrator
+sudo rabbitmqctl set_permissions -p / djshop ".<em>" ".</em>" ".*"</p>
+<p>rabbitmq-plugins enable rabbitmq_management rabbitmq_stomp rabbitmq_web_stomp</p>
+<div class="highlight"><pre><span></span><span class="o">##</span> <span class="n">nginx</span>
+
+
+
+<span class="n">verynginx</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">alexazhou</span><span class="o">/</span><span class="n">VeryNginx</span><span class="o">/</span><span class="nb">blob</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">readme_zh</span><span class="p">.</span><span class="n">md</span>
+
+
+
+<span class="o">###</span> <span class="n">proxy_params</span>
+</pre></div>
+
+
+<p>proxy_set_header Host $http_host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto $scheme;</p>
+<div class="highlight"><pre><span></span><span class="err">### Django</span>
+</pre></div>
+
+
+<p>server {
+    listen      443 ssl;
+    server_name breakwire.me;
+    # location
+    location /static {
+        alias /root/ade/apps/static;
     }
-    <span class="nv">location</span> <span class="o">/</span><span class="nv">media</span> {
-        <span class="nv">alias</span> <span class="o">/</span><span class="nv">root</span><span class="o">/</span><span class="nv">ade</span><span class="o">/</span><span class="nv">apps</span><span class="o">/</span><span class="nv">media</span><span class="c1">;</span>
+    location /media {
+        alias /root/ade/apps/media;
     }
-    <span class="nv">location</span> <span class="o">/</span> {
-        <span class="k">include</span> <span class="nv">proxy_params</span><span class="c1">;</span>
-        <span class="nv">proxy_pass</span> <span class="nv">http</span>:<span class="o">//</span><span class="nv">unix</span>:<span class="o">/</span><span class="nv">root</span><span class="o">/</span><span class="nv">ade</span><span class="o">/</span><span class="nv">ade</span>.<span class="nv">sock</span><span class="c1">;</span>
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/root/ade/ade.sock;
     }
-    # <span class="nv">Let</span> <span class="nv">Encrypt</span>
-    <span class="nv">ssl</span> <span class="nv">on</span><span class="c1">;</span>
-    <span class="nv">ssl_certificate</span>     <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">letsencrypt</span><span class="o">/</span><span class="nv">live</span><span class="o">/</span><span class="nv">breakwire</span>.<span class="nv">me</span><span class="o">/</span><span class="nv">fullchain</span>.<span class="nv">pem</span><span class="c1">;</span>
-    <span class="nv">ssl_certificate_key</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">letsencrypt</span><span class="o">/</span><span class="nv">live</span><span class="o">/</span><span class="nv">breakwire</span>.<span class="nv">me</span><span class="o">/</span><span class="nv">privkey</span>.<span class="nv">pem</span><span class="c1">;</span>
-    <span class="nv">ssl_protocols</span> <span class="nv">TLSv1</span> <span class="nv">TLSv1</span>.<span class="mi">1</span> <span class="nv">TLSv1</span>.<span class="mi">2</span><span class="c1">;</span>
-    <span class="nv">ssl_prefer_server_ciphers</span> <span class="nv">on</span><span class="c1">;</span>
-    <span class="nv">ssl_ciphers</span> <span class="s2">&quot;</span><span class="s">EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS</span><span class="s2">&quot;</span><span class="c1">;</span>
-    <span class="nv">allow</span> <span class="nv">all</span><span class="c1">;</span>
-    <span class="o">*</span># <span class="nv">logs</span><span class="o">*</span>
-    <span class="nv">access_log</span> <span class="o">/</span><span class="nv">root</span><span class="o">/</span><span class="nv">logs</span><span class="o">/</span><span class="nv">nginx</span>.<span class="nv">access</span>.<span class="nv">log</span><span class="c1">;</span>
-    <span class="nv">error_log</span> <span class="o">/</span><span class="nv">root</span><span class="o">/</span><span class="nv">logs</span><span class="o">/</span><span class="nv">nginx</span>.<span class="nv">error</span>.<span class="nv">log</span><span class="c1">;</span>
-    <span class="o">*</span># <span class="nv">gzip</span><span class="o">*</span>
-    <span class="nv">gzip</span> <span class="nv">on</span><span class="c1">;</span>
-    <span class="nv">gzip_min_length</span> <span class="mi">1</span><span class="nv">k</span><span class="c1">;</span>
-    <span class="nv">gzip_buffers</span> <span class="mi">4</span> <span class="mi">16</span><span class="nv">k</span><span class="c1">;</span>
-    <span class="nv">gzip_comp_level</span> <span class="mi">5</span><span class="c1">;</span>
-    <span class="nv">gzip_types</span> <span class="nv">text</span><span class="o">/</span><span class="nv">plain</span> <span class="nv">text</span><span class="o">/</span><span class="nv">css</span> <span class="nv">application</span><span class="o">/</span><span class="nv">javascript</span> <span class="nv">application</span><span class="o">/</span><span class="nv">xml</span> <span class="nv">application</span><span class="o">/</span><span class="nv">xhtml</span><span class="o">+</span><span class="nv">xml</span> <span class="nv">application</span><span class="o">/</span><span class="nv">json</span> <span class="nv">image</span><span class="o">/</span><span class="nv">gif</span> <span class="nv">image</span><span class="o">/</span><span class="nv">jpeg</span> <span class="nv">image</span><span class="o">/</span><span class="nv">png</span><span class="c1">;</span>
-    <span class="nv">gzip_disable</span> <span class="s2">&quot;</span><span class="s">MSIE [1-6]\.</span><span class="s2">&quot;</span><span class="c1">;</span>
+    # Let Encrypt
+    ssl on;
+    ssl_certificate     /etc/letsencrypt/live/breakwire.me/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/breakwire.me/privkey.pem;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers "EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS";
+    allow all;
+    <em># logs</em>
+    access_log /root/logs/nginx.access.log;
+    error_log /root/logs/nginx.error.log;
+    <em># gzip</em>
+    gzip on;
+    gzip_min_length 1k;
+    gzip_buffers 4 16k;
+    gzip_comp_level 5;
+    gzip_types text/plain text/css application/javascript application/xml application/xhtml+xml application/json image/gif image/jpeg image/png;
+    gzip_disable "MSIE [1-6].";
 }
-<span class="nv">server</span> {
-    <span class="nv">listen</span> <span class="mi">80</span><span class="c1">;</span>
-    <span class="nv">server_name</span> <span class="nv">breakwire</span>.<span class="nv">me</span><span class="c1">;</span>
-    <span class="k">return</span> <span class="mi">301</span> <span class="nv">https</span>:<span class="o">//</span>$<span class="nv">server_name</span>$<span class="nv">request_uri</span><span class="c1">;</span>
-}
-</code></pre></div>
+server {
+    listen 80;
+    server_name breakwire.me;
+    return 301 https://$server_name$request_uri;
+}</p>
+<div class="highlight"><pre><span></span><span class="o">###</span> <span class="n">breakwire</span><span class="p">.</span><span class="n">me</span> <span class="err">静态网页</span>
 
 
-<h3>breakwire.me 静态网页</h3>
-<p>Django 实例中的三个 location 换成下面这个</p>
-<div class="highlight"><pre><span></span><code><span class="k">location</span> <span class="o">/</span> <span class="err">{</span>
-   <span class="n">root</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">lsdlab</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="p">;</span>
-   <span class="k">index</span> <span class="k">index</span><span class="p">.</span><span class="n">html</span><span class="p">;</span>
-<span class="err">}</span>
-</code></pre></div>
+
+<span class="n">Django</span> <span class="err">实例中的三个</span> <span class="k">location</span> <span class="err">换成下面这个</span>
+</pre></div>
 
 
-<h3>端口反代</h3>
-<div class="highlight"><pre><span></span><code><span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
-    <span class="err">proxy_pass</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">:</span><span class="mi">3000</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>location / {
+   root /root/lsdlab.github.io/;
+   index index.html;
+}</p>
+<div class="highlight"><pre><span></span><span class="err">### 端口反代</span>
+</pre></div>
 
 
-<h3>wordpress.conf</h3>
-<div class="highlight"><pre><span></span><code><span class="nv">server</span> {
-    <span class="nv">root</span> <span class="o">/</span><span class="nv">var</span><span class="o">/</span><span class="nv">www</span><span class="o">/</span><span class="nv">html</span><span class="c1">;</span>
-    # <span class="nv">Add</span> <span class="nv">index</span>.<span class="nv">php</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">list</span> <span class="k">if</span> <span class="nv">you</span> <span class="nv">are</span> <span class="nv">using</span> <span class="nv">PHP</span>
-    <span class="nv">index</span> <span class="nv">index</span>.<span class="nv">php</span> <span class="nv">index</span>.<span class="nv">html</span> <span class="nv">index</span>.<span class="nv">htm</span> <span class="nv">index</span>.<span class="nv">nginx</span><span class="o">-</span><span class="nv">debian</span>.<span class="nv">html</span><span class="c1">;</span>
-    # <span class="nv">Let</span> <span class="nv">Encrypt</span>
-    <span class="nv">listen</span> <span class="mi">443</span> <span class="nv">ssl</span><span class="c1">; # managed by Certbot</span>
-    <span class="k">include</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">letsencrypt</span><span class="o">/</span><span class="nv">options</span><span class="o">-</span><span class="nv">ssl</span><span class="o">-</span><span class="nv">nginx</span>.<span class="nv">conf</span><span class="c1">; # managed by Certbot</span>
-    <span class="nv">ssl_dhparam</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">letsencrypt</span><span class="o">/</span><span class="nv">ssl</span><span class="o">-</span><span class="nv">dhparams</span>.<span class="nv">pem</span><span class="c1">; # managed by Certbot</span>
-    # <span class="nv">logs</span>
-    <span class="nv">access_log</span> <span class="o">/</span><span class="nv">root</span><span class="o">/</span><span class="nv">nginx</span><span class="o">-</span><span class="nv">log</span><span class="o">/</span><span class="nv">access</span>.<span class="nv">log</span><span class="c1">;</span>
-    <span class="nv">error_log</span> <span class="o">/</span><span class="nv">root</span><span class="o">/</span><span class="nv">nginx</span><span class="o">-</span><span class="nv">log</span><span class="o">/</span><span class="nv">error</span>.<span class="nv">log</span><span class="c1">;</span>
-    <span class="nv">location</span> <span class="o">/</span> {
-            # <span class="nv">First</span> <span class="nv">attempt</span> <span class="nv">to</span> <span class="nv">serve</span> <span class="nv">request</span> <span class="nv">as</span> <span class="nv">file</span>, <span class="k">then</span>
-            # <span class="nv">as</span> <span class="nv">directory</span>, <span class="k">then</span> <span class="nv">fall</span> <span class="nv">back</span> <span class="nv">to</span> <span class="nv">displaying</span> <span class="nv">a</span> <span class="mi">404</span>.
-            <span class="nv">try_files</span> $<span class="nv">uri</span> $<span class="nv">uri</span><span class="o">/</span> <span class="o">/</span><span class="nv">index</span>.<span class="nv">php</span>$<span class="nv">is_args</span><span class="mh">$a</span><span class="nv">rgs</span><span class="c1">;</span>
+<p>location / {
+    proxy_pass http://localhost:3000;
+}</p>
+<div class="highlight"><pre><span></span><span class="err">### wordpress.conf</span>
+</pre></div>
+
+
+<p>server {
+    root /var/www/html;
+    # Add index.php to the list if you are using PHP
+    index index.php index.html index.htm index.nginx-debian.html;
+    # Let Encrypt
+    listen 443 ssl; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+    # logs
+    access_log /root/nginx-log/access.log;
+    error_log /root/nginx-log/error.log;
+    location / {
+            # First attempt to serve request as file, then
+            # as directory, then fall back to displaying a 404.
+            try_files $uri $uri/ /index.php$is_args$args;
     }
-    # <span class="nv">pass</span> <span class="nv">the</span> <span class="nv">PHP</span> <span class="nv">scripts</span> <span class="nv">to</span> <span class="nv">FastCGI</span> <span class="nv">server</span> <span class="nv">listening</span> <span class="nv">on</span> <span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">9000</span>
-    <span class="nv">location</span> <span class="o">~</span> .<span class="nv">php</span>$ {
-        <span class="k">include</span> <span class="nv">snippets</span><span class="o">/</span><span class="nv">fastcgi</span><span class="o">-</span><span class="nv">php</span>.<span class="nv">conf</span><span class="c1">;</span>
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    location ~ .php$ {
+        include snippets/fastcgi-php.conf;
     #
-    #   # <span class="nv">With</span> <span class="nv">php7</span>.<span class="mi">0</span><span class="o">-</span><span class="nv">cgi</span> <span class="nv">alone</span>:
-        <span class="nv">fastcgi_pass</span> <span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">9000</span><span class="c1">;</span>
-    #   # <span class="nv">With</span> <span class="nv">php7</span>.<span class="mi">0</span><span class="o">-</span><span class="nv">fpm</span>:
-    #   <span class="nv">fastcgi_pass</span> <span class="nv">unix</span>:<span class="o">/</span><span class="nv">run</span><span class="o">/</span><span class="nv">php</span><span class="o">/</span><span class="nv">php7</span>.<span class="mi">0</span><span class="o">-</span><span class="nv">fpm</span>.<span class="nv">sock</span><span class="c1">;</span>
+    #   # With php7.0-cgi alone:
+        fastcgi_pass 127.0.0.1:9000;
+    #   # With php7.0-fpm:
+    #   fastcgi_pass unix:/run/php/php7.0-fpm.sock;
     }
-    # <span class="nv">gzip</span>
-    <span class="nv">gzip</span> <span class="nv">on</span><span class="c1">;</span>
-    <span class="nv">gzip_min_length</span> <span class="mi">1</span><span class="nv">k</span><span class="c1">;</span>
-    <span class="nv">gzip_buffers</span> <span class="mi">4</span> <span class="mi">16</span><span class="nv">k</span><span class="c1">;</span>
-    <span class="nv">gzip_comp_level</span> <span class="mi">5</span><span class="c1">;</span>
-    <span class="nv">gzip_types</span> <span class="nv">text</span><span class="o">/</span><span class="nv">plain</span> <span class="nv">application</span><span class="o">/</span><span class="nv">x</span><span class="o">-</span><span class="nv">javascript</span> <span class="nv">text</span><span class="o">/</span><span class="nv">css</span> <span class="nv">application</span><span class="o">/</span><span class="nv">xml</span> <span class="nv">application</span><span class="o">/</span><span class="nv">json</span> <span class="nv">text</span><span class="o">/</span><span class="nv">javascript</span> <span class="nv">image</span><span class="o">/</span><span class="nv">jpeg</span> <span class="nv">image</span><span class="o">/</span><span class="nv">png</span><span class="c1">;</span>
-    <span class="nv">gzip_disable</span> <span class="s2">&quot;</span><span class="s">MSIE [1-6].</span><span class="s2">&quot;</span><span class="c1">;</span>
+    # gzip
+    gzip on;
+    gzip_min_length 1k;
+    gzip_buffers 4 16k;
+    gzip_comp_level 5;
+    gzip_types text/plain application/x-javascript text/css application/xml application/json text/javascript image/jpeg image/png;
+    gzip_disable "MSIE [1-6].";
 }
-<span class="nv">server</span> {
-    <span class="nv">listen</span> <span class="mi">80</span><span class="c1">;</span>
-    <span class="nv">server_name</span> <span class="nv">paikung</span>.<span class="nv">com</span><span class="c1">;</span>
-    <span class="k">return</span> <span class="mi">301</span> <span class="nv">https</span>:<span class="o">//</span>$<span class="nv">server_name</span>$<span class="nv">request_uri</span><span class="c1">;</span>
-}
-</code></pre></div>
+server {
+    listen 80;
+    server_name paikung.com;
+    return 301 https://$server_name$request_uri;
+}</p>
+<div class="highlight"><pre><span></span><span class="err">### /etc/nginx/nginx.conf 优化</span>
+</pre></div>
 
 
-<h3>/etc/nginx/nginx.conf 优化</h3>
-<div class="highlight"><pre><span></span><code><span class="nv">user</span> <span class="nv">root</span><span class="c1">;</span>
-<span class="nv">worker_processes</span> <span class="mi">5</span><span class="c1">;</span>
-<span class="nv">pid</span> <span class="o">/</span><span class="nv">run</span><span class="o">/</span><span class="nv">nginx</span>.<span class="nv">pid</span><span class="c1">;</span>
+<p>user root;
+worker_processes 5;
+pid /run/nginx.pid;</p>
+<p>include /etc/nginx/modules-enabled/*.conf;</p>
+<p>events {
+        worker_connections 1024;
+}</p>
+<p>http {
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';</p>
+<div class="highlight"><pre><span></span><span class="n">log_format</span> <span class="n">timed_combined</span> <span class="s1">&#39;$remote_addr - $remote_user [$time_local]  &#39;</span>
+                          <span class="s1">&#39;&quot;$request&quot; $status $body_bytes_sent &#39;</span>
+                          <span class="s1">&#39;&quot;$http_referer&quot; &quot;$http_user_agent&quot; $request_time $upstream_response_time&#39;</span><span class="p">;</span>
 
-<span class="k">include</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">modules</span><span class="o">-</span><span class="nv">enabled</span><span class="cm">/*.conf;</span>
+<span class="n">client_body_buffer_size</span> <span class="mi">10</span><span class="n">K</span><span class="p">;</span>
+<span class="n">client_header_buffer_size</span> <span class="mi">1</span><span class="n">k</span><span class="p">;</span>
+<span class="n">client_max_body_size</span> <span class="mi">8</span><span class="n">m</span><span class="p">;</span>
+<span class="n">large_client_header_buffers</span> <span class="mi">2</span> <span class="mi">1</span><span class="n">k</span><span class="p">;</span>
+<span class="n">client_body_timeout</span> <span class="mi">12</span><span class="p">;</span>
+<span class="n">client_header_timeout</span> <span class="mi">12</span><span class="p">;</span>
+<span class="n">keepalive_timeout</span> <span class="mi">15</span><span class="p">;</span>
+<span class="n">send_timeout</span> <span class="mi">10</span><span class="p">;</span>
 
-<span class="cm">events {</span>
-<span class="cm">        worker_connections 1024;</span>
-<span class="cm">}</span>
-
-<span class="cm">http {</span>
-<span class="cm">    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;</span>
-<span class="cm">                      &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;</span>
-<span class="cm">                      &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;</span>
-
-<span class="cm">    log_format timed_combined &#39;$remote_addr - $remote_user [$time_local]  &#39;</span>
-<span class="cm">                              &#39;&quot;$request&quot; $status $body_bytes_sent &#39;</span>
-<span class="cm">                              &#39;&quot;$http_referer&quot; &quot;$http_user_agent&quot; $request_time $upstream_response_time&#39;;</span>
-
-<span class="cm">    client_body_buffer_size 10K;</span>
-<span class="cm">    client_header_buffer_size 1k;</span>
-<span class="cm">    client_max_body_size 8m;</span>
-<span class="cm">    large_client_header_buffers 2 1k;</span>
-<span class="cm">    client_body_timeout 12;</span>
-<span class="cm">    client_header_timeout 12;</span>
-<span class="cm">    keepalive_timeout 15;</span>
-<span class="cm">    send_timeout 10;</span>
-
-<span class="cm">    include /etc/nginx/sites-enabled/*.conf;</span>
-<span class="cm">}</span>
-</code></pre></div>
+<span class="n">include</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">enabled</span><span class="cm">/*.conf;</span>
+</pre></div>
 
 
-<h2>certbot</h2>
-<p><a href="https://letsencrypt.org/">https://letsencrypt.org</a></p>
-<p>https://github.com/acmesh-official/acme.sh/wiki/说明</p>
-<p>https://certbot.eff.org/lets-encrypt/debianbuster-nginx</p>
-<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">certbot</span> <span class="n">python</span><span class="o">-</span><span class="n">certbot</span><span class="o">-</span><span class="n">nginx</span>
-<span class="n">certbot</span> <span class="n">certonly</span>
-<span class="n">certbot</span> <span class="n">certificates</span>
-<span class="n">certbot</span> <span class="k">delete</span> <span class="c1">--cert-name</span>
-</code></pre></div>
+<p>}</p>
+<div class="highlight"><pre><span></span><span class="o">##</span> <span class="n">certbot</span>
+
+<span class="p">[</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">letsencrypt</span><span class="p">.</span><span class="n">org</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">letsencrypt</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="p">)</span>
+
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">acmesh</span><span class="o">-</span><span class="n">official</span><span class="o">/</span><span class="n">acme</span><span class="p">.</span><span class="n">sh</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="err">说明</span>
+
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">certbot</span><span class="p">.</span><span class="n">eff</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">lets</span><span class="o">-</span><span class="n">encrypt</span><span class="o">/</span><span class="n">debianbuster</span><span class="o">-</span><span class="n">nginx</span>
+</pre></div>
 
 
-<h2>ssr</h2>
-<p>https://github.com/ToyoDAdoubi/doubi#ssrmush</p>
-<div class="highlight"><pre><span></span><code><span class="n">wget</span> <span class="o">-</span><span class="n">N</span> <span class="c1">--no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh &amp;&amp; chmod +x ssrmu.sh &amp;&amp; bash ssrmu.sh</span>
-</code></pre></div>
+<p>sudo apt-get install certbot python-certbot-nginx
+certbot certonly
+certbot certificates
+certbot delete --cert-name</p>
+<div class="highlight"><pre><span></span><span class="o">##</span> <span class="n">ssr</span>
+
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ToyoDAdoubi</span><span class="o">/</span><span class="n">doubi</span><span class="o">#</span><span class="n">ssrmush</span>
+</pre></div>
 
 
+<p>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh &amp;&amp; chmod +x ssrmu.sh &amp;&amp; bash ssrmu.sh
+```</p>
 <h2>v2ray</h2>
 <p><a href="https://toutyrater.github.io/">https://toutyrater.github.io</a></p>
 <p>https://www.v2ray.com/chapter_00/install.html</p>
@@ -393,7 +411,7 @@
 <ul>
 <li><a href="https://gogs.io/docs/installation/install_from_binary">Gogs</a> Go 写的 Git 服务，部署容易，功能简单易用。<strong>已试用</strong></li>
 <li><a href="https://docs.gitea.io/zh-cn/install-from-binary/">Gitea</a> Gogs 的 fork，有人嫌 Gogs 是一个人开发的，速度太慢功能太少，就 fork 了一个出来由社区继续开发。<strong>已试用</strong></li>
-<li><a href="https://docs.sentry.io/server/installation/">Sentry</a> 应用的异常catch服务，免费账户消息数量有限制，Docker 起一个也很方便，各种应用、服务的异常全部搜集过来好处理。<strong>已试用，安装需要 2核***<em>2G</em></strong><em>以上机器</em>*</li>
+<li><a href="https://docs.sentry.io/server/installation/">Sentry</a> 应用的异常catch服务，免费账户消息数量有限制，Docker 起一个也很方便，各种应用、服务的异常全部搜集过来好处理。<strong>已试用，安装需要 2核<strong><em>*2G</em></strong>*以上机器</strong></li>
 <li><a href="https://docs.mattermost.com/install/install-debian.html#">Mattermost</a> 开源 IM，类似 Slack，<strong>已试用，并且用上域名和 HTTPS</strong></li>
 <li><a href="http://docs.drone.io/">Drone</a> 一个新的 CI 工具，<a href="https://docs.drone.io/server/provider/gitlab/">Docker 安装</a>，试了一下，没安装成功，不过看界面还是挺不错的。</li>
 <li><a href="https://my-netdata.io/">netdata</a> 开源监控工具，黑色背景大屏看起来非常帅，安装升级都很简单，支持物联网设备，底层用 C 写成，所以不会非常消耗太多 CPU 和内存，<strong>已试用</strong></li>
@@ -434,6 +452,14 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="lsdvincent@gmail.com" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-email fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="https://github.com/lsdlab" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
@@ -442,18 +468,18 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/lsdvincent" target="_blank">
+                                <a href="https://gitlab.com/lsdlab" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                        <i class="fa fa-gitlub fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://t.me/lsdvincent" target="_blank">
+                                <a href="https://stackoverflow.com/users/3295711/jcjc?tab=profile" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-telegram fa-stack-1x fa-inverse"></i>
+                                        <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>

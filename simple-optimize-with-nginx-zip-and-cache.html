@@ -104,20 +104,20 @@
 <p>站点的基本功能完成后，简单维护，时不时看看日志，用 goaccess 分析下 <code>access.log</code> 看看 4xx 5xx 的状态码，自己测试的时候用 <code>ngxtop</code>，一个实时的请求分析程序，自己把链接都点点，看看哪边有问题，会出现 4xx 和 5xx 的状态码，想办法解决。这两个工具我就不再写怎么用了，小破网站也没有必要老分析。简单优化就靠 Google 提供的一个工具 <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>，会分析移动设备和桌面浏览器的得分，下面会给出优化提示，现在能够解决的只有开启文件压缩的缓存了，优化完成之后的移动设备还是不太好，七十九分，桌面浏览器已经能够达到九十二分了，还算行。</p>
 <h3>Nginx 开启文件压缩</h3>
 <p>文件压缩设置是写在 <code>server</code> 端，配置如下：</p>
-<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="n">gzip</span>
-<span class="n">gzip</span> <span class="k">on</span><span class="p">;</span>
-<span class="n">gzip_min_length</span> <span class="mi">1</span><span class="n">k</span><span class="p">;</span>
-<span class="n">gzip_buffers</span> <span class="mi">4</span> <span class="mi">16</span><span class="n">k</span><span class="p">;</span>
-<span class="n">gzip_comp_level</span> <span class="mi">2</span><span class="p">;</span>
-<span class="n">gzip_types</span> <span class="nb">text</span><span class="o">/</span><span class="n">plain</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">javascript</span> <span class="nb">text</span><span class="o">/</span><span class="n">css</span> <span class="n">application</span><span class="o">/</span><span class="n">xml</span> <span class="nb">text</span><span class="o">/</span><span class="n">javascript</span>  <span class="n">image</span><span class="o">/</span><span class="n">jpeg</span> <span class="n">image</span><span class="o">/</span><span class="n">png</span><span class="p">;</span>
-<span class="n">gzip_disable</span> <span class="ss">&quot;MSIE [1-6]\.&quot;</span><span class="p">;</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="err"># gzip</span>
+<span class="err">gzip on;</span>
+<span class="err">gzip_min_length 1k;</span>
+<span class="err">gzip_buffers 4 16k;</span>
+<span class="err">gzip_comp_level 2;</span>
+<span class="err">gzip_types text/plain application/x-javascript text/css application/xml text/javascript  image/jpeg image/png;</span>
+<span class="err">gzip_disable &quot;MSIE [1-6]\.&quot;;</span>
+</pre></div>
 
 
 <p>第一行开启压缩；第二行 <code>gzip_min_length 1k</code>，设置允许压缩的页面的最小字节数，默认是 0，不管也米那多大都压缩，建议设置成大于 1k 的字节数，小于 1k 可能会越压越大；第三行 <code>gzip_buffers 4 16k</code>，设置系统获取几个单位的缓存用于存储 gzip 的压缩结果数据流， <code>4 16k</code> 代表以 16k 为单位的四倍申请内存，如过没有设置，默认值是申请跟原始数据相同大小的内存空间去存储 gzip 的压缩结果，第四行 <code>gzip_comp_level</code> 设置压缩登记，1-9，1 压缩比最小处理速度最快，越大压缩比越大但处理更慢，传输快，消耗大量 CPU 资源；第五行设置压缩的文件种类，无论是否指定，<code>text/html</code> 都会被压缩，第六行，设置 IE 不开启文件压缩。</p>
 <h3>开启文件缓存</h3>
 <p>需要缓存的文件就是媒体文件和 CSS, JS 文件，分别在 <code>location</code> 下 媒体和静态文件设置就行了。</p>
-<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="n">Django</span> <span class="n">media</span>
+<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">Django</span> <span class="n">media</span>
 <span class="k">location</span> <span class="o">/</span><span class="n">media</span> <span class="err">{</span>
    <span class="k">alias</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">chen</span><span class="o">/</span><span class="n">DjangoProjects</span><span class="o">/</span><span class="n">my_blog</span><span class="o">/</span><span class="n">media</span><span class="p">;</span> <span class="o">#</span> <span class="n">your</span> <span class="n">Django</span> <span class="n">project</span><span class="s1">&#39;s media files - amend as required</span>
 <span class="s1">   expires 30d;</span>
@@ -131,7 +131,7 @@
    <span class="n">access_log</span> <span class="k">off</span><span class="p">;</span>
    <span class="n">add_header</span> <span class="k">Cache</span><span class="o">-</span><span class="n">Control</span> <span class="ss">&quot;public&quot;</span><span class="p">;</span>
 <span class="err">}</span>
-</code></pre></div>
+</pre></div>
 
 
 <p><code>expires</code> 缓存时间，<code>30d</code>，三十天。</p>
@@ -168,6 +168,14 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="lsdvincent@gmail.com" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-email fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="https://github.com/lsdlab" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
@@ -176,18 +184,18 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/lsdvincent" target="_blank">
+                                <a href="https://gitlab.com/lsdlab" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                        <i class="fa fa-gitlub fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://t.me/lsdvincent" target="_blank">
+                                <a href="https://stackoverflow.com/users/3295711/jcjc?tab=profile" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-telegram fa-stack-1x fa-inverse"></i>
+                                        <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>

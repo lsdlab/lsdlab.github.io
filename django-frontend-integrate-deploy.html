@@ -102,38 +102,38 @@
         <p>https://cloud.tencent.com/developer/article/1005607</p>
 <h3>前端代码 build 后放入 Django 项目下</h3>
 <h3>urls.py 添加两行</h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
 
 <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;dashboard/&#39;</span><span class="p">,</span> <span class="n">TemplateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s2">&quot;index.html&quot;</span><span class="p">)),</span>
 <span class="p">]</span>
-</code></pre></div>
+</pre></div>
 
 
 <h3>TEMPLATES 添加 DIRS</h3>
-<div class="highlight"><pre><span></span><code><span class="n">TEMPLATES</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="err">{</span>
-        <span class="s1">&#39;BACKEND&#39;</span><span class="p">:</span> <span class="s1">&#39;django.template.backends.django.DjangoTemplates&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;DIRS&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;dist&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;APP_DIRS&#39;</span><span class="p">:</span> <span class="k">True</span><span class="p">,</span>
-        <span class="s1">&#39;OPTIONS&#39;</span><span class="p">:</span> <span class="err">{</span>
-            <span class="s1">&#39;context_processors&#39;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s1">&#39;django.template.context_processors.debug&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;django.template.context_processors.request&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;django.contrib.auth.context_processors.auth&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;django.contrib.messages.context_processors.messages&#39;</span><span class="p">,</span>
-            <span class="p">],</span>
-        <span class="err">}</span><span class="p">,</span>
-    <span class="err">}</span><span class="p">,</span>
-<span class="p">]</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="err">TEMPLATES = [</span>
+<span class="err">    {</span>
+<span class="err">        &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;,</span>
+<span class="err">        &#39;DIRS&#39;: [&#39;dist&#39;],</span>
+<span class="err">        &#39;APP_DIRS&#39;: True,</span>
+<span class="err">        &#39;OPTIONS&#39;: {</span>
+<span class="err">            &#39;context_processors&#39;: [</span>
+<span class="err">                &#39;django.template.context_processors.debug&#39;,</span>
+<span class="err">                &#39;django.template.context_processors.request&#39;,</span>
+<span class="err">                &#39;django.contrib.auth.context_processors.auth&#39;,</span>
+<span class="err">                &#39;django.contrib.messages.context_processors.messages&#39;,</span>
+<span class="err">            ],</span>
+<span class="err">        },</span>
+<span class="err">    },</span>
+<span class="err">]</span>
+</pre></div>
 
 
 <h3>添加 STATICFILES_DIRS css/js 静态文件放进去</h3>
-<div class="highlight"><pre><span></span><code><span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight"><pre><span></span><span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;dist/static&quot;</span><span class="p">),</span>
 <span class="p">]</span>
-</code></pre></div>
+</pre></div>
 
 
 <h3>python3 manange.py runserver 后就能访问了</h3>
@@ -163,6 +163,14 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="lsdvincent@gmail.com" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-email fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="https://github.com/lsdlab" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
@@ -171,18 +179,18 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/lsdvincent" target="_blank">
+                                <a href="https://gitlab.com/lsdlab" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                        <i class="fa fa-gitlub fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://t.me/lsdvincent" target="_blank">
+                                <a href="https://stackoverflow.com/users/3295711/jcjc?tab=profile" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-telegram fa-stack-1x fa-inverse"></i>
+                                        <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>

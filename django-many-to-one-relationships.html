@@ -103,42 +103,42 @@
 <p>三个数据库 API 例子中的第二个，有时候分不清，多对一和一对多，现在有点分得清了，但是有些查询方面还是有点糊，<code>QuerySet</code> 这搞得，简单的查询很容易搞定，但是数据库模型设置的复杂了，或者要查询的东西复杂了，就搞不太明白了，而且基础的教程里面都没有讲，要自己去查文档。</p>
 <h3>我自己的应用模型实例</h3>
 <p>刚结合自己的应用的数据库模型，稍稍搞清了模型的多对一，一对多关系，先说在我自己的模型：</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Tag</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Tag</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
    <span class="n">tag_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
-   <span class="n">default</span><span class="o">=</span><span class="s1">&#39;读不下去&#39;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+   <span class="n">default</span><span class="o">=</span><span class="s1">&#39;读不下去&#39;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-   <span class="k">def</span> <span class="fm">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+   <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag_name</span>
 
 
 <span class="k">class</span> <span class="nc">Book_Info</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
    <span class="c1"># Book Info 14 objects in total. (Book cover didn&#39;t add yet)</span>
-   <span class="n">isbn10</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+   <span class="n">isbn10</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
    <span class="n">isbn13</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
 
    <span class="c1"># My Customise Tags 想读、正在读、读过、!!! 读不下去!!!（独创标签，仅此一家！！！）</span>
-   <span class="n">customise_tags</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Tag</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+   <span class="n">customise_tags</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Tag</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-   <span class="k">def</span> <span class="fm">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+   <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span>
 
 
 <span class="k">class</span> <span class="nc">Note</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
    <span class="c1"># Book Notes. You can take some notes for one book your owned.</span>
-   <span class="n">book_info</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Book_Info</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-   <span class="n">pages</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-   <span class="n">notes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+   <span class="n">book_info</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Book_Info</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+   <span class="n">pages</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+   <span class="n">notes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-   <span class="k">def</span> <span class="fm">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+   <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">notes</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>省略了一些没用的字段，<code>Book_Info</code> 这张表有一些基本的字段，都是 <code>models.CharField</code>，<code>customise_tag</code> 这个字段和 <code>Tag</code> 这张表就是多对多的关系。<code>Note</code> 中定义了一个 <code>book_info = models.ForeignKey(Book_Info, blank=True. null=True)</code>，这个就说明 <code>Note</code> 表中的 <code>book_info</code> 字段是 <code>Note</code> 表的外键，一个 <code>Book_Info</code> 可以对应多个 <code>Note</code>，一对多关系。</p>
 <h3><code>models.py</code></h3>
 <p>下面这个示例就是文档中的例子：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
 
 <span class="k">class</span> <span class="nc">Reporter</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
    <span class="n">first_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
@@ -158,23 +158,23 @@
 
    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
        <span class="n">ordering</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;headline&#39;</span><span class="p">,)</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>这个模型中，<code>reporter</code> 字段是 <code>Article</code> 表的外键，一个 <code>Reporter</code> 可以对应多个 <code>Article</code>，刚才一想，好像又不太对了……怎么老是要搞这个字面上的解释呢，看来这个数据库还得多看书，表和字段的抽象关系理不怎么清啊。</p>
 <h3><code>python manage.py shell</code> API 用法</h3>
 <h4>实例化 <code>Reporter</code> 对象，<code>save()</code> 存到数据库中</h4>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">Reporter</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Smith&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;john@example.com&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">Reporter</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Smith&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;john@example.com&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">Reporter</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;Paul&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Jones&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;paul@example.com&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">r2</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-</code></pre></div>
+</pre></div>
 
 
 <h4>实例化 <code>Article</code>，将已经实例化的 <code>Reporter</code> 对象绑定到 <code>Article</code> 中</h4>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Article</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">headline</span><span class="o">=</span><span class="s2">&quot;This is a test&quot;</span><span class="p">,</span> <span class="n">pub_date</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">27</span><span class="p">),</span> <span class="n">reporter</span><span class="o">=</span><span class="n">r</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Article</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headline</span><span class="o">=</span><span class="s2">&quot;This is a test&quot;</span><span class="p">,</span> <span class="n">pub_date</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">27</span><span class="p">),</span> <span class="n">reporter</span><span class="o">=</span><span class="n">r</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span> <span class="n">reporter</span><span class="o">.</span><span class="n">id</span>
@@ -182,51 +182,51 @@
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">reporter</span>
 <span class="o">&lt;</span><span class="n">Reporter</span><span class="p">:</span> <span class="n">John</span> <span class="n">Smith</span><span class="o">&gt;</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>绑定外键关系之前必须要保存对象，Django 1.8 前这么做会触发 <code>ValueError</code> 异常，1.8 之后不会触发异常，数据静默丢失。</p>
 <h4>从 <code>Article</code> 对象获得 <code>Reporter</code> 对象</h4>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reporter</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reporter</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">first_name</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">last_name</span>
 <span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Smith&#39;</span><span class="p">)</span>
-</code></pre></div>
+</pre></div>
 
 
 <h4>从 <code>Reporter</code> 对象实例化 <code>Article</code> 对象，直接将实例化的 <code>Article</code> 绑定到已实例化 <code>Reporter</code> 对象中</h4>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">new_article</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">article_set</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">headline</span><span class="o">=</span><span class="s2">&quot;John&#39;s second story&quot;</span><span class="p">,</span> <span class="n">pub_date</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">29</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">new_article</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">article_set</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">headline</span><span class="o">=</span><span class="s2">&quot;John&#39;s second story&quot;</span><span class="p">,</span> <span class="n">pub_date</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">29</span><span class="p">))</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">new_article</span>
 <span class="o">&lt;</span><span class="n">Article</span><span class="p">:</span> <span class="n">John</span><span class="s1">&#39;s second story&gt;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">new_article</span><span class="o">.</span><span class="n">reporter</span>
 <span class="o">&lt;</span><span class="n">Reporter</span><span class="p">:</span> <span class="n">John</span> <span class="n">Smith</span><span class="o">&gt;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">new_article</span><span class="o">.</span><span class="n">reporter</span><span class="o">.</span><span class="n">id</span>
 <span class="mi">1</span>
-</code></pre></div>
+</pre></div>
 
 
 <h4>先实例化 <code>Article</code> 对象，再通过 <code>article_set.add</code> 绑定 <code>Reporter</code> 对象</h4>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">new_article2</span> <span class="o">=</span> <span class="n">Article</span><span class="p">(</span><span class="n">headline</span><span class="o">=</span><span class="s2">&quot;Paul&#39;s story&quot;</span><span class="p">,</span> <span class="n">pub_date</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2006</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">new_article2</span> <span class="o">=</span> <span class="n">Article</span><span class="p">(</span><span class="n">headline</span><span class="o">=</span><span class="s2">&quot;Paul&#39;s story&quot;</span><span class="p">,</span> <span class="n">pub_date</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2006</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">))</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">article_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_article2</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">new_article2</span><span class="o">.</span><span class="n">reporter</span>
 <span class="o">&lt;</span><span class="n">Reporter</span><span class="o">.</span><span class="n">reporter</span><span class="o">.</span><span class="n">id</span><span class="o">&gt;</span>
 <span class="mi">1</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">article_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 <span class="p">[</span><span class="o">&lt;</span><span class="n">Article</span><span class="p">:</span> <span class="n">John</span><span class="s1">&#39;s second story&gt;, &lt;Article: Paul&#39;</span><span class="n">s</span> <span class="n">story</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Article</span><span class="p">:</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">test</span><span class="o">&gt;</span><span class="p">]</span>
-</code></pre></div>
+</pre></div>
 
 
 <h4>绑定上面同一个 <code>Article</code> 对象到不同的 <code>Reporter</code> 对象中，它就变了</h4>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">r2</span><span class="o">.</span><span class="n">article_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_article2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r2</span><span class="o">.</span><span class="n">article_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_article2</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">new_article2</span><span class="o">.</span><span class="n">reporter</span><span class="o">.</span><span class="n">id</span>
 <span class="mi">2</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">new_article2</span><span class="o">.</span><span class="n">reporter</span>
 <span class="o">&lt;</span><span class="n">Reporter</span><span class="p">:</span> <span class="n">Paul</span> <span class="n">Jones</span><span class="o">&gt;</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>原来 <code>new_article2</code> 的 <code>reporter</code> 是 <code>r</code> <code>&lt;Reporter: John Smith&gt;</code>，现在变成了 <code>&lt;Reporter: Paul Jones&gt;</code>。</p>
 <h4>绑定错误的对象就会引发异常</h4>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">article_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">article_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
 <span class="o">...</span>
 <span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;Article&#39;</span> <span class="n">instance</span> <span class="n">expected</span>
@@ -241,12 +241,12 @@
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">r2</span><span class="o">.</span><span class="n">article_set</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 <span class="mi">1</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>将 <code>Reporter</code> 对象绑定包另一个 <code>Reporter</code> 对象上会引发 <code>TypeError</code> 异常。</p>
 <h4>其他</h4>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">article_set</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">headline__startswith</span><span class="o">=</span><span class="s1">&#39;This&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">article_set</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">headline__startswith</span><span class="o">=</span><span class="s1">&#39;This&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Article</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">reporter__first_name</span><span class="o">=</span><span class="s1">&#39;John&#39;</span><span class="p">)</span>
 
 <span class="c1"># filter 两个条件，转到 SQL 中就是 WHERE 和 AND 语句</span>
@@ -284,7 +284,7 @@
 <span class="p">[]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Article</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 <span class="p">[]</span>
-</code></pre></div>
+</pre></div>
     </article>
 
         <div class="tags">
@@ -311,6 +311,14 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="lsdvincent@gmail.com" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-email fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="https://github.com/lsdlab" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
@@ -319,18 +327,18 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/lsdvincent" target="_blank">
+                                <a href="https://gitlab.com/lsdlab" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                        <i class="fa fa-gitlub fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://t.me/lsdvincent" target="_blank">
+                                <a href="https://stackoverflow.com/users/3295711/jcjc?tab=profile" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-telegram fa-stack-1x fa-inverse"></i>
+                                        <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>
