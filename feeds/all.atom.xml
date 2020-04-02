@@ -13,7 +13,7 @@
 &lt;li&gt;停掉视频网站会员，不买 app，只留下每月一个服务器，5 美金，SS 暂时蹭别人的&lt;/li&gt;
 &lt;li&gt;早饭一半时间吃面包、饼干，一半时间 KFC 早餐&lt;/li&gt;
 &lt;li&gt;暂停购买实体书籍，部分实体书籍多抓鱼回收掉&lt;/li&gt;
-&lt;/ul&gt;</content><category term="FML"></category><category term="fml"></category></entry><entry><title>新服务器基础配置</title><link href="https://breakwire.me/new-server-init.html" rel="alternate"></link><published>2020-02-17T21:40:45+08:00</published><updated>2020-02-17T21:40:45+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2020-02-17:/new-server-init.html</id><summary type="html">&lt;p&gt;每开个新服务器都要装些工具，还是记录一下，方面后面用&lt;/p&gt;</summary><content type="html">&lt;h2&gt;内网 ubuntu 镜像源&lt;/h2&gt;
+&lt;/ul&gt;</content><category term="misc"></category></entry><entry><title>新服务器基础配置</title><link href="https://breakwire.me/new-server-init.html" rel="alternate"></link><published>2020-02-17T21:40:45+08:00</published><updated>2020-02-17T21:40:45+08:00</updated><author><name>JC</name></author><id>tag:breakwire.me,2020-02-17:/new-server-init.html</id><summary type="html">&lt;p&gt;每开个新服务器都要装些工具，还是记录一下，方面后面用&lt;/p&gt;</summary><content type="html">&lt;h2&gt;内网 ubuntu 镜像源&lt;/h2&gt;
 &lt;p&gt;Ubuntu 镜像软件源 https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/&lt;/p&gt;
 &lt;p&gt;Debian https://mirror.tuna.tsinghua.edu.cn/help/debian/&lt;/p&gt;
 &lt;p&gt;Docker https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/&lt;/p&gt;
