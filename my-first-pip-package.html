@@ -3,14 +3,14 @@
 <html lang="zh-cn">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta name="description" content="BreakWire | 断线" />
         <meta name="keywords" content="BreakWire, 断线, JC, Data Visualization, Python, JavaScript, Full Stack Development, Growth Hacker" />
         <meta name="author" content="JC" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>BreakWire | 断线 - Authors</title>
+        <title>发布一个 pip 包</title>
 
         <link href="https://breakwire.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="BreakWire | 断线 Full Atom Feed" />
 
@@ -22,8 +22,24 @@
         <!-- Custom Fonts -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-                <meta property="og:locale" content="">
+
+
+        <meta name="description" content="我的第一个 pip 包">
+
+        <meta name="author" content="JC">
+
+
+	                <meta property="og:locale" content="">
 		<meta property="og:site_name" content="BreakWire | 断线">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="https://breakwire.me/author/jc.html">
+	<meta property="og:url" content="https://breakwire.me/my-first-pip-package.html">
+	<meta property="og:title" content="发布一个 pip 包">
+	<meta property="article:published_time" content="2020-04-26 22:06:36+08:00">
+            <meta property="og:description" content="我的第一个 pip 包">
+
+            <meta property="og:image" content="https://breakwire.me//images/new-header.jpg">
 </head>
 
 <body>
@@ -63,7 +79,13 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Articles by </h1>
+                        <h1>发布一个 pip 包</h1>
+                        <span class="meta">Posted by
+                                <a href="https://breakwire.me/author/jc.html">JC</a>
+                             on 2020-04-26 22:06:36
+                        </span>
+                            <span class="meta">Updated on 2020-04-26 22:06:36</span>
+                        
                     </div>
                 </div>
             </div>
@@ -74,14 +96,39 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 yue">
-        <div class="post-preview">
-            <a href="https://breakwire.me/author/jc.html" rel="bookmark">
-                <h2 class="post-title">
-                    JC (58)
-                </h2>
-            </a>
-        </div>
-        <hr>
+    <!-- Post Content -->
+    <article>
+        <h1>django-gofastdfs-storage</h1>
+<p>https://pypi.org/project/django-gofastdfs-storage/1.0.1/ </p>
+<p>集成 <a href="https://github.com/sjqzhang/go-fastdfs">go-fastdfs</a> 作为 Django 的静态文件存储后端</p>
+<p>已发布至 pypi: https://pypi.org/project/django-gofastdfs-storage/1.0.1/</p>
+<h2>pip 安装</h2>
+<div class="highlight"><pre><span></span><code>pip install django-gofastdfs-storage<span class="o">==</span><span class="m">1</span>.0.1
+</code></pre></div>
+
+
+<h2>settings.py</h2>
+<div class="highlight"><pre><span></span><code><span class="n">STATICFILES_STORAGE</span> <span class="o">=</span> <span class="s1">&#39;django_gofastdfs_storage.backends.StaticStorage&#39;</span>
+<span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s1">&#39;django_gofastdfs_storage.backends.MediaStorage&#39;</span>
+
+<span class="n">GOFASTDFS_ENDPOINT</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+<span class="n">GOFASTDFS_AUTH_TOKEN</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+<span class="n">GOFASTDFS_BUCKET_NAME</span><span class="o">=</span><span class="s1">&#39;djangoadmin&#39;</span>
+</code></pre></div>
+
+
+<h2>如何发布一个 pip 包到 pypi</h2>
+<p>先再 <a href="https://pypi.org/account/register/">pypi</a> 注册一个帐号，参照上面的 <code>setup.py</code> 写好名称/功能描述</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 命令行登录 pypi</span>
+python setup.py register
+
+<span class="c1"># 打包 上传</span>
+python setup.py sdist upload
+</code></pre></div>
+    </article>
+
+
+    <hr>
             </div>
         </div>
     </div>
