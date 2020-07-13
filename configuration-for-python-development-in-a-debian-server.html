@@ -132,9 +132,9 @@
 <code>virtualenvwrapper</code> 是个大坑，我还没有研究出来这个怎么解决，就先算了，要不直接用<code>virtualenv</code> 用还行。</p>
 <h3>6. 补漏 Django 应用部署</h3>
 <p>之前一篇讲 Django 应用部署，有个 pcre 库的问题，自己编译太慢了，后来查了下还有直接从仓库里面安装的方法：</p>
-<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">libpcre3</span> <span class="n">libpcre3</span><span class="o">-</span><span class="n">dev</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">openssl</span> <span class="n">libssl</span><span class="o">-</span><span class="n">dev</span>
+<div class="highlight"><pre><span></span><code><span class="err">sudo apt-get update</span>
+<span class="err">sudo apt-get install libpcre3 libpcre3-dev</span>
+<span class="err">sudo apt-get install openssl libssl-dev</span>
 </code></pre></div>
     </article>
 

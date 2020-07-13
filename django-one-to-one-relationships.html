@@ -110,9 +110,9 @@
    <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> the place&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
 
 <span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-   <span class="n">place</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-   <span class="n">serves_hot_dogs</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-   <span class="n">serves_pizza</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+   <span class="n">place</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+   <span class="n">serves_hot_dogs</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+   <span class="n">serves_pizza</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>              <span class="c1"># __unicode__ on Python 2</span>
    <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> the restaurant&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">place</span><span class="o">.</span><span class="n">name</span>
@@ -137,7 +137,7 @@
 
 
 <h4>实例化 <code>Restaurant</code> 对象，将前面实例化好的的 <code>Place</code> 对象绑定上去</h4>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">Restaurant</span><span class="p">(</span><span class="n">place</span><span class="o">=</span><span class="n">p1</span><span class="p">,</span> <span class="n">serves_hot_dogs</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">serves_pizza</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">Restaurant</span><span class="p">(</span><span class="n">place</span><span class="o">=</span><span class="n">p1</span><span class="p">,</span> <span class="n">serves_hot_dogs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">serves_pizza</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </code></pre></div>
 
@@ -159,14 +159,14 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="k">try</span><span class="p">:</span>
 <span class="o">&gt;&gt;&gt;</span>     <span class="n">p2</span><span class="o">.</span><span class="n">restaurant</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">except</span> <span class="n">ObjectDoesNotExist</span><span class="p">:</span>
-<span class="o">&gt;&gt;&gt;</span>     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;There is no restaurant here.&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There is no restaurant here.&quot;</span><span class="p">)</span>
 <span class="n">There</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">restaurant</span> <span class="n">here</span><span class="o">.</span>
 </code></pre></div>
 
 
 <h4>使用 <code>hasattr</code> 避免捕捉异常</h4>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="err">‘</span><span class="n">restaurant</span><span class="err">’</span><span class="p">)</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 </code></pre></div>
 
 
@@ -190,11 +190,11 @@
 
 <h4>不能绑定一个没有保存到数据库中的对象到另一个对象中，否则会触发 <code>ValueError</code></h4>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">Place</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Demon Dogs&#39;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s1">&#39;944 W. Fullerton&#39;</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Restaurant</span><span class="p">(</span><span class="n">place</span><span class="o">=</span><span class="n">p3</span><span class="p">,</span> <span class="n">serves_hot_dogs</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">serves_pizza</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Restaurant</span><span class="p">(</span><span class="n">place</span><span class="o">=</span><span class="n">p3</span><span class="p">,</span> <span class="n">serves_hot_dogs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">serves_pizza</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
 <span class="o">...</span>
 <span class="ne">ValueError</span><span class="p">:</span> <span class="s1">&#39;Cannot assign &quot;&lt;Place: Demon Dogs&gt;&quot;: &quot;Place&quot; instance isn&#39;</span><span class="n">t</span> <span class="n">saved</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">database</span><span class="o">.</span><span class="s1">&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">restaurant</span> <span class="o">=</span> <span class="n">Restaurant</span><span class="p">(</span><span class="n">place</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">serves_hot_dogs</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">serves_pizza</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">restaurant</span> <span class="o">=</span> <span class="n">Restaurant</span><span class="p">(</span><span class="n">place</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">serves_hot_dogs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">serves_pizza</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
 <span class="o">...</span>
 <span class="ne">ValueError</span><span class="p">:</span> <span class="s1">&#39;Cannot assign &quot;&lt;Restaurant: Demon Dogs the restaurant&gt;&quot;: &quot;Restaurant&quot; instance isn&#39;</span><span class="n">t</span> <span class="n">saved</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">database</span><span class="o">.</span><span class="s1">&#39;</span>

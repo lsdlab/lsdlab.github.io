@@ -315,13 +315,13 @@
 <p>反斜杠是脆弱的，它必须是一行的最后一个字符。如果你在反斜杠后面加上一个空格， 它就不再工作了。另外，它也是丑陋的。</p>
 <h2>长字符串</h2>
 <p>相邻的字符串文本会被语法分析器自动连接：</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;o&#39;</span> <span class="s1">&#39;n&#39;</span> <span class="s2">&quot;e&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span> <span class="s1">&#39;o&#39;</span> <span class="s1">&#39;n&#39;</span> <span class="s2">&quot;e&quot;</span>
 <span class="n">one</span>
 </code></pre></div>
 
 
 <p>文本之间的空格不是必需的，但加空格可以提高可读性。 任何形式的引号都可以使用:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;t&#39;</span> <span class="sa">r</span><span class="s1">&#39;\/\/&#39;</span> <span class="s2">&quot;&quot;&quot;o&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span> <span class="s1">&#39;t&#39;</span> <span class="sa">r</span><span class="s1">&#39;\/\/&#39;</span> <span class="s2">&quot;&quot;&quot;o&quot;&quot;&quot;</span>
 <span class="n">t</span>\<span class="o">/</span>\<span class="o">/</span>
 </code></pre></div>
 
@@ -452,7 +452,7 @@
 <p>l (L) 是我们刚刚在上面建立的 (David 的信息)。所以 people 是一个包含两个项的 list，每个项都是一个包含3个项的 list。</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">people</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Guido&#39;</span><span class="p">,</span> <span class="s1">&#39;BDFL&#39;</span><span class="p">,</span> <span class="s1">&#39;unlisted&#39;</span><span class="p">]]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">phone</span><span class="p">)</span> <span class="ow">in</span> <span class="n">people</span><span class="p">:</span>
-<span class="o">...</span>     <span class="k">print</span> <span class="n">name</span><span class="p">,</span> <span class="n">phone</span>
+<span class="o">...</span>     <span class="nb">print</span> <span class="n">name</span><span class="p">,</span> <span class="n">phone</span>
 <span class="o">...</span>
 <span class="n">David</span> <span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">514</span><span class="o">-</span><span class="mi">555</span><span class="o">-</span><span class="mi">1234</span>
 <span class="n">Guido</span> <span class="n">unlisted</span>
@@ -570,7 +570,7 @@
 
 <p>这是一种常见情况:</p>
 <div class="highlight"><pre><span></span><code><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">]</span>
-<span class="k">print</span> <span class="s1">&#39;Choose&#39;</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colors</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> \
+<span class="nb">print</span> <span class="s1">&#39;Choose&#39;</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colors</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> \
      <span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 
@@ -603,7 +603,7 @@
 <h2>可能的话就用 <code>in</code> (1)</h2>
 <p>Good:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">key</span>
+    <span class="nb">print</span> <span class="n">key</span>
 </code></pre></div>
 
 
@@ -614,7 +614,7 @@
 </ul>
 <p>Bad:</p>
 <div class="highlight"><pre><span></span><code>    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="k">print</span> <span class="n">key</span>
+        <span class="nb">print</span> <span class="n">key</span>
 </code></pre></div>
 
 
@@ -713,7 +713,7 @@
 
 <p>这是前面用过的一个例子，每一个字典值都必须被初始化成一个空 list， 现在用 <code>defaultdict</code> 改写它：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
-<span class="err">å</span>
+<span class="n">å</span>
 <span class="n">equities</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="n">equity</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
     <span class="n">equities</span><span class="p">[</span><span class="n">portfolio</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">equity</span><span class="p">)</span>
@@ -753,7 +753,7 @@
 <p>注意结果中 .keys() 和 .values() 的顺序和构建字典时的项顺序不同。 进去的顺序跟出来的顺序不一样。这是因为字典本质上是非顺序的。然而， 这个顺序可以保证一致性（换句话说，键的顺序和值的顺序是一一对应的）， 只要两次调用之间字典没有发生改变.</p>
 <h2>真值测试</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># 这样做:         # 不要这样做:</span>
-<span class="k">if</span> <span class="n">x</span><span class="p">:</span>            <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">x</span><span class="p">:</span>            <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">pass</span>             <span class="k">pass</span>
 </code></pre></div>
 
@@ -785,9 +785,9 @@
 <span class="o">...</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">o</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">bool</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">bool</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </code></pre></div>
 
 
@@ -810,7 +810,7 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
 
-    <span class="k">def</span> <span class="fm">__nonzero__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__nonzero__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return my truth value (True or False).&quot;&quot;&quot;</span>
         <span class="c1"># This could be arbitrarily complex:</span>
         <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
@@ -818,30 +818,30 @@
 
 
 <p>在  Python 3.0 中，为了与 bool 内置类型保持一致性， <code>__nonzero__</code> 被改名成了 <code>__bool__</code> 。为了保持兼容性，在类中增加如下定义:</p>
-<div class="highlight"><pre><span></span><code><span class="n">__bool__</span> <span class="o">=</span> <span class="fm">__nonzero__</span>
+<div class="highlight"><pre><span></span><code><span class="fm">__bool__</span> <span class="o">=</span> <span class="n">__nonzero__</span>
 </code></pre></div>
 
 
 <h2>索引和项 (1)</h2>
 <p>当你需要一个单词列表的时候，有种可爱的方法可以节省你的打字时间:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">items</span> <span class="o">=</span> <span class="s1">&#39;zero one two three&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">items</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span> <span class="n">items</span>
 <span class="p">[</span><span class="s1">&#39;zero&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">]</span>
 </code></pre></div>
 
 
 <p>假设我们需要遍历这些项，并且我们同时需要项和项的索引值:</p>
-<div class="highlight"><pre><span></span><code>                      <span class="o">-</span> <span class="err">或</span> <span class="o">-</span>
+<div class="highlight"><pre><span></span><code>                      <span class="o">-</span> <span class="n">或</span> <span class="o">-</span>
 <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>              <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
-    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span>                   <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="nb">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span>                   <span class="nb">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div>
 
 
 <h2>索引和项 (2): <code>enumerate</code></h2>
 <p>函数 <code>enumerate</code> 接受一个 list，并返回 (索引值, 项) 对:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">))</span>
 <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;zero&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">)]</span>
 </code></pre></div>
 
@@ -849,12 +849,12 @@
 <p>输出结果时，我们得用一个 <code>list</code> 进行一下包装，因为 <code>enumerate</code> 是一个惰性函数: 它仅仅在需要时才一次产生一项，一个索引项对。 for 循环就是一个一次需要一个结果的所在。 <code>enumerate</code> 是生成器(generator) 的一个例子，我们将会在以后详细的讲解生成器。 <code>print</code> 不是一次拿一个结果 —— 我们需要整个结果，所以我们在打印时， 必须显式的将一个生成器转换为一个 list。</p>
 <p>我们的循环变得简单多了:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
-    <span class="k">print</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span>
+    <span class="nb">print</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span>
 
 <span class="c1"># 对比:                     # 对比:</span>
 <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>                  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>         <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="k">print</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>         <span class="nb">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="nb">print</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span>
     <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div>
 
@@ -918,16 +918,16 @@
 
 
 <p>问题在于 a_list 的默认值，一个空列表，是在函数定义时被求值的。 所以每次调用这个函数，我们得到的是同一个默认值。试试重复做几次:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">bad_append</span><span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">)</span>
-<span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">bad_append</span><span class="p">(</span><span class="s1">&#39;two&#39;</span><span class="p">)</span>
-<span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; print bad_append(&#39;one&#39;)</span>
+<span class="err">[&#39;one&#39;]</span>
+<span class="err">&gt;&gt;&gt; print bad_append(&#39;two&#39;)</span>
+<span class="err">[&#39;one&#39;, &#39;two&#39;]</span>
 </code></pre></div>
 
 
 <p>列表是一个可变对象；我们可以改变它们的内容。 得到一个默认列表的正确方法是在运行时创建，在函数内部:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">good_append</span><span class="p">(</span><span class="n">new_item</span><span class="p">,</span> <span class="n">a_list</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">a_list</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">good_append</span><span class="p">(</span><span class="n">new_item</span><span class="p">,</span> <span class="n">a_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">a_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">a_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_item</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">a_list</span>
@@ -943,7 +943,7 @@
 <span class="n">messages</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%s</span><span class="s1">, you have </span><span class="si">%i</span><span class="s1"> messages&#39;</span>
         <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">messages</span><span class="p">))</span>
-<span class="k">print</span> <span class="n">text</span>
+<span class="nb">print</span> <span class="n">text</span>
 </code></pre></div>
 
 
@@ -958,7 +958,7 @@
 <p>大多数人都不知道有另外一种更灵活的字符串格式化方式:
 利用字典键值:</p>
 <div class="highlight"><pre><span></span><code><span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">:</span> <span class="n">messages</span><span class="p">}</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%(name)s</span><span class="s1">, you have </span><span class="si">%(messages)i</span><span class="s1"> &#39;</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%(name)s</span><span class="s1">, you have </span><span class="si">%(messages)i</span><span class="s1"> &#39;</span>
        <span class="s1">&#39;messages&#39;</span> <span class="o">%</span> <span class="n">values</span><span class="p">)</span>
 </code></pre></div>
 
@@ -966,7 +966,7 @@
 <p>这里我们指定了插入数据的名字，这些名字可以在随后提供的字典中找到。</p>
 <p>注意到什么冗余之处没有？ 名字 「name」 和 「messages」已经在本地命名空间中定义了。 我们可以利用这一点。</p>
 <p>使用本地命名空间中的名字:</p>
-<div class="highlight"><pre><span></span><code><span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%(name)s</span><span class="s1">, you have </span><span class="si">%(messages)i</span><span class="s1"> &#39;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%(name)s</span><span class="s1">, you have </span><span class="si">%(messages)i</span><span class="s1"> &#39;</span>
        <span class="s1">&#39;messages&#39;</span> <span class="o">%</span> <span class="nb">locals</span><span class="p">())</span>
 </code></pre></div>
 
@@ -984,13 +984,13 @@
 <h2>高级 % 字符串格式化</h2>
 <p>一个对象实例属性的名字空间实际上就是一个字典， <code>self.__dict__</code> 。
 使用实例名字空间中的名字:</p>
-<div class="highlight"><pre><span></span><code><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;We found </span><span class="si">%(error_count)d</span><span class="s2"> errors&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;We found </span><span class="si">%(error_count)d</span><span class="s2"> errors&quot;</span>
        <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
 </code></pre></div>
 
 
 <p>等价于，但比下面的形式更灵活:</p>
-<div class="highlight"><pre><span></span><code><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;We found </span><span class="si">%d</span><span class="s2"> errors&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;We found </span><span class="si">%d</span><span class="s2"> errors&quot;</span>
        <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_count</span><span class="p">)</span>
 </code></pre></div>
 
@@ -1041,7 +1041,7 @@
 
 
 <p>生成器表达式解法:</p>
-<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
 </code></pre></div>
 
 
@@ -1050,7 +1050,7 @@
 <h2>生成器表达式 (2)</h2>
 <p>举个例子来说，如果我们要计算数十亿整数的平方和，如果使用列表推导， 会内存溢出，但生成器表达式没有问题。不过要花些时间。</p>
 <div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span>
-    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000000000</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000000000</span><span class="p">))</span>
 </code></pre></div>
 
 
@@ -1308,13 +1308,13 @@ LBYL: 三思而后行</p>
 <span class="sd">    Return a 2-tuple: (settings object, args list).</span>
 <span class="sd">    `argv` is a list of arguments, or `None` for ``sys.argv[1:]``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">argv</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">argv</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">argv</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 
     <span class="c1"># initialize the parser object:</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">optparse</span><span class="o">.</span><span class="n">OptionParser</span><span class="p">(</span>
         <span class="n">formatter</span><span class="o">=</span><span class="n">optparse</span><span class="o">.</span><span class="n">TitledHelpFormatter</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">78</span><span class="p">),</span>
-        <span class="n">add_help_option</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+        <span class="n">add_help_option</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
     <span class="c1"># define options here:</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span>      <span class="c1"># customized description; put --help last</span>
@@ -1332,7 +1332,7 @@ LBYL: 三思而后行</p>
 
     <span class="k">return</span> <span class="n">settings</span><span class="p">,</span> <span class="n">args</span>
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">settings</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="n">process_command_line</span><span class="p">(</span><span class="n">argv</span><span class="p">)</span>
     <span class="c1"># application code here, like:</span>
     <span class="c1"># run(settings, args)</span>

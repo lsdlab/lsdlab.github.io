@@ -101,13 +101,13 @@
 <p>站点的基本功能完成后，简单维护，时不时看看日志，用 goaccess 分析下 <code>access.log</code> 看看 4xx 5xx 的状态码，自己测试的时候用 <code>ngxtop</code>，一个实时的请求分析程序，自己把链接都点点，看看哪边有问题，会出现 4xx 和 5xx 的状态码，想办法解决。这两个工具我就不再写怎么用了，小破网站也没有必要老分析。简单优化就靠 Google 提供的一个工具 <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>，会分析移动设备和桌面浏览器的得分，下面会给出优化提示，现在能够解决的只有开启文件压缩的缓存了，优化完成之后的移动设备还是不太好，七十九分，桌面浏览器已经能够达到九十二分了，还算行。</p>
 <h3>Nginx 开启文件压缩</h3>
 <p>文件压缩设置是写在 <code>server</code> 端，配置如下：</p>
-<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="n">gzip</span>
-<span class="n">gzip</span> <span class="k">on</span><span class="p">;</span>
-<span class="n">gzip_min_length</span> <span class="mi">1</span><span class="n">k</span><span class="p">;</span>
-<span class="n">gzip_buffers</span> <span class="mi">4</span> <span class="mi">16</span><span class="n">k</span><span class="p">;</span>
-<span class="n">gzip_comp_level</span> <span class="mi">2</span><span class="p">;</span>
-<span class="n">gzip_types</span> <span class="nb">text</span><span class="o">/</span><span class="n">plain</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">javascript</span> <span class="nb">text</span><span class="o">/</span><span class="n">css</span> <span class="n">application</span><span class="o">/</span><span class="n">xml</span> <span class="nb">text</span><span class="o">/</span><span class="n">javascript</span>  <span class="n">image</span><span class="o">/</span><span class="n">jpeg</span> <span class="n">image</span><span class="o">/</span><span class="n">png</span><span class="p">;</span>
-<span class="n">gzip_disable</span> <span class="ss">&quot;MSIE [1-6]\.&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="err"># gzip</span>
+<span class="err">gzip on;</span>
+<span class="err">gzip_min_length 1k;</span>
+<span class="err">gzip_buffers 4 16k;</span>
+<span class="err">gzip_comp_level 2;</span>
+<span class="err">gzip_types text/plain application/x-javascript text/css application/xml text/javascript  image/jpeg image/png;</span>
+<span class="err">gzip_disable &quot;MSIE [1-6]\.&quot;;</span>
 </code></pre></div>
 
 

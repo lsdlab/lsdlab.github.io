@@ -99,28 +99,28 @@
     <article>
         <p>首先说一下 octopress 主目录下的文件结构，我不会 Ruby，也没有完全搞懂这个每个文件的作用和结构，就引用一下这篇 Blog：<a href="http://812lcl.com/blog/2013/10/25/octopressbo-ke-da-jian-ji-mu-lu-jie-gou/">Octopress博客搭建及目录结构 - 812lcl的博客</a>
 由于 octopress 更新了，这篇 Blog 里面讲的有些旧了，新的文件我就自己修改说明了。</p>
-<div class="highlight"><pre><span></span><code>├─ <span class="nv">config</span>.<span class="nv">rb</span>  #指定额外的<span class="nv">compass</span>插件
-├─ <span class="nv">config</span>.<span class="nv">ru</span>
-├─ <span class="nv">Rakefile</span>   #<span class="nv">rake</span>的配置文件,类似于<span class="nv">makefile</span> 添加<span class="nv">Tag</span> 功能后要自动在编辑每篇<span class="nv">Blog</span> 时自动在前面添加<span class="nv">tags</span>: 提示
-├─ <span class="nv">Gemfile</span>    #<span class="nv">bundle</span>要下载需要的<span class="nv">gem</span>依赖关系的指定文件
-├─ <span class="nv">Gemfile</span>.<span class="nv">lock</span>  #这些<span class="nv">gem</span>依赖的对应关系,比如<span class="nv">A</span>的<span class="nv">x</span>版本依赖于<span class="nv">B</span>的<span class="nv">y</span>版本
-├─ <span class="nv">_config</span>.<span class="nv">yml</span>   #站点的配置文件
-├─ <span class="nv">public</span><span class="o">/</span>    #在静态编译完成后的目录,网站只需要这个目录下的文件树
-├─ <span class="nv">_deploy</span><span class="o">/</span>   #<span class="nv">deploy</span>时候生成的缓存文件夹,和<span class="nv">public</span>目录一样
-├─ <span class="nv">sass</span><span class="o">/</span>      #<span class="nv">css</span>文件的源文件,过程中会<span class="nv">compass</span>成<span class="nv">css</span>
-├─ <span class="nv">plugins</span><span class="o">/</span>   #放置自带以及第三方插件的目录,<span class="nv">ruby</span>程序
-│   └── <span class="nv">xxx</span>.<span class="nv">rb</span>
-└─ <span class="nv">source</span><span class="o">/</span>    #站点的源文件目录,<span class="nv">public</span>目录就是根据这个目录下数据生成的
-   └─ <span class="nv">_includes</span><span class="o">/</span>
-      └─ <span class="nv">custom</span><span class="o">/</span>      #自定义的模板目录,被相应上级<span class="nv">html</span> <span class="k">include</span>
-         └─ <span class="nv">asides</span><span class="o">/</span>   #边栏模板自定义模板目录
-      └─ <span class="nv">asides</span><span class="o">/</span>      #边栏模板目录
-      └─ <span class="nv">post</span><span class="o">/</span>        #文章页面相应模板目录
-   └─ <span class="nv">_layouts</span><span class="o">/</span>       #默认网站<span class="nv">html</span>相关文件,最底层
-   └─ <span class="nv">_posts</span><span class="o">/</span>         #新增以及从其它程序迁移过来的数据都存在这里
-   └─ <span class="nv">images</span><span class="o">/</span>         #图片目录 可手动添加，添加后<span class="nv">Blog</span> 应用图片可直接从这个文件中引用
-└─ <span class="nv">README</span>.<span class="nv">markdown</span>    #<span class="nv">octopress</span> 说明
-└─ <span class="nv">CHANGELOG</span>.<span class="nv">markdown</span>    # <span class="nv">octopress</span> 更新说明
+<div class="highlight"><pre><span></span><code><span class="err">├─ config.rb  #指定额外的compass插件</span>
+<span class="err">├─ config.ru</span>
+<span class="err">├─ Rakefile   #rake的配置文件,类似于makefile 添加Tag 功能后要自动在编辑每篇Blog 时自动在前面添加tags: 提示</span>
+<span class="err">├─ Gemfile    #bundle要下载需要的gem依赖关系的指定文件</span>
+<span class="err">├─ Gemfile.lock  #这些gem依赖的对应关系,比如A的x版本依赖于B的y版本</span>
+<span class="err">├─ _config.yml   #站点的配置文件</span>
+<span class="err">├─ public/    #在静态编译完成后的目录,网站只需要这个目录下的文件树</span>
+<span class="err">├─ _deploy/   #deploy时候生成的缓存文件夹,和public目录一样</span>
+<span class="err">├─ sass/      #css文件的源文件,过程中会compass成css</span>
+<span class="err">├─ plugins/   #放置自带以及第三方插件的目录,ruby程序</span>
+<span class="err">│   └── xxx.rb</span>
+<span class="err">└─ source/    #站点的源文件目录,public目录就是根据这个目录下数据生成的</span>
+<span class="err">   └─ _includes/</span>
+<span class="err">      └─ custom/      #自定义的模板目录,被相应上级html include</span>
+<span class="err">         └─ asides/   #边栏模板自定义模板目录</span>
+<span class="err">      └─ asides/      #边栏模板目录</span>
+<span class="err">      └─ post/        #文章页面相应模板目录</span>
+<span class="err">   └─ _layouts/       #默认网站html相关文件,最底层</span>
+<span class="err">   └─ _posts/         #新增以及从其它程序迁移过来的数据都存在这里</span>
+<span class="err">   └─ images/         #图片目录 可手动添加，添加后Blog 应用图片可直接从这个文件中引用</span>
+<span class="err">└─ README.markdown    #octopress 说明</span>
+<span class="err">└─ CHANGELOG.markdown    # octopress 更新说明</span>
 </code></pre></div>
 
 
