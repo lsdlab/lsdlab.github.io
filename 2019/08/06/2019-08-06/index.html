@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="安装 Docker在内网里面装 Docker ，连接国外就很慢，更不用说被墙掉的东西了，先按照清华大学的镜像站 https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/，把 Docker 在三台 ubuntu 16.04 机器上装好，再安装好 docke"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="JC"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="kubernetes 集群安装配置"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="安装 Docker在内网里面装 Docker ，连接国外就很慢，更不用说被墙掉的东西了，先按照清华大学的镜像站 https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/，把 Docker 在三台 ubuntu 16.04 机器上装好，再安装好 docke"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="BreakWire | 断线"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>kubernetes 集群安装配置 - BreakWire | 断线</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BreakWire | 断线</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>kubernetes 集群安装配置</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-08-06
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><p>在内网里面装 Docker ，连接国外就很慢，更不用说被墙掉的东西了，先按照清华大学的镜像站 <a target="_blank" rel="noopener" href="https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/%EF%BC%8C%E6%8A%8A">https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/，把</a> Docker 在三台 ubuntu 16.04 机器上装好，再安装好 docker-compose <a target="_blank" rel="noopener" href="https://docs.docker.com/compose/install/%E3%80%82">https://docs.docker.com/compose/install/。</a></p>
+<h2 id="安装-k8s"><a href="#安装-k8s" class="headerlink" title="安装 k8s"></a>安装 k8s</h2><h3 id="安装-kubeadm-kubelet-kubectl"><a href="#安装-kubeadm-kubelet-kubectl" class="headerlink" title="安装 kubeadm kubelet kubectl"></a>安装 kubeadm kubelet kubectl</h3><p>还是得用国内镜像源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apt/sources.list.d/kubernetes.list</span><br><span class="line">deb http://mirrors.ustc.edu.cn/kubernetes/apt kubernetes-xenial main</span><br><span class="line">sudo apt-get update</span><br><span class="line">apt-get install kubelet kubeadm kubectl</span><br></pre></td></tr></table></figure>
+
+<p>这里有个坑，安装好这三个组件后，kubelet 可能会起不来，照理说应该是会作为 system services 自动启动的，多等一会，如果还是不能启动的话就手动 <code>sudo kubelet</code> 启动一下，然后杀掉，再等一会看会不会启动，完全看运气，查了很多的资料发现各种文档教程都没写明白，装 k8s 有好几个坑，没一个说明白的，全靠自己想办法和猜，总之 kubelet 要启动起来。</p>
+<h3 id="在宿主机上下载好-k8s-需要的-image-并打好-tag"><a href="#在宿主机上下载好-k8s-需要的-image-并打好-tag" class="headerlink" title="在宿主机上下载好 k8s 需要的 image 并打好 tag"></a>在宿主机上下载好 k8s 需要的 image 并打好 tag</h3><p>根据当前系统的版本，或得 k8s 需要 image 的版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config images list</span><br></pre></td></tr></table></figure>
+
+<p>得到版本号后从阿里云下载 k8s 需要的 image</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.15.1</span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.15.1</span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.15.1</span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.15.1</span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1</span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.3.10</span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.3.1</span><br><span class="line"></span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.15.1 k8s.gcr.io/kube-apiserver:v1.15.1</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.15.1 k8s.gcr.io/kube-controller-manager:v1.15.1</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.15.1 k8s.gcr.io/kube-scheduler:v1.15.1</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.15.1 k8s.gcr.io/kube-proxy:v1.15.1</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 k8s.gcr.io/pause:3.1</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.3.10 k8s.gcr.io/etcd:3.3.10</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.3.1 k8s.gcr.io/coredns:1.3.1</span><br></pre></td></tr></table></figure>
+
+<h3 id="在宿主机上启动-master-节点"><a href="#在宿主机上启动-master-节点" class="headerlink" title="在宿主机上启动 master 节点"></a>在宿主机上启动 master 节点</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo kubeadm init</span><br></pre></td></tr></table></figure>
+
+<p>不加任何参数，很多的文档教程都写了不通的网络组件用不通的参数，默认就应该用 CNI，不加任何参数，启动 master 节点完成后会显示 kubeadm join 的命令，基本算是完成了启动，但是还没法用，得编辑 CNI 网络组件的两个文件才行。</p>
+<p>init 完成后会出现三条编辑配置的命令，顺序执行就好。</p>
+<h3 id="宿主机上编辑-CNI-网络组件配置"><a href="#宿主机上编辑-CNI-网络组件配置" class="headerlink" title="宿主机上编辑 CNI 网络组件配置"></a>宿主机上编辑 CNI 网络组件配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/cni/net.d</span><br><span class="line"></span><br><span class="line">sudo nano /etc/cni/net.d/10-mynet.conf</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;cniVersion&quot;: &quot;0.3.0&quot;,</span><br><span class="line">    &quot;name&quot;: &quot;mynet&quot;,</span><br><span class="line">    &quot;type&quot;: &quot;bridge&quot;,</span><br><span class="line">    &quot;bridge&quot;: &quot;cni0&quot;,</span><br><span class="line">    &quot;isGateway&quot;: true,</span><br><span class="line">    &quot;ipMasq&quot;: true,</span><br><span class="line">    &quot;ipam&quot;: &#123;</span><br><span class="line">        &quot;type&quot;: &quot;host-local&quot;,</span><br><span class="line">        &quot;subnet&quot;: &quot;10.244.0.0/16&quot;,</span><br><span class="line">        &quot;routes&quot;: [</span><br><span class="line">            &#123;&quot;dst&quot;: &quot;0.0.0.0/0&quot;&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sudo nano /etc/cni/net.d/99-loopback.conf</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;cniVersion&quot;: &quot;0.3.0&quot;,</span><br><span class="line">    &quot;type&quot;: &quot;loopback&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>检查主节点是否 ready</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo kubectl get nodes -o wide</span><br></pre></td></tr></table></figure>
+
+<p>检查主节点容器是否正常运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo kubectl get pods -n kube-system</span><br></pre></td></tr></table></figure>
+
+<p>如果显示 Ready，并且容器也都是 running 状态，那就证明主节点正常运行了。</p>
+<h2 id="子节点安装-配置"><a href="#子节点安装-配置" class="headerlink" title="子节点安装 配置"></a>子节点安装 配置</h2><p>子节点同样安装上面 kubectl kubeadm kubelet 三个组件，同样会遇到 kebelet 不启动的问题，碰运气解决，主节点需要的七个 image 子节点只需要两个，kube-proxy 和 pause，同样下载好打好 tag，然后就执行主节点初始化完成的 <code>kubeadm join</code> 命令，也需要编辑两个 CNI 配置，命令参照上面。</p>
+<h2 id="检查集群是否安装完成"><a href="#检查集群是否安装完成" class="headerlink" title="检查集群是否安装完成"></a>检查集群是否安装完成</h2><p>在两个子节点都完成了操作后，回到主节点，执行 <code>sudo kubectl get nodes -o wide</code> 如果显示三个节点都是 Ready，就证明集群已经安装配置完成。</p>
+<p>今天也遇到了其他的问题，这三个机器是虚拟机创建出来的，上面 CNI 网络组件需要一个虚拟网段，可能是公司的防火墙原因，我在 k8s 上部署了 nginx 后发现不能访问，直接进入了防火墙的报错页面，这个问题还得研究研究，或者就不要再自己部署了，直接用云服务，只需要学习如何写配置就行了。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2024 JC<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

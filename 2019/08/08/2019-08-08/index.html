@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="https://github.com/lsdlab/k8sdjango
+传统部署 &amp;amp; 容器部署容器部署优点：
+
+抹平系统差异，可快速迁移部署。
+docker swarm 快速实现集群部署，快速实现负载均衡，无需使用其他 load blancing 模块。
+
+容器部署缺点：
+
+应用与状态分离，"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="JC"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="使用 Docker 部署 Python/Django 项目 (单机/swarm集群)"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="https://github.com/lsdlab/k8sdjango
+传统部署 &amp;amp; 容器部署容器部署优点：
+
+抹平系统差异，可快速迁移部署。
+docker swarm 快速实现集群部署，快速实现负载均衡，无需使用其他 load blancing 模块。
+
+容器部署缺点：
+
+应用与状态分离，"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="BreakWire | 断线"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>使用 Docker 部署 Python/Django 项目 (单机/swarm集群) - BreakWire | 断线</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BreakWire | 断线</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>使用 Docker 部署 Python/Django 项目 (单机/swarm集群)</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-08-08
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a target="_blank" rel="noopener" href="https://github.com/lsdlab/k8sdjango">https://github.com/lsdlab/k8sdjango</a></p>
+<h1 id="传统部署-容器部署"><a href="#传统部署-容器部署" class="headerlink" title="传统部署 &amp; 容器部署"></a>传统部署 &amp; 容器部署</h1><p>容器部署优点：</p>
+<ol>
+<li>抹平系统差异，可快速迁移部署。</li>
+<li>docker swarm 快速实现集群部署，快速实现负载均衡，无需使用其他 load blancing 模块。</li>
+</ol>
+<p>容器部署缺点：</p>
+<ol>
+<li>应用与状态分离，需要挂载状态文件进入容器。</li>
+<li>日志文件需要从容器中映射到宿主机器上，这个映射存在一定的延迟。</li>
+</ol>
+<h1 id="单机"><a href="#单机" class="headerlink" title="单机"></a>单机</h1><h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><p>使用 alpine 镜像，镜像尺寸会小一点，用了阿里云镜像源，解决 postgresql 的 driver 问题，pip 包也用了阿里云镜像源，build 速度会快一点。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">FROM python:3.7.4-alpine3.10 as build1</span><br><span class="line">ENV PYTHONUNBUFFERED 1</span><br><span class="line">ENV DJANGO_SETTINGS_MODULE conf.production.settings</span><br><span class="line">ENV TZ Asia/Shanghai</span><br><span class="line">RUN <span class="built_in">mkdir</span> /k8sdjango</span><br><span class="line"></span><br><span class="line"><span class="comment"># add china mirrors</span></span><br><span class="line">RUN <span class="built_in">echo</span> <span class="string">&#x27;http://mirrors.aliyun.com/alpine/v3.10/community/&#x27;</span>&gt;/etc/apk/repositories</span><br><span class="line">RUN <span class="built_in">echo</span> <span class="string">&#x27;http://mirrors.aliyun.com/alpine/v3.10/main/&#x27;</span>&gt;&gt;/etc/apk/repositories</span><br><span class="line"></span><br><span class="line"><span class="comment"># install psycopg2-binary</span></span><br><span class="line">RUN apk update \</span><br><span class="line">    &amp;&amp; apk add tzdata \</span><br><span class="line">    &amp;&amp; apk add --virtual build-deps gcc python3-dev musl-dev \</span><br><span class="line">    &amp;&amp; apk add postgresql-dev \</span><br><span class="line">    &amp;&amp; pip install -U pip setuptools -i https://mirrors.aliyun.com/pypi/simple/ \</span><br><span class="line">    &amp;&amp; pip install psycopg2-binary -i https://mirrors.aliyun.com/pypi/simple/ \</span><br><span class="line">    &amp;&amp; apk del build-deps</span><br><span class="line"></span><br><span class="line"><span class="comment"># install requirements and copy code</span></span><br><span class="line">COPY requirements.txt /k8sdjango</span><br><span class="line">RUN pip install -r /k8sdjango/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">FROM python:3.7.4-alpine3.10</span><br><span class="line">COPY --from=build1 / /</span><br><span class="line">COPY . /k8sdjango</span><br><span class="line">WORKDIR /k8sdjango</span><br><span class="line">COPY ./wait-for /bin/wait-for</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a>docker-compose.yml</h3><p>使用 docker-compose 作为编排工具，django 使用上面的 Dockerfile 作为 base image，postgresql&#x2F;redis&#x2F;rabbit 使用标准 image，指定版本，都是最新的稳定版，postgresql 把两个配置文件挂载进入容器，5432 端口开放远程连接，同时做了持久化，把容器的文件也映射到宿主机上。redis 只做数据持久化，不修改配置，也不开放远程连接，rabbitmq 设置用户名和密码以及 vhost，数据持久化，nginx 开放 8080 端口，代理 web 镜像的 gunicorn 8080 端口，nginx 需要挂在配置文件到容器中，同时，django 自带后台的静态文件需要映射到宿主机器中，另外 django 中自定义的日志也映射到宿主机器上。celery worker&#x2F;beat 使用和 web 用一个镜像，使用同样的 image，减少 build。depends_on 配合 wait-for 能够让容器顺序启动，不会再出现 celery_worker 先于 rabbitmq 启动，连不上 broker 的报错。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">&#x27;3&#x27;</span></span><br><span class="line">services:</span><br><span class="line">  db:</span><br><span class="line">    image: postgres:11.4</span><br><span class="line">    container_name: k8sdjango-postgres</span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">      POSTGRES_USER: k8sdjango_production</span><br><span class="line">      POSTGRES_PASSWORD: b8n2maLRb7EUyv8c</span><br><span class="line">      POSTGRES_DB: k8sdjango_production</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&#x27;5432:5432&#x27;</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./compose/postgres_data:/var/lib/postgresql/data</span><br><span class="line">      - ./compose/postgresql.conf:/usr/local/etc/postgresql/11/postgresql.conf</span><br><span class="line">      - ./compose/pg_hba.conf:/usr/local/etc/postgresql/11/pg_hba.conf</span><br><span class="line"></span><br><span class="line">  redis:</span><br><span class="line">    image: redis:5.0.5</span><br><span class="line">    container_name: k8sdjango-redis</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">     - <span class="string">&#x27;6379:6379&#x27;</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./compose/redis_data:/data</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">&quot;db&quot;</span></span><br><span class="line"></span><br><span class="line">  rabbitmq:</span><br><span class="line">    image: rabbitmq:3.7.17-management</span><br><span class="line">    container_name: k8sdjango-rabbitmq</span><br><span class="line">    restart: always</span><br><span class="line">    <span class="comment"># environment:</span></span><br><span class="line">    <span class="comment">#   RABBITMQ_DEFAULT_VHOST: k8sdjangovhost</span></span><br><span class="line">    <span class="comment">#   RABBITMQ_DEFAULT_USER: k8sdjangovhost</span></span><br><span class="line">    <span class="comment">#   RABBITMQ_DEFAULT_PASS: b8n2maLRb7EUyv8c</span></span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&#x27;5672:5672&#x27;</span></span><br><span class="line">      - <span class="string">&#x27;15672:15672&#x27;</span></span><br><span class="line">      - <span class="string">&#x27;15674:15674&#x27;</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./compose/rabbitmq_data:/var/lib/rabbitmq</span><br><span class="line">      - ./compose/rabbitmq_plugins:/etc/rabbitmq/enabled_plugins</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">&quot;redis&quot;</span></span><br><span class="line"></span><br><span class="line">  nginx:</span><br><span class="line">    image: nginx:1.16</span><br><span class="line">    container_name: k8sdjango-nginx</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;8080:8080&quot;</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./compose/nginx:/etc/nginx/conf.d</span><br><span class="line">      - ./compose/static:/k8sdjango/static</span><br><span class="line">      - ./compose/nginx_log:/var/log/nginx</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">&quot;web&quot;</span></span><br><span class="line"></span><br><span class="line">  web:</span><br><span class="line">    build: .</span><br><span class="line">    image: django-docker-web</span><br><span class="line">    container_name: k8sdjango-web</span><br><span class="line">    <span class="built_in">command</span>: sh -c <span class="string">&quot;wait-for db:5432 &amp;&amp; python manage.py collectstatic --no-input &amp;&amp; python manage.py migrate &amp;&amp; gunicorn k8sdjango.wsgi --workers 5 --bind 0.0.0.0:8080&quot;</span></span><br><span class="line">    environment:</span><br><span class="line">      DJANGO_SETTINGS_MODULE: conf.production.settings</span><br><span class="line">      TZ: Asia/Shanghai</span><br><span class="line">    volumes:</span><br><span class="line">      - ./compose/static:/k8sdjango/static</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">&quot;db&quot;</span></span><br><span class="line">    expose:</span><br><span class="line">      - <span class="string">&quot;8080&quot;</span></span><br><span class="line"></span><br><span class="line">  celery_worker:</span><br><span class="line">    image: django-docker-web</span><br><span class="line">    container_name: k8sdjango-celery_worker</span><br><span class="line">    <span class="built_in">command</span>: sh -c <span class="string">&quot;wait-for rabbitmq:5672 &amp;&amp; celery -A apps.celeryconfig worker --loglevel=info --autoscale=4,2&quot;</span></span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">      DJANGO_SETTINGS_MODULE: conf.production.settings</span><br><span class="line">      TZ: Asia/Shanghai</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">&quot;db&quot;</span></span><br><span class="line">      - <span class="string">&quot;redis&quot;</span></span><br><span class="line">      - <span class="string">&quot;rabbitmq&quot;</span></span><br><span class="line">      - <span class="string">&quot;web&quot;</span></span><br><span class="line">      - <span class="string">&quot;nginx&quot;</span></span><br><span class="line"></span><br><span class="line">  celery_beat:</span><br><span class="line">    image: django-docker-web</span><br><span class="line">    container_name: k8sdjango-celery_beat</span><br><span class="line">    <span class="built_in">command</span>: sh -c <span class="string">&quot;wait-for rabbitmq:5672 &amp;&amp; celery -A apps.celeryconfig beat --loglevel=info&quot;</span></span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">      DJANGO_SETTINGS_MODULE: conf.production.settings</span><br><span class="line">      TZ: Asia/Shanghai</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">&quot;db&quot;</span></span><br><span class="line">      - <span class="string">&quot;redis&quot;</span></span><br><span class="line">      - <span class="string">&quot;rabbitmq&quot;</span></span><br><span class="line">      - <span class="string">&quot;web&quot;</span></span><br><span class="line">      - <span class="string">&quot;nginx&quot;</span></span><br><span class="line">      - <span class="string">&quot;celery_worker&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> k8sdjango</span><br><span class="line">docker-compose build</span><br><span class="line">docker-compose up</span><br></pre></td></tr></table></figure>
+
+<p>build 完成后会获得以下镜像</p>
+<p><img src="https://breakwire.oss-cn-shanghai.aliyuncs.com/1565661662616-6c72fd86-ce6b-4661-b32a-1f3b78686f58.jpeg" alt="Xnip2019-08-13_09-07-56.jpg"></p>
+<h3 id="优化点"><a href="#优化点" class="headerlink" title="优化点"></a>优化点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM python:3.7.4-alpine3.10 as build1</span><br></pre></td></tr></table></figure>
+
+<p>使用 python:3.7.4-alpine3.10 作为 build1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install requirements and copy code</span></span><br><span class="line">COPY requirements.txt /k8sdjango</span><br><span class="line">RUN pip install -r /k8sdjango/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+
+<p>先把 pip 依赖复制进去，安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM python:3.7.4-alpine3.10</span><br><span class="line">COPY --from=build1 / /</span><br><span class="line">COPY . /k8sdjango</span><br><span class="line">WORKDIR /k8sdjango</span><br></pre></td></tr></table></figure>
+
+<p>把第一步的 build1 复制出来，整个项目的代码复制到文件夹中，更改工作目录，这一步，这么做会让每次 build 镜像速度快很多，如果你没有更改 requirements 以及 Dockerfile docker-compose.yml 的话，基本上再次 build 镜像就是复制代码到容器中，其余都是用的缓存。</p>
+<h1 id="swarm"><a href="#swarm" class="headerlink" title="swarm"></a>swarm</h1><p>docker swarm 是最简单的集群部署方式，docker 内置的 overlay 网络模式能够提供负载均衡，任意服务的暴露的 端口均能在任意节点访问，由 swarm overlay 网络进行 routing，最终会访问到某一个容器，同时每个服务的容器数量能够 scale up 或者 scale down。</p>
+<p>使用三台机器，一个 manager，两个 worker，使用 swarm 集群部署配置文件和单机部署区别不大，主要是设置 replicas 数量以及 placement 容器运行制定镜像，把三个数据库都制定运行在第二台机器上，web 以及 nginx 各运行三个 replicas，swarm 会自动分配，swarm这里的 node.hostname &#x3D;&#x3D; SmartMP02 是机器 &#x2F;etc&#x2F;hosts 中的 hostname。</p>
+<h3 id="docker-compose-stack-yml"><a href="#docker-compose-stack-yml" class="headerlink" title="docker-compose-stack.yml"></a>docker-compose-stack.yml</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">&#x27;3&#x27;</span></span><br><span class="line">services:</span><br><span class="line">  db:</span><br><span class="line">    image: postgres:11.4</span><br><span class="line">    deploy:</span><br><span class="line">      replicas: 1</span><br><span class="line">      restart_policy:</span><br><span class="line">        condition: on-failure</span><br><span class="line">      placement:</span><br><span class="line">        constraints: [node.hostname == SmartMP02]</span><br><span class="line">    environment:</span><br><span class="line">      POSTGRES_USER: k8sdjango_production</span><br><span class="line">      POSTGRES_PASSWORD: b8n2maLRb7EUyv8c</span><br><span class="line">      POSTGRES_DB: k8sdjango_production</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&#x27;5432:5432&#x27;</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./compose/postgres_data:/var/lib/postgresql/data</span><br><span class="line">      - ./compose/postgresql.conf:/usr/local/etc/postgresql/11/postgresql.conf</span><br><span class="line">      - ./compose/pg_hba.conf:/usr/local/etc/postgresql/11/pg_hba.conf</span><br><span class="line"></span><br><span class="line">  redis:</span><br><span class="line">    image: redis:5.0.5</span><br><span class="line">    deploy:</span><br><span class="line">      replicas: 1</span><br><span class="line">      restart_policy:</span><br><span class="line">        condition: on-failure</span><br><span class="line">      placement:</span><br><span class="line">        constraints: [node.hostname == SmartMP02]</span><br><span class="line">    ports:</span><br><span class="line">     - <span class="string">&#x27;6379:6379&#x27;</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./compose/redis_data:/data</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">&quot;db&quot;</span></span><br><span class="line"></span><br><span class="line">  rabbitmq:</span><br><span class="line">    image: rabbitmq:3.7.17-management</span><br><span class="line">    deploy:</span><br><span class="line">      replicas: 1</span><br><span class="line">      restart_policy:</span><br><span class="line">        condition: on-failure</span><br><span class="line">      placement:</span><br><span class="line">        constraints: [node.hostname == SmartMP02]</span><br><span class="line">    <span class="comment"># environment:</span></span><br><span class="line">    <span class="comment">#   RABBITMQ_DEFAULT_VHOST: k8sdjangovhost</span></span><br><span class="line">    <span class="comment">#   RABBITMQ_DEFAULT_USER: k8sdjangovhost</span></span><br><span class="line">    <span class="comment">#   RABBITMQ_DEFAULT_PASS: b8n2maLRb7EUyv8c</span></span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&#x27;5672:5672&#x27;</span></span><br><span class="line">      - <span class="string">&#x27;15672:15672&#x27;</span></span><br><span class="line">      - <span class="string">&#x27;15674:15674&#x27;</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./compose/rabbitmq_data:/var/lib/rabbitmq</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">&quot;redis&quot;</span></span><br><span class="line"></span><br><span class="line">  nginx:</span><br><span class="line">    image: nginx:1.16</span><br><span class="line">    deploy:</span><br><span class="line">      replicas: 4</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;8080:8080&quot;</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./compose/nginx:/etc/nginx/conf.d</span><br><span class="line">      - ./compose/static:/k8sdjango/static</span><br><span class="line">      - ./compose/nginx_log:/var/log/nginx</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">&quot;web&quot;</span></span><br><span class="line"></span><br><span class="line">  web:</span><br><span class="line">    build: .</span><br><span class="line">    image: django-docker-web</span><br><span class="line">    <span class="built_in">command</span>: sh -c <span class="string">&quot;wait-for db:5432 &amp;&amp; python manage.py collectstatic --no-input &amp;&amp; python manage.py migrate &amp;&amp; gunicorn k8sdjango.wsgi --workers 5 --bind 0.0.0.0:8080&quot;</span></span><br><span class="line">    deploy:</span><br><span class="line">      replicas: 4</span><br><span class="line">    environment:</span><br><span class="line">      DJANGO_SETTINGS_MODULE: conf.production.settings</span><br><span class="line">      TZ: Asia/Shanghai</span><br><span class="line">    volumes:</span><br><span class="line">      - ./compose/static:/k8sdjango/static</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">&quot;db&quot;</span></span><br><span class="line"></span><br><span class="line">  celery_worker:</span><br><span class="line">    image: django-docker-web</span><br><span class="line">    <span class="built_in">command</span>: sh -c <span class="string">&quot;wait-for rabbitmq:5672 &amp;&amp; celery -A apps.celeryconfig worker --loglevel=info --autoscale=4,2&quot;</span></span><br><span class="line">    deploy:</span><br><span class="line">      replicas: 1</span><br><span class="line">      restart_policy:</span><br><span class="line">        condition: on-failure</span><br><span class="line">      placement:</span><br><span class="line">        constraints: [node.hostname == SmartMP03]</span><br><span class="line">    environment:</span><br><span class="line">      DJANGO_SETTINGS_MODULE: conf.production.settings</span><br><span class="line">      TZ: Asia/Shanghai</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">&quot;db&quot;</span></span><br><span class="line">      - <span class="string">&quot;redis&quot;</span></span><br><span class="line">      - <span class="string">&quot;rabbitmq&quot;</span></span><br><span class="line">      - <span class="string">&quot;web&quot;</span></span><br><span class="line">      - <span class="string">&quot;nginx&quot;</span></span><br><span class="line"></span><br><span class="line">  celery_beat:</span><br><span class="line">    image: django-docker-web</span><br><span class="line">    <span class="built_in">command</span>: sh -c <span class="string">&quot;wait-for rabbitmq:5672 &amp;&amp; celery -A apps.celeryconfig beat --loglevel=info&quot;</span></span><br><span class="line">    deploy:</span><br><span class="line">      replicas: 1</span><br><span class="line">      restart_policy:</span><br><span class="line">        condition: on-failure</span><br><span class="line">      placement:</span><br><span class="line">        constraints: [node.hostname == SmartMP03]</span><br><span class="line">    environment:</span><br><span class="line">      DJANGO_SETTINGS_MODULE: conf.production.settings</span><br><span class="line">      TZ: Asia/Shanghai</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">&quot;db&quot;</span></span><br><span class="line">      - <span class="string">&quot;redis&quot;</span></span><br><span class="line">      - <span class="string">&quot;rabbitmq&quot;</span></span><br><span class="line">      - <span class="string">&quot;web&quot;</span></span><br><span class="line">      - <span class="string">&quot;nginx&quot;</span></span><br><span class="line">      - <span class="string">&quot;celery_worker&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>**<br>celery_worker&#x2F;beat 使用和 django web 同一个镜像，指定放在第三台机器上，所以仍然需要在三台机器上同一个位置都部署代码，build 好镜像，否则 celery_worker&#x2F;beat 都不能启动。</p>
+<h3 id="运行-1"><a href="#运行-1" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> k8sdjango</span><br><span class="line">docker-compose build</span><br><span class="line">docker stack deploy -c docker-compose-stack.yml k8sdjango <span class="comment"># 启动服务</span></span><br><span class="line">docker stack down k8sdjango  <span class="comment">#关闭所有服务</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建django自带后台的超级用户</span></span><br><span class="line"><span class="comment"># 先获取 django-docker-web 的 container id 任意一个</span></span><br><span class="line">docker ps</span><br><span class="line">docker <span class="built_in">exec</span> -it --<span class="built_in">env</span> DJANGO_SETTINGS_MODULE=conf.production.settings f0ef1ad3c0bb python manage.py createsuperuser</span><br></pre></td></tr></table></figure>
+
+<p>此时访问三台机器中的任意一台的 :8080&#x2F;admin&#x2F;，都能进入 django 自带的后台页面。</p>
+<p>获取服务列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker service <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://breakwire.oss-cn-shanghai.aliyuncs.com/1565661728517-de4f9eee-1ef4-45ba-9b01-a40559d39875.jpeg" alt="Xnip2019-08-13_10-01-59.jpg"></p>
+<p><a target="_blank" rel="noopener" href="https://www.portainer.io/">https://www.portainer.io/</a> 是一个 Docker management UI，提供了一些功能，同时也能 将 swarm cluster 可视化，这个示例用 swarm 部署后可视化的结果如下。</p>
+<p><img src="https://breakwire.oss-cn-shanghai.aliyuncs.com/1565675933334-728afba3-2455-4ef8-9d53-97c7fc787d6b.jpeg" alt="Xnip2019-08-13_13-27-47.jpg"></p>
+<p>serivces list 服务列表如下</p>
+<p><img src="https://breakwire.oss-cn-shanghai.aliyuncs.com/1565683022139-ed516a5c-d82e-4035-9f25-2809001c164f.jpeg" alt="Xnip2019-08-13_15-56-24.jpg"></p>
+<h3 id="优化点-1"><a href="#优化点-1" class="headerlink" title="优化点"></a>优化点</h3><ul>
+<li><input disabled="" type="checkbox"> 代码同步脚本</li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2024 JC<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="前一段时间在研究 ELK 这个东西，之前也用过一点，但都没有深入研究，其实这回也没有深入研究，但我找到了在现在情况下我该怎么用这个东西的方法。
+ELK 是一个日志系统的全家桶工具，Elasticsearch 用的人比较多，很多人把这个当作搜索后台，如果你选择了 Django 这样的框架的话也很容易继"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="JC"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="基于 EleasticSearch 和 Kibana 的运营数据可视化后台"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="前一段时间在研究 ELK 这个东西，之前也用过一点，但都没有深入研究，其实这回也没有深入研究，但我找到了在现在情况下我该怎么用这个东西的方法。
+ELK 是一个日志系统的全家桶工具，Elasticsearch 用的人比较多，很多人把这个当作搜索后台，如果你选择了 Django 这样的框架的话也很容易继"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="BreakWire | 断线"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>基于 EleasticSearch 和 Kibana 的运营数据可视化后台 - BreakWire | 断线</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BreakWire | 断线</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>基于 EleasticSearch 和 Kibana 的运营数据可视化后台</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-10-02
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>前一段时间在研究 ELK 这个东西，之前也用过一点，但都没有深入研究，其实这回也没有深入研究，但我找到了在现在情况下我该怎么用这个东西的方法。</p>
+<p>ELK 是一个日志系统的全家桶工具，Elasticsearch 用的人比较多，很多人把这个当作搜索后台，如果你选择了 Django 这样的框架的话也很容易继承搜索功能进去，比如用这个库 <a target="_blank" rel="noopener" href="https://github.com/django-haystack/django-haystack">django-haystack</a>，当然很多人是用来做日志存储。</p>
+<p>L 是 Logstash，经过我的调研就发现这个玩意其实不太好用，性能差是主要原因。这个东西的用途就是一个中间件，把多个平台的不同格式的日志全部进行预处理，然后再存入 ES 中，但是作为一个还很小，没那么复杂的后台服务来说，用不着，只有一个日志来源，日志格式也是固定的，一条日志里面有四个 JSON object，每个 object 的 key 不是固定的，只要处理一下时间戳就行了，其他都不用动，直接 mapping 到 ES 中，刚开始我甚至还用到了 filebeat，先用 filebeat 监控文件，然后 filebeat output 给 logstash，然后 logstash 再 output 给 ES，简直了，测试的时候没什么问题，但一上线过了两三天日志数量多了起来我就发现问题了，数量不对，每天都在累加前一天的日志条数，等于说是 tail 文件没成功，每次都从头开始读文件了，外加用了 rsync 这个东西从生产服务器上同步日志到 ES 机器上，我也没整明白到底是哪里出了问题，索性直接弃用 logstash 和 filebeat，只用 ES 和 kibana，我自己写脚本监控文件、把日志写入 ES 中，也把日志按天切分成文件，简单又靠谱。</p>
+<p>运营数据日志的日志内容其实和消息系统很像，我就直接引用这里的概念 <a target="_blank" rel="noopener" href="http://django-activity-stream.readthedocs.io/en/latest/concepts.html">AVOT</a>，<code>Actor/Verb/Object/Target</code>。举例说明: <code>xxx 关注了 yyy</code>，<code>xxx</code> 是 Actor，<code>关注</code> 是 Verb，<code>yyy</code> 是 Target，这里没有 Object，再举一个例子，xxx 将 uuu 添加到了 yyy 中，这里的 Verb 是 <code>添加</code>，Object 是 <code>uuu</code>，<code>Actor/Object/Target</code> 就是模型，当然我们不用把模型的全部字段都放进去，放个 type&#x2F;id&#x2F;name 就够了。按照这样的规则规定好日志内容之后就简单了，在每个需要记录日志的地方进行埋点，这个就是比较麻烦的地方，如果业务比较复杂的化，埋点很多，写的时候一定要一次性写对 Object 和 Target，不要写了一次之后复制粘贴，很容易搞错，一个个写。还有一点就是 <code>Actor/Object/Target</code> 的 id 都转成字符串存储，因为用户的 id 是 <code>uuid</code>，日志 object 直接 <code>to_json()</code>，django logger 直接用，用户 id 会变成字符串，其他 model 的 id 还是 <code>int</code>，类型如果不一致再存到 ES 里面数据会有冲突。</p>
+<p>最终的日志格式示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;target&quot;: &#123;&quot;type&quot;: &quot;xxxx&quot;, &quot;title&quot;: &quot;xxxxxx&quot;, &quot;id&quot;: &quot;791&quot;, &quot;owner&quot;: &quot;xxx&quot;&#125;, &quot;object&quot;: &#123;&#125;, &quot;actor&quot;: &#123;&quot;agent&quot;: &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36&quot;, &quot;accept_language&quot;: &quot;en-US,en;q=0.8&quot;, &quot;username&quot;: &quot;xxx&quot;, &quot;host&quot;: &quot;www.example.com&quot;, &quot;referer&quot;: &quot;www.example.com&quot;&#125;, &quot;verb&quot;: &quot;点赞&quot;, &quot;time&quot;: 1507000406.305043&#125;</span><br><span class="line">&#123;&quot;target&quot;: &#123;&quot;type&quot;: &quot;xxx&quot;, &quot;id&quot;: &quot;fcc3837f-1a61-4d2c-bdbf-0961085547a3&quot;, &quot;owner&quot;: &quot;ddd&quot;&#125;, &quot;object&quot;: &#123;&#125;, &quot;actor&quot;: &#123;&quot;agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&quot;, &quot;accept_language&quot;: &quot;zh-CN,zh;q=0.8&quot;, &quot;username&quot;: &quot;&quot;, &quot;host&quot;: &quot;www.example.com&quot;, &quot;referer&quot;: &quot;www.example.com&quot;&#125;, &quot;verb&quot;: &quot;注册&quot;, &quot;time&quot;: 1507000688.429523&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我用了 Elasticsearch 的官方 Python API <a target="_blank" rel="noopener" href="https://github.com/elastic/elasticsearch-py">elasticsearch-py</a>，脚本放在了 <a target="_blank" rel="noopener" href="https://gist.github.com/lsdlab/194c7e4c3537741ba760ffb40b3667da">Gist</a> 里面。</p>
+<p>日志存到 ES 中是这个样子：</p>
+<p><img src="/images/es_and_kibana/2.png" alt="2"></p>
+<h2 id="Kibana"><a href="#Kibana" class="headerlink" title="Kibana"></a>Kibana</h2><p>Kibana 是一个可是化工具，能看到 ES 中的数据，做一些报表，只要把数据导入到 ES 中，做报表就很简单了，简单的也是有前提的，前提是你要定义好日志的内容。</p>
+<p>比如点赞数量，在 Visualize 里面新建一个柱状图，搜索 <code>item.verb=&quot;点赞&quot;</code>，然后第一个 Y 轴聚合搜索出来的日志条数，就是点赞的数量，再添加一个 Y 轴 <code>Unique Count</code> <code>item.actor.username.keyword</code> 就能得出多少个用户产生了这么多赞，X 轴就是按照时间，我都是按天来，选择 <code>Date Histogram</code>，<code>Interval</code>选 <code>Daily</code>，如果你的日志系统要求的实时性比较高，还能选择 <code>Hourly</code>，然后把实时刷新打开，就能看到比较实时的数据了。</p>
+<p><img src="/images/es_and_kibana/3.png" alt="3"><br><img src="/images/es_and_kibana/4.png" alt="4"></p>
+<p>Kibana 最终是这个样子：</p>
+<p><img src="/images/es_and_kibana/0.png" alt="0"><br><img src="/images/es_and_kibana/1.png" alt="1"></p>
+<p>过几天我把这个东西拆分出来变成一个仓库再详细写一下教程。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2024 JC<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
