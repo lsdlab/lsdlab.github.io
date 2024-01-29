@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="Many-to-one relationships一对一关系，一对一关系应该使用来分离抽象模型的，不让一张表里面的字段那么多，那么乱。
+models.py1234567891011121314151617181920212223from django.db import modelsclass Pl"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="JC"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Django one-to-one relationships"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Many-to-one relationships一对一关系，一对一关系应该使用来分离抽象模型的，不让一张表里面的字段那么多，那么乱。
+models.py1234567891011121314151617181920212223from django.db import modelsclass Pl"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="BreakWire | 断线"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Django one-to-one relationships - BreakWire | 断线</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BreakWire | 断线</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Django one-to-one relationships</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2015-06-16
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="Many-to-one-relationships"><a href="#Many-to-one-relationships" class="headerlink" title="Many-to-one relationships"></a>Many-to-one relationships</h2><p>一对一关系，一对一关系应该使用来分离抽象模型的，不让一张表里面的字段那么多，那么乱。</p>
+<h3 id="models-py"><a href="#models-py" class="headerlink" title="models.py"></a><code>models.py</code></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Place</span>(models.Model):</span><br><span class="line">name = models.CharField(max_length=<span class="number">50</span>)</span><br><span class="line">address = models.CharField(max_length=<span class="number">80</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):              <span class="comment"># __unicode__ on Python 2</span></span><br><span class="line">   <span class="keyword">return</span> <span class="string">&quot;%s the place&quot;</span> % self.name</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Restaurant</span>(models.Model):</span><br><span class="line">   place = models.OneToOneField(Place, primary_key=<span class="literal">True</span>)</span><br><span class="line">   serves_hot_dogs = models.BooleanField(default=<span class="literal">False</span>)</span><br><span class="line">   serves_pizza = models.BooleanField(default=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):              <span class="comment"># __unicode__ on Python 2</span></span><br><span class="line">   <span class="keyword">return</span> <span class="string">&quot;%s the restaurant&quot;</span> % self.place.name</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Waiter</span>(models.Model):</span><br><span class="line">   restaurant = models.ForeignKey(Restaurant)</span><br><span class="line">   name = models.CharField(max_length=<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):              <span class="comment"># __unicode__ on Python 2</span></span><br><span class="line">       <span class="keyword">return</span> <span class="string">&quot;%s the waiter at %s&quot;</span> % (self.name, self.restaurant)</span><br></pre></td></tr></table></figure>
+
+<p><code>Restaurant</code> 表中的 <code>place</code> 字段是 和 <code>Place</code> 表是一对一的关系，且手动设置成了主键，一家餐厅有一个地址，这样把模型都分开来，虽然查询的时候可能比较麻烦，但这样分开来能更好的抽象模型的关系，我的应用里面也能够这么做，一个表中的字段太多，有的能够分离到一对一的关系中，也更好理解些。</p>
+<h3 id="python-manage-py-shell-API-用法"><a href="#python-manage-py-shell-API-用法" class="headerlink" title="python manage.py shell API 用法"></a><code>python manage.py shell</code> API 用法</h3><h4 id="实例化-Place-对象"><a href="#实例化-Place-对象" class="headerlink" title="实例化 Place 对象"></a>实例化 <code>Place</code> 对象</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>p1 = Place(name=<span class="string">&#x27;Demon Dogs&#x27;</span>, address=<span class="string">&#x27;944 W. Fullerton&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>p1.save()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>p2 = Place(name=<span class="string">&#x27;Ace Hardware&#x27;</span>, address=<span class="string">&#x27;1013 N. Ashland&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>p2.save()</span><br></pre></td></tr></table></figure>
+
+<h4 id="实例化-Restaurant-对象，将前面实例化好的的-Place-对象绑定上去"><a href="#实例化-Restaurant-对象，将前面实例化好的的-Place-对象绑定上去" class="headerlink" title="实例化 Restaurant 对象，将前面实例化好的的 Place 对象绑定上去"></a>实例化 <code>Restaurant</code> 对象，将前面实例化好的的 <code>Place</code> 对象绑定上去</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = Restaurant(place=p1, serves_hot_dogs=<span class="literal">True</span>, serves_pizza=<span class="literal">False</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.save()</span><br></pre></td></tr></table></figure>
+
+<h4 id="通过-Restaurant-获取其地点"><a href="#通过-Restaurant-获取其地点" class="headerlink" title="通过 Restaurant 获取其地点"></a>通过 <code>Restaurant</code> 获取其地点</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.place</span><br><span class="line">&lt;Place: Demon Dogs the place&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="通过-Place-获取其绑定的-Restaurant"><a href="#通过-Place-获取其绑定的-Restaurant" class="headerlink" title="通过 Place 获取其绑定的 Restaurant"></a>通过 <code>Place</code> 获取其绑定的 <code>Restaurant</code></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>p1.restaurant</span><br><span class="line">&lt;Restaurant: Demon Dogs the restaurane&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="p2-没有绑定任何-Restaurant-对象"><a href="#p2-没有绑定任何-Restaurant-对象" class="headerlink" title="p2 没有绑定任何 Restaurant 对象"></a><code>p2</code> 没有绑定任何 <code>Restaurant</code> 对象</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> django.core.exceptions <span class="keyword">import</span> ObjectDoesNotExist</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">try</span>:</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    p2.restaurant</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">except</span> ObjectDoesNotExist:</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="built_in">print</span>(<span class="string">&quot;There is no restaurant here.&quot;</span>)</span><br><span class="line">There <span class="keyword">is</span> no restaurant here.</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用-hasattr-避免捕捉异常"><a href="#使用-hasattr-避免捕捉异常" class="headerlink" title="使用 hasattr 避免捕捉异常"></a>使用 <code>hasattr</code> 避免捕捉异常</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">hasattr</span>(p2, ‘restaurant’)</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="重新绑定-Place-对象到-Restaurant-中"><a href="#重新绑定-Place-对象到-Restaurant-中" class="headerlink" title="重新绑定 Place 对象到 Restaurant 中"></a>重新绑定 <code>Place</code> 对象到 <code>Restaurant</code> 中</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.place = p2</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>e.save()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>p2.restaurant</span><br><span class="line">&lt;Restaurant: Ace Hardware the restaurant&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.place</span><br><span class="line">&lt;Place: Ace Hardware the place&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>r</code> 的地点原来是 <code>p1</code>，重新绑定成 <code>p2</code>，验证已经变成了 <code>p2</code> 的地址。<br>重新设置回来：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>p1.restaurant = r</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>p1.restaurant</span><br><span class="line">&lt;Restaurant: Demon Dogs the restaurant&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="不能绑定一个没有保存到数据库中的对象到另一个对象中，否则会触发-ValueError"><a href="#不能绑定一个没有保存到数据库中的对象到另一个对象中，否则会触发-ValueError" class="headerlink" title="不能绑定一个没有保存到数据库中的对象到另一个对象中，否则会触发 ValueError"></a>不能绑定一个没有保存到数据库中的对象到另一个对象中，否则会触发 <code>ValueError</code></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>p3 = Place(name=<span class="string">&#x27;Demon Dogs&#x27;</span>, address=<span class="string">&#x27;944 W. Fullerton&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Restaurant(place=p3, serves_hot_dogs=<span class="literal">True</span>, serves_pizza=<span class="literal">False</span>)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">...</span><br><span class="line">ValueError: <span class="string">&#x27;Cannot assign &quot;&lt;Place: Demon Dogs&gt;&quot;: &quot;Place&quot; instance isn&#x27;</span>t saved <span class="keyword">in</span> the database.<span class="string">&#x27;</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; p.restaurant = Restaurant(place=p, serves_hot_dogs=True, serves_pizza=False)</span></span><br><span class="line"><span class="string">Traceback (most recent call last):</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string">ValueError: &#x27;</span>Cannot assign <span class="string">&quot;&lt;Restaurant: Demon Dogs the restaurant&gt;&quot;</span>: <span class="string">&quot;Restaurant&quot;</span> instance isn<span class="string">&#x27;t saved in the database.&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>这上面的错误其实有两个，第一是 <code>p3</code> 实例化没有保存，然后就是 第二行完全没来由，没有实例化任何 <code>Restaurant</code> 对象就要把 <code>p3</code> 绑定上去，触发两个 <code>ValueError</code> 异常。</p>
+<blockquote>
+<p>Django 1.8 的改变：<br>前面也好几处提过了，绑定未保存的对象将会静默数据丢失，不会引发任何异常。</p>
+</blockquote>
+<h4 id="其他用法就是增删改差了"><a href="#其他用法就是增删改差了" class="headerlink" title="其他用法就是增删改差了"></a>其他用法就是增删改差了</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>Restaurant.objects.<span class="built_in">all</span>()</span><br><span class="line">[&lt;Restaurant: Demon Dogs the restaurant&gt;, &lt;Restaurant: Ace Hardware the restaurant&gt;]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Place.objects.order_by(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line">[&lt;Place: Ace Hardware the place&gt;, &lt;Place: Demon Dogs the place&gt;]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Restaurant.objects.get(place=p1)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Restaurant.objects.get(place__pk=<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Restaurant.objects.<span class="built_in">filter</span>(place__name__startswith=<span class="string">&quot;Demon&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Restaurant.objects.exclude(place__address__contains=<span class="string">&quot;Ashland&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>w = r.waiter_set.create(name=<span class="string">&#x27;Joe&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>w.save()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>w</span><br><span class="line">&lt;Waiter: Joe the waiter at Demon Dogs the restaurant&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Waiter.objects.<span class="built_in">filter</span>(restaurant__place=p1)</span><br><span class="line">[&lt;Waiter: Joe the waiter at Demon Dogs the restaurant&gt;]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Waiter.objects.<span class="built_in">filter</span>(restaurant__place__name__startswith=<span class="string">&quot;Demon&quot;</span>)</span><br><span class="line">[&lt;Waiter: Joe the waiter at Demon Dogs the restaurant&gt;]</span><br></pre></td></tr></table></figure>
+
+
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2024 JC<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

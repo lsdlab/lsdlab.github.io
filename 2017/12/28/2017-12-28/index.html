@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="讲讲最近在做啥，也回顾下我的前端开发历程。
+十一月份中到现在都在做前端，算是回到老路子上去了，写前端，做数据可视化，也写 Python API，顺带还给一个 Vue 移动端组件库打了个 Patch ydcss&amp;#x2F;vue-ydui。当时是同事在用这个东西，跟我说想要实现一个搜索框搜出结果后再取"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="JC"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="使用 Ant Design Pro 和 dvajs 开发 React 应用"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="讲讲最近在做啥，也回顾下我的前端开发历程。
+十一月份中到现在都在做前端，算是回到老路子上去了，写前端，做数据可视化，也写 Python API，顺带还给一个 Vue 移动端组件库打了个 Patch ydcss&amp;#x2F;vue-ydui。当时是同事在用这个东西，跟我说想要实现一个搜索框搜出结果后再取"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="BreakWire | 断线"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>使用 Ant Design Pro 和 dvajs 开发 React 应用 - BreakWire | 断线</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BreakWire | 断线</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>使用 Ant Design Pro 和 dvajs 开发 React 应用</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-12-28
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>讲讲最近在做啥，也回顾下我的前端开发历程。</p>
+<p>十一月份中到现在都在做前端，算是回到老路子上去了，写前端，做数据可视化，也写 Python API，顺带还给一个 Vue 移动端组件库打了个 Patch <a target="_blank" rel="noopener" href="https://github.com/ydcss/vue-ydui/pull/376">ydcss&#x2F;vue-ydui</a>。当时是同事在用这个东西，跟我说想要实现一个搜索框搜出结果后再取消搜索，重新请求渲染一下页面，发现没提供这个功能，我就迅速翻了一下代码，发现搜索框组件也是一个月前刚加的，功能不是很完善，我就写了下开了个 PR 出来，过了两天也被合并了，特别开心。</p>
+<p>实习的时候是做前端，就使用 jQuery，gulp 就能开发一个大型的 Web 应用，那一套脚手架也是挺厉害的，用过一点 React，用的不多，也没上 Redux，当时我才理解了怎么用 jQuery gulp 开发一个大型 Web 应用，这里面是怎样的一个流程，一下就让我用 React，水平不够啊。后来因为不是全职做前端开发了，React 也没有再去看了，16 17 年也是 React&#x2F;Vue 前端领域发展最迅速的时候，知乎上也各种撕，各种争。这中间我还是会在写一点前端，jQuery 写一个模态框，里面的是一个查询列表，还带勾选，各种操作，当时写的我脑袋都疼了真是，各种封装，才达到了几乎完美的效果。然后 Vue 也看了看，但都没有实践过，一直到最近，开始写 React。</p>
+<p><a target="_blank" rel="noopener" href="https://pro.ant.design/index-cn">ANT DESIGN PRO</a> 是十一月份蚂蚁金服务发布的一个开箱即用的前端解决方案，是用 Ant Design 框架根据业务封装的一套 UI 框架。当时我在 Vue 和 React 之间选择用那个，因为实习的时候觉得 React 学习曲线陡峭，难度有点大，工具链太复杂，想用 Vue，刚好看到 ant-design-pro，本地跑了一下，非常不错，根据业务封装也是常见的东西，查询列表，详情展示、各种表格，表格的功能要够多满足需求，数据可视化部分是用的 g2，也是蚂蚁金服开源的数据可视化框架，样式、配色看起来比百度的 echarts 要舒服点，就决定用这个了。</p>
+<p>慢慢用下来，我发现 dvajs 把 redux&#x2F;redux-saga&#x2F;react-router 封装得非常好，不用把数据流的操作分散到不同文件中写，一个 model 都在一个文件里，dispatch -&gt; action -&gt; state -&gt; view，非常容易理解，另外，用的 roadhog 还能够集成 Mock API，方便开发。我是一路跟着 ant-design-pro 更新，它更新什么代码我就去看改了啥，我有没有用到，然后手动更新，最开始路由还不是动态加载的，后来改成了动态加载我也跟着更新了，查询列表的 CRUD 功能，弹出模态框进行新增&#x2F;编辑，登录功能，封装其他可视化图，折线图漏斗图，如何 promise all 等等，中间还遇到了个版本的坑。后续我还是得继续研究研究 redux frp 函数式编程，现在前端框架都是这样，是挺好，但也有挺多坑，总之是比以前用 jQuery 开发一个大型 Web 应用要写大量的代码，防御性编程搞得写代码啰嗦到不行要好多了，如果应用简单，特别容易理解，如果应用复杂，数据较多，就要考虑考虑如何设计组件和组件间的数据传递了，然后还有些性能上的考虑，比如可视化图表的渲染。</p>
+<p><img src="https://breakwire.oss-cn-shanghai.aliyuncs.com/dva/dva0.png" alt="dva0"><img src="https://breakwire.oss-cn-shanghai.aliyuncs.com/dva/dva1.png" alt="dva1"></p>
+<p><img src="https://breakwire.oss-cn-shanghai.aliyuncs.com/dva/dva2.png" alt="dva2"></p>
+<p><img src="https://breakwire.oss-cn-shanghai.aliyuncs.com/dva/dva3.png" alt="dva3"><br><img src="https://breakwire.oss-cn-shanghai.aliyuncs.com/dva/dva4.png" alt="dva4"><br><img src="https://breakwire.oss-cn-shanghai.aliyuncs.com/dva/dva5.png" alt="dva5"><br><img src="https://breakwire.oss-cn-shanghai.aliyuncs.com/dva/dva6.png" alt="dva6"><br><img src="https://breakwire.oss-cn-shanghai.aliyuncs.com/dva/dva7.png" alt="dva7"></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2024 JC<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

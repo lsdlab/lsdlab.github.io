@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="Django 入门是挺简单的，这个框架把很多东西都给做好了在里面，但想要理解这个运作原理还是没那么简单的，有的东西刚开始也用不着，到后面要是应用需要的功能越来越多就要用到框架里更多组件了。前段时间刚好看到有人 Gitbook 上放了一个 Django 搭建简单 Blog 的一个教程，我就照着做了一下"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="JC"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Django web app 使用 uWSGI、Nginx 部署"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Django 入门是挺简单的，这个框架把很多东西都给做好了在里面，但想要理解这个运作原理还是没那么简单的，有的东西刚开始也用不着，到后面要是应用需要的功能越来越多就要用到框架里更多组件了。前段时间刚好看到有人 Gitbook 上放了一个 Django 搭建简单 Blog 的一个教程，我就照着做了一下"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="BreakWire | 断线"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Django web app 使用 uWSGI、Nginx 部署 - BreakWire | 断线</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BreakWire | 断线</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Django web app 使用 uWSGI、Nginx 部署</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2015-02-08
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>Django 入门是挺简单的，这个框架把很多东西都给做好了在里面，但想要理解这个运作原理还是没那么简单的，有的东西刚开始也用不着，到后面要是应用需要的功能越来越多就要用到框架里更多组件了。前段时间刚好看到有人 Gitbook 上放了一个 Django 搭建简单 Blog 的一个教程，我就照着做了一下，发现错误挺多，还有的地方根本没讲清楚，框架包办很多事情但也不是这么简单吧，但也学到了一些之前不知道的框架里内置的很方便快捷的功能。我自己照着做了，然后基本还行，就是分类功能还有问题，我自己还要加个时间的功能，还有 RSS 订阅 我也没有搞定，不知道是怎么回事，但基本功能没问题，Markdown 写作，然后复制到后台里面就行了，我就准备放到 Linode 上了，虽然没有域名，先用 IP 凑合凑合，等功能完善了再买域名。</p>
+<h3 id="0-原理"><a href="#0-原理" class="headerlink" title="0. 原理"></a>0. 原理</h3><p>Nginx 作为服务器最前端，接受所有请求，静态请求，媒体文件由 Nginx 处理，非静态请求由 uWSGI 传递给 Django 处理。</p>
+<h3 id="1-安装-Nginx"><a href="#1-安装-Nginx" class="headerlink" title="1. 安装 Nginx"></a>1. 安装 Nginx</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br><span class="line">sudo /etc/init.d/nginx start</span><br></pre></td></tr></table></figure>
+<p>还有其他的用法<code>Usage: nginx &#123;start|stop|restart|reload|force-reload|status|configtest&#125;</code>，后面每次修改站点的ngnix 配置文件都需要<code>reload</code>。</p>
+<h3 id="2-安装-uWSGI"><a href="#2-安装-uWSGI" class="headerlink" title="2. 安装 uWSGI"></a>2. 安装 uWSGI</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-dev</span><br><span class="line">pip install uwsgi</span><br></pre></td></tr></table></figure>
+
+<p>我也不知道前面的 <code>python-dev</code> 是干嘛的，但看别人说要不装就有可能要出错。 还有最后配置文件写在 XML 里面，还要装个 <code>libxml</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libxml2-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-测试-Django-应用是否能直接运行并更改为部署配置"><a href="#3-测试-Django-应用是否能直接运行并更改为部署配置" class="headerlink" title="3. 测试 Django 应用是否能直接运行并更改为部署配置"></a>3. 测试 Django 应用是否能直接运行并更改为部署配置</h3><p>整个项目放到服务器上，<code>python manage.py runserver 0.0.0.0:8000</code>，在8000 这个端口上打开试试，运行没有问题就把项目里的<code>settings.py</code>开发配置改成部署配置。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">DEBUG = FALSE</span><br><span class="line">ALLOWED_HOSTS = [<span class="string">&quot;*&quot;</span>]</span><br><span class="line"></span><br><span class="line">STATIC_URL = <span class="string">&#x27;/static/&#x27;</span></span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">   os.path.join(BASE_DIR, <span class="string">&quot;static&quot;</span>),</span><br><span class="line">)    <span class="comment"># 删掉这个配置项</span></span><br></pre></td></tr></table></figure>
+
+<p>这个地方要把 <code>STATICFILES_DIRS</code> 删掉改成 <code>STATIC_ROOT = &quot;/home/chen/DjangoProjects/static&quot;</code>, 然后在执行 <code>python manage.py collectstatic</code>, 这一步会把一些静态文件全复制到项目的静态文件夹下，这个步骤如果不执行的话就会发现部署上去后台是看不到样式的。</p>
+<h3 id="4-测试-uWSGI"><a href="#4-测试-uWSGI" class="headerlink" title="4.  测试 uWSGI"></a>4.  测试 uWSGI</h3><p>在项目下面新建<code>test.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test.py</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">application</span>(<span class="params">env, start_response</span>):</span><br><span class="line">   start_response(<span class="string">&#x27;200 OK&#x27;</span>, [(<span class="string">&#x27;Content-Type&#x27;</span>,<span class="string">&#x27;text/html&#x27;</span>)])</span><br><span class="line">   <span class="keyword">return</span> <span class="string">&quot;Hello World&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>uwsgi --http :8000 --wsgi-file test.py</code>，在 <code>8000</code> 端口打开试试，能出现 <code>Hello World</code> 就没问题，这个地方由可能回出现一个 <code>libpcre</code> 库 <a target="_blank" rel="noopener" href="http://www.linuxfromscratch.org/blfs/view/svn/general/pcre.html">PCRE-8.36</a> 的问题，要自己下回来编译装上就行了。</p>
+<h3 id="5-my-blog-wsgi-py-uWSGI-配置文件"><a href="#5-my-blog-wsgi-py-uWSGI-配置文件" class="headerlink" title="5. my_blog_wsgi.py uWSGI 配置文件"></a>5. <code>my_blog_wsgi.py</code> uWSGI 配置文件</h3><p>这个地方要是直接照抄各种中文博客到最后肯定都跑不起来，因为他们的 Django 版本太老了，这个地方还是查 stackoverflow 改了就整个跑起来了，<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/25537905/django-1-7-throws-django-core-exceptions-appregistrynotready-models-arent-load">Django 1.7 throws django.core.exceptions.AppRegistryNotReady: Models aren’t loaded yet</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_blog_wsgi.py</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.core.wsgi <span class="keyword">import</span> get_wsgi_application    <span class="comment"># Django 1.7 前是 from django.core.handlers.wsgi import WSGIHandler</span></span><br><span class="line"></span><br><span class="line">os.environ.setdefault(<span class="string">&quot;DJANGO_SETTINGS_MODULE&quot;</span>, <span class="string">&quot;my_blog.settings&quot;</span>)    <span class="comment"># “你的项目.settings”</span></span><br><span class="line">application = get_wsgi_application()    <span class="comment"># 1.7以前是 application = WSGIHandler()</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-配置-Nginx"><a href="#6-配置-Nginx" class="headerlink" title="6. 配置 Nginx"></a>6. 配置 Nginx</h3><p>首先由一个文件要复制到项目下面 可以从这里复制粘贴 <a target="_blank" rel="noopener" href="https://github.com/nginx/nginx/blob/master/conf/uwsgi_params">nginx&#x2F;conf&#x2F;uwsgi_params</a>，也可以从 <code>/etc/nginx</code> 里复制过去，可能权限要改下，还是直接自己 vi 粘贴比较好。</p>
+<p>第二步是站点的 nginx 配置文件，刚开始我照着别人的做，把这个文件放在自己的项目下，然后软连接上去，结果看 log 说我没有这个文件，然后在放到<code>/etc/nginx/sites-enabled</code> 才行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># my_blog__nginx.conf</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">       # the port your site will be served on</span><br><span class="line">       listen      8000;</span><br><span class="line">       # the domain name it will serve for</span><br><span class="line">       server_name XXX.XXX.XXX.XXX; # substitute your machine&#x27;s IP address or FQDN</span><br><span class="line">       charset     utf-8;</span><br><span class="line"></span><br><span class="line">       # max upload size</span><br><span class="line">       client_max_body_size 75M;   # adjust to taste</span><br><span class="line"></span><br><span class="line">       # logs</span><br><span class="line">       access_log /home/chen/DjangoProjects/my_blog/logs/access.log;</span><br><span class="line">       error_log /home/chen/DjangoProjects/my_blog/logs/error.log;</span><br><span class="line"></span><br><span class="line">       # Django media</span><br><span class="line">       location /media &#123;</span><br><span class="line">               alias /home/chen/DjangoProjects/my_blog/media; # your Django project&#x27;s media files - amend as required</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       location /static &#123;</span><br><span class="line">           alias /home/chen/DjangoProjects/my_blog/static; # your Django project&#x27;s static files - amend as required</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       # Finally, send all non-media requests to the Django server.</span><br><span class="line">       location / &#123;</span><br><span class="line">               uwsgi_pass  XXX.XXX.XXX:8001;</span><br><span class="line">               include     /home/chen/DjangoProjects/my_blog/uwsgi_params; # the uwsgi_params file you installed</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首页就在 <code>8000</code> 这个端口上，<code>server_name</code> 是 VPS 的 IP，<code>logs</code> 文件夹要自己创建，哪都行，<code>/media /static</code> 两个文件夹是静态请求，由 nginx 处理，其他非静态请求由 <code>uwsgi_pass</code> 通过 socket 传递给 Django 处理，用的 8001 端口，<code>include</code> 就是复制的那个文件，放在项目下。</p>
+<h3 id="7-my-blog-socket-xml-XML-配置文件"><a href="#7-my-blog-socket-xml-XML-配置文件" class="headerlink" title="7. my_blog_socket.xml XML 配置文件"></a>7. <code>my_blog_socket.xml</code> XML 配置文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uwsgi</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">socket</span>&gt;</span>XXX.XXX.XXX.XXX:8001<span class="tag">&lt;/<span class="name">socket</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">chdir</span>&gt;</span>/home/chen/DjangoProjects/my_blog<span class="tag">&lt;/<span class="name">chdir</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">module</span>&gt;</span>my_blog_wsgi<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">processes</span>&gt;</span>4<span class="tag">&lt;/<span class="name">processes</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">daemonize</span>&gt;</span>/home/chen/DjangoProjects/my_blog/uwsgi.log<span class="tag">&lt;/<span class="name">daemonize</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">uwsgi</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>socket</code> 就是刚才<code>my_blog_bginx.conf</code> 里面的<code>uwsgi_pass</code>通过socket 传递过来，<code>chdir</code> 是项目文件夹，<code>module</code> 是<code>my_blog_wsgi.py</code> wsgi 配置文件，<code>processes</code> nginx 分配四个线程，<code>daemonize</code> 是日志文件，要是配置不成功，错误信息都在里面，什么 <code>libpcre</code> 库没有啊，没有 app load 起来啊。</p>
+<h3 id="8-最后一步"><a href="#8-最后一步" class="headerlink" title="8. 最后一步"></a>8. 最后一步</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nginx reload</span><br><span class="line">uwsgi -x my_blog_socket.xml</span><br></pre></td></tr></table></figure>
+
+<p><code>reload</code> 一下 nginx 的配置文件，然后用 xml 配置把 uwsgi 把应用挂起来，提示 <code>[uWSGI] parsing config file my_blog_socket.xml</code>，然后到 <code>ip:8000</code> 端口下看成不成功，不成功的话到项目的<code>uwsgi.log</code> 最后面看，错误信息都在里面，然后去查。</p>
+<h3 id="9-参考链接"><a href="#9-参考链接" class="headerlink" title="9. 参考链接"></a>9. 参考链接</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/e6ff4a28ab5a">基于nginx和uWSGI在Ubuntu上部署Django</a></li>
+<li><a target="_blank" rel="noopener" href="http://django-china.cn/topic/101/">五步教你实现使用Nginx+uWSGI+Django方法部署Django程序(上)</a></li>
+<li><a target="_blank" rel="noopener" href="http://django-china.cn/topic/124/">五步教你实现使用Nginx+uWSGI+Django方法部署Django程序(下)</a></li>
+<li><a target="_blank" rel="noopener" href="http://simple-is-better.com/news/756">Nginx+uWSGI 部署 Django 应用</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2024 JC<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

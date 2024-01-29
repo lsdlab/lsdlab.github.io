@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="Octopress 挺麻烦的，还有些问题，依赖太多，Ruby 我也不会，看不懂插件也看不懂模板。想试一下 Hexo 的来着，都不能初始化工程，不知道什么毛病。Hugo 就不尝试了，Go 现在没时间学，就差不多只剩下一个 Python 的 Pelican 了。搜了下也基本搞好了，模板也能看得懂，就挑了"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="JC"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="博客迁移至 Pelican"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Octopress 挺麻烦的，还有些问题，依赖太多，Ruby 我也不会，看不懂插件也看不懂模板。想试一下 Hexo 的来着，都不能初始化工程，不知道什么毛病。Hugo 就不尝试了，Go 现在没时间学，就差不多只剩下一个 Python 的 Pelican 了。搜了下也基本搞好了，模板也能看得懂，就挑了"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="BreakWire | 断线"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>博客迁移至 Pelican - BreakWire | 断线</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BreakWire | 断线</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>博客迁移至 Pelican</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2016-03-27
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>Octopress 挺麻烦的，还有些问题，依赖太多，Ruby 我也不会，看不懂插件也看不懂模板。想试一下 Hexo 的来着，都不能初始化工程，不知道什么毛病。Hugo 就不尝试了，Go 现在没时间学，就差不多只剩下一个 Python 的 Pelican 了。搜了下也基本搞好了，模板也能看得懂，就挑了一个简单的模板 <a target="_blank" rel="noopener" href="https://github.com/gilsondev/pelican-clean-blog">gilsondev&#x2F;pelican-clean-blog</a>，每篇文章都有题图，能直接引用本地的图片，能直接在 Markdown 中引用另一篇文章或者页面，RSS 什么的也都有，生成也很快，开发环境也挺方便，改了模板也能立刻看到改变。</p>
+<p><img src="https://breakwire.oss-cn-shanghai.aliyuncs.com/move-to-pelican.png" alt="move-to-pelican"></p>
+<h2 id="RSS-设置"><a href="#RSS-设置" class="headerlink" title="RSS 设置"></a>RSS 设置</h2><p><code>pelicanconf.py</code>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Feed generation is usually not desired when developing</span></span><br><span class="line">FEED_DOMAIN = <span class="string">&#x27;/&#x27;</span></span><br><span class="line">FEED_ALL_ATOM = <span class="string">&#x27;feeds/all.atom.xml&#x27;</span></span><br><span class="line">CATEGORY_FEED_ATOM = <span class="literal">None</span></span><br><span class="line">TRANSLATION_FEED_ATOM = <span class="literal">None</span></span><br><span class="line">AUTHOR_FEED_ATOM = <span class="literal">None</span></span><br><span class="line">AUTHOR_FEED_RSS = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Social widget</span></span><br><span class="line">SOCIAL = ((<span class="string">&#x27;rss&#x27;</span>, <span class="string">&#x27;http://blog.breakwire.me/feeds/all.atom.xml&#x27;</span>),</span><br><span class="line">          (<span class="string">&#x27;Twitter&#x27;</span>, <span class="string">&#x27;https://twitter.com/lsdvincent&#x27;</span>),</span><br><span class="line">          (<span class="string">&#x27;Instagram&#x27;</span>, <span class="string">&#x27;https://instagram.com/lsdvincent&#x27;</span>),</span><br><span class="line">          (<span class="string">&#x27;GitHub&#x27;</span>, <span class="string">&#x27;https://github.com/lsdlab&#x27;</span>),</span><br><span class="line">          (<span class="string">&#x27;Medium&#x27;</span>, <span class="string">&#x27;https://medium.com/@breakwire&#x27;</span>),)</span><br></pre></td></tr></table></figure>
+
+<p>RSS 的设置就是三个地方要改动，<code>FEED_DOMAIN</code> 和 <code>FEED_ALL_ATOM</code>，<code>SOCIAL</code> 就是页边底部的几个图标，</p>
+<h2 id="本地图片的引用"><a href="#本地图片的引用" class="headerlink" title="本地图片的引用"></a>本地图片的引用</h2><p>在文章中要引用本地图片需要设置静态目录：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STATIC_PATHS = [<span class="string">u&quot;images&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>这是个数组，在 <code>content</code> 目录下新建一个 <code>images</code> 目录，要想在 content 中的一篇文章中直接引用图片就是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![posters2](https://breakwire.oss-cn-shanghai.aliyuncs.com/poster2.jpg)</span><br></pre></td></tr></table></figure>
+
+<p>再 <code>make html</code> 生成文件的时候他会把 <code>images</code> 目录中的文件复制到 <code>output</code> 中的 <code>images</code> 目录中。</p>
+<p>还有一个就是 <code>gilsondev/pelican-clean-blog</code> 的每篇文章都有个题图能设置，和直接在文章中引用是一样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Header_Cover: /images/my-road-bike.jpg</span><br></pre></td></tr></table></figure>
+
+<p><strong>需要注意的是图片文件名不能有中文</strong></p>
+<h2 id="在文章中直接引用另一篇文章"><a href="#在文章中直接引用另一篇文章" class="headerlink" title="在文章中直接引用另一篇文章"></a>在文章中直接引用另一篇文章</h2><p>应用的默认目录是 <code>content</code>，所以我在 <code>pages</code> ，<code>About</code> 页面中想引用一篇文章应该是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ref to [Working for living](&#123;filename&#125;/2016-03-19.md).</span><br></pre></td></tr></table></figure>
+
+<p>要在一篇文章中引用一个页面也很简单：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ref to [Working for living](&#123;filename&#125;/pages/about.md).</span><br></pre></td></tr></table></figure>
+
+<h2 id="新文章以及更新至-GitHub-Pages-的-shell-脚本"><a href="#新文章以及更新至-GitHub-Pages-的-shell-脚本" class="headerlink" title="新文章以及更新至 GitHub Pages 的 shell 脚本"></a>新文章以及更新至 GitHub Pages 的 shell 脚本</h2><p><a target="_blank" rel="noopener" href="https://gist.github.com/lsdlab/957cc8887ef20514e27d">lsdlab&#x2F;newblog.sh</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">! /bin/zsh</span></span><br><span class="line"></span><br><span class="line">cd content/</span><br><span class="line"></span><br><span class="line">fileName=`date &quot;+%Y-%m-%d&quot;`</span><br><span class="line">currentTime=`date &quot;+%Y-%m-%d %H:%M:%S&quot;`</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">cat&gt;</span><span class="language-bash"><span class="variable">$&#123;fileName&#125;</span>.md&lt;&lt;<span class="string">EOF</span></span></span><br><span class="line">Title:</span><br><span class="line">Date: $&#123;currentTime&#125;</span><br><span class="line">Modified: $&#123;currentTime&#125;</span><br><span class="line">Category:</span><br><span class="line">Tags:</span><br><span class="line">Slug:</span><br><span class="line">Authors: Chen Jian</span><br><span class="line">Summary:</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/lsdlab/89f6fbbd3c6681285167">lsdlab&#x2F;publishblog.sh</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">! /bin/zsh</span></span><br><span class="line"></span><br><span class="line">make html</span><br><span class="line">cd output</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2024 JC<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="Many-to-one relationships三个数据库 API 例子中的第二个，有时候分不清，多对一和一对多，现在有点分得清了，但是有些查询方面还是有点糊，QuerySet 这搞得，简单的查询很容易搞定，但是数据库模型设置的复杂了，或者要查询的东西复杂了，就搞不太明白了，而且基础的教程里面都没"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="JC"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Djanog many-to-one relationships"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Many-to-one relationships三个数据库 API 例子中的第二个，有时候分不清，多对一和一对多，现在有点分得清了，但是有些查询方面还是有点糊，QuerySet 这搞得，简单的查询很容易搞定，但是数据库模型设置的复杂了，或者要查询的东西复杂了，就搞不太明白了，而且基础的教程里面都没"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="BreakWire | 断线"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://lsdlab.github.ioimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Djanog many-to-one relationships - BreakWire | 断线</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BreakWire | 断线</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Djanog many-to-one relationships</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2015-06-13
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="Many-to-one-relationships"><a href="#Many-to-one-relationships" class="headerlink" title="Many-to-one relationships"></a>Many-to-one relationships</h2><p>三个数据库 API 例子中的第二个，有时候分不清，多对一和一对多，现在有点分得清了，但是有些查询方面还是有点糊，<code>QuerySet</code> 这搞得，简单的查询很容易搞定，但是数据库模型设置的复杂了，或者要查询的东西复杂了，就搞不太明白了，而且基础的教程里面都没有讲，要自己去查文档。</p>
+<h3 id="我自己的应用模型实例"><a href="#我自己的应用模型实例" class="headerlink" title="我自己的应用模型实例"></a>我自己的应用模型实例</h3><p>刚结合自己的应用的数据库模型，稍稍搞清了模型的多对一，一对多关系，先说在我自己的模型：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Tag</span>(models.Model):</span><br><span class="line">   tag_name = models.CharField(</span><br><span class="line">   default=<span class="string">&#x27;读不下去&#x27;</span>, max_length=<span class="number">64</span>, blank=<span class="literal">True</span>, null=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">__unicode__</span>(<span class="params">self</span>):</span><br><span class="line">       <span class="keyword">return</span> self.tag_name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Book_Info</span>(models.Model):</span><br><span class="line">   <span class="comment"># Book Info 14 objects in total. (Book cover didn&#x27;t add yet)</span></span><br><span class="line">   isbn10 = models.CharField(default=<span class="string">&#x27;&#x27;</span>, max_length=<span class="number">10</span>, blank=<span class="literal">True</span>)</span><br><span class="line">   isbn13 = models.CharField(max_length=<span class="number">13</span>)</span><br><span class="line">   title = models.CharField(max_length=<span class="number">128</span>)</span><br><span class="line"></span><br><span class="line">   <span class="comment"># My Customise Tags 想读、正在读、读过、!!! 读不下去!!!（独创标签，仅此一家！！！）</span></span><br><span class="line">   customise_tags = models.ForeignKey(Tag, blank=<span class="literal">True</span>, null=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">__unicode__</span>(<span class="params">self</span>):</span><br><span class="line">       <span class="keyword">return</span> self.title</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Note</span>(models.Model):</span><br><span class="line">   <span class="comment"># Book Notes. You can take some notes for one book your owned.</span></span><br><span class="line">   book_info = models.ForeignKey(Book_Info, blank=<span class="literal">True</span>, null=<span class="literal">True</span>)</span><br><span class="line">   pages = models.IntegerField(blank=<span class="literal">True</span>, null=<span class="literal">True</span>)</span><br><span class="line">   notes = models.CharField(max_length=<span class="number">256</span>, blank=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">__unicode__</span>(<span class="params">self</span>):</span><br><span class="line">       <span class="keyword">return</span> self.notes</span><br></pre></td></tr></table></figure>
+
+<p>省略了一些没用的字段，<code>Book_Info</code> 这张表有一些基本的字段，都是 <code>models.CharField</code>，<code>customise_tag</code> 这个字段和 <code>Tag</code> 这张表就是多对多的关系。<code>Note</code> 中定义了一个 <code>book_info = models.ForeignKey(Book_Info, blank=True. null=True)</code>，这个就说明 <code>Note</code> 表中的 <code>book_info</code> 字段是 <code>Note</code> 表的外键，一个 <code>Book_Info</code> 可以对应多个 <code>Note</code>，一对多关系。</p>
+<h3 id="models-py"><a href="#models-py" class="headerlink" title="models.py"></a><code>models.py</code></h3><p>下面这个示例就是文档中的例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Reporter</span>(models.Model):</span><br><span class="line">   first_name = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">   last_name = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">   email = models.EmailField()</span><br><span class="line"></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):              <span class="comment"># __unicode__ on Python 2</span></span><br><span class="line">       <span class="keyword">return</span> <span class="string">&quot;%s %s&quot;</span> % (self.first_name, self.last_name)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Article</span>(models.Model):</span><br><span class="line">   headline = models.CharField(max_length=<span class="number">100</span>)</span><br><span class="line">   pub_date = models.DateField()</span><br><span class="line">   reporter = models.ForeignKey(Reporter)</span><br><span class="line"></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):              <span class="comment"># __unicode__ on Python 2</span></span><br><span class="line">       <span class="keyword">return</span> self.headline</span><br><span class="line"></span><br><span class="line">   <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">       ordering = (<span class="string">&#x27;headline&#x27;</span>,)</span><br></pre></td></tr></table></figure>
+
+<p>这个模型中，<code>reporter</code> 字段是 <code>Article</code> 表的外键，一个 <code>Reporter</code> 可以对应多个 <code>Article</code>，刚才一想，好像又不太对了……怎么老是要搞这个字面上的解释呢，看来这个数据库还得多看书，表和字段的抽象关系理不怎么清啊。</p>
+<h3 id="python-manage-py-shell-API-用法"><a href="#python-manage-py-shell-API-用法" class="headerlink" title="python manage.py shell API 用法"></a><code>python manage.py shell</code> API 用法</h3><h4 id="实例化-Reporter-对象，save-存到数据库中"><a href="#实例化-Reporter-对象，save-存到数据库中" class="headerlink" title="实例化 Reporter 对象，save() 存到数据库中"></a>实例化 <code>Reporter</code> 对象，<code>save()</code> 存到数据库中</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = Reporter(first_name=<span class="string">&#x27;John&#x27;</span>, last_name=<span class="string">&#x27;Smith&#x27;</span>, email=<span class="string">&#x27;john@example.com&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.save()</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r2 = Reporter(first_name=<span class="string">&#x27;Paul&#x27;</span>, last_name=<span class="string">&#x27;Jones&#x27;</span>, email=<span class="string">&#x27;paul@example.com&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r2.save()</span><br></pre></td></tr></table></figure>
+
+<h4 id="实例化-Article，将已经实例化的-Reporter-对象绑定到-Article-中"><a href="#实例化-Article，将已经实例化的-Reporter-对象绑定到-Article-中" class="headerlink" title="实例化 Article，将已经实例化的 Reporter 对象绑定到 Article 中"></a>实例化 <code>Article</code>，将已经实例化的 <code>Reporter</code> 对象绑定到 <code>Article</code> 中</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> date</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = Article(<span class="built_in">id</span>=<span class="literal">None</span>, headline=<span class="string">&quot;This is a test&quot;</span>, pub_date=date(<span class="number">2005</span>, <span class="number">7</span>, <span class="number">27</span>), reporter=r)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.save()</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a. reporter.<span class="built_in">id</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.reporter</span><br><span class="line">&lt;Reporter: John Smith&gt;</span><br></pre></td></tr></table></figure>
+
+<p>绑定外键关系之前必须要保存对象，Django 1.8 前这么做会触发 <code>ValueError</code> 异常，1.8 之后不会触发异常，数据静默丢失。</p>
+<h4 id="从-Article-对象获得-Reporter-对象"><a href="#从-Article-对象获得-Reporter-对象" class="headerlink" title="从 Article 对象获得 Reporter 对象"></a>从 <code>Article</code> 对象获得 <code>Reporter</code> 对象</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = a.reporter</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.first_name, r.last_name</span><br><span class="line">(<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Smith&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="从-Reporter-对象实例化-Article-对象，直接将实例化的-Article-绑定到已实例化-Reporter-对象中"><a href="#从-Reporter-对象实例化-Article-对象，直接将实例化的-Article-绑定到已实例化-Reporter-对象中" class="headerlink" title="从 Reporter 对象实例化 Article 对象，直接将实例化的 Article 绑定到已实例化 Reporter 对象中"></a>从 <code>Reporter</code> 对象实例化 <code>Article</code> 对象，直接将实例化的 <code>Article</code> 绑定到已实例化 <code>Reporter</code> 对象中</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>new_article = r.article_set.create(headline=<span class="string">&quot;John&#x27;s second story&quot;</span>, pub_date=date(<span class="number">2005</span>, <span class="number">9</span>, <span class="number">29</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>new_article</span><br><span class="line">&lt;Article: John<span class="string">&#x27;s second story&gt;</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; new_article.reporter</span></span><br><span class="line"><span class="string">&lt;Reporter: John Smith&gt;</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; new_article.reporter.id</span></span><br><span class="line"><span class="string">1</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="先实例化-Article-对象，再通过-article-set-add-绑定-Reporter-对象"><a href="#先实例化-Article-对象，再通过-article-set-add-绑定-Reporter-对象" class="headerlink" title="先实例化 Article 对象，再通过 article_set.add 绑定 Reporter 对象"></a>先实例化 <code>Article</code> 对象，再通过 <code>article_set.add</code> 绑定 <code>Reporter</code> 对象</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>new_article2 = Article(headline=<span class="string">&quot;Paul&#x27;s story&quot;</span>, pub_date=date(<span class="number">2006</span>, <span class="number">1</span>, <span class="number">17</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.article_set.add(new_article2)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>new_article2.reporter</span><br><span class="line">&lt;Reporter.reporter.<span class="built_in">id</span>&gt;</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.article_set.<span class="built_in">all</span>()</span><br><span class="line">[&lt;Article: John<span class="string">&#x27;s second story&gt;, &lt;Article: Paul&#x27;</span>s story&gt;, &lt;Article: This <span class="keyword">is</span> a test&gt;]</span><br></pre></td></tr></table></figure>
+
+<h4 id="绑定上面同一个-Article-对象到不同的-Reporter-对象中，它就变了"><a href="#绑定上面同一个-Article-对象到不同的-Reporter-对象中，它就变了" class="headerlink" title="绑定上面同一个 Article 对象到不同的 Reporter 对象中，它就变了"></a>绑定上面同一个 <code>Article</code> 对象到不同的 <code>Reporter</code> 对象中，它就变了</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>r2.article_set.add(new_article2)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>new_article2.reporter.<span class="built_in">id</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>new_article2.reporter</span><br><span class="line">&lt;Reporter: Paul Jones&gt;</span><br></pre></td></tr></table></figure>
+
+<p>原来 <code>new_article2</code> 的 <code>reporter</code> 是 <code>r</code> <code>&lt;Reporter: John Smith&gt;</code>，现在变成了 <code>&lt;Reporter: Paul Jones&gt;</code>。</p>
+<h4 id="绑定错误的对象就会引发异常"><a href="#绑定错误的对象就会引发异常" class="headerlink" title="绑定错误的对象就会引发异常"></a>绑定错误的对象就会引发异常</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.article_set.add(r2)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">...</span><br><span class="line">TypeError: <span class="string">&#x27;Article&#x27;</span> instance expected</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.article_set.<span class="built_in">all</span>()</span><br><span class="line">[&lt;Article: John<span class="string">&#x27;s second story&gt;, &lt;Article: This is a test&gt;]</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; r2.article_set.all()</span></span><br><span class="line"><span class="string">[&lt;Article: Paul&#x27;</span>s story&gt;]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.article_set.count()</span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r2.article_set.count()</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>将 <code>Reporter</code> 对象绑定包另一个 <code>Reporter</code> 对象上会引发 <code>TypeError</code> 异常。</p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.article_set.<span class="built_in">filter</span>(headline__startswith=<span class="string">&#x27;This&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Article.objects.<span class="built_in">filter</span>(reporter__first_name=<span class="string">&#x27;John&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># filter 两个条件，转到 SQL 中就是 WHERE 和 AND 语句</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Article.objects.<span class="built_in">filter</span>(reporter__first_name=<span class="string">&#x27;John&#x27;</span>, reporter__last_name=<span class="string">&#x27;Smith&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Article.objects.<span class="built_in">filter</span>(reporter__pk=<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Article.objects.<span class="built_in">filter</span>(reporter=<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Article.objects.<span class="built_in">filter</span>(reporter=r)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Article.objects.<span class="built_in">filter</span>(reporter__in=Reporter.objects.<span class="built_in">filter</span>(first_name=<span class="string">&#x27;John&#x27;</span>)).distinct()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面三条语句的结果是一样的</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Reporter.objects.<span class="built_in">filter</span>(article__pk=<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Reporter.objects.<span class="built_in">filter</span>(article=<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Reporter.objects.<span class="built_in">filter</span>(article=a)</span><br><span class="line">[&lt;Reporter: John Smith&gt;]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Reporter.objects.<span class="built_in">filter</span>(article__headline__startswith=<span class="string">&#x27;This&#x27;</span>)</span><br><span class="line">[&lt;Reporter: John Smith&gt;, &lt;Reporter: John Smith&gt;, &lt;Reporter: John Smith&gt;]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Reporter.objects.<span class="built_in">filter</span>(article__headline__startswith=<span class="string">&#x27;This&#x27;</span>).distinct()</span><br><span class="line">[&lt;Reporter: John Smith&gt;]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Reporter.objects.<span class="built_in">filter</span>(article__headline__startswith=<span class="string">&#x27;This&#x27;</span>).count()</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Reporter.objects.<span class="built_in">filter</span>(article__headline__startswith=<span class="string">&#x27;This&#x27;</span>).distinct().count()</span><br><span class="line"><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Reporter.objects.<span class="built_in">filter</span>(article__reporter__first_name__startswith=<span class="string">&#x27;John&#x27;</span>)</span><br><span class="line">[&lt;Reporter: John Smith&gt;, &lt;Reporter: John Smith&gt;, &lt;Reporter: John Smith&gt;, &lt;Reporter: John Smith&gt;]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Reporter.objects.<span class="built_in">filter</span>(article__reporter__first_name__startswith=<span class="string">&#x27;John&#x27;</span>).distinct()</span><br><span class="line">[&lt;Reporter: John Smith&gt;]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Reporter.objects.<span class="built_in">filter</span>(article__reporter=r).distinct()</span><br><span class="line">[&lt;Reporter: John Smith&gt;]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Reporter.objects.<span class="built_in">filter</span>(article__headline__startswith=<span class="string">&#x27;This&#x27;</span>).delete()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Reporter.objects.<span class="built_in">all</span>()</span><br><span class="line">[]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Article.objects.<span class="built_in">all</span>()</span><br><span class="line">[]</span><br></pre></td></tr></table></figure>
+
+
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2024 JC<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
